@@ -1,0 +1,11 @@
+@import '/src/styles/tailwind.css';
+body {
+	font-family: 'IBM Plex Sans KR', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+h1,
+h2 {
+	font-family: 'Elice Digital Baeum', sans-serif;
+}
