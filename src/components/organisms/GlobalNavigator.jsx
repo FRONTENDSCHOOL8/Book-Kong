@@ -14,7 +14,7 @@ export default function GlobalNavigator() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 w-screen">
+    <nav className="fixed bottom-0 left-0 w-screen border-t border-primary-500">
       <ul
         onClick={handleClick}
         className="flex justify-between items-center font-medium py-2 text-gray-400"
