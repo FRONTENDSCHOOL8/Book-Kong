@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export default function GlobalNavigator() {
   const { pathname: currentPage } = useLocation();
 
-  console.log('currentPage: ', currentPage);
-
   const navigate = useNavigate();
 
   const handleClick = (event) => {
@@ -19,9 +17,15 @@ export default function GlobalNavigator() {
     <nav className="fixed bottom-0 left-0 w-screen">
       <ul
         onClick={handleClick}
-        className="flex gap-4 justify-between items-center font-medium px-6 py-2 text-gray-400"
+        className="flex justify-between items-center font-medium py-2 text-gray-400"
       >
-        <li className={currentPage === '/library' ? 'text-red-500' : ''}>
+        <li
+          className={
+            currentPage === '/library'
+              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
+              : 'w-20 flex flex-col justify-center items-center'
+          }
+        >
           <button
             className="flex flex-col justify-center items-center cursor-pointer"
             name="library"
@@ -34,10 +38,16 @@ export default function GlobalNavigator() {
               }
               alt="서재 버튼"
             />
-            <span>서재</span>
+            <span className="text-nav-list font-medium">서재</span>
           </button>
         </li>
-        <li className={currentPage === '/record' ? 'text-red-500' : ''}>
+        <li
+          className={
+            currentPage === '/record'
+              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
+              : 'w-20 flex flex-col justify-center items-center'
+          }
+        >
           <button
             className="flex flex-col justify-center items-center cursor-pointer"
             name="record"
@@ -50,10 +60,16 @@ export default function GlobalNavigator() {
               }
               alt="기록 버튼"
             />
-            <span>기록</span>
+            <span className="text-nav-list font-medium">기록</span>
           </button>
         </li>
-        <li className={currentPage === '/feed' ? 'text-red-500' : ''}>
+        <li
+          className={
+            currentPage === '/feed'
+              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
+              : 'w-20 flex flex-col justify-center items-center'
+          }
+        >
           <button
             className="flex flex-col justify-center items-center cursor-pointer"
             name="feed"
@@ -66,10 +82,16 @@ export default function GlobalNavigator() {
               }
               alt="피드 버튼"
             />
-            <span>피드</span>
+            <span className="text-nav-list font-medium">피드</span>
           </button>
         </li>
-        <li className={currentPage === '/character' ? 'text-red-500' : ''}>
+        <li
+          className={
+            currentPage === '/character'
+              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
+              : 'w-20 flex flex-col justify-center items-center'
+          }
+        >
           <button
             className="flex flex-col justify-center items-center cursor-pointer"
             name="character"
@@ -82,10 +104,16 @@ export default function GlobalNavigator() {
               }
               alt="캐릭터 버튼"
             />
-            <span>캐릭터</span>
+            <span className="text-nav-list font-medium">캐릭터</span>
           </button>
         </li>
-        <li className={currentPage === '/mypage' ? 'text-red-500' : ''}>
+        <li
+          className={
+            currentPage === '/mypage'
+              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
+              : 'w-20 flex flex-col justify-center items-center'
+          }
+        >
           <button
             className="flex flex-col justify-center items-center cursor-pointer"
             name="mypage"
@@ -98,7 +126,7 @@ export default function GlobalNavigator() {
               }
               alt="기록 버튼"
             />
-            <span>마이페이지</span>
+            <span className="text-nav-list font-medium">마이페이지</span>
           </button>
         </li>
       </ul>
