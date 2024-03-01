@@ -14,22 +14,17 @@ export default function GlobalNavigator() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 w-screen border-t border-primary-500">
+    <nav className="fixed bottom-0 left-0 w-screen border-t border-primary-500 min-w-[320px]">
       <ul
         onClick={handleClick}
-        className="flex justify-between items-center font-medium py-2 text-gray-400"
+        className="flex gap-4 justify-between items-center font-medium text-gray-400"
       >
         <li
           className={
-            currentPage === '/library'
-              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
-              : 'w-20 flex flex-col justify-center items-center'
+            currentPage === '/library' ? 'text-red-500 nav-list' : 'nav-list'
           }
         >
-          <button
-            className="flex flex-col justify-center items-center cursor-pointer"
-            name="library"
-          >
+          <button className="nav-button" name="library">
             <img
               src={
                 currentPage === '/library'
@@ -38,20 +33,15 @@ export default function GlobalNavigator() {
               }
               alt="서재 버튼"
             />
-            <span className="text-nav-list font-medium">서재</span>
+            <span>서재</span>
           </button>
         </li>
         <li
           className={
-            currentPage === '/record'
-              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
-              : 'w-20 flex flex-col justify-center items-center'
+            currentPage === '/record' ? 'text-red-500 nav-list' : ' nav-list'
           }
         >
-          <button
-            className="flex flex-col justify-center items-center cursor-pointer"
-            name="record"
-          >
+          <button className="nav-button" name="record">
             <img
               src={
                 currentPage === '/record'
@@ -60,20 +50,15 @@ export default function GlobalNavigator() {
               }
               alt="기록 버튼"
             />
-            <span className="text-nav-list font-medium">기록</span>
+            <span>기록</span>
           </button>
         </li>
         <li
           className={
-            currentPage === '/feed'
-              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
-              : 'w-20 flex flex-col justify-center items-center'
+            currentPage === '/feed' ? 'text-red-500 nav-list' : 'nav-list'
           }
         >
-          <button
-            className="flex flex-col justify-center items-center cursor-pointer"
-            name="feed"
-          >
+          <button className="nav-button" name="feed">
             <img
               src={
                 currentPage === '/feed'
@@ -82,20 +67,15 @@ export default function GlobalNavigator() {
               }
               alt="피드 버튼"
             />
-            <span className="text-nav-list font-medium">피드</span>
+            <span>피드</span>
           </button>
         </li>
         <li
           className={
-            currentPage === '/character'
-              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
-              : 'w-20 flex flex-col justify-center items-center'
+            currentPage === '/character' ? 'text-red-500 nav-list' : 'nav-list'
           }
         >
-          <button
-            className="flex flex-col justify-center items-center cursor-pointer"
-            name="character"
-          >
+          <button className="nav-button" name="character">
             <img
               src={
                 currentPage === '/character'
@@ -104,20 +84,15 @@ export default function GlobalNavigator() {
               }
               alt="캐릭터 버튼"
             />
-            <span className="text-nav-list font-medium">캐릭터</span>
+            <span>캐릭터</span>
           </button>
         </li>
         <li
           className={
-            currentPage === '/mypage'
-              ? 'text-primary-500 w-20 flex flex-col justify-center items-center'
-              : 'w-20 flex flex-col justify-center items-center'
+            currentPage === '/mypage' ? 'text-red-500 nav-list' : 'nav-list'
           }
         >
-          <button
-            className="flex flex-col justify-center items-center cursor-pointer"
-            name="mypage"
-          >
+          <button className="nav-button" name="mypage">
             <img
               src={
                 currentPage === '/mypage'
@@ -126,7 +101,7 @@ export default function GlobalNavigator() {
               }
               alt="기록 버튼"
             />
-            <span className="text-nav-list font-medium">마이페이지</span>
+            <span>마이페이지</span>
           </button>
         </li>
       </ul>
