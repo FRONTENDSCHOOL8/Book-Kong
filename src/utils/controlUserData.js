@@ -51,7 +51,7 @@ export function clearLoginUserData() {
 export async function signUpUser(nickname, email, password) {
   const data = {
     email: email,
-    emailVisibility: true,
+    emailVisibility: false,
     password: password,
     passwordConfirm: password,
     nickname: nickname,
@@ -77,6 +77,35 @@ export async function withdrawUser() {
   } else {
     return '로그인 정보가 없습니다.';
   }
+}
+
+/**
+ * 닉네임 중복체크 함수
+ * * Validation을 통과한 닉네임이 Database에 존재하는지 확인하는 함수
+ * @param {string} nickname
+ * TODO 닉네임의 Validation에 대해 생각해봐야 함
+ */
+export async function searchUserNickname(nickname) {
+  const userList = await pb.collection('users').getFullList({
+    filter: `nickname = "${nickname}"`,
+  });
+
+  if (userList.length === 0) return '사용가능한 닉네임 입니다.';
+  else return '이미 존재하는 닉네임 입니다.';
+}
+
+/**
+ * 이메일 중복체크 함수
+ * * Validation을 통과한 이메일이 Database에 존재하는지 확인하는 함수
+ * @param {string} email
+ */
+export async function searchUserEmail(email) {
+  const userList = await pb.collection('users').getFullList({
+    filter: `email = "${email}"`,
+  });
+
+  if (userList.length === 0) return '사용가능한 이메일 입니다.';
+  else return '이미 존재하는 이메일 입니다.';
 }
 
 /* -------------------------------------------- */
