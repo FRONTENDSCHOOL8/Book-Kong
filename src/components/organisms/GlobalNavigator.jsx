@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 export default function GlobalNavigator() {
   const { pathname: currentPage } = useLocation();
 
-  console.log('currentPage: ', currentPage);
-
   const navigate = useNavigate();
 
   const handleClick = (event) => {
