@@ -51,7 +51,7 @@ export function clearLoginUserData() {
 export async function signUpUser(nickname, email, password) {
   const data = {
     email: email,
-    emailVisibility: false,
+    emailVisibility: true,
     password: password,
     passwordConfirm: password,
     nickname: nickname,
