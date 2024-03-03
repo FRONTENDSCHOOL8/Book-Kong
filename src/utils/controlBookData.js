@@ -11,14 +11,14 @@ import pb from '/src/api/pocketbase';
  */
 export async function loadUserBooks(status = 'all', sort = 'created') {
   if (status === 'all') {
-    const resultList = await pb.collection('book').getFullList({
+    const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}"`,
       sort: `${sort}`,
     });
 
     return resultList;
   } else {
-    const resultList = await pb.collection('book').getFullList({
+    const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}" && status = "${status}"`,
       sort: `${sort}`,
     });
@@ -35,13 +35,13 @@ export async function loadUserBooks(status = 'all', sort = 'created') {
  */
 export async function searchUserBooks(keyword, status = 'all') {
   if (status === 'all') {
-    const resultList = await pb.collection('book').getFullList({
+    const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}" && title ~ "${keyword}"`,
     });
 
     return resultList;
   } else {
-    const resultList = await pb.collection('book').getFullList({
+    const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}" && status = "${status}" && title ~ "${keyword}"`,
     });
 
