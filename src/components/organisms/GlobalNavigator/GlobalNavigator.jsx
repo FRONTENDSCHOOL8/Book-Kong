@@ -14,7 +14,7 @@ export default function GlobalNavigator() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 w-screen border-t border-primary-500 min-w-[320px]">
+    <nav className="fixed bottom-0 left-0 w-screen border-t border-primary-500 min-w-[320px] bg-grayscale-white">
       <ul
         onClick={handleClick}
         className="flex gap-4 justify-between items-center font-medium text-gray-400"
