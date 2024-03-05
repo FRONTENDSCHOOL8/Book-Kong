@@ -1,3 +1,9 @@
+import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+
 export default function Mypage() {
-  return <div>마이페이지</div>;
+  return (
+    <>
+      <LargeHeader title={'마이페이지'} />
+    </>
+  );
 }

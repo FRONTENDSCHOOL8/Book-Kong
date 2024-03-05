@@ -1,3 +1,9 @@
+import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+
 export default function Library() {
-  return <div>서재 페이지</div>;
+  return (
+    <>
+      <LargeHeader title={'서재'} />
+    </>
+  );
 }

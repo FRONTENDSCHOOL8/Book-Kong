@@ -1,3 +1,9 @@
+import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+
 export default function Character() {
-  return <div>캐릭터 페이지</div>;
+  return (
+    <>
+      <LargeHeader title={'캐릭터'} />
+    </>
+  );
 }

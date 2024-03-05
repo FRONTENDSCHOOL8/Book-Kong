@@ -1,3 +1,9 @@
+import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+
 export default function Feed() {
-  return <div>피드 페이지</div>;
+  return (
+    <>
+      <LargeHeader title={'피드'} />
+    </>
+  );
 }

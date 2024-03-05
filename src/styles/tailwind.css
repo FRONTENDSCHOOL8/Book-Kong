@@ -94,3 +94,27 @@
 .nav-button {
   @apply flex gap-[2px] flex-col justify-center items-center cursor-pointer;
 }
+
+.clip-text-1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.clip-text-12 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+}
+
+.list-shadow {
+  box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
+}
