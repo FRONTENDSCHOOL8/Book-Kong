@@ -21,7 +21,9 @@ export default function GlobalNavigator() {
       >
         <li
           className={
-            currentPage === '/library' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/library'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="library">
@@ -38,7 +40,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/record' ? 'text-red-500 nav-list' : ' nav-list'
+            currentPage === '/record'
+              ? 'text-red-500 nav-listItem'
+              : ' nav-listItem'
           }
         >
           <button className="nav-button" name="record">
@@ -55,7 +59,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/feed' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/feed'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="feed">
@@ -72,7 +78,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/character' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/character'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="character">
@@ -89,7 +97,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/mypage' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/mypage'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="mypage">
