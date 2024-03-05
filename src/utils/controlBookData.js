@@ -9,7 +9,7 @@ import pb from '/src/api/pocketbase';
  * @param {string} status 기본적으로 all로 설정, 책의 상태에 따라 구분
  * @param {string} sort 기본적으로 created로 설정, 'created'와 '-created' 두개
  */
-export async function loadUserBooks(status = 'all', sort = 'created') {
+export async function getUserLibraryData(status = 'all', sort = 'created') {
   if (status === 'all') {
     const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}"`,
@@ -33,7 +33,7 @@ export async function loadUserBooks(status = 'all', sort = 'created') {
  * * 기본적으로는 모든 책을 검색
  * @param {string} keyword 검색 키워드
  */
-export async function searchUserBooks(keyword, status = 'all') {
+export async function searchUserLibraryData(keyword, status = 'all') {
   if (status === 'all') {
     const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}" && title ~ "${keyword}"`,
