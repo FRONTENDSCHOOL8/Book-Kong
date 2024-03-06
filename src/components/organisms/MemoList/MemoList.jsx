@@ -35,8 +35,6 @@ function MemoList() {
     staleTime: 1000 * 60 * 5,
   });
 
-  console.log(data);
-
   return (
     <main className="flex flex-col items-end bg-background-gray px-4 h-[115vh]">
       <OrderButton onClick={toggleSort} order={order} />
