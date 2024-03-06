@@ -5,6 +5,7 @@ import RecordPage from '/src/components/pages/RecordPage';
 import FeedPage from '/src/components/pages/FeedPage';
 import CharacterPage from '/src/components/pages/CharacterPage';
 import MypagePage from '/src/components/pages/MypagePage';
+import MemoList from './components/organisms/MemoList/MemoList';
 
 const router = createBrowserRouter([
   {
@@ -14,10 +15,24 @@ const router = createBrowserRouter([
       {
         path: 'library',
         element: <LibraryPage />,
+        children: [
+          { path: 'booktree', element: <div>booktree</div> },
+          { path: 'bookshelf', element: <div>bookshelf</div> },
+        ],
       },
       {
         path: 'record',
         element: <RecordPage />,
+        children: [
+          {
+            path: 'memo',
+            element: <MemoList />,
+          },
+          {
+            path: 'statistics',
+            element: <div>통계입니다.</div>,
+          },
+        ],
       },
       {
         path: 'feed',

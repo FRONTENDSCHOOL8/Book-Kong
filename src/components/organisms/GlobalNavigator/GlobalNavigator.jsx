@@ -21,15 +21,15 @@ export default function GlobalNavigator() {
       >
         <li
           className={
-            currentPage === '/library'
+            currentPage.startsWith('/library')
               ? 'text-red-500 nav-listItem'
               : 'nav-listItem'
           }
         >
-          <button className="nav-button" name="library">
+          <button className="nav-button" name="library/booktree">
             <img
               src={
-                currentPage === '/library'
+                currentPage.startsWith('/library')
                   ? '/images/icons/home=active.svg'
                   : '/images/icons/home=default.svg'
               }
@@ -40,26 +40,26 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/record'
+            currentPage.startsWith('/record')
               ? 'text-red-500 nav-listItem'
               : ' nav-listItem'
           }
         >
-          <button className="nav-button" name="record">
+          <button className="nav-button" name="record/memo">
             <img
               src={
-                currentPage === '/record'
+                currentPage.startsWith('/record')
                   ? '/images/icons/record=active.svg'
                   : '/images/icons/record=default.svg'
               }
-              alt="기록 버튼"
+              alt="기록"
             />
             <span>기록</span>
           </button>
         </li>
         <li
           className={
-            currentPage === '/feed'
+            currentPage.startsWith('/feed')
               ? 'text-red-500 nav-listItem'
               : 'nav-listItem'
           }
@@ -67,18 +67,18 @@ export default function GlobalNavigator() {
           <button className="nav-button" name="feed">
             <img
               src={
-                currentPage === '/feed'
+                currentPage.startsWith('/feed')
                   ? '/images/icons/feed=active.svg'
                   : '/images/icons/feed=default.svg'
               }
-              alt="피드 버튼"
+              alt="피드"
             />
             <span>피드</span>
           </button>
         </li>
         <li
           className={
-            currentPage === '/character'
+            currentPage.startsWith('/character')
               ? 'text-red-500 nav-listItem'
               : 'nav-listItem'
           }
@@ -86,7 +86,7 @@ export default function GlobalNavigator() {
           <button className="nav-button" name="character">
             <img
               src={
-                currentPage === '/character'
+                currentPage.startsWith('/character')
                   ? '/images/icons/character=active.svg'
                   : '/images/icons/character=default.svg'
               }
@@ -97,7 +97,7 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/mypage'
+            currentPage.startsWith('/mypage')
               ? 'text-red-500 nav-listItem'
               : 'nav-listItem'
           }
@@ -105,11 +105,11 @@ export default function GlobalNavigator() {
           <button className="nav-button" name="mypage">
             <img
               src={
-                currentPage === '/mypage'
+                currentPage.startsWith('/mypage')
                   ? '/images/icons/mypage=active.svg'
                   : '/images/icons/mypage=default.svg'
               }
-              alt="기록 버튼"
+              alt="마이페이지"
             />
             <span>마이페이지</span>
           </button>
