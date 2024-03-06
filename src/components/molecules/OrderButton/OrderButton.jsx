@@ -1,6 +1,11 @@
-function OrderButton() {
+import PropTypes from 'prop-types';
+
+function OrderButton({ onClick, order }) {
   return (
-    <button className="flex justify-center items-end gap-2 text-gray-700 contents-xs pt-6 py-3">
+    <button
+      onClick={onClick}
+      className="sort-button flex justify-center items-end gap-2 text-gray-700 contents-xs pt-6 py-3"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -15,9 +20,14 @@ function OrderButton() {
           fill="#5E5E5E"
         />
       </svg>
-      <span>오래된순</span>
+      <span>{order}</span>
     </button>
   );
 }
+
+OrderButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  order: PropTypes.string.isRequired,
+};
 
 export default OrderButton;
