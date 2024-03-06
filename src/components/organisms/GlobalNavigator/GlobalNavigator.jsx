@@ -14,14 +14,16 @@ export default function GlobalNavigator() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-0 w-screen border-t border-primary-500 min-w-[320px]">
+    <nav className="fixed bottom-0 left-[50%] translate-x-[-50%] w-screen border-t border-primary-500 min-w-[320px] max-w-md bg-grayscale-white">
       <ul
         onClick={handleClick}
         className="flex gap-4 justify-between items-center font-medium text-gray-400"
       >
         <li
           className={
-            currentPage === '/library' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/library'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="library">
@@ -38,7 +40,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/record' ? 'text-red-500 nav-list' : ' nav-list'
+            currentPage === '/record'
+              ? 'text-red-500 nav-listItem'
+              : ' nav-listItem'
           }
         >
           <button className="nav-button" name="record">
@@ -55,7 +59,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/feed' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/feed'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="feed">
@@ -72,7 +78,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/character' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/character'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="character">
@@ -89,7 +97,9 @@ export default function GlobalNavigator() {
         </li>
         <li
           className={
-            currentPage === '/mypage' ? 'text-red-500 nav-list' : 'nav-list'
+            currentPage === '/mypage'
+              ? 'text-red-500 nav-listItem'
+              : 'nav-listItem'
           }
         >
           <button className="nav-button" name="mypage">
