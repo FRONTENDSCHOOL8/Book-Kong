@@ -1,6 +1,6 @@
 import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
 
-export default function Record() {
+export default function RecordPage() {
   return (
     <>
       <LargeHeader title={'기록'} />
