@@ -5,6 +5,7 @@ import { loginUserData } from '../../../utils/controlUserData';
 import { getUserMemoData } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 function MemoList() {
   const initialOrder = localStorage.getItem('order') || '최신순';
@@ -35,10 +36,27 @@ function MemoList() {
     staleTime: 1000 * 60 * 5,
   });
 
+  const listVar = {
+    start: { opacity: 0 },
+    end: {
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        mass: 0.8,
+        staggerChildren: 0.03,
+      },
+    },
+  };
+
   return (
-    <main className="flex flex-col items-end bg-background-gray px-4 h-[115vh]">
+    <motion.main className="flex flex-col items-end bg-background-gray px-4 h-[115vh]">
       <OrderButton onClick={toggleSort} order={order} />
-      <ul className="flex flex-col gap-3 w-full">
+      <motion.ul
+        variants={listVar}
+        initial="start"
+        animate="end"
+        className="flex flex-col gap-3 w-full"
+      >
         {data?.map((memo) => (
           <MemoCard
             key={memo.id}
@@ -47,8 +65,8 @@ function MemoList() {
             date={memo.created}
           />
         ))}
-      </ul>
-    </main>
+      </motion.ul>
+    </motion.main>
   );
 }
 
