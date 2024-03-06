@@ -23,7 +23,7 @@ function TabNavigation({ page }) {
               <TabButton path={'/library/booktree'} title={'책나무'} />
             </li>
             <li>
-              <TabButton path={'library/bookshelf'} title={'책장'} />
+              <TabButton path={'/library/bookshelf'} title={'책장'} />
             </li>
           </ul>
         </nav>

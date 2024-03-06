@@ -26,7 +26,7 @@ export default function GlobalNavigator() {
               : 'nav-listItem'
           }
         >
-          <button className="nav-button" name="library">
+          <button className="nav-button" name="library/booktree">
             <img
               src={
                 currentPage.startsWith('/library')
