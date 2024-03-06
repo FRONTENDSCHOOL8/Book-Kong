@@ -1,10 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '/src/app/App';
-import Library from '/src/components/pages/Library';
-import Record from '/src/components/pages/Record';
-import Feed from '/src/components/pages/Feed';
-import Character from '/src/components/pages/Character';
-import Mypage from '/src/components/pages/Mypage';
+import LibraryPage from '/src/components/pages/LibraryPage';
+import RecordPage from '/src/components/pages/RecordPage';
+import FeedPage from '/src/components/pages/FeedPage';
+import CharacterPage from '/src/components/pages/CharacterPage';
+import MypagePage from '/src/components/pages/MypagePage';
 
 const router = createBrowserRouter([
   {
@@ -13,23 +13,23 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'library',
-        element: <Library />,
+        element: <LibraryPage />,
       },
       {
         path: 'record',
-        element: <Record />,
+        element: <RecordPage />,
       },
       {
         path: 'feed',
-        element: <Feed />,
+        element: <FeedPage />,
       },
       {
         path: 'character',
-        element: <Character />,
+        element: <CharacterPage />,
       },
       {
         path: 'mypage',
-        element: <Mypage />,
+        element: <MypagePage />,
       },
     ],
   },
