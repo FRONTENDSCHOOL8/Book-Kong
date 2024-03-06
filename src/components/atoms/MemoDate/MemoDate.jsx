@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { calcDate } from '../../../utils/calcDate';
+import convertDayFormat from '/src/utils/convertDayFormat'
 
 function MemoDate({ date }) {
   return (
     <span className="contents-xs text-gray-300 text-right">
-      {calcDate(date)}
+      {convertDayFormat(date)}
     </span>
   );
 }
