@@ -15,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: 'library',
         element: <LibraryPage />,
+        children: [
+          { path: 'booktree', element: <div>booktree</div> },
+          { path: 'bookshelf', element: <div>bookshelf</div> },
+        ],
       },
       {
         path: 'record',
@@ -23,6 +27,10 @@ const router = createBrowserRouter([
           {
             path: 'memo',
             element: <MemoList />,
+          },
+          {
+            path: 'statistics',
+            element: <div>통계입니다.</div>,
           },
         ],
       },

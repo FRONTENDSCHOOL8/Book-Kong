@@ -8,10 +8,10 @@ function TabNavigation({ page }) {
         <nav className="px-4 border-b">
           <ul className="flex justify-start items-center gap-6 ">
             <li>
-              <TabButton title={'메모'} />
+              <TabButton path={'/record/memo'} title={'메모'} />
             </li>
             <li>
-              <TabButton title={'통계'} />
+              <TabButton path={'/record/statistics'} title={'통계'} />
             </li>
           </ul>
         </nav>
@@ -20,10 +20,10 @@ function TabNavigation({ page }) {
         <nav className="px-4 border-b">
           <ul className="flex justify-start items-center gap-6 ">
             <li>
-              <TabButton title={'책나무'} />
+              <TabButton path={'/library/booktree'} title={'책나무'} />
             </li>
             <li>
-              <TabButton title={'책장'} />
+              <TabButton path={'library/bookshelf'} title={'책장'} />
             </li>
           </ul>
         </nav>
