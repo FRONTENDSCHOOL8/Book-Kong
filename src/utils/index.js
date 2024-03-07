@@ -1,9 +1,9 @@
+export * from './storybook';
 export * from './getStaticAsset';
 export * from './controlUserData';
 export * from './controlBookData';
 export * from './controlMemoData';
 export { default as range } from './range';
-export { default as typeIs } from './typeIs';
 export { default as getSlug } from './getSlug';
 export { default as debounce } from './debounce';
 export { default as getPbImage } from './getPbImage';
