@@ -7,6 +7,7 @@ function SearchCard() {
   return (
     <motion.li
       variants={searchCardVar}
+      whileHover={{ scale: 1.02 }}
       className="rounded-lg overflow-hidden list-shadow"
     >
       <a className="flex" href="/">
