@@ -13,7 +13,18 @@ const metaConfig = {
 
 export default metaConfig;
 
-export const Base = {
-  args: {},
+export const HiddenH2 = {
+  args: {
+    as: 'h2',
+  },
 };
-Base.storyName = '기본 A11yHidden';
+HiddenH2.storyName = '감춰진 h2 요소';
+
+export const FocusedHiddenButton = {
+  args: {
+    as: 'button',
+    focusable: true,
+    className: 'focus:border focus:border-solid focus:border-primary-500',
+  },
+};
+HiddenH2.storyName = 'Focus 된 button 요소';
