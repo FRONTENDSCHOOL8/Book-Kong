@@ -5,7 +5,7 @@ function TabNavigation({ page }) {
   return (
     <>
       {page === '기록' && (
-        <nav className="px-4 border-b">
+        <nav className="px-4 border-b bg-grayscale-white">
           <ul className="flex justify-start items-center gap-6 ">
             <li>
               <TabButton path={'/record/memo'} title={'메모'} />
@@ -17,7 +17,7 @@ function TabNavigation({ page }) {
         </nav>
       )}
       {page === '서재' && (
-        <nav className="px-4 border-b">
+        <nav className="px-4 border-b bg-grayscale-white">
           <ul className="flex justify-start items-center gap-6 ">
             <li>
               <TabButton path={'/library/booktree'} title={'책나무'} />

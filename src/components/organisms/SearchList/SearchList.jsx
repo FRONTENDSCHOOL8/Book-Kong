@@ -1,6 +1,8 @@
 import SearchCard from '../../molecules/SearchCard/SearchCard';
 import { motion } from 'framer-motion';
-function SearchList() {
+import PropTypes, { object } from 'prop-types';
+import { v4 as uuidv4 } from 'uuid';
+function SearchList({ data }) {
   const searchListVar = {
     start: { opacity: 0 },
     end: {
@@ -13,15 +15,17 @@ function SearchList() {
       variants={searchListVar}
       initial="start"
       animate="end"
-      className="flex flex-col gap-3 mt-[14px]"
+      className="flex flex-col gap-3 mt-8"
     >
-      <SearchCard />
-      <SearchCard />
-      <SearchCard />
-      <SearchCard />
-      <SearchCard />
+      {data?.map((book) => (
+        <SearchCard key={uuidv4()} data={book} />
+      ))}
     </motion.ul>
   );
 }
+
+SearchList.propTypes = {
+  data: PropTypes.arrayOf(object),
+};
 
 export default SearchList;
