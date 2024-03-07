@@ -4,7 +4,7 @@ import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNav
 function App() {
   return (
     <>
-      <div className="m-auto max-w-md min-w-80">
+      <div className="m-auto max-w-md min-w-80 h-screen bg-background-gray">
         <Outlet />
         <GlobalNavigator />
       </div>
