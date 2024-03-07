@@ -6,12 +6,17 @@ import FeedPage from '/src/components/pages/FeedPage';
 import CharacterPage from '/src/components/pages/CharacterPage';
 import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
+import SearchPage from './components/pages/SearchPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
+      {
+        path: 'library/search',
+        element: <SearchPage />,
+      },
       {
         path: 'library',
         element: <LibraryPage />,
