@@ -3,10 +3,19 @@ import ContextButtonVertical from '../../atoms/ContextButtonVertical/ContextButt
 import MemoContents from '../../atoms/MemoContents/MemoContents';
 import MemoDate from '../../atoms/MemoDate/MemoDate';
 import RecordTitle from '../../molecules/RecordTitle/RecordTitle';
+import { motion } from 'framer-motion';
 
 function MemoCard({ title, contents, date }) {
+  const cardVar = {
+    start: { y: 30 },
+    end: { y: 0 },
+  };
   return (
-    <li className="list-shadow">
+    <motion.li
+      variants={cardVar}
+      whileHover={{ scale: 1.03 }}
+      className="list-shadow"
+    >
       <a
         href="/"
         className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative"
@@ -16,7 +25,7 @@ function MemoCard({ title, contents, date }) {
         <MemoContents title={contents} />
         <MemoDate date={date} />
       </a>
-    </li>
+    </motion.li>
   );
 }
 
