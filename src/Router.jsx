@@ -7,6 +7,7 @@ import CharacterPage from '/src/components/pages/CharacterPage';
 import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
 import SearchPage from './components/pages/SearchPage';
+import BookRegistrationPage from './components/pages/BookRegistrationPage';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: 'library/search',
         element: <SearchPage />,
+      },
+      {
+        path: 'library/book-registration',
+        element: <BookRegistrationPage />,
       },
       {
         path: 'library',
