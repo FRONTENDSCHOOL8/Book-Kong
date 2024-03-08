@@ -34,7 +34,7 @@ function BookBlock({ title, page, index }) {
 
 BookBlock.propTypes = {
   title: string,
-  page: string,
+  page: number,
   index: number,
 };
 

@@ -2,13 +2,10 @@ import {} from 'prop-types';
 import BookBlockList from './../../molecules/BookBlockList/BookBlockList';
 import SaveBookImg from './../../atoms/SaveBookImg/SaveBookImg';
 import BookInfo from '../../molecules/BookInfo/BookInfo';
-import { loginWithEmail } from '../../../utils/controlUserData';
 import { useQuery } from '@tanstack/react-query';
 import { getUserLibraryData } from '/src/utils/controlBookData';
 
 function BookTree() {
-  loginWithEmail('juhyun@naver.com', '123456789');
-
   const { data, isLoading } = useQuery({
     queryKey: ['book'],
     queryFn: async () => getUserLibraryData('done'),
