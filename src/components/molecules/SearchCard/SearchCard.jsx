@@ -24,9 +24,9 @@ function SearchCard({ data }) {
     <motion.li
       variants={searchCardVar}
       whileHover={{ scale: 1.02 }}
-      className={' list-shadow bg-grayscale-white'}
+      className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
-      <div onClick={handleClick} className="flex rounded-lg overflow-hidden">
+      <div onClick={handleClick} className="flex  ">
         <img className="w-[90px] h-[130px]" src={data.cover} alt={data.title} />
         <div className="flex flex-col justify-between py-4 pr-6 pl-4">
           <div className="flex flex-col gap-1">
