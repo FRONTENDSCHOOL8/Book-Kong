@@ -1,10 +1,15 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '/src/app/App';
-import Library from '/src/components/pages/Library';
-import Record from '/src/components/pages/Record';
-import Feed from '/src/components/pages/Feed';
-import Character from '/src/components/pages/Character';
-import Mypage from '/src/components/pages/Mypage';
+import LibraryPage from '/src/components/pages/LibraryPage';
+import RecordPage from '/src/components/pages/RecordPage';
+import FeedPage from '/src/components/pages/FeedPage';
+import CharacterPage from '/src/components/pages/CharacterPage';
+import MypagePage from '/src/components/pages/MypagePage';
+import MemoList from './components/organisms/MemoList/MemoList';
+import SearchPage from './components/pages/SearchPage';
+import BookRegistrationPage from './components/pages/BookRegistrationPage';
+import Register from './components/pages/Register';
+import BookTree from './components/organisms/BookTree/BookTree';
 
 const router = createBrowserRouter([
   {
@@ -12,24 +17,50 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: 'library/search',
+        element: <SearchPage />,
+      },
+      {
+        path: 'library/book-registration',
+        element: <BookRegistrationPage />,
+      },
+      {
+        path: 'register',
+        element: <Register />,
+      },
+      {
         path: 'library',
-        element: <Library />,
+        element: <LibraryPage />,
+        children: [
+          { path: 'booktree', element: <BookTree /> },
+          { path: 'bookshelf', element: <div>bookshelf</div> },
+        ],
       },
       {
         path: 'record',
-        element: <Record />,
+        element: <RecordPage />,
+        children: [
+          {
+            path: 'memo',
+            element: <MemoList />,
+          },
+          {
+            path: 'statistics',
+            element: <div>통계입니다.</div>,
+          },
+        ],
       },
       {
         path: 'feed',
-        element: <Feed />,
+        element: <FeedPage />,
       },
       {
         path: 'character',
-        element: <Character />,
+        element: <CharacterPage />,
       },
       {
         path: 'mypage',
-        element: <Mypage />,
+        element: <MypagePage />,
       },
     ],
   },
