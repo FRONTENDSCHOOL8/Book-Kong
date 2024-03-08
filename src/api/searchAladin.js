@@ -3,7 +3,7 @@ export async function getBookData(
   startPage = '1',
   maxResults = '10'
 ) {
-  if (keyword.replace(/\s/g, '') === '') return;
+  if (keyword.replace(/\s/g, '') === '') return null;
 
   const bookData = await (
     await fetch(
@@ -11,7 +11,5 @@ export async function getBookData(
     )
   ).json();
 
-  console.log(bookData.response.json.item);
-
-  return bookData.response.json.item;
+  return bookData.response.json;
 }

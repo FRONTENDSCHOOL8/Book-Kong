@@ -4,7 +4,7 @@ import LargeHeaderIcon from '/src/components/atoms/LargeHeaderIcon/LargeHeaderIc
 
 function LargeHeader({ title }) {
   return (
-    <header className="flex justify-between items-center px-4 py-3 sticky">
+    <header className="flex justify-between items-center px-4 py-3 sticky bg-grayscale-white">
       <LargeHeaderTitle title={title} />
       <LargeHeaderIcon title={title} />
     </header>

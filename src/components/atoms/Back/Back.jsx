@@ -1,6 +1,21 @@
-function Back() {
-  const handleClick = () => {
-    return window.history.back();
+import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+
+function Back({ title }) {
+  const navigate = useNavigate();
+  const handleClick = (e) => {
+    const button = e.target.closest('button');
+    if (!button) return;
+
+    if (title === '검색하기') {
+      navigate('/library/booktree');
+    } else if (title === '직접 입력하기') {
+      navigate('/library/search');
+    } else if (title === '메모' || title === '메모 작성') {
+      navigate('/record');
+    } else if (title === '피드' || title === '피드 작성') {
+      navigate('/feed');
+    }
   };
 
   return (
@@ -20,5 +35,9 @@ function Back() {
     </button>
   );
 }
+
+Back.propTypes = {
+  title: PropTypes.string,
+};
 
 export default Back;

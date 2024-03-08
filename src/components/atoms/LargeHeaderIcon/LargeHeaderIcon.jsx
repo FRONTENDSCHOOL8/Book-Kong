@@ -4,7 +4,7 @@ function LargeHeaderIcon({ title }) {
   return (
     <>
       {title === '서재' && (
-        <a href="/record">
+        <a href="/library/search">
           <img src="/images/icons/addBook.svg" alt="책 추가" />
         </a>
       )}

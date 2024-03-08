@@ -1,6 +1,6 @@
 function AddBookIconButton() {
   return (
-    <a href="/">
+    <a href="/library/book-registration">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"

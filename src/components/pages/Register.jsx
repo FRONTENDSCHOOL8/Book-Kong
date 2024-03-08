@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import { signUpUser } from '../../utils/controlUserData';
 import debounce from '../../utils/debounce';
 import checkPbDuplication from '../../utils/checkPbDuplication';
-import { useRef } from 'react';
 
 function InputField({ label, id, type, placeholder, value, onChange }) {
-  // console.log(value);
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className=" text-sm font-normal">
@@ -74,7 +72,6 @@ export default function Register() {
 
   const onChangeNickname = debounce(async (e) => {
     const currentNickname = e.target.value;
-    console.log(currentNickname);
     setNickname(currentNickname);
     const nicknameDuplicated = await checkPbDuplication({
       field: 'nickname',
