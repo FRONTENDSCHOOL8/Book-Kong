@@ -45,7 +45,7 @@ function BookInfoImage() {
               등록해주세요.
             </div>
             <img
-              src="/public/images/characters/7단계.png"
+              src="/images/characters/7단계.png"
               alt=""
               className="w-[90px] h-[74px] translate-y-[14px]"
             />
