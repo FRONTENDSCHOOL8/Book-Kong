@@ -32,6 +32,10 @@
   @apply text-content-2xl font-normal tracking-[-0.48px];
 }
 
+.contents-2xl-md {
+  @apply text-content-2xl font-medium tracking-[-0.48px];
+}
+
 .contents-xl {
   @apply text-content-xl font-normal tracking-[-0.4px];
 }
