@@ -18,10 +18,10 @@ function MemoList() {
 
     if (order === '최신순') {
       setOrder('오래된순');
-      data.reverse();
+      data?.reverse();
     } else {
       setOrder('최신순');
-      data.reverse();
+      data?.reverse();
     }
   };
 
