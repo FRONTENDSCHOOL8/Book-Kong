@@ -25,10 +25,10 @@ function BookInfoImage() {
   };
 
   return (
-    <li className="flex justify-center overflow-hidden ">
+    <li className="flex justify-center ">
       {url && (
         <>
-          <label className="w-[110px] h-[158px]" htmlFor="cover">
+          <label className="w-[110px] h-[158px]  book-shadow" htmlFor="cover">
             <img src={url} alt="" className="" />
           </label>
         </>
@@ -36,7 +36,7 @@ function BookInfoImage() {
       {!url && (
         <>
           <label
-            className="contents-xs flex flex-col justify-center items-center pt-[48px] border w-[110px] h-[158px]"
+            className="contents-xs flex flex-col justify-center items-center pt-[48px] border w-[110px] h-[158px] book-shadow"
             htmlFor="cover"
           >
             <div className="text-center">
