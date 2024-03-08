@@ -8,8 +8,8 @@ import SaveButton from '../../../atoms/SaveButton/SaveButton';
 
 function SmallHeader({ title }) {
   return (
-    <header className="relative flex justify-between items-center px-4 py-[10px] border-b border-grayscale-200">
-      <Back />
+    <header className="relative flex justify-between items-center px-4 py-[16px] border-b border-grayscale-200 bg-grayscale-white">
+      <Back title={title} />
       <SmallHeaderTitle title={title} />
       {title === '검색하기' && <AddBookIconButton />}
       {title === '메모' && (
@@ -26,6 +26,7 @@ function SmallHeader({ title }) {
         </div>
       )}
       {title === '피드 작성' && <SaveButton />}
+      {title === '직접 입력하기' && <SaveButton />}
     </header>
   );
 }
