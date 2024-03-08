@@ -1,3 +1,6 @@
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+const URL = `${PROXY}`;
+
 export async function getBookData(
   keyword = '',
   startPage = '1',
@@ -7,7 +10,7 @@ export async function getBookData(
 
   const bookData = await (
     await fetch(
-      `${import.meta.env.VITE_PB_SEARCH}/?Query=${keyword}&start=${startPage}&MaxResults=${maxResults}`
+      `${URL}/${import.meta.env.VITE_PB_SEARCH}/?Query=${keyword}&start=${startPage}&MaxResults=${maxResults}`
     )
   ).json();
 
