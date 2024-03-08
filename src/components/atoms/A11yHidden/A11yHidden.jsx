@@ -1,4 +1,4 @@
-import { bool, string, elementType } from 'prop-types';
+import { bool, string, elementType, objectOf, any } from 'prop-types';
 
 /**
  * 특정 요소를 감추고 싶을 경우 사용하는 유틸 컴포넌트입니다.
@@ -27,6 +27,7 @@ A11yHidden.propTypes = {
   as: elementType,
   className: string,
   focusable: bool,
+  restProps: objectOf(any),
 };
 
 export default A11yHidden;
