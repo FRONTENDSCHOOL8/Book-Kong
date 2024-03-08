@@ -8,6 +8,7 @@ import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
 import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
+import BookTree from './components/organisms/BookTree/BookTree';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
         path: 'library',
         element: <LibraryPage />,
         children: [
-          { path: 'booktree', element: <div>booktree</div> },
+          { path: 'booktree', element: <BookTree /> },
           { path: 'bookshelf', element: <div>bookshelf</div> },
         ],
       },
