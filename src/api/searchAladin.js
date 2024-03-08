@@ -10,7 +10,7 @@ export async function getBookData(
 
   const bookData = await (
     await fetch(
-      `${URL}/${import.meta.env.VITE_PB_SEARCH}/?Query=${keyword}&start=${startPage}&MaxResults=${maxResults}`
+      `${URL}${import.meta.env.VITE_PB_SEARCH}/?Query=${keyword}&start=${startPage}&MaxResults=${maxResults}`
     )
   ).json();
 
