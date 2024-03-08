@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -26,7 +25,7 @@ function BookInfoImage() {
   };
 
   return (
-    <div className="flex justify-center my-6 overflow-hidden ">
+    <li className="flex justify-center overflow-hidden ">
       {url && (
         <>
           <label className="w-[110px] h-[158px]" htmlFor="cover">
@@ -59,10 +58,8 @@ function BookInfoImage() {
         id="cover"
         onChange={handleChange}
       />
-    </div>
+    </li>
   );
 }
-
-BookInfoImage.propTypes = {};
 
 export default BookInfoImage;

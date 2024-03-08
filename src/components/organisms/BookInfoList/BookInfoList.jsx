@@ -5,7 +5,7 @@ import BookInfoImage from '../../atoms/BookInfoImage/BookInfoImage';
 
 function BookInfoList() {
   return (
-    <ul>
+    <ul className="flex flex-col gap-6">
       <BookInfoImage />
       <BookInfoInput title={'책 제목'} />
       <BookInfoInput title={'지은이/옮긴이'} />
