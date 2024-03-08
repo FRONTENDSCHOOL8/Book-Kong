@@ -1,7 +1,7 @@
 import { bool, node, string } from 'prop-types';
 import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 
-function Label({ children, id, hiddenLabel = false }) {
+function Label({ children, htmlFor: id, hiddenLabel = false }) {
   if (hiddenLabel) {
     return (
       <A11yHidden as="label" htmlFor={id}>
@@ -13,8 +13,8 @@ function Label({ children, id, hiddenLabel = false }) {
 }
 
 Label.propTypes = {
-  children: node,
-  id: string,
+  children: node.isRequired,
+  htmlFor: string.isRequired,
   hiddenLabel: bool,
 };
 
