@@ -12,7 +12,7 @@ function BookTree() {
   });
 
   return (
-    <main className="h-screen relative justify-end flex flex-col pt-[154px] pb-[50px] px-4 border border-grayscale-200">
+    <main className="h-screen bg-grayscale-white relative justify-end flex flex-col pt-[166px] pb-[50px] px-4 ">
       <div className="flex absolute top-4 left-0 justify-between px-4 w-full">
         <BookInfo data={data} isLoading={isLoading} />
         <SaveBookImg />
