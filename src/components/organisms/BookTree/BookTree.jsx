@@ -4,6 +4,7 @@ import SaveBookImg from './../../atoms/SaveBookImg/SaveBookImg';
 import BookInfo from '../../molecules/BookInfo/BookInfo';
 import { useQuery } from '@tanstack/react-query';
 import { getUserLibraryData } from '/src/utils/controlBookData';
+import CharacterInfo from '../../molecules/CharacterInfo/CharacterInfo';
 
 function BookTree() {
   const { data, isLoading } = useQuery({
@@ -17,6 +18,7 @@ function BookTree() {
         <BookInfo data={data} isLoading={isLoading} />
         <SaveBookImg />
       </div>
+      <CharacterInfo />
       <BookBlockList data={data} />
     </main>
   );
