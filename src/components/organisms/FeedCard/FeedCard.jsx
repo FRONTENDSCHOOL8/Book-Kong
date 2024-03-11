@@ -45,7 +45,7 @@ function FeedCard({
         {content}
       </span>
       <div className="flex border-t border-grayscale-200 pt-4 items-center gap-3">
-        <span>{book_height}</span>
+        <img src="/public/images/characters/4단계.png" className="w-10 h-10" />
         <div className="flex flex-col">
           <span className="contents-xs text-grayscale-700 clip-text-1">
             {nickname}
