@@ -32,9 +32,11 @@ function MemoList() {
   const { data } = useQuery({
     queryKey: ['memo', loginUserData],
     queryFn: async () =>
-      getUserMemoData(order === '최신순' ? 'created' : '-created'),
+      getUserMemoData(1, order === '최신순' ? 'created' : '-created'),
     staleTime: 1000 * 60 * 5,
   });
+
+  console.log(data);
 
   const listVar = {
     start: { opacity: 0 },
