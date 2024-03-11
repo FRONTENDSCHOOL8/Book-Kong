@@ -24,19 +24,26 @@ function FeedList() {
     },
   };
 
-  console.log(data);
-
   return (
-    <motion.ul variants={listVar} initial="start" animate="end">
-      {data?.map((feed) => (
-        <FeedCard
-          key={feed.id}
-          title={feed.expand.book_id.title}
-          contents={feed.content}
-          date={feed.created}
-        />
-      ))}
-    </motion.ul>
+    <main className="mt-6 mx-4">
+      <motion.ul
+        variants={listVar}
+        initial="start"
+        animate="end"
+        className="flex flex-col gap-3"
+      >
+        {data?.map((feed) => (
+          <FeedCard
+            key={feed.id}
+            bookTitle={feed.expand.book_id.title}
+            title={feed.title}
+            content={feed.content}
+            date={feed.created}
+            userInfo={feed.expand.book_id.expand.user_id}
+          />
+        ))}
+      </motion.ul>
+    </main>
   );
 }
 
