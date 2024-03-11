@@ -1,12 +1,12 @@
 import {} from 'prop-types';
 import CharacterName from '../../atoms/CharacterName/CharacterName';
-import ShowCharacter from '../../atoms/ShowCharacter/ShowCharacter';
+import CharacterImg from '../../atoms/CharacterImg/CharacterImg';
 
 function CharacterInfo() {
   return (
     <div className="flex flex-col justify-center items-center">
       <CharacterName />
-      <ShowCharacter />
+      <CharacterImg />
     </div>
   );
 }
