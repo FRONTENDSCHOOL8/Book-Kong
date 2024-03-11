@@ -103,7 +103,7 @@ InputContainer.propTypes = {
     className: string,
     isHidden: bool,
     restLabelProps: objectOf(any),
-  }),
+  }).isRequired,
   inputProps: shape({
     name: string,
     type: oneOf([
