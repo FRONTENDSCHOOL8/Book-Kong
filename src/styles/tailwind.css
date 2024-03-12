@@ -68,6 +68,10 @@
   @apply text-content-xs font-normal;
 }
 
+.contents-xs-bold {
+  @apply text-content-xs font-medium;
+}
+
 .contents-2xs {
   @apply text-content-2xs font-normal tracking-[-0.2px];
 }
@@ -145,4 +149,8 @@
 
 .list-shadow {
   box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+.badge-shadow {
+  box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.35);
 }

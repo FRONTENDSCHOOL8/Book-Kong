@@ -10,6 +10,7 @@ import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
 import Register from './components/pages/Register';
 import BookTree from './components/organisms/BookTree/BookTree';
+import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
         element: <LibraryPage />,
         children: [
           { path: 'booktree', element: <BookTree /> },
-          { path: 'bookshelf', element: <div>bookshelf</div> },
+          { path: 'bookshelf', element: <Bookshelf /> },
         ],
       },
       {
