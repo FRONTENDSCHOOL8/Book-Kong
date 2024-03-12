@@ -1,4 +1,4 @@
-import { number } from 'prop-types';
+import { number, object } from 'prop-types';
 
 function CharacterCard({ data, index, level }) {
   return level >= index + 1 ? (
@@ -19,7 +19,7 @@ function CharacterCard({ data, index, level }) {
 }
 
 CharacterCard.propTypes = {
-  data: Object,
+  data: object,
   index: number,
   level: number,
 };
