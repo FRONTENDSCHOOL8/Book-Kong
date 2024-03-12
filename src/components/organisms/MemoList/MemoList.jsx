@@ -9,8 +9,20 @@ import { motion } from 'framer-motion';
 
 function MemoList() {
   const initialOrder = localStorage.getItem('order') || '최신순';
-
   const [order, setOrder] = useState(initialOrder);
+  const [page, setPage] = useState(1);
+  const [data, setData] = useState([]);
+
+  const {
+    data: newData,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['memo', loginUserData.id],
+    queryFn: async () =>
+      getUserMemoData(page, order === '최신순' ? 'created' : '-created'),
+    staleTime: 1000 * 60 * 5,
+  });
 
   const toggleSort = (e) => {
     const button = e.target.closest('button');
@@ -18,10 +30,10 @@ function MemoList() {
 
     if (order === '최신순') {
       setOrder('오래된순');
-      data.reverse();
+      setData((prevData) => [...prevData].reverse());
     } else {
       setOrder('최신순');
-      data.reverse();
+      setData((prevData) => [...prevData].reverse());
     }
   };
 
@@ -29,14 +41,17 @@ function MemoList() {
     localStorage.setItem('order', order);
   }, [order]);
 
-  const { data } = useQuery({
-    queryKey: ['memo', loginUserData],
-    queryFn: async () =>
-      getUserMemoData(1, order === '최신순' ? 'created' : '-created'),
-    staleTime: 1000 * 60 * 5,
-  });
+  useEffect(() => {
+    if (!isLoading && newData) {
+      setData((prevData) => [...prevData, ...newData]);
+    }
+  }, [isLoading, newData]);
 
-  console.log(data);
+  useEffect(() => {
+    refetch();
+  }, [page]);
+
+  console.log('current', data);
 
   const listVar = {
     start: { opacity: 0 },
@@ -48,6 +63,10 @@ function MemoList() {
         staggerChildren: 0.03,
       },
     },
+  };
+
+  const handleClick = () => {
+    setPage((prev) => prev + 1);
   };
 
   return (
@@ -67,6 +86,7 @@ function MemoList() {
             date={memo.created}
           />
         ))}
+        <button onClick={handleClick}>클릭</button>
       </motion.ul>
     </motion.main>
   );

@@ -2,7 +2,7 @@ import pb from '../api/pocketbase';
 import { loginUserData } from './controlUserData';
 
 async function loadMemoData(page, sort) {
-  return await pb.collection('memos').getList(page, 20, {
+  return await pb.collection('memos').getList(page, 1, {
     expand: 'book_id',
     sort: `${sort}`,
   });
