@@ -1,8 +1,28 @@
 import PropTypes from 'prop-types';
 import TabButton from '../../atoms/TabButton/TabButton';
 import TabLink from '../../atoms/TabLink/TabLink';
+import { useState } from 'react';
 
 function TabNavigation({ page }) {
+  
+  const [button, setButton] = useState('책 정보');
+  
+  const handleClick = (e) => {
+    const a = e.target.closest('a');
+    if (!a) return;
+    
+    const target = a.innerText;
+    
+    if (target === '책 정보') {
+      setButton('책 정보');
+    } else if (target === '메모') {
+      setButton('메모');
+    } else {
+      setButton('피드');
+    }
+
+    // 클릭할 때마다 버튼의 상태를 콘솔에 출력
+  }
   return (
     <>
       {page === '기록' && (
@@ -30,16 +50,16 @@ function TabNavigation({ page }) {
         </nav>
       )}
       {page === '상세페이지' && (
-        <nav className="sticky top-0 px-4 bg-background-gray">
+        <nav onClick={handleClick} className="sticky top-0 px-4 bg-background-gray">
           <ul className="flex items-center justify-start h-[54px]">
             <li className="w-[33.3333%] h-full">
-              <TabLink path={'#bookInfo'} title={'책 정보'} className="isActive" />
+              <TabLink path={'#bookInfo'} title={'책 정보'} button={button} />
             </li>
             <li className="w-[33.3333%] h-full">
-              <TabLink path={'#memo'} title={'메모'} />
+              <TabLink path={'#memo'} title={'메모'} button={button} />
             </li>
             <li className="w-[33.3333%] h-full">
-              <TabLink path={'#feed'} title={'피드'} />
+              <TabLink path={'#feed'} title={'피드'} button={button} />
             </li>
           </ul>
         </nav>
