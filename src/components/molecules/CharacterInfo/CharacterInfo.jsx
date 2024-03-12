@@ -1,16 +1,18 @@
-import {} from 'prop-types';
+import { number } from 'prop-types';
 import CharacterName from '../../atoms/CharacterName/CharacterName';
 import CharacterImg from '../../atoms/CharacterImg/CharacterImg';
 
-function CharacterInfo() {
+function CharacterInfo({ height }) {
   return (
     <div className="flex flex-col justify-center items-center">
-      <CharacterName />
-      <CharacterImg />
+      <CharacterName height={height} />
+      <CharacterImg height={height} />
     </div>
   );
 }
 
-CharacterInfo.propTypes = {};
+CharacterInfo.propTypes = {
+  height: number,
+};
 
 export default CharacterInfo;
