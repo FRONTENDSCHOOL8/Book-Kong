@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import OrderButton from '../../molecules/OrderButton/OrderButton';
 import MemoCard from '../MemoCard/MemoCard';
-import { loginUserData } from '../../../utils/controlUserData';
+import { loginUserData, loginWithEmail } from '../../../utils/controlUserData';
 import { getUserMemoData } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -13,13 +13,16 @@ function MemoList() {
   const [page, setPage] = useState(1);
   const [data, setData] = useState([]);
 
+  loginWithEmail('juhyun@naver.com', '123456789');
+  console.log(loginUserData);
+
   const {
     data: newData,
     isLoading,
     refetch,
   } = useQuery({
     queryKey: ['memo', loginUserData.id],
-    queryFn: async () =>
+    queryFn: () =>
       getUserMemoData(page, order === '최신순' ? 'created' : '-created'),
     staleTime: 1000 * 60 * 5,
   });
