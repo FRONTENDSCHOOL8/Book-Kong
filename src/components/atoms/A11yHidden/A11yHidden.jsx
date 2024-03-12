@@ -1,4 +1,4 @@
-import { bool, string, elementType } from 'prop-types';
+import { bool, string, elementType, objectOf, any, node } from 'prop-types';
 
 /**
  * 특정 요소를 감추고 싶을 경우 사용하는 유틸 컴포넌트입니다.
@@ -14,19 +14,26 @@ function A11yHidden({
   as: Component = 'span',
   focusable = false,
   className = '',
+  children,
   ...restProps
 }) {
   const classNames = `sr-only ${
     focusable ? 'focus:not-sr-only' : ''
   } ${className}`.trim();
 
-  return <Component className={classNames} {...restProps} />;
+  return (
+    <Component className={classNames} {...restProps}>
+      {children}
+    </Component>
+  );
 }
 
 A11yHidden.propTypes = {
   as: elementType,
-  className: string,
   focusable: bool,
+  className: string,
+  children: node,
+  restProps: objectOf(any),
 };
 
 export default A11yHidden;
