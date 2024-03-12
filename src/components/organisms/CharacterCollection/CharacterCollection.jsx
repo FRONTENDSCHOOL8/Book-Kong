@@ -6,7 +6,7 @@ import CharacterList from './../../molecules/CharacterList/CharacterList';
 function CharacterCollection() {
   const { data } = useQuery({
     queryKey: ['book'],
-    queryFn: async () => getUserLibraryData('done'),
+    queryFn: () => getUserLibraryData('완독'),
   });
 
   // 유저의 다 읽은 책 페이지 합계

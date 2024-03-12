@@ -9,7 +9,7 @@ import CharacterInfo from '../../molecules/CharacterInfo/CharacterInfo';
 function BookTree() {
   const { data, isLoading } = useQuery({
     queryKey: ['book'],
-    queryFn: async () => getUserLibraryData('done'),
+    queryFn: async () => getUserLibraryData('완독'),
   });
 
   // 유저의 다 읽은 책 권수 계산
