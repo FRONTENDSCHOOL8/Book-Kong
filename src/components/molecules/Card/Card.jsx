@@ -24,14 +24,10 @@ function Card({ data }) {
             ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
             : '/'
         }
-        className="flex  "
+        className="flex w-full"
       >
         <CardImage data={data} />
-        <CardInfo
-          title={data.title}
-          author={data.author}
-          publisher={data.publisher}
-        />
+        <CardInfo data={data} />
       </a>
     </motion.li>
   );
