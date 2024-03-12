@@ -1,12 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
-import TabNavigation from '../organisms/TabNavigation/TabNavigation';
+import Header from '../organisms/Header/Header/Header';
 
 export default function LibraryPage() {
   return (
     <>
-      <LargeHeader title={'서재'} />
-      <TabNavigation page="서재" />
+      <Header title="서재"/>
       <Outlet />
     </>
   );

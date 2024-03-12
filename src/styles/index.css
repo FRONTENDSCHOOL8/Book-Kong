@@ -1,8 +1,17 @@
 @import '/src/styles/tailwind.css';
+
 body {
 	font-family: 'IBM Plex Sans KR', sans-serif;
 	font-weight: 400;
 	font-style: normal;
+	color: #1E1E1E;
+}
+#root {
+	min-width: 320px;
+	max-width: 448px; 
+	min-height: 100vh;
+	margin: 0 auto;
+	background-color: #F6F6F6;
 }
 
 h1,

@@ -4,7 +4,7 @@ function SearchCount({ query, totalResults, isLoading }) {
   return (
     <>
       {!(query === '') ? (
-        <span className="text-center contents-sm text-grayscale-700 block mt-8">
+        <span className="text-center contents-sm text-grayscale-700 block mt-8 mb-8">
           &quot;{query}&quot;에 대한 검색결과{' '}
           <strong className="contents-sm text-primary-500">
             {totalResults}

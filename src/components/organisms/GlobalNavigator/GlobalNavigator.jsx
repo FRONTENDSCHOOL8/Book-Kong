@@ -17,7 +17,7 @@ export default function GlobalNavigator() {
     <nav className="fixed bottom-0 left-[50%] translate-x-[-50%] w-screen border-t border-primary-500 min-w-[320px] max-w-md bg-grayscale-white">
       <ul
         onClick={handleClick}
-        className="flex gap-4 justify-between items-center font-medium text-gray-400"
+        className="flex items-center justify-between gap-4 font-medium text-gray-400"
       >
         <li
           className={
