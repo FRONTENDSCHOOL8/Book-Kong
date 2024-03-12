@@ -1,9 +1,9 @@
-import SearchCard from '../../molecules/SearchCard/SearchCard';
+import Card from '../../molecules/Card/Card';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-function SearchList({ data }) {
-  const searchListVar = {
+function List({ data }) {
+  const ListVar = {
     start: { opacity: 0 },
     end: {
       opacity: 1,
@@ -12,20 +12,20 @@ function SearchList({ data }) {
   };
   return (
     <motion.ul
-      variants={searchListVar}
+      variants={ListVar}
       initial="start"
       animate="end"
-      className="flex flex-col gap-3 mt-8"
+      className="flex flex-col gap-3"
     >
       {data?.map((book) => (
-        <SearchCard key={uuidv4()} data={book} />
+        <Card key={uuidv4()} data={book} />
       ))}
     </motion.ul>
   );
 }
 
-SearchList.propTypes = {
+List.propTypes = {
   data: PropTypes.arrayOf(object),
 };
 
-export default SearchList;
+export default List;

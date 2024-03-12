@@ -8,8 +8,11 @@ import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
 import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
-import Register from './components/pages/Register';
 import BookTree from './components/organisms/BookTree/BookTree';
+import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
+import DetailPage from './components/pages/DetailPage';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 
 const router = createBrowserRouter([
   {
@@ -17,12 +20,20 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: 'library/detail',
+        element: <DetailPage />,
+      },
+      {
         path: 'library/search',
         element: <SearchPage />,
       },
       {
         path: 'library/book-registration',
         element: <BookRegistrationPage />,
+      },
+      {
+        path: 'login',
+        element: <Login />,
       },
       {
         path: 'register',
@@ -33,7 +44,7 @@ const router = createBrowserRouter([
         element: <LibraryPage />,
         children: [
           { path: 'booktree', element: <BookTree /> },
-          { path: 'bookshelf', element: <div>bookshelf</div> },
+          { path: 'bookshelf', element: <Bookshelf /> },
         ],
       },
       {

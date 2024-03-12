@@ -44,8 +44,12 @@
   @apply text-content-large font-normal tracking-[-0.36px];
 }
 
+.contents-lg-bold {
+  @apply text-content-large font-medium tracking-[-0.36px];
+}
+
 .contents-md {
-  @apply text-content-medium font-normal tracking-[-0.32px];
+  @apply text-content-medium font-medium tracking-[-0.32px];
 }
 
 .contents-md-bold {
@@ -53,7 +57,7 @@
 }
 
 .contents-sm {
-  @apply text-content-small font-normal tracking-[-0.14px];
+  @apply text-content-small font-normal tracking-[-0.14px] leading-relaxed;
 }
 
 .contents-sm-bold {
@@ -64,8 +68,16 @@
   @apply text-content-xs font-normal;
 }
 
+.contents-xs-bold {
+  @apply text-content-xs font-medium;
+}
+
 .contents-2xs {
   @apply text-content-2xs font-normal tracking-[-0.2px];
+}
+
+.contents-lg-bold {
+  @apply text-content-large font-medium tracking-[-0.36px];
 }
 
 /* -------------------------------------------- */
@@ -76,7 +88,7 @@
 }
 
 .tab-menu {
-  @apply text-tab-menu font-medium;
+  @apply text-tab-menu font-medium text-center;
 }
 
 .character-list {
@@ -119,6 +131,16 @@
   -webkit-box-orient: vertical;
 }
 
+.clip-text-3 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
 .clip-text-12 {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -131,4 +153,14 @@
 
 .list-shadow {
   box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --effect-bottonsheet:  0px 4px 4px rgba(0, 0, 0, 0.25);
+--effect-badge:  2px 4px 6px rgba(0, 0, 0, 0.35);
+--effect--itemlist-02:  2px 4px 18px rgba(0, 0, 0, 0.06);
+--detail-page-book:  8px 12px 12px rgba(0, 0, 0, 0.25); */
+
+.badge-shadow {
+  box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.35);
 }
