@@ -24,7 +24,7 @@ function CardInfo({ data }) {
               <>
                 {data.expectation_score && (
                   <img
-                    src={`/public/images/rate/before/beforerate=${data.expectation_score}.png`}
+                    src={`/images/rate/before/beforerate=${data.expectation_score}.png`}
                   />
                 )}
               </>
@@ -33,7 +33,7 @@ function CardInfo({ data }) {
               <>
                 {data.expectation_score && (
                   <img
-                    src={`/public/images/rate/before/beforerate=${data.expectation_score}.png`}
+                    src={`/images/rate/before/beforerate=${data.expectation_score}.png`}
                   />
                 )}
               </>
@@ -41,9 +41,7 @@ function CardInfo({ data }) {
             {data.status === '완독' && (
               <>
                 {data.score && (
-                  <img
-                    src={`/public/images/rate/after/afterrate=${data.score}.png`}
-                  />
+                  <img src={`/images/rate/after/afterrate=${data.score}.png`} />
                 )}
               </>
             )}

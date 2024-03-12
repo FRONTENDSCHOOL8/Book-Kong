@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import convertDayFormat from '/src/utils/convertDayFormat.js';
 
-function FeedCard({
-  bookTitle,
-  title,
-  content,
-  date,
-  userInfo: { nickname, book_height },
-}) {
+function FeedCard({ bookTitle, title, content, date, userInfo: { nickname } }) {
   const cardVar = {
     start: { y: 30 },
     end: { y: 0 },
@@ -45,7 +39,7 @@ function FeedCard({
         {content}
       </span>
       <div className="flex border-t border-grayscale-200 pt-4 items-center gap-3">
-        <img src="/public/images/characters/4단계.png" className="w-10 h-10" />
+        <img src="/images/characters/4단계.png" className="w-10 h-10" />
         <div className="flex flex-col">
           <span className="contents-xs text-grayscale-700 clip-text-1">
             {nickname}
