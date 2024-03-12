@@ -49,13 +49,13 @@ function MemoList() {
   };
 
   return (
-    <motion.main className="flex flex-col items-end bg-background-gray px-4 pb-[200px] overflow-scroll h-screen">
+    <motion.main className="flex flex-col items-end bg-background-gray px-4 pb-[200px] overflow-scroll">
       <OrderButton onClick={toggleSort} order={order} />
       <motion.ul
         variants={listVar}
         initial="start"
         animate="end"
-        className="flex flex-col gap-3 w-full"
+        className="flex flex-col w-full gap-3"
       >
         {data?.map((memo) => (
           <MemoCard

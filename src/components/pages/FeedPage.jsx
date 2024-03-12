@@ -1,10 +1,10 @@
 import FeedList from '../organisms/FeedList/FeedList';
-import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+import Header from '../organisms/Header/Header/Header';
 
 export default function FeedPage() {
   return (
     <>
-      <LargeHeader title={'피드'} />
+      <Header title={'피드'} />
       <hr className="bg-grayscale-200" />
       <FeedList />
     </>
