@@ -9,6 +9,7 @@ import MemoList from './components/organisms/MemoList/MemoList';
 import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
 import BookTree from './components/organisms/BookTree/BookTree';
+import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 import DetailPage from './components/pages/DetailPage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
         element: <LibraryPage />,
         children: [
           { path: 'booktree', element: <BookTree /> },
-          { path: 'bookshelf', element: <div>bookshelf</div> },
+          { path: 'bookshelf', element: <Bookshelf /> },
         ],
       },
       {

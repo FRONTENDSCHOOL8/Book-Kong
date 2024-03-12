@@ -2,13 +2,7 @@ import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import convertDayFormat from '/src/utils/convertDayFormat.js';
 
-function FeedCard({
-  bookTitle,
-  title,
-  content,
-  date,
-  userInfo: { nickname, book_height },
-}) {
+function FeedCard({ bookTitle, title, content, date, userInfo: { nickname } }) {
   const cardVar = {
     start: { y: 30 },
     end: { y: 0 },

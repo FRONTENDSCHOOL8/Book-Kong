@@ -161,3 +161,6 @@
 --effect--itemlist-02:  2px 4px 18px rgba(0, 0, 0, 0.06);
 --detail-page-book:  8px 12px 12px rgba(0, 0, 0, 0.25); */
 
+.badge-shadow {
+  box-shadow: 2px 4px 6px 0px rgba(0, 0, 0, 0.35);
+}

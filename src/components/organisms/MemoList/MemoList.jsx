@@ -49,7 +49,7 @@ function MemoList() {
   };
 
   return (
-    <motion.main className="flex flex-col items-end bg-background-gray px-4 pb-[200px] overflow-scroll">
+    <motion.main className="flex flex-col items-end bg-background-gray px-4 pb-[120px] overflow-scroll">
       <OrderButton onClick={toggleSort} order={order} />
       <motion.ul
         variants={listVar}
