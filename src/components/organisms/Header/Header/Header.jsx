@@ -44,6 +44,11 @@ function Header({title}) {
         <SmallHeader title={title} />
       </>
       }
+      { title === "상세페이지" &&
+      <>
+        <SmallHeader title="" />
+      </>
+      }
     </header>
   );
 }

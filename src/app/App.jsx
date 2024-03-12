@@ -1,14 +1,13 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
-import {loginWithEmail} from './../utils/controlUserData';
 
 
 function App() {
-  loginWithEmail('juhyun@naver.com','123456789')
+  const {pathname} = useLocation();
   return (
     <>
       <Outlet />
-      <GlobalNavigator />
+      {pathname === '/login' || pathname === '/register'  ?  '' : <GlobalNavigator />}
     </>
   );
 }

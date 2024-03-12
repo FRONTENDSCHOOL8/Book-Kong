@@ -7,7 +7,7 @@ import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SignupButton from '../atoms/SignupButton/SignUpButton';
 import SnsIcon from '../atoms/SnsIcon/SnsIcon';
 import { useNavigate } from 'react-router-dom';
-import Link from '../Link/Link';
+import Link from '../molecules/Link/Link'
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -53,7 +53,6 @@ export default function Login() {
     e.preventDefault();
 
     const result = await loginWithEmail(email, password);
-    console.log(result);
     // loginWithEmail 함수가 false를 반환했을 경우 로그인 실패로 간주
     if (result === false) {
       alert('아이디 또는 비밀번호가 맞지 않습니다!');
@@ -64,7 +63,7 @@ export default function Login() {
   };
 
   return (
-    <div className="min-w-80 max-w-[448px] h-auto mx-4 text-start flex flex-col">
+    <div className="min-w-80 max-w-[448px] h-screen mx-4 text-start flex flex-col">
       <SignUpPrompt
         title="나만의 책나무를 만들어 볼까요?"
         message="책을 읽고, 기록하고, 완독하면 책을 쌓을 수 있어요!"
@@ -99,7 +98,7 @@ export default function Login() {
       </form>
       <Or text="또는" />
       <SnsIcon />
-      <div className="flex gap-3 justify-center items-center mt-20">
+      <div className="flex items-center justify-center gap-3 mt-20">
         <a className="text-[#848484]">회원가입</a>
         <div className=" bg-[#AAA] w-[1px] h-3"></div>
         <a className="text-[#848484]">비밀번호찾기</a>

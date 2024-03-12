@@ -27,7 +27,7 @@ function SearchMainContents() {
   });
 
   return (
-    <main className="px-4 pt-6 pb-[200px] overflow-scroll h-screen">
+    <main className="px-4 pt-[81px] pb-[200px] overflow-scroll h-screen">
       <SearchBar
         keyword={keyword}
         setKeyword={setKeyword}
