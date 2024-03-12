@@ -53,7 +53,7 @@
 }
 
 .contents-sm {
-  @apply text-content-small font-normal tracking-[-0.14px];
+  @apply text-content-small font-normal tracking-[-0.14px] leading-relaxed;
 }
 
 .contents-sm-bold {
@@ -64,8 +64,16 @@
   @apply text-content-xs font-normal;
 }
 
+.contents-xs-bold {
+  @apply text-content-xs font-medium;
+}
+
 .contents-2xs {
   @apply text-content-2xs font-normal tracking-[-0.2px];
+}
+
+.contents-lg-bold {
+  @apply text-content-large font-medium tracking-[-0.36px];
 }
 
 /* -------------------------------------------- */
@@ -76,7 +84,7 @@
 }
 
 .tab-menu {
-  @apply text-tab-menu font-medium;
+  @apply text-tab-menu font-medium text-center;
 }
 
 .character-list {
@@ -132,3 +140,4 @@
 .list-shadow {
   box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
 }
+

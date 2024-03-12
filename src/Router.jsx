@@ -10,12 +10,17 @@ import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
 import Register from './components/pages/Register';
 import BookTree from './components/organisms/BookTree/BookTree';
+import DetailPage from './components/pages/DetailPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
+      {
+        path: 'library/detail',
+        element: <DetailPage />,
+      },
       {
         path: 'library/search',
         element: <SearchPage />,
