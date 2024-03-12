@@ -8,8 +8,9 @@ import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
 import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
-import Register from './components/pages/Register';
 import BookTree from './components/organisms/BookTree/BookTree';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: 'library/book-registration',
         element: <BookRegistrationPage />,
+      },
+      {
+        path: 'login',
+        element: <Login />,
       },
       {
         path: 'register',
