@@ -11,7 +11,7 @@ function Bookshelf() {
 
   console.log(data);
   return (
-    <main className="px-4 pt-6 pb-[200px] overflow-scroll h-screen">
+    <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen">
       <List data={data} />
     </main>
   );

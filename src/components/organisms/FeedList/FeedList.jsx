@@ -25,7 +25,7 @@ function FeedList() {
   };
 
   return (
-    <main className="mt-6 mx-4">
+    <main className="mx-4  pt-[88px] pb-[120px]">
       <motion.ul
         variants={listVar}
         initial="start"

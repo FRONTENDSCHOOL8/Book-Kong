@@ -1,9 +1,9 @@
-import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+import Header from '../organisms/Header/Header/Header';
 
 export default function MypagePage() {
   return (
     <>
-      <LargeHeader title={'마이페이지'} />
+      <Header title={'마이페이지'} />
     </>
   );
 }

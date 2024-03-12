@@ -10,6 +10,7 @@ import SearchPage from './components/pages/SearchPage';
 import BookRegistrationPage from './components/pages/BookRegistrationPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
+import DetailPage from './components/pages/DetailPage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
+      {
+        path: 'library/detail',
+        element: <DetailPage />,
+      },
       {
         path: 'library/search',
         element: <SearchPage />,
