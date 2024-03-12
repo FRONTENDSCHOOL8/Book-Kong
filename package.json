@@ -13,7 +13,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.25.0",
+    "@tanstack/react-query": "^5.27.3",
     "pocketbase": "^0.21.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -30,7 +30,7 @@
     "@storybook/react": "^7.6.17",
     "@storybook/react-vite": "^7.6.17",
     "@storybook/test": "^7.6.17",
-    "@types/react": "^18.2.64",
+    "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",
     "@vheemstra/vite-plugin-imagemin": "^2.0.0",
     "@vitejs/plugin-react-swc": "^3.6.0",
@@ -40,7 +40,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "eslint-plugin-storybook": "^0.8.0",
-    "framer-motion": "^11.0.8",
+    "framer-motion": "^11.0.9",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
@@ -54,6 +54,6 @@
     "storybook-addon-react-router-v6": "^2.0.11",
     "tailwindcss": "^3.4.1",
     "uuid": "^9.0.1",
-    "vite": "^5.1.5"
+    "vite": "^5.1.6"
   }
 }
