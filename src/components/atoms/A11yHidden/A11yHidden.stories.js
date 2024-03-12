@@ -1,3 +1,4 @@
+import { createArgTypesControl } from '../../../utils/StoryBook';
 import A11yHidden from './A11yHidden';
 
 const metaConfig = {
@@ -8,6 +9,13 @@ const metaConfig = {
     as: 'span',
     focusable: false,
     className: '',
+    restProps: {},
+  },
+  argTypes: {
+    as: createArgTypesControl('text'),
+    focusable: createArgTypesControl('boolean'),
+    className: createArgTypesControl('text'),
+    restProps: createArgTypesControl('object'),
   },
 };
 
@@ -24,7 +32,9 @@ export const FocusedHiddenButton = {
   args: {
     as: 'button',
     focusable: true,
-    className: 'focus:border focus:border-solid focus:border-primary-500',
+    className:
+      'text-grayscale-white contents-lg focus:border focus:border-grayscale-500 focus:rounded-md focus:bg-primary-500 focus:w-[342px] focus:h-[52px]',
+    children: ['버튼'],
   },
 };
-HiddenH2.storyName = 'Focus 된 button 요소';
+FocusedHiddenButton.storyName = 'Focus 된 button 요소';
