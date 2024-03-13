@@ -141,6 +141,16 @@
   -webkit-box-orient: vertical;
 }
 
+.clip-text-10 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+}
+
 .clip-text-12 {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -154,7 +164,6 @@
 .list-shadow {
   box-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.1);
 }
-
 
 /* --effect-bottonsheet:  0px 4px 4px rgba(0, 0, 0, 0.25);
 --effect-badge:  2px 4px 6px rgba(0, 0, 0, 0.35);

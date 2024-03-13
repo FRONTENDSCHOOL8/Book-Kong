@@ -38,7 +38,8 @@ function FeedList() {
             title={feed.title}
             content={feed.content}
             date={feed.created}
-            userInfo={feed.expand.book_id.expand.user_id}
+            nickname={feed.expand.book_id.expand.user_id.nickname}
+            book_height={feed.expand.book_id.expand.user_id.book_height}
           />
         ))}
       </motion.ul>
