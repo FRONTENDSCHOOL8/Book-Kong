@@ -2,6 +2,7 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    current: 'currentColor',
     extend: {
       fontSize: {
         'nav-list': '10px',

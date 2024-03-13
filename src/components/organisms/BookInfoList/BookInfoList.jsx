@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import BookInfoInput from '../../molecules/BookInfoInput/BookInfoInput';
 ('react-router-dom');
 import BookInfoImage from '../../atoms/BookInfoImage/BookInfoImage';
@@ -15,7 +14,5 @@ function BookInfoList() {
     </ul>
   );
 }
-
-BookInfoList.propTypes = {};
 
 export default BookInfoList;
