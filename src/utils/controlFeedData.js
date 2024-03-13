@@ -1,5 +1,4 @@
 import pb from '../api/pocketbase';
-import { loginUserData } from './controlUserData';
 
 async function loadFeedData(sort) {
   return await pb
