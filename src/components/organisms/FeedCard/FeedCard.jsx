@@ -12,7 +12,7 @@ function FeedCard({ bookTitle, title, content, date, nickname, book_height }) {
     <motion.li
       variants={cardVar}
       whileHover={{ scale: 1.03 }}
-      className="flex flex-col gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-primary-500 list-shadow"
+      className="flex flex-col gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow"
     >
       <div className="flex items-center justify-between">
         <span className="contents-xs text-primary-500 clip-text-1">
