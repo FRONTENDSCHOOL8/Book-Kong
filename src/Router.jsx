@@ -13,6 +13,7 @@ import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 import DetailPage from './components/pages/DetailPage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'statistics',
-            element: <div>통계입니다.</div>,
+            element: <StatisticsMemo />,
           },
         ],
       },
