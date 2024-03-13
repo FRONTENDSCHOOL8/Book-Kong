@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import BookInfoStateButton from '../../atoms/BookInfoStateButton/BookInfoStateButton';
 import { useState } from 'react';
+import BookInfoDetail from '../BookInfoDetail/BookInfoDetail';
 
 function BookInfoState() {
   const [status, setStatus] = useState('완독');
@@ -14,23 +15,26 @@ function BookInfoState() {
   };
 
   return (
-    <div className="flex justify-center gap-2 items-center">
-      <BookInfoStateButton
-        title={'완독'}
-        onClick={handleClick}
-        status={status}
-      />
-      <BookInfoStateButton
-        title={'독서중'}
-        onClick={handleClick}
-        status={status}
-      />
-      <BookInfoStateButton
-        title={'희망 도서'}
-        onClick={handleClick}
-        status={status}
-      />
-    </div>
+    <>
+      <div className="flex justify-center gap-2 items-center">
+        <BookInfoStateButton
+          title={'완독'}
+          onClick={handleClick}
+          status={status}
+        />
+        <BookInfoStateButton
+          title={'독서중'}
+          onClick={handleClick}
+          status={status}
+        />
+        <BookInfoStateButton
+          title={'희망 도서'}
+          onClick={handleClick}
+          status={status}
+        />
+      </div>
+      <BookInfoDetail status={status} />
+    </>
   );
 }
 
