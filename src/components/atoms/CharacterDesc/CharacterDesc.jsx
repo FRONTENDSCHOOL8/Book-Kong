@@ -11,7 +11,7 @@ function CharacterDesc({ height }) {
   return (
     <div className="flex pt-4 pb-[7px]">
       <span
-        className="contents-md"
+        className="text-content-medium font-normal tracking-[-0.32px] text-grayscale-500"
         dangerouslySetInnerHTML={{
           __html: bookkongDesc,
         }}
