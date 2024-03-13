@@ -8,7 +8,6 @@ function BookInfoImage() {
 
   const handleChange = (e) => {
     const file = e.target.files[0];
-    console.log(file);
 
     if (file) {
       const reader = new FileReader();
