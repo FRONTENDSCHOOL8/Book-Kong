@@ -10,14 +10,22 @@ import { useEffect } from 'react';
 function Bookshelf() {
   const [filter, setFilter] = useState('전체');
   const [query, setQuery] = useState('');
-  const { data, refetch } = useQuery({
+  const [data, setData] = useState([]);
+
+  const { data: constData, isLoading } = useQuery({
     queryKey: ['bookshelf', loginUserData.id],
     queryFn: () => searchLibraryData(query),
   });
 
   useEffect(() => {
-    refetch();
-  }, [query, refetch]);
+    if (!isLoading && constData) {
+      if (query === '') {
+        setData([...constData]);
+      } else {
+        setData([...constData].filter((item) => item.title.includes(query)));
+      }
+    }
+  }, [query, isLoading, constData]);
 
   const handleClick = (e) => {
     const button = e.target.closest('button');
