@@ -4,6 +4,7 @@ import BookInfo from '../../molecules/BookInfo/BookInfo';
 import { useQuery } from '@tanstack/react-query';
 import { getUserLibraryData } from '/src/utils/controlBookData';
 import CharacterInfo from '../../molecules/CharacterInfo/CharacterInfo';
+import { Helmet } from 'react-helmet-async';
 
 function BookTree() {
   const { data, isLoading } = useQuery({
@@ -25,6 +26,9 @@ function BookTree() {
 
   return (
     <main className="h-screen bg-grayscale-white relative justify-end flex flex-col pt-[166px] pb-[50px] px-4 ">
+      <Helmet>
+        <title>책콩 | 서재 페이지 - 책나무</title>
+      </Helmet>
       <div className="flex absolute top-[120px] left-0 justify-between px-4 w-full">
         <BookInfo
           isLoading={isLoading}

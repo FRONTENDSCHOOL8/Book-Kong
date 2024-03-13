@@ -133,7 +133,7 @@ export default function Register() {
   return (
     <div className=" min-w-80 max-w-[448px] h-auto mx-4 text-start flex flex-col pb-12">
       <Helmet>
-        <title>회원가입 페이지</title>
+        <title>책콩 | 회원가입 페이지</title>
       </Helmet>
       <SignUpPrompt
         title="계정이 없다면 회원가입부터!"

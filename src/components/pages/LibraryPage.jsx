@@ -6,7 +6,7 @@ export default function LibraryPage() {
   return (
     <>
       <Helmet>
-        <title>서재 페이지</title>
+        <title>책콩 | 서재 페이지</title>
       </Helmet>
       <Header title="서재" />
       <Outlet />

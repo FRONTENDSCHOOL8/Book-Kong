@@ -8,7 +8,7 @@ function DetailPage() {
   return (
     <>
       <Helmet>
-        <title>상세 페이지</title>
+        <title>책콩 | 상세 페이지</title>
       </Helmet>
       <Header title="상세페이지" />
       <DetailBook />
