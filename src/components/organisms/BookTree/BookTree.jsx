@@ -1,4 +1,3 @@
-import {} from 'prop-types';
 import BookBlockList from './../../molecules/BookBlockList/BookBlockList';
 import SaveBookImg from './../../atoms/SaveBookImg/SaveBookImg';
 import BookInfo from '../../molecules/BookInfo/BookInfo';
@@ -26,7 +25,7 @@ function BookTree() {
 
   return (
     <main className="h-screen bg-grayscale-white relative justify-end flex flex-col pt-[166px] pb-[50px] px-4 ">
-      <div className="flex absolute top-4 left-0 justify-between px-4 w-full">
+      <div className="flex absolute top-[120px] left-0 justify-between px-4 w-full">
         <BookInfo
           isLoading={isLoading}
           height={totalBookHeight}
@@ -39,7 +38,5 @@ function BookTree() {
     </main>
   );
 }
-
-BookTree.propTypes = {};
 
 export default BookTree;
