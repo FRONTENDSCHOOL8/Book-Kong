@@ -13,11 +13,17 @@ import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 import DetailPage from './components/pages/DetailPage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
+import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: (
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
+    ),
     children: [
       {
         path: 'library/detail',
@@ -57,7 +63,7 @@ const router = createBrowserRouter([
           },
           {
             path: 'statistics',
-            element: <div>통계입니다.</div>,
+            element: <StatisticsMemo />,
           },
         ],
       },

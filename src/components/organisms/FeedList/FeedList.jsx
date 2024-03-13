@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { loginUserData } from '../../../utils/controlUserData';
 import { getUserFeedData } from '../../../utils/controlFeedData';
@@ -46,7 +45,5 @@ function FeedList() {
     </main>
   );
 }
-
-FeedList.propTypes = {};
 
 export default FeedList;

@@ -7,7 +7,8 @@ import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SignupButton from '../atoms/SignupButton/SignUpButton';
 import SnsIcon from '../atoms/SnsIcon/SnsIcon';
 import { useNavigate } from 'react-router-dom';
-import Link from '../molecules/Link/Link'
+import Link from '../molecules/Link/Link';
+import { Helmet } from 'react-helmet-async';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -64,6 +65,9 @@ export default function Login() {
 
   return (
     <div className="min-w-80 max-w-[448px] h-screen mx-4 text-start flex flex-col">
+      <Helmet>
+        <title>로그인 페이지</title>
+      </Helmet>
       <SignUpPrompt
         title="나만의 책나무를 만들어 볼까요?"
         message="책을 읽고, 기록하고, 완독하면 책을 쌓을 수 있어요!"

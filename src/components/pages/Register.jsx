@@ -7,7 +7,8 @@ import SignupButton from '../atoms/SignupButton/SignUpButton';
 import Or from '../atoms/Or/Or';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SnsIcons from './../atoms/SnsIcon/SnsIcon';
-import Link from '../molecules/Link/Link'
+import Link from '../molecules/Link/Link';
+import { Helmet } from 'react-helmet-async';
 
 export default function Register() {
   // 초기값 세팅
@@ -131,6 +132,9 @@ export default function Register() {
 
   return (
     <div className=" min-w-80 max-w-[448px] h-auto mx-4 text-start flex flex-col pb-12">
+      <Helmet>
+        <title>회원가입 페이지</title>
+      </Helmet>
       <SignUpPrompt
         title="계정이 없다면 회원가입부터!"
         text={

@@ -1,5 +1,3 @@
-import {} from 'prop-types';
-
 function SaveBookImg() {
   return (
     <div>
@@ -13,7 +11,5 @@ function SaveBookImg() {
     </div>
   );
 }
-
-SaveBookImg.propTypes = {};
 
 export default SaveBookImg;
