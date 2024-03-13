@@ -9,7 +9,6 @@ function Bookshelf() {
     queryFn: () => getUserLibraryData(),
   });
 
-  console.log(data);
   return (
     <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen">
       <List data={data} />
