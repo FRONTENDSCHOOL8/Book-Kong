@@ -4,12 +4,18 @@ import characterData from '../../../data/character.json';
 
 function CharacterDesc({ height }) {
   const level = calcLevel(calcCentimeter(height));
-  const bookkongDesc = characterData.filter((data) => data.level === level)[0]
-    .description;
+  const bookkongDesc = characterData
+    .filter((data) => data.level === level)[0]
+    .description.replace(/\n/g, '<br />');
 
   return (
     <div className="flex pt-4 pb-[7px]">
-      <span className="contents-md">{bookkongDesc}</span>
+      <span
+        className="contents-md"
+        dangerouslySetInnerHTML={{
+          __html: bookkongDesc,
+        }}
+      />
     </div>
   );
 }
