@@ -19,8 +19,8 @@ function CharacterCollection() {
   }
 
   return (
-    <main className="h-screen bg-background-gray relative justify-end flex flex-col  px-4 ">
-      <div className="flex absolute top-4 left-0 justify-between px-4 w-full flex-col gap-4">
+    <main className=" bg-background-gray relative justify-end flex flex-col  px-4 ">
+      <div className="flex justify-between pt-[76px] pb-[120px] w-full flex-col gap-4">
         <UserCharacterCard height={totalBookHeight} />
         <CharacterList height={totalBookHeight} />
       </div>

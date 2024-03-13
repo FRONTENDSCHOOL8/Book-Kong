@@ -7,7 +7,7 @@ import CharacterDesc from './../../atoms/CharacterDesc/CharacterDesc';
 
 function UserCharacterCard({ height }) {
   return (
-    <div className="bg-white p-4 rounded-[10px]">
+    <div className="bg-white rounded-[10px] p-6">
       <CharacterName className="text-grayscale-900" height={height} />
       <CharacterDesc height={height} />
       <div className="flex justify-center">
