@@ -5,7 +5,7 @@ export default function MypagePage() {
   return (
     <>
       <Helmet>
-        <title>마이페이지</title>
+        <title>책콩 | 마이페이지</title>
       </Helmet>
       <Header title={'마이페이지'} />
     </>

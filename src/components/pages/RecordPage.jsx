@@ -6,7 +6,7 @@ export default function RecordPage() {
   return (
     <div className=" max-w-md m-auto min-w-80 bg-background-gray pt-[98px]">
       <Helmet>
-        <title>기록 페이지</title>
+        <title>책콩 | 기록 페이지</title>
       </Helmet>
       <Header title={'기록'} />
       <Outlet />

@@ -6,7 +6,7 @@ export default function CharacterPage() {
   return (
     <>
       <Helmet>
-        <title>캐릭터 페이지</title>
+        <title>책콩 | 캐릭터 페이지</title>
       </Helmet>
       <Header title={'캐릭터'} />
       <CharacterCollection />
