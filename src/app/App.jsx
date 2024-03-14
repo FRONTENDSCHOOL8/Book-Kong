@@ -2,10 +2,9 @@ import { Outlet, useLocation } from 'react-router-dom';
 import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { loginUserData, loginWithEmail } from '../utils/controlUserData';
+import { loginUserData } from '../utils/controlUserData';
 
 function App() {
-  loginWithEmail('juhyun@naver.com', '123456789');
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
