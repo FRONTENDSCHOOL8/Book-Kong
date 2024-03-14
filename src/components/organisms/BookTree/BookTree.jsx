@@ -25,20 +25,22 @@ function BookTree() {
   }
 
   return (
-    <main className="h-screen bg-grayscale-white relative justify-end flex flex-col pt-[166px] pb-[50px] px-4 ">
+    <main className="min-h-screen bg-grayscale-white relative justify-end flex flex-col pt-[120px] pb-[50px] px-4">
       <Helmet>
         <title>책콩 | 서재 페이지 - 책나무</title>
       </Helmet>
-      <div className="flex absolute top-[120px] left-0 justify-between px-4 w-full">
-        <BookInfo
-          isLoading={isLoading}
-          height={totalBookHeight}
-          count={totalBookCount}
-        />
-        <SaveBookImg />
+      <div className="pt-[120px] overflow-scroll">
+        <div className="flex absolute top-[120px] left-0 justify-between px-4 w-full">
+          <BookInfo
+            isLoading={isLoading}
+            height={totalBookHeight}
+            count={totalBookCount}
+          />
+          <SaveBookImg />
+        </div>
+        <CharacterInfo height={totalBookHeight} />
+        <BookBlockList data={data} />
       </div>
-      <CharacterInfo height={totalBookHeight} />
-      <BookBlockList data={data} />
     </main>
   );
 }

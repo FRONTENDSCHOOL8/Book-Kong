@@ -13,8 +13,10 @@ function App() {
   }, [pathname, navigate]);
 
   useEffect(() => {
-    if (!loginUserData) navigate('/login');
-  }, [navigate]);
+    if (!loginUserData) {
+      if (pathname !== '/register') navigate('/login');
+    }
+  }, [navigate, pathname]);
 
   return (
     <>
