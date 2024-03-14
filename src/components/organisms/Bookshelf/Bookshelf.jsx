@@ -23,7 +23,7 @@ function Bookshelf() {
       if (query === '') {
         setData([...constData]);
       } else {
-        setData([...constData].filter((item) => item.title.includes(query)));
+        setData([...constData]?.filter((item) => item.title.includes(query)));
       }
     }
   }, [query, isLoading, constData]);
