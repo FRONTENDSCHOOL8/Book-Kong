@@ -1,0 +1,79 @@
+# 1조 아이엔그라운드
+
+멋쟁이 사자처럼 프론트엔드 스쿨 8기 - 파이널프로젝트 1조 <br>
+
+<br>
+
+## 📚 프로젝트 소개
+
+사용자의 독서 습관을 증진하고, 지속 가능한 독서를 위해 동기부여를 하는 프로그램을 개발하는 프로젝트 </h4>
+
+<br>
+
+## 📅 프로젝트 진행기간
+
+**2024년 2월**
+| **일** | **월** | **화** | **수** | **목** | **금** | **토** |
+|:------:|:------:|:-----------:|:------:|:------:|:------:|:------:|
+| | 18<br/>사전회의 | 19<br/>기획회의 | 20<br/>기획회의 | 21<br/>기획회의 | 22<br/>기획발표 | 23<br/>기획회의 |
+| 24 | 25 | 26 <br/>오프라인 | 27<br/>기술공유 | 28<br/>기획회의 | 29<br/>기술공유 |
+**2024년 3월**
+| **일** | **월** | **화** | **수** | **목** | **금** | **토** |
+|:------:|:------:|:-----------:|:------:|:------:|:------:|:------:|
+| | | | | | 1<br/>기능구현 | 2<br/>기능구현 |
+| 3<br/>기능구현 | 4<br/>기능구현 | 5<br/>기능구현 | 6<br/>기능구현 | 7<br/>기능구현 | 8<br/>기능구현 | 9<br/>기능구현 |
+| 10<br/>기능구현 | 11<br/>1차 배포 | 12<br/>기능구현 | 13<br/>최종 배포| 14<br/>데모데이 | | |
+<br>
+
+## 📚 기술 스택
+
+<div>
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/> 
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white"/>
+  <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=GitHub&logoColor=white"/>
+  <img src="https://img.shields.io/badge/pocketbase-B8DBE4?style=flat-square&logo=pocketbase&logoColor=black">
+</div>
+
+<br><br>
+
+## 👨‍👩‍👧‍👧 프로젝트 구성원
+
+- [김용범](https://github.com/DragonTiger92)(조장)
+- [박주현](https://github.com/juhyuny)(디자인총괄)
+- [손삼열](https://github.com/Samuel-0930)(스크럼마스터)
+- [최예은](https://github.com/yen815)(서기)
+- [허건](https://github.com/HHeoGeon)(총무)
+
+<br><br>
+
+## 디렉터리 구조 :open_file_folder:
+
+<br><br>
+
+## 📜 구현 기능
+
+### 🛠 서재
+
+### 🛠 책 등록하기
+
+### 🛠 책 상세페이지
+
+### 🛠 캐릭터 페이지
+
+### 🛠 피드 페이지
+
+### 🛠 마이 페이지
+
+### 🛠 로그인 페이지
+
+### 🛠 회원가입 페이지
+
+## 💜 개인 회고
+
+- 김용범 :
+- 박주현 :
+- 손삼열 :
+- 최예은 :
+- 허건 :
