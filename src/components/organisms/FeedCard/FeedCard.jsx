@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import convertDayFormat from '/src/utils/convertDayFormat.js';
+import { calcCentimeter, calcLevel } from '../../../utils/calcCentimeter';
 
-function FeedCard({ bookTitle, title, content, date, userInfo: { nickname } }) {
+function FeedCard({ bookTitle, title, content, date, nickname, book_height }) {
   const cardVar = {
     start: { y: 30 },
     end: { y: 0 },
@@ -11,7 +12,7 @@ function FeedCard({ bookTitle, title, content, date, userInfo: { nickname } }) {
     <motion.li
       variants={cardVar}
       whileHover={{ scale: 1.03 }}
-      className="flex flex-col gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-primary-500 list-shadow"
+      className="flex flex-col gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow"
     >
       <div className="flex items-center justify-between">
         <span className="contents-xs text-primary-500 clip-text-1">
@@ -39,7 +40,10 @@ function FeedCard({ bookTitle, title, content, date, userInfo: { nickname } }) {
         {content}
       </span>
       <div className="flex items-center gap-3 pt-4 border-t border-grayscale-200">
-        <img src="/images/characters/4단계.png" className="w-10 h-10" />
+        <img
+          src={`/images/characters/${calcLevel(calcCentimeter(book_height))}단계.png`}
+          className="w-10 h-10"
+        />
         <div className="flex flex-col gap-1">
           <span className="contents-xs text-grayscale-700 clip-text-1">
             {nickname}
@@ -58,7 +62,8 @@ FeedCard.propTypes = {
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  userInfo: PropTypes.object.isRequired,
+  nickname: PropTypes.string.isRequired,
+  book_height: PropTypes.number.isRequired,
 };
 
 export default FeedCard;

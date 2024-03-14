@@ -2,6 +2,7 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    current: 'currentColor',
     extend: {
       fontSize: {
         'nav-list': '10px',
@@ -52,7 +53,7 @@ export default {
         'badge-yellow-02': 'rgba(255, 222, 48, 1)',
         'badge-yellow': 'rgba(229, 160, 56, 1)',
         'badge-purple': 'rgba(206, 108, 239, 1)',
-        'badge-skyblue': 'rgba(117, 164, 255, 1)',
+        'badge-skyblue': 'rgba(78, 138, 255, 1)',
         'background-gray': 'rgba(246, 246, 246, 1)',
       },
     },

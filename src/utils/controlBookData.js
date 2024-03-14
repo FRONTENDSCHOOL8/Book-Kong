@@ -27,6 +27,22 @@ export async function getUserLibraryData(status = 'all', sort = 'created') {
   }
 }
 
+export async function searchLibraryData(query) {
+  if (query !== '') {
+    const resultList = await pb.collection('library').getFullList({
+      filter: `user_id = "${pb.authStore.model.id}" && title ~ "${query}"`,
+    });
+
+    return resultList;
+  } else {
+    const resultList = await pb.collection('library').getFullList({
+      filter: `user_id = "${pb.authStore.model.id}"`,
+    });
+
+    return resultList;
+  }
+}
+
 /**
  * 나의 책을 검색하는 함수
  * * 책의 status 별로 검색 가능

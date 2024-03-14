@@ -6,18 +6,12 @@ import { useQuery } from '@tanstack/react-query';
 import { getBookData } from '../../../api/searchAladin';
 
 function SearchMainContents() {
-  const [keyword, setKeyword] = useState('');
   const [query, setQuery] = useState('');
 
-  const handleChange = (e) => {
-    setKeyword(e.target.value);
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newKeyword = keyword.trim();
+    const newKeyword = e.target[0].value.trim();
     setQuery(newKeyword);
-    setKeyword('');
   };
 
   const { data, isLoading } = useQuery({
@@ -28,12 +22,7 @@ function SearchMainContents() {
 
   return (
     <main className="px-4 pt-[81px] pb-[200px] overflow-scroll h-screen">
-      <SearchBar
-        keyword={keyword}
-        setKeyword={setKeyword}
-        onChange={handleChange}
-        onSubmit={handleSubmit}
-      />
+      <SearchBar onSubmit={handleSubmit} />
       <SearchCount
         query={query}
         totalResults={data?.totalResults}

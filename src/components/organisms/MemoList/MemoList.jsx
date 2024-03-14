@@ -6,6 +6,7 @@ import { getUserMemoData } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 function MemoList() {
   const initialOrder = localStorage.getItem('order') || '최신순';
@@ -50,6 +51,9 @@ function MemoList() {
 
   return (
     <motion.main className="flex flex-col items-end bg-background-gray px-4 pb-[120px] overflow-scroll">
+      <Helmet>
+        <title>책콩 | 기록 페이지 - 메모</title>
+      </Helmet>
       <OrderButton onClick={toggleSort} order={order} />
       <motion.ul
         variants={listVar}
