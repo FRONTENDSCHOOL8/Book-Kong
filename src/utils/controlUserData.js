@@ -29,8 +29,9 @@ export async function loginWithEmail(email, password) {
 export function clearLoginUserData() {
   if (loginUserData) {
     pb.authStore.clear();
+    return true;
   } else {
-    return '현재 로그인된 정보가 없습니다.';
+    return false;
   }
 }
 

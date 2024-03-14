@@ -25,6 +25,11 @@ function App() {
       ) : (
         <GlobalNavigator />
       )}
+      {pathname === '/login' || pathname === '/register' ? (
+        ''
+      ) : (
+        <GlobalNavigator />
+      )}
     </>
   );
 }
