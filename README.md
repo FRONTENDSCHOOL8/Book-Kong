@@ -17,7 +17,8 @@
 |:------:|:------:|:-----------:|:------:|:------:|:------:|:------:|
 | | 18<br/>사전회의 | 19<br/>기획회의 | 20<br/>기획회의 | 21<br/>기획회의 | 22<br/>기획발표 | 23<br/>기획회의 |
 | 24 | 25 | 26 <br/>오프라인 | 27<br/>기술공유 | 28<br/>기획회의 | 29<br/>기술공유 |
-<br>
+
+
 **2024년 3월**
 | **일** | **월** | **화** | **수** | **목** | **금** | **토** |
 |:------:|:------:|:-----------:|:------:|:------:|:------:|:------:|
@@ -42,6 +43,7 @@
   <img src="https://img.shields.io/badge/reactHelmetAsync-61DAFB?style=for-the-badge&logo=reactHelmetAsync&logoColor=white"> 
   <img src="https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white">
   <img src="https://img.shields.io/badge/-Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white">
+  <br>
   <img src="https://img.shields.io/badge/pnpm-%234a4a4a.svg?style=for-the-badge&logo=pnpm&logoColor=f69220">
   <img src="https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white">
   <img src="https://img.shields.io/badge/netlify-%23000000.svg?style=for-the-badge&logo=netlify&logoColor=#00C7B7">
