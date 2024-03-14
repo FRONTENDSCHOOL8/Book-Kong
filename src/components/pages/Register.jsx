@@ -8,6 +8,7 @@ import Or from '../atoms/Or/Or';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SnsIcons from './../atoms/SnsIcon/SnsIcon';
 import Link from '../molecules/Link/Link';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
 export default function Register() {
@@ -28,6 +29,8 @@ export default function Register() {
   const [isEmail, setIsEmail] = useState(false);
   const [isPwd, setIsPwd] = useState(false);
   const [isConfirm, setIsConfirm] = useState(false);
+
+  const navigate = useNavigate();
 
   // onchange 닉네임
 
@@ -109,6 +112,11 @@ export default function Register() {
   const handleSubmit = (e) => {
     e.preventDefault();
     signUpUser(nickname, email, password);
+
+    if (isNickname && isEmail && isPwd && isConfirm) {
+      alert('축하합니다! 로그인페이지로 이동합니다.');
+      navigate('/login');
+    }
   };
 
   // 클릭 시 비밀번호 보이게
