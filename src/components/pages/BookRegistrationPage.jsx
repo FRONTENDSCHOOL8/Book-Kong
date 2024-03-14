@@ -6,7 +6,7 @@ function BookRegistrationPage() {
   return (
     <>
       <Helmet>
-        <title>직접 입력하기 페이지</title>
+        <title>책콩 | 직접 입력하기 페이지</title>
       </Helmet>
       <Header title={'직접 입력하기'} />
       <main className="bg-grayscale-white mt-2 border-t-[1px] pt-[81px] pb-[120px] border-grayscale-100 px-4">

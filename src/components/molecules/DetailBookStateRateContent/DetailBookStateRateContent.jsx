@@ -4,7 +4,7 @@ import Rate from "../../atoms/Rate/Rate";
 
 function DetailBookStateRate() {
   return (
-    <div className="flex text-grayscale-900">
+    <div className="flex gap-1 text-primary-500 contents-md-bold">
       <Star />
       <Rate rate="4.5"/>
     </div>

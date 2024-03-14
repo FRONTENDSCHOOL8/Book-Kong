@@ -14,11 +14,10 @@ function MemoCard({ title, contents, date }) {
     <motion.li
       variants={cardVar}
       whileHover={{ scale: 1.03 }}
-      className="list-shadow"
     >
       <a
         href="/"
-        className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative"
+        className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative list-shadow border border-grayscale-100"
       >
         <ContextButtonVertical />
         <RecordTitle title={title} />

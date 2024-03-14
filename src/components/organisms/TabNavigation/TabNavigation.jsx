@@ -50,7 +50,7 @@ function TabNavigation({ page }) {
         </nav>
       )}
       {page === '상세페이지' && (
-        <nav onClick={handleClick} className="sticky top-0 px-4 bg-background-gray">
+        <nav onClick={handleClick} className="sticky px-4 bg-background-gray left-0 top-[57px] z-20">
           <ul className="flex items-center justify-start h-[54px]">
             <li className="w-[33.3333%] h-full">
               <TabLink path={'#bookInfo'} title={'책 정보'} button={button} />

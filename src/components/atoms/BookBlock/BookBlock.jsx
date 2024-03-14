@@ -19,10 +19,10 @@ function BookBlock({ title, page, index }) {
   // 케이스 별 클래스 이름 병합
   switch (index % 3) {
     case 0:
-      classNames += ' translate-x-[-24px] bg-primary-500 text-white';
+      classNames += ' ml-[-24px] bg-primary-500 text-white';
       break;
     case 1:
-      classNames += ' translate-x-6 bg-badge-yellow text-primary-500';
+      classNames += ' ml-6 bg-badge-yellow text-primary-500';
       break;
     case 2:
       classNames += ' bg-badge-yellow-02 text-grayscale-900';

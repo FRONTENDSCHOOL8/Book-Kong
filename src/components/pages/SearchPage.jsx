@@ -6,7 +6,7 @@ function SearchPage() {
   return (
     <>
       <Helmet>
-        <title>검색 페이지</title>
+        <title>책콩 | 검색 페이지</title>
       </Helmet>
       <Header title={'검색하기'} />
       <SearchMainContents />
