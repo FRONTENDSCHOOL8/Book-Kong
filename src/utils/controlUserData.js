@@ -13,8 +13,10 @@ import pb from '/src/api/pocketbase';
  */
 export async function loginWithEmail(email, password) {
   try {
-    await pb.collection('users').authWithPassword(email, password);
-    return loginUserData;
+    const result = await pb
+      .collection('users')
+      .authWithPassword(email, password);
+    return result.record;
   } catch (error) {
     return false;
   }

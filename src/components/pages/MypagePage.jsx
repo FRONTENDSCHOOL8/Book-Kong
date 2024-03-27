@@ -14,11 +14,11 @@ export default function MypagePage() {
 
   const handleClick = () => {
     const bool = clearLoginUserData();
-    console.log(bool);
     if (bool) {
       alert('로그아웃이 되었습니다.');
       // 로그아웃시 로그인페이지로 이동
       navigate('/login');
+      location.reload(true);
     }
   };
 
