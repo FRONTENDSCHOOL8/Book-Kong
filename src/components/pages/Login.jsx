@@ -60,6 +60,7 @@ export default function Login() {
     } else {
       // 성공 시 'library/booktree' 경로로 이동
       navigate('/library/booktree');
+      location.reload(true);
     }
   };
 

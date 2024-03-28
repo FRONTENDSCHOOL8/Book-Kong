@@ -1,10 +1,10 @@
-import BookBlockList from './../../molecules/BookBlockList/BookBlockList';
-import SaveBookImg from './../../atoms/SaveBookImg/SaveBookImg';
-import BookInfo from '../../molecules/BookInfo/BookInfo';
 import { useQuery } from '@tanstack/react-query';
-import { getUserLibraryData } from '/src/utils/controlBookData';
-import CharacterInfo from '../../molecules/CharacterInfo/CharacterInfo';
 import { Helmet } from 'react-helmet-async';
+import BookInfo from '../../molecules/BookInfo/BookInfo';
+import CharacterInfo from '../../molecules/CharacterInfo/CharacterInfo';
+import SaveBookImg from './../../atoms/SaveBookImg/SaveBookImg';
+import BookBlockList from './../../molecules/BookBlockList/BookBlockList';
+import { getUserLibraryData } from '/src/utils/controlBookData';
 
 function BookTree() {
   const { data, isLoading } = useQuery({
@@ -29,7 +29,7 @@ function BookTree() {
       <Helmet>
         <title>책콩 | 서재 페이지 - 책나무</title>
       </Helmet>
-      <div className="pt-[120px] overflow-scroll">
+      <div className="pt-[120px] overflow-auto">
         <div className="flex absolute top-[120px] left-0 justify-between px-4 w-full">
           <BookInfo
             isLoading={isLoading}
