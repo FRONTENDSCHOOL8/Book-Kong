@@ -1,36 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { searchLibraryData } from '../../../utils/controlBookData';
-import { loginUserData } from '../../../utils/controlUserData';
 import Filter from '../../molecules/Filter/Filter';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import List from '../List/List';
+import { useBookshelfData } from '../../../hooks/useBookshelfData';
 
 function Bookshelf() {
   const [filter, setFilter] = useState('전체');
   const [query, setQuery] = useState('');
-  const [data, setData] = useState([]);
 
-  const { data: constData, isLoading } = useQuery({
-    queryKey: ['bookshelf', loginUserData.id],
-    queryFn: () => searchLibraryData(query),
-  });
-
-  useEffect(() => {
-    if (!isLoading && constData) {
-      if (query === '') {
-        setData([...constData]);
-      } else {
-        setData([...constData]?.filter((item) => item.title.includes(query)));
-      }
-    }
-  }, [query, isLoading, constData]);
+  const { data } = useBookshelfData(query);
 
   const handleClick = (e) => {
     const button = e.target.closest('button');
     if (!button) return;
-
     setFilter(button.innerText);
   };
 
