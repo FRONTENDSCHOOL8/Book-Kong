@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { getRandomNumber } from '../../../utils/getRandomNumber';
-import CardImage from '../../atoms/CardImage/CardImage';
-import CardInfo from '../CardInfo/CardInfo';
+import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
+import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import { useLocation } from 'react-router-dom';
-function Card({ data }) {
+function BookCard({ data }) {
   const CardVar = {
     start: { y: 20 },
     end: { y: 0 },
@@ -26,15 +26,15 @@ function Card({ data }) {
         }
         className="flex w-full"
       >
-        <CardImage data={data} />
-        <CardInfo data={data} />
+        <BookCardImage data={data} />
+        <BookCardInfo data={data} />
       </a>
     </motion.li>
   );
 }
 
-Card.propTypes = {
+BookCard.propTypes = {
   data: PropTypes.object,
 };
 
-export default Card;
+export default BookCard;

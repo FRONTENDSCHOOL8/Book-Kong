@@ -1,4 +1,4 @@
-import Card from '../../molecules/Card/Card';
+import Card from '../../molecules/BookCard/BookCard';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
