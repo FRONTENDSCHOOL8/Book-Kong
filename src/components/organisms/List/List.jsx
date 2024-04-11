@@ -3,13 +3,6 @@ import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 function List({ data }) {
-  const ListVar = {
-    start: { opacity: 0 },
-    end: {
-      opacity: 1,
-      transition: { type: 'spring', mass: 0.8, staggerChildren: 0.05 },
-    },
-  };
   return (
     <motion.ul
       variants={ListVar}
@@ -23,6 +16,14 @@ function List({ data }) {
     </motion.ul>
   );
 }
+
+const ListVar = {
+  start: { opacity: 0 },
+  end: {
+    opacity: 1,
+    transition: { type: 'spring', mass: 0.8, staggerChildren: 0.05 },
+  },
+};
 
 List.propTypes = {
   data: PropTypes.arrayOf(object),

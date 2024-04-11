@@ -5,11 +5,6 @@ import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import { useLocation } from 'react-router-dom';
 function BookCard({ data }) {
-  const CardVar = {
-    start: { y: 20 },
-    end: { y: 0 },
-  };
-
   const { pathname } = useLocation();
 
   return (
@@ -32,6 +27,11 @@ function BookCard({ data }) {
     </motion.li>
   );
 }
+
+const CardVar = {
+  start: { y: 20 },
+  end: { y: 0 },
+};
 
 BookCard.propTypes = {
   data: PropTypes.object,
