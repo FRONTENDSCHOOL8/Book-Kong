@@ -2,33 +2,33 @@ import { useState } from 'react';
 import { signUpUser } from '../../utils/controlUserData';
 import debounce from '../../utils/debounce';
 import checkPbDuplication from '../../utils/checkPbDuplication';
-import InputField from '../atoms/InputField/InputField';
-import SignupButton from '../atoms/SignupButton/SignUpButton';
-import Or from '../atoms/Or/Or';
+import SignUpButton from '../atoms/SignUpButton/SignUpButton';
+import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
-import SnsIcons from './../atoms/SnsIcon/SnsIcon';
+import SnsIcons from '../atoms/SnsIcon/SnsIcon';
 import Link from '../molecules/Link/Link';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import FormInputBox from '../molecules/FormInputBox/FormInputBox';
 
-export default function Register() {
+function RegisterPage() {
   // 초기값 세팅
   const [nickname, setNickname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirm, setConfirm] = useState('');
+  const [confirmPwd, setConfirmPwd] = useState('');
 
   // 오류메세지 상태
-  const [nicknameMessage, setNicknameMessage] = useState('');
-  const [emailMessage, setEmailMessage] = useState('');
-  const [PwdMessage, setPwdMessage] = useState('');
-  const [confirmMessage, setConfirmMessage] = useState('');
+  const [nicknameErrorMsg, setNicknameErrorMsg] = useState('');
+  const [emailErrorMsg, setEmailErrorMsg] = useState('');
+  const [PwdErrorMsg, setPwdErrorMsg] = useState('');
+  const [confirmPwdErrorMsg, setConfirmPwdErrorMsg] = useState('');
 
   // 유효성 검사
-  const [isNickname, setIsNickname] = useState(false);
-  const [isEmail, setIsEmail] = useState(false);
-  const [isPwd, setIsPwd] = useState(false);
-  const [isConfirm, setIsConfirm] = useState(false);
+  const [isNicknameValid, setIsNicknameValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isPwdValid, setIsPwdValid] = useState(false);
+  const [isConfirmPwdValid, setIsConfirmPwdValid] = useState(false);
 
   const navigate = useNavigate();
 
@@ -42,14 +42,14 @@ export default function Register() {
       value: currentNickname,
     });
     if (currentNickname.length < 2 || currentNickname.length > 5) {
-      setNicknameMessage('닉네임의 형식이 올바르지 않습니다!');
-      setIsNickname(false);
+      setNicknameErrorMsg('닉네임의 형식이 올바르지 않습니다!');
+      setIsNicknameValid(false);
     } else if (nicknameDuplicated) {
-      setNicknameMessage('중복된 데이터입니다.');
-      setIsNickname(false);
+      setNicknameErrorMsg('중복된 데이터입니다.');
+      setIsNicknameValid(false);
     } else {
-      setNicknameMessage('사용가능한 닉네임입니다😊');
-      setIsNickname(true);
+      setNicknameErrorMsg('사용가능한 닉네임입니다😊');
+      setIsNicknameValid(true);
     }
   });
 
@@ -65,14 +65,14 @@ export default function Register() {
     const emailRegExp =
       /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
     if (!emailRegExp.test(currentEmail)) {
-      setEmailMessage('이메일의 형식이 올바르지 않습니다!');
-      setIsEmail(false);
+      setEmailErrorMsg('이메일의 형식이 올바르지 않습니다!');
+      setIsEmailValid(false);
     } else if (emailDuplicated) {
-      setEmailMessage('중복된 이메일입니다.');
-      setIsEmail(false);
+      setEmailErrorMsg('중복된 이메일입니다.');
+      setIsEmailValid(false);
     } else {
-      setEmailMessage('사용 가능한 이메일 입니다😊');
-      setIsEmail(true);
+      setEmailErrorMsg('사용 가능한 이메일 입니다😊');
+      setIsEmailValid(true);
     }
   });
 
@@ -84,11 +84,11 @@ export default function Register() {
     const PwdRegExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
 
     if (!PwdRegExp.test(currentPwd)) {
-      setPwdMessage('숫자,영문자,특수문자 조합으로 8자리 이상 입력해주세요!');
-      setIsPwd(false);
+      setPwdErrorMsg('숫자,영문자,특수문자 조합으로 8자리 이상 입력해주세요!');
+      setIsPwdValid(false);
     } else {
-      setPwdMessage('사용가능한 비밀번호입니다😊');
-      setIsPwd(true);
+      setPwdErrorMsg('사용가능한 비밀번호입니다😊');
+      setIsPwdValid(true);
     }
   };
 
@@ -96,14 +96,14 @@ export default function Register() {
 
   const onChangeConfirm = (e) => {
     const currentConfirm = e.target.value;
-    setConfirm(currentConfirm);
+    setConfirmPwd(currentConfirm);
 
     if (password !== currentConfirm) {
-      setConfirmMessage('비밀번호가 다릅니다.');
-      setIsConfirm(false);
+      setConfirmPwdErrorMsg('비밀번호가 다릅니다.');
+      setIsConfirmPwdValid(false);
     } else {
-      setConfirmMessage('사용가능한 비밀번호입니다😊');
-      setIsConfirm(true);
+      setConfirmPwdErrorMsg('사용가능한 비밀번호입니다😊');
+      setIsConfirmPwdValid(true);
     }
   };
 
@@ -113,8 +113,8 @@ export default function Register() {
     e.preventDefault();
     signUpUser(nickname, email, password);
 
-    if (isNickname && isEmail && isPwd && isConfirm) {
-      alert('축하합니다! 로그인페이지로 이동합니다.');
+    if (isNicknameValid && isEmailValid && isPwdValid && isConfirmPwdValid) {
+      alert('축하합니다! 로그인 페이지로 이동합니다.');
       navigate('/login');
     }
   };
@@ -154,7 +154,7 @@ export default function Register() {
         }
       />
       <form className="mt-11" onSubmit={handleSubmit}>
-        <InputField
+        <FormInputBox
           label="닉네임"
           id="nickname"
           type="text"
@@ -162,13 +162,16 @@ export default function Register() {
           placeholder="닉네임을 입력해주세요"
           onChange={onChangeNickname}
         />
-        <p className={isNickname ? 'text-green-500 mt-2' : 'text-red-500 mt-2'}>
-          {nicknameMessage}
+        <p
+          className={
+            isNicknameValid ? 'text-green-500 mt-2' : 'text-red-500 mt-2'
+          }
+        >
+          {nicknameErrorMsg}
         </p>
-
         <div className="flex flex-col mt-11 gap-7">
           <div>
-            <InputField
+            <FormInputBox
               label="이메일"
               id="email"
               type="email"
@@ -177,14 +180,16 @@ export default function Register() {
               onChange={onChangeEmail}
             />
             <p
-              className={isEmail ? 'text-green-500 mt-2' : 'text-red-500 mt-2'}
+              className={
+                isEmailValid ? 'text-green-500 mt-2' : 'text-red-500 mt-2'
+              }
             >
-              {emailMessage}
+              {emailErrorMsg}
             </p>
           </div>
-          <div className="relative ">
+          <div className="relative">
             <div>
-              <InputField
+              <FormInputBox
                 label="비밀번호"
                 id="password"
                 type={pwType.type}
@@ -193,9 +198,11 @@ export default function Register() {
                 onChange={onChangePwd}
               />
               <p
-                className={isPwd ? 'text-green-500 mt-2' : 'text-red-500 mt-2'}
+                className={
+                  isPwdValid ? 'text-green-500 mt-2' : 'text-red-500 mt-2'
+                }
               >
-                {PwdMessage}
+                {PwdErrorMsg}
               </p>
             </div>
             <img
@@ -209,35 +216,42 @@ export default function Register() {
             ></img>
           </div>
           <div>
-            <InputField
+            <FormInputBox
               label="비밀번호 확인"
               id="password-repeat"
               type="password"
               placeholder="비밀번호를 한 번 더 입력해주세요"
               onChange={onChangeConfirm}
-              value={confirm}
+              value={confirmPwd}
             />
             <p
               className={
-                isConfirm ? 'text-green-500 mt-2' : 'text-red-500 mt-2'
+                isConfirmPwdValid ? 'text-green-500 mt-2' : 'text-red-500 mt-2'
               }
             >
-              {confirmMessage}
+              {confirmPwdErrorMsg}
             </p>
           </div>
         </div>
-
-        <SignupButton
-          disabled={!(isNickname && isEmail && isPwd && isConfirm)}
-          text="회원가입"
+        <SignUpButton
+          disabled={
+            !(
+              isNicknameValid &&
+              isEmailValid &&
+              isPwdValid &&
+              isConfirmPwdValid
+            )
+          }
           className={`${
-            isNickname && isEmail && isPwd && isConfirm
+            isNicknameValid && isEmailValid && isPwdValid && isConfirmPwdValid
               ? 'bg-[#F24822]'
               : 'bg-[#CCCCCC]'
           }`}
-        />
+        >
+          회원가입
+        </SignUpButton>
       </form>
-      <Or />
+      <SnsDivider />
       <SnsIcons />
       <p className="text-center mt-10 text-[#AAA]">
         이미 계정이 있으신가요?{' '}
@@ -255,3 +269,5 @@ export default function Register() {
     </div>
   );
 }
+
+export default RegisterPage;

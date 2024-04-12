@@ -11,8 +11,8 @@ import BookRegistrationPage from './components/pages/BookRegistrationPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 import DetailPage from './components/pages/DetailPage';
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
+import LoginPage from './components/pages/LoginPage';
+import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -39,11 +39,11 @@ const router = createBrowserRouter([
       },
       {
         path: 'login',
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: 'register',
-        element: <Register />,
+        element: <RegisterPage />,
       },
       {
         path: 'library',

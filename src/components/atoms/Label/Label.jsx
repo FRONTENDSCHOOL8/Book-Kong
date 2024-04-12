@@ -16,7 +16,7 @@ function Label({
     );
   }
   return (
-    <label htmlFor={id} className={className}>
+    <label htmlFor={id} className={className} {...restProps}>
       {children}
     </label>
   );

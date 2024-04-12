@@ -1,23 +1,23 @@
 import { useState } from 'react';
 import { loginWithEmail } from '../../utils/controlUserData';
 import debounce from '../../utils/debounce';
-import InputField from '../atoms/InputField/InputField';
-import Or from '../atoms/Or/Or';
+import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
-import SignupButton from '../atoms/SignupButton/SignUpButton';
+import SignUpButton from '../atoms/SignUpButton/SignUpButton';
 import SnsIcon from '../atoms/SnsIcon/SnsIcon';
 import { useNavigate } from 'react-router-dom';
 import Link from '../molecules/Link/Link';
 import { Helmet } from 'react-helmet-async';
+import FormInputBox from '../molecules/FormInputBox/FormInputBox';
 
-export default function Login() {
+function LoginPage() {
   const [email, setEmail] = useState('');
-  const [emailMessage, setEmailMessage] = useState('');
-  const [isEmail, setIsEmail] = useState(false);
+  const [emailErrorMsg, setEmailErrorMsg] = useState('');
+  const [isEmailValid, setIsEmailValid] = useState(false);
 
   const [password, setPassword] = useState('');
-  const [PwdMessage, setPwdMessage] = useState('');
-  const [isPwd, setIsPwd] = useState(false);
+  const [PwdErrorMsg, setPwdErrorMsg] = useState('');
+  const [isPwdValid, setIsPwdValid] = useState(false);
 
   const navigate = useNavigate();
 
@@ -28,11 +28,11 @@ export default function Login() {
     const emailRegExp =
       /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
     if (!emailRegExp.test(currentEmail)) {
-      setEmailMessage('이메일의 형식이 올바르지 않습니다!');
-      setIsEmail(false);
+      setEmailErrorMsg('이메일의 형식이 올바르지 않습니다!');
+      setIsEmailValid(false);
     } else {
-      setEmailMessage('');
-      setIsEmail(true);
+      setEmailErrorMsg('');
+      setIsEmailValid(true);
     }
   });
 
@@ -42,11 +42,11 @@ export default function Login() {
     const PwdRegExp = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
 
     if (!PwdRegExp.test(currentPwd)) {
-      setPwdMessage('숫자,영문자,특수문자 조합으로 8자리 이상 입력해주세요!');
-      setIsPwd(false);
+      setPwdErrorMsg('숫자,영문자,특수문자 조합으로 8자리 이상 입력해주세요!');
+      setIsPwdValid(false);
     } else {
-      setPwdMessage('');
-      setIsPwd(true);
+      setPwdErrorMsg('');
+      setIsPwdValid(true);
     }
   };
 
@@ -74,7 +74,7 @@ export default function Login() {
         message="책을 읽고, 기록하고, 완독하면 책을 쌓을 수 있어요!"
       />
       <form className="mt-11" onSubmit={handleSubmit}>
-        <InputField
+        <FormInputBox
           label="이메일"
           id="email"
           type="email"
@@ -82,10 +82,10 @@ export default function Login() {
           placeholder="이메일을 입력해주세요."
           onChange={onChangeEmail}
         />
-
-        <p className={isEmail ? '' : 'text-red-500 mt-2'}>{emailMessage}</p>
-
-        <InputField
+        <p className={isEmailValid ? '' : 'text-red-500 mt-2'}>
+          {emailErrorMsg}
+        </p>
+        <FormInputBox
           label="비밀번호"
           id="password"
           type="password"
@@ -93,15 +93,15 @@ export default function Login() {
           placeholder="비밀번호를 입력해주세요."
           onChange={onChangePwd}
         />
-        <p className={isPwd ? '' : 'text-red-500 mt-2'}>{PwdMessage}</p>
-
-        <SignupButton
-          disabled={!(isEmail && isPwd)}
-          text="로그인"
-          className={`${isEmail && isPwd ? 'bg-[#F24822]' : 'bg-[#CCCCCC]'}`}
-        />
+        <p className={isPwdValid ? '' : 'text-red-500 mt-2'}>{PwdErrorMsg}</p>
+        <SignUpButton
+          disabled={!(isEmailValid && isPwdValid)}
+          className={`${isEmailValid && isPwdValid ? 'bg-[#F24822]' : 'bg-[#CCCCCC]'}`}
+        >
+          로그인
+        </SignUpButton>
       </form>
-      <Or text="또는" />
+      <SnsDivider />
       <SnsIcon />
       <div className="flex items-center justify-center gap-3 mt-20">
         <a className="text-[#848484]">회원가입</a>
@@ -112,3 +112,5 @@ export default function Login() {
     </div>
   );
 }
+
+export default LoginPage;

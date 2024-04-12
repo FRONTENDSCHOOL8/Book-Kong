@@ -1,8 +1,8 @@
-import Or from './Or';
+import FormInput from './FormInput';
 
 const metaConfig = {
-  title: 'components/Or',
-  component: Or,
+  title: 'components/FormInput',
+  component: FormInput,
   tags: ['autodocs'],
   args: {},
 };
@@ -12,4 +12,4 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = 'Or';
+Base.storyName = 'FormInput';
