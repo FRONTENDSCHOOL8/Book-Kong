@@ -7,13 +7,11 @@ const metaConfig = {
   tags: ['autodocs'],
   args: {
     as: 'span',
-    className: '',
-    restProps: {},
+    children: 'A11yHidden 컴포넌트',
   },
   argTypes: {
     as: createArgTypesControl('text'),
-    className: createArgTypesControl('text'),
-    restProps: createArgTypesControl('object'),
+    children: createArgTypesControl('array'),
   },
 };
 
@@ -22,6 +20,7 @@ export default metaConfig;
 export const HiddenH2 = {
   args: {
     as: 'h2',
+    children: '감춰진 h2 요소',
   },
 };
 HiddenH2.storyName = '감춰진 h2 요소';
