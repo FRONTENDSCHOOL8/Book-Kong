@@ -1,13 +1,16 @@
 import { arrayOf, number, shape, string } from 'prop-types';
 import BookBlock from '../../atoms/BookBlock/BookBlock';
+import { useMemo } from 'react';
 
 function BookBlockList({ data }) {
+  const bookBlocks = useMemo(() => {
+    return data?.map(({ id, title, total_page }, index) => (
+      <BookBlock key={id} title={title} page={total_page} index={index} />
+    ));
+  }, [data]);
+
   return (
-    <ul className="flex flex-col justify-center items-center">
-      {data?.map(({ id, title, total_page }, index) => (
-        <BookBlock key={id} title={title} page={total_page} index={index} />
-      ))}
-    </ul>
+    <ul className="flex flex-col justify-center items-center">{bookBlocks}</ul>
   );
 }
 
