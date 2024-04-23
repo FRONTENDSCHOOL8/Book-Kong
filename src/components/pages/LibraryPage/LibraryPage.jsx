@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom';
-import Header from '../organisms/Header/Header/Header';
+import Header from '../../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
 
-export default function LibraryPage() {
+function LibraryPage() {
   return (
     <>
       <Helmet>
@@ -13,3 +13,5 @@ export default function LibraryPage() {
     </>
   );
 }
+
+export default LibraryPage;

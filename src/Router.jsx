@@ -1,13 +1,13 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '/src/app/App';
-import LibraryPage from '/src/components/pages/LibraryPage';
+import LibraryPage from './components/pages/LibraryPage/LibraryPage';
 import RecordPage from '/src/components/pages/RecordPage';
 import FeedPage from '/src/components/pages/FeedPage';
 import CharacterPage from '/src/components/pages/CharacterPage';
 import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
 import SearchPage from './components/pages/SearchPage';
-import BookRegistrationPage from './components/pages/BookRegistrationPage';
+import BookRegisterPage from './components/pages/BookRegisterPage/BookRegisterPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 import DetailPage from './components/pages/DetailPage';
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'library/book-registration',
-        element: <BookRegistrationPage />,
+        element: <BookRegisterPage />,
       },
       {
         path: 'login',

@@ -1,4 +1,5 @@
 import FormInputBox from './FormInputBox';
+import { createArgTypesControl } from '../../../utils/StoryBook';
 
 const onChangeEmail = () => {
   return 'change e-mail';
@@ -21,6 +22,14 @@ export const EmailInputBox = {
     placeholder: '이메일을 입력해주세요',
     value: 'bookkong@fes8.dev',
     onChange: onChangeEmail,
+  },
+  argTypes: {
+    label: createArgTypesControl(),
+    id: createArgTypesControl(),
+    type: createArgTypesControl(),
+    placeholder: createArgTypesControl(),
+    value: createArgTypesControl(),
+    onChange: createArgTypesControl(),
   },
 };
 EmailInputBox.storyName = '이메일 인풋 컨테이너';

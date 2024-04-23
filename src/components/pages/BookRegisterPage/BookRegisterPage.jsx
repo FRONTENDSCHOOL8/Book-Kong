@@ -1,8 +1,8 @@
 import { Helmet } from 'react-helmet-async';
-import Header from '../organisms/Header/Header/Header';
-import BookRegistForm from '../organisms/BookRegistForm/BookRegistForm';
+import Header from '../../organisms/Header/Header/Header';
+import BookRegistForm from '../../organisms/BookRegistForm/BookRegistForm';
 
-function BookRegistrationPage() {
+function BookRegisterPage() {
   return (
     <>
       <Helmet>
@@ -16,4 +16,4 @@ function BookRegistrationPage() {
   );
 }
 
-export default BookRegistrationPage;
+export default BookRegisterPage;

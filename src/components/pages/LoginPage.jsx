@@ -4,11 +4,12 @@ import debounce from '../../utils/debounce';
 import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SignUpButton from '../atoms/SignUpButton/SignUpButton';
-import SnsIcon from '../atoms/SnsIcon/SnsIcon';
+import SnsIcons from '../atoms/SnsIcons/SnsIcons';
 import { useNavigate } from 'react-router-dom';
 import Link from '../molecules/Link/Link';
 import { Helmet } from 'react-helmet-async';
 import FormInputBox from '../molecules/FormInputBox/FormInputBox';
+import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -69,6 +70,7 @@ function LoginPage() {
       <Helmet>
         <title>책콩 | 로그인 페이지</title>
       </Helmet>
+      <A11yHidden as="h2">로그인</A11yHidden>
       <SignUpPrompt
         title="나만의 책나무를 만들어 볼까요?"
         message="책을 읽고, 기록하고, 완독하면 책을 쌓을 수 있어요!"
@@ -102,7 +104,7 @@ function LoginPage() {
         </SignUpButton>
       </form>
       <SnsDivider />
-      <SnsIcon />
+      <SnsIcons />
       <div className="flex items-center justify-center gap-3 mt-20">
         <a className="text-[#848484]">회원가입</a>
         <div className=" bg-[#AAA] w-[1px] h-3"></div>

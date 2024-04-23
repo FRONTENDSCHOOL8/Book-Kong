@@ -1,8 +1,8 @@
-import SnsIcon from './SnsIcon';
+import SnsIcons from './SnsIcons';
 
 const metaConfig = {
-  title: 'components/SnsIcon',
-  component: SnsIcon,
+  title: 'components/SnsIcons',
+  component: SnsIcons,
   tags: ['autodocs'],
   args: {},
 };
@@ -12,4 +12,4 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = 'SnsIcon';
+Base.storyName = 'SnsIcons';

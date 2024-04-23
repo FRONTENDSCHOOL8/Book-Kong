@@ -1,4 +1,4 @@
-const SnsIcon = () => {
+function SnsIcons() {
   return (
     <div className="flex gap-4 justify-center mt-[31px]">
       <a href="#">
@@ -15,6 +15,6 @@ const SnsIcon = () => {
       </a>
     </div>
   );
-};
+}
 
-export default SnsIcon;
+export default SnsIcons;

@@ -5,7 +5,7 @@ import checkPbDuplication from '../../utils/checkPbDuplication';
 import SignUpButton from '../atoms/SignUpButton/SignUpButton';
 import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
-import SnsIcons from '../atoms/SnsIcon/SnsIcon';
+import SnsIcons from '../atoms/SnsIcons/SnsIcons';
 import Link from '../molecules/Link/Link';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -37,14 +37,14 @@ function RegisterPage() {
   const onChangeNickname = debounce(async (e) => {
     const currentNickname = e.target.value;
     setNickname(currentNickname);
-    const nicknameDuplicated = await checkPbDuplication({
+    const isNicknameDuplicated = await checkPbDuplication({
       field: 'nickname',
       value: currentNickname,
     });
     if (currentNickname.length < 2 || currentNickname.length > 5) {
       setNicknameErrorMsg('닉네임의 형식이 올바르지 않습니다!');
       setIsNicknameValid(false);
-    } else if (nicknameDuplicated) {
+    } else if (isNicknameDuplicated) {
       setNicknameErrorMsg('중복된 데이터입니다.');
       setIsNicknameValid(false);
     } else {
@@ -58,7 +58,7 @@ function RegisterPage() {
   const onChangeEmail = debounce(async (e) => {
     const currentEmail = e.target.value;
     setEmail(currentEmail);
-    const emailDuplicated = await checkPbDuplication({
+    const isEmailDuplicated = await checkPbDuplication({
       field: 'email',
       value: currentEmail,
     });
@@ -67,7 +67,7 @@ function RegisterPage() {
     if (!emailRegExp.test(currentEmail)) {
       setEmailErrorMsg('이메일의 형식이 올바르지 않습니다!');
       setIsEmailValid(false);
-    } else if (emailDuplicated) {
+    } else if (isEmailDuplicated) {
       setEmailErrorMsg('중복된 이메일입니다.');
       setIsEmailValid(false);
     } else {
@@ -107,7 +107,7 @@ function RegisterPage() {
     }
   };
 
-  // db로 보내기
+  // DB로 보내기
 
   const handleSubmit = (e) => {
     e.preventDefault();
