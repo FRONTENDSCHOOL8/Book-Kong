@@ -13,9 +13,9 @@ import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
 import DetailPage from './components/pages/DetailPage';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
-import Splash from './components/pages/Splash';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
+import Splash from './components/pages/Splash';
 
 const router = createBrowserRouter([
   {
