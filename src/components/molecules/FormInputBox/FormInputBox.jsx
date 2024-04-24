@@ -14,7 +14,7 @@ function FormInputBox({ label, id, type, placeholder, value, onChange }) {
           id={id}
           type={type}
           placeholder={placeholder}
-          defaultValue={value}
+          value={value}
           onChange={onChange}
         />
       </div>
