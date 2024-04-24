@@ -182,6 +182,10 @@
 /*                    SPLASH                    */
 /* -------------------------------------------- */
 
+.splash-delay {
+  animation-delay: .4s;
+}
+
 .animate-splash {
   animation-fill-mode: forwards;
 }
