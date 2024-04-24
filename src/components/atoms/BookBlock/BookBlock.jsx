@@ -1,9 +1,10 @@
 import { number, string } from 'prop-types';
 import BookTitle from '../../subatoms/BookTitle/BookTitle';
+import { memo } from 'react';
 
 // 페이지 별 키(key)에 설정할 높이를 아래처럼 작성합니다.
 
-function BookBlock({ title, page, index }) {
+const BookBlock = memo(function BookBlock({ title, page, index }) {
   const pageMap = {
     page: `h-[${Math.max(page * 0.1, 24)}px]`,
   };
@@ -38,7 +39,7 @@ function BookBlock({ title, page, index }) {
       <BookTitle>{title}</BookTitle>
     </li>
   );
-}
+});
 
 BookBlock.propTypes = {
   title: string,

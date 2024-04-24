@@ -1,8 +1,7 @@
 import { arrayOf, number, shape, string } from 'prop-types';
 import BookBlock from '../../atoms/BookBlock/BookBlock';
-import { memo } from 'react';
 
-const BookBlockList = memo(function BookBlockList({ data }) {
+const BookBlockList = function BookBlockList({ data }) {
   return (
     <ul className="flex flex-col justify-center items-center">
       {data?.map(({ id, title, total_page }, index) => (
@@ -10,7 +9,7 @@ const BookBlockList = memo(function BookBlockList({ data }) {
       ))}
     </ul>
   );
-});
+};
 
 BookBlockList.propTypes = {
   data: arrayOf(
