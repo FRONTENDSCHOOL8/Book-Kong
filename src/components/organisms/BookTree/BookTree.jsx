@@ -9,7 +9,7 @@ import { getUserLibraryData } from '/src/utils/controlBookData';
 function BookTree() {
   const { data, isLoading } = useQuery({
     queryKey: ['book'],
-    queryFn: getUserLibraryData('완독'),
+    queryFn: () => getUserLibraryData('완독'),
   });
 
   // 유저의 다 읽은 책 권수 계산
