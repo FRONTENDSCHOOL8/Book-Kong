@@ -1,20 +1,24 @@
 import { useNavigate } from 'react-router-dom';
-import { clearLoginUserData, withdrawUser } from '../../utils/controlUserData';
+import {
+  clearLoginUserData,
+  withdrawUser,
+  loginUserData,
+} from '../../utils/controlUserData';
 import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
 import CharacterImg from '../atoms/CharacterImg/CharacterImg';
 import { useQuery } from '@tanstack/react-query';
 import { getUserLibraryData } from '../../utils/controlBookData';
 import CharacterName from '../atoms/CharacterName/CharacterName';
 import CharacterLevel from '../atoms/CharacterLevel/CharacterLevel';
-import { loginUserData } from './../../utils/controlUserData';
 import TotalBookHeight from '../atoms/TotalBookHeight/TotalBookHeight';
+import { Helmet } from 'react-helmet-async';
 
-export default function MypagePage() {
+function MypagePage() {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    const isClearLoginData = clearLoginUserData();
-    if (isClearLoginData) {
+    const isLoginDataCleared = clearLoginUserData();
+    if (isLoginDataCleared) {
       alert('로그아웃이 되었습니다.');
       // 로그아웃시 로그인페이지로 이동
       navigate('/login');
@@ -44,11 +48,11 @@ export default function MypagePage() {
   const totalBookCount = data?.length;
 
   // 유저의 다 읽은 책 페이지 합계
-  let totalBookHeight = 0;
+  let userTotalPage = 0;
 
   if (data) {
     for (const pages of data) {
-      totalBookHeight += pages.total_page;
+      userTotalPage += pages.total_page;
     }
   }
 
@@ -57,6 +61,9 @@ export default function MypagePage() {
 
   return (
     <>
+      <Helmet>
+        <title>책콩 | 마이페이지</title>
+      </Helmet>
       <LargeHeader title={'마이페이지'} />
       <div className="min-w-80 max-w-[448px] h-auto mx-4 pb-[120px]">
         <div className="flex flex-col p-4 bg-white mt-2">
@@ -68,19 +75,19 @@ export default function MypagePage() {
           </span>
         </div>
         <div className="flex flex-col items-center bg-white border-t">
-          <CharacterImg height={totalBookHeight} />
+          <CharacterImg page={userTotalPage} />
           <span className="bg-[#FFE0DA] px-3 py-2 rounded-3xl">
             <CharacterName
               className="text-grayscale-900"
-              height={totalBookHeight}
+              page={userTotalPage}
             />
           </span>
-          <CharacterLevel height={totalBookHeight} />
+          <CharacterLevel page={userTotalPage} />
           <div className="flex bg-grayscale-100 w-[263px] items-center rounded-lg px-8 py-1">
             <span className="text-[#F24822] text-right mr-2 w-[35%]">
               {totalBookCount}권
             </span>
-            <TotalBookHeight page={totalBookHeight} />
+            <TotalBookHeight page={userTotalPage} />
           </div>
         </div>
 
@@ -140,3 +147,5 @@ export default function MypagePage() {
     </>
   );
 }
+
+export default MypagePage;
