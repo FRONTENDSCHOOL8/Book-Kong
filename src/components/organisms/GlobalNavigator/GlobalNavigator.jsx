@@ -1,7 +1,7 @@
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { memo } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-export default function GlobalNavigator() {
+const GlobalNavigator = memo(function GlobalNavigator() {
   const { pathname: currentPage } = useLocation();
 
   const navigate = useNavigate();
@@ -117,4 +117,6 @@ export default function GlobalNavigator() {
       </ul>
     </nav>
   );
-}
+});
+
+export default GlobalNavigator;
