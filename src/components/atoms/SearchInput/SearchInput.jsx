@@ -1,19 +1,19 @@
-import PropTypes from 'prop-types';
+import { string, func } from 'prop-types';
 
-function InputBar({ keyword, onChange }) {
+function SearchInput({ keyword, onChange }) {
   return (
     <input
       value={keyword}
       onChange={onChange}
       className="contents-sm text-grayscale-900 outline-none bg-transparent flex-grow"
       placeholder="책 제목을 입력해주세요"
-    ></input>
+    />
   );
 }
 
-InputBar.propTypes = {
-  keyword: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+SearchInput.propTypes = {
+  keyword: string.isRequired,
+  onChange: func.isRequired,
 };
 
-export default InputBar;
+export default SearchInput;

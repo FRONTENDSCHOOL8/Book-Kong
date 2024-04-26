@@ -2,17 +2,17 @@ import { number } from 'prop-types';
 import CharacterName from '../../atoms/CharacterName/CharacterName';
 import CharacterImg from '../../atoms/CharacterImg/CharacterImg';
 
-function CharacterInfo({ height }) {
+function Character({ page: userTotalPage }) {
   return (
     <div className="flex flex-col justify-center items-center">
-      <CharacterName height={height} page="책나무" />
-      <CharacterImg height={height} />
+      <CharacterName page={userTotalPage} pageName="책나무" />
+      <CharacterImg page={userTotalPage} />
     </div>
   );
 }
 
-CharacterInfo.propTypes = {
-  height: number,
+Character.propTypes = {
+  page: number,
 };
 
-export default CharacterInfo;
+export default Character;

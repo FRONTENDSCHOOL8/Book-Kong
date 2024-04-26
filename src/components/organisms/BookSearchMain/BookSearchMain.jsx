@@ -1,11 +1,11 @@
 import SearchBar from '../../molecules/SearchBar/SearchBar';
-import SearchCount from '../../atoms/SearchCount/SearchCount';
+import SearchInfo from '../../atoms/SearchInfo/SearchInfo';
 import List from '../List/List';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getBookData } from '../../../api/searchAladin';
 
-function SearchMainContents() {
+function BookSearchMain() {
   const [query, setQuery] = useState('');
 
   const handleSubmit = (e) => {
@@ -16,21 +16,22 @@ function SearchMainContents() {
 
   const { data, isLoading } = useQuery({
     queryKey: ['search', query],
-    queryFn: async () => getBookData(query),
+    queryFn: () => getBookData(query),
     staleTime: 1000 * 60 * 15,
   });
 
   return (
     <main className="px-4 pt-[81px] pb-[200px] overflow-scroll h-screen">
       <SearchBar onSubmit={handleSubmit} />
-      <SearchCount
+      <SearchInfo
         query={query}
         totalResults={data?.totalResults}
         isLoading={isLoading}
       />
+      {/* 확인 후 수정 필요하면 수정 */}
       <List data={data?.item} />
     </main>
   );
 }
 
-export default SearchMainContents;
+export default BookSearchMain;

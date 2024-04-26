@@ -1,8 +1,8 @@
-import InputBar from './InputBar';
+import Character from './Character';
 
 const metaConfig = {
-  title: 'components/InputBar',
-  component: InputBar,
+  title: 'components/Character',
+  component: Character,
   tags: ['autodocs'],
   args: {},
 };
@@ -12,4 +12,4 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = 'InputBar';
+Base.storyName = 'Character';

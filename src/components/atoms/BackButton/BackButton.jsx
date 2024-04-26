@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
-function Back({ title }) {
+function BackButton({ title }) {
   const navigate = useNavigate();
   const handleClick = (e) => {
     const button = e.target.closest('button');
@@ -10,7 +10,7 @@ function Back({ title }) {
     if (title === '검색하기') {
       navigate('/library/booktree');
     } else if (title === '직접 입력하기') {
-      navigate('/library/search');
+      navigate('/library/book-search');
     } else if (title === '메모' || title === '메모 작성') {
       navigate('/record');
     } else if (title === '피드' || title === '피드 작성') {
@@ -36,8 +36,8 @@ function Back({ title }) {
   );
 }
 
-Back.propTypes = {
-  title: PropTypes.string,
+BackButton.propTypes = {
+  title: string,
 };
 
-export default Back;
+export default BackButton;

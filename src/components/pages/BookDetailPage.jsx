@@ -4,11 +4,11 @@ import DetailBook from '../organisms/DetailBook/DetailBook';
 import Header from '../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
 
-function DetailPage() {
+function BookDetailPage() {
   return (
     <>
       <Helmet>
-        <title>책콩 | 상세 페이지</title>
+        <title>책콩 | 책 상세</title>
       </Helmet>
       <Header title="상세페이지" />
       <DetailBook />
@@ -16,6 +16,6 @@ function DetailPage() {
   );
 }
 
-DetailPage.propTypes = {};
+BookDetailPage.propTypes = {};
 
-export default DetailPage;
+export default BookDetailPage;
