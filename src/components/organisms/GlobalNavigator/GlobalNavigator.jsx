@@ -26,16 +26,20 @@ const GlobalNavigator = memo(function GlobalNavigator() {
               : 'nav-listItem'
           }
         >
-          <button className="nav-button" name="library/booktree">
+          <button
+            className="nav-button"
+            name="library/booktree"
+            aria-labelledby="library"
+          >
             <img
               src={
                 currentPage.startsWith('/library')
                   ? '/images/icons/home=active.svg'
                   : '/images/icons/home=default.svg'
               }
-              alt="서재 버튼"
+              alt=""
             />
-            <span>서재</span>
+            <span id="library">서재</span>
           </button>
         </li>
         <li
@@ -45,16 +49,20 @@ const GlobalNavigator = memo(function GlobalNavigator() {
               : ' nav-listItem'
           }
         >
-          <button className="nav-button" name="record/memo">
+          <button
+            className="nav-button"
+            name="record/memo"
+            aria-labelledby="record"
+          >
             <img
               src={
                 currentPage.startsWith('/record')
                   ? '/images/icons/record=active.svg'
                   : '/images/icons/record=default.svg'
               }
-              alt="기록"
+              alt=""
             />
-            <span>기록</span>
+            <span id="record">기록</span>
           </button>
         </li>
         <li
@@ -64,16 +72,16 @@ const GlobalNavigator = memo(function GlobalNavigator() {
               : 'nav-listItem'
           }
         >
-          <button className="nav-button" name="feed">
+          <button className="nav-button" name="feed" aria-labelledby="feed">
             <img
               src={
                 currentPage.startsWith('/feed')
                   ? '/images/icons/feed=active.svg'
                   : '/images/icons/feed=default.svg'
               }
-              alt="피드"
+              alt=""
             />
-            <span>피드</span>
+            <span id="feed">피드</span>
           </button>
         </li>
         <li
@@ -83,16 +91,20 @@ const GlobalNavigator = memo(function GlobalNavigator() {
               : 'nav-listItem'
           }
         >
-          <button className="nav-button" name="character">
+          <button
+            className="nav-button"
+            name="character"
+            aria-labelledby="character"
+          >
             <img
               src={
                 currentPage.startsWith('/character')
                   ? '/images/icons/character=active.svg'
                   : '/images/icons/character=default.svg'
               }
-              alt="캐릭터 버튼"
+              alt=""
             />
-            <span>캐릭터</span>
+            <span id="character">캐릭터</span>
           </button>
         </li>
         <li
@@ -102,16 +114,16 @@ const GlobalNavigator = memo(function GlobalNavigator() {
               : 'nav-listItem'
           }
         >
-          <button className="nav-button" name="mypage">
+          <button className="nav-button" name="mypage" aria-labelledby="mypage">
             <img
               src={
                 currentPage.startsWith('/mypage')
                   ? '/images/icons/mypage=active.svg'
                   : '/images/icons/mypage=default.svg'
               }
-              alt="마이페이지"
+              alt=""
             />
-            <span>마이페이지</span>
+            <span id="mypage">마이페이지</span>
           </button>
         </li>
       </ul>
