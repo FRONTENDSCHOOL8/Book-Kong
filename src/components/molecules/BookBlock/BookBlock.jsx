@@ -1,5 +1,5 @@
 import { number, string } from 'prop-types';
-import BookTitle from '../../subatoms/BookTitle/BookTitle';
+import BookTitle from '../../atoms/BookTitle/BookTitle';
 import { memo } from 'react';
 
 // 페이지 별 키(key)에 설정할 높이를 아래처럼 작성합니다.
@@ -11,7 +11,7 @@ const BookBlock = memo(function BookBlock({ title, page, index }) {
 
   // 공통 클래스 이름
   const commonClassNames =
-    'bookTree-list w-[230px] border rounded-sm border-grayscale-white display flex justify-center items-center';
+    'w-[230px] border rounded-sm border-grayscale-white display flex justify-center items-center';
 
   // 병합할 클래스 이름 (공통 클래스 이름 + 페이지 맵의 클래스 이름)
   let classNames = `${commonClassNames} ${pageMap[page]}`;
