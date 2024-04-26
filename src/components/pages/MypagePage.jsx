@@ -45,14 +45,14 @@ function MypagePage() {
   });
 
   // 유저의 다 읽은 책 권수 계산
-  const totalBookCount = data?.length;
+  const userFinishBookNum = data?.length;
 
   // 유저의 다 읽은 책 페이지 합계
   let userTotalPage = 0;
 
   if (data) {
-    for (const pages of data) {
-      userTotalPage += pages.total_page;
+    for (const book of data) {
+      userTotalPage += book.total_page;
     }
   }
 
@@ -85,7 +85,7 @@ function MypagePage() {
           <CharacterLevel page={userTotalPage} />
           <div className="flex bg-grayscale-100 w-[263px] items-center rounded-lg px-8 py-1">
             <span className="text-[#F24822] text-right mr-2 w-[35%]">
-              {totalBookCount}권
+              {userFinishBookNum}권
             </span>
             <TotalBookHeight page={userTotalPage} />
           </div>

@@ -1,26 +1,30 @@
 import { number, string } from 'prop-types';
-import { calcCentimeter, calcLevel } from '../../../utils/calcCentimeter';
+import {
+  calcUserBookHeight,
+  calcUserLevel,
+} from '../../../utils/calcUserLevel';
 import characterData from '../../../data/character.json';
 
-function CharacterName({ height, page }) {
-  const level = calcLevel(calcCentimeter(height));
-  const BookkongName = characterData.filter((data) => data.level === level)[0]
-    .name;
+function CharacterName({ page: userTotalPage, pageName: webPageName }) {
+  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
+  const userCharacterName = characterData.filter(
+    (data) => data.level === userLevel
+  )[0].name;
 
   return (
     <span
       className={
-        page === '책나무' ? 'heading-xs text-primary-500' : 'heading-xs'
+        webPageName === '책나무' ? 'heading-xs text-primary-500' : 'heading-xs'
       }
     >
-      {BookkongName}
+      {userCharacterName}
     </span>
   );
 }
 
 CharacterName.propTypes = {
-  height: number,
-  page: string,
+  page: number,
+  pageName: string,
 };
 
 export default CharacterName;

@@ -6,11 +6,11 @@ import FeedPage from '/src/components/pages/FeedPage';
 import CharacterPage from '/src/components/pages/CharacterPage';
 import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
-import SearchPage from './components/pages/SearchPage';
+import BookSearchPage from './components/pages/BookSearchPage';
 import BookRegisterPage from './components/pages/BookRegisterPage/BookRegisterPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
-import DetailPage from './components/pages/DetailPage';
+import BookDetailPage from './components/pages/BookDetailPage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
@@ -26,12 +26,12 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'library/detail',
-        element: <DetailPage />,
+        path: 'library/book-detail',
+        element: <BookDetailPage />,
       },
       {
-        path: 'library/search',
-        element: <SearchPage />,
+        path: 'library/book-search',
+        element: <BookSearchPage />,
       },
       {
         path: 'library/book-registration',

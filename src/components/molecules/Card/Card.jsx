@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
+import { object } from 'prop-types';
 import { getRandomNumber } from '../../../utils/getRandomNumber';
 import CardImage from '../../atoms/CardImage/CardImage';
 import CardInfo from '../CardInfo/CardInfo';
@@ -20,7 +20,7 @@ function Card({ data }) {
     >
       <a
         href={
-          pathname === '/library/search'
+          pathname === '/library/book-search'
             ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
             : '/'
         }
@@ -34,7 +34,7 @@ function Card({ data }) {
 }
 
 Card.propTypes = {
-  data: PropTypes.object,
+  data: object,
 };
 
 export default Card;

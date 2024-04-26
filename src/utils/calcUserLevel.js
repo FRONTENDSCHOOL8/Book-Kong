@@ -1,9 +1,9 @@
 // cm 계산식
 // page : total_page
-// perPageHeight : 장당페이지(* 0.005)
+// perPageHeight : 장당 페이지(* 0.005)
 // decimal : 소수점 자리(2자리까지)
 
-export function calcCentimeter(page) {
+export function calcUserBookHeight(page) {
   // 장당 페이지 높이
   const perPageHeight = 0.005;
   // 소수점 자릿수
@@ -13,7 +13,7 @@ export function calcCentimeter(page) {
 }
 
 // cm 계산식에서 가져온 height로 level 구분
-export function calcLevel(height) {
+export function calcUserLevel(height) {
   let level = 1;
 
   if (height < 35) {
