@@ -1,8 +1,9 @@
 import { node } from 'prop-types';
+import { memo } from 'react';
 
-function BookTitle({ children }) {
-  return <a className="block">{children}</a>;
-}
+const BookTitle = memo(function BookTitle({ children }) {
+  return <a className="block bookTree-list">{children}</a>;
+});
 
 BookTitle.propTypes = {
   children: node,
