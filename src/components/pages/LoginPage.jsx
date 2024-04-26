@@ -68,7 +68,7 @@ function LoginPage() {
   return (
     <div className="min-w-80 max-w-[448px] h-screen mx-4 text-start flex flex-col">
       <Helmet>
-        <title>책콩 | 로그인 페이지</title>
+        <title>책콩 | 로그인</title>
       </Helmet>
       <A11yHidden as="h2">로그인</A11yHidden>
       <SignUpPrompt
