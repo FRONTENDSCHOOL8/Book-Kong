@@ -6,7 +6,7 @@ import { string } from 'prop-types';
  * @param { string } alt 컨텍스트 버튼의 alt message
  * @returns { JSX.Element } Context button이 포함된 div 요소 반환
  */
-function ContextButton(shape, alt) {
+function ContextButton({ shape, alt }) {
   return (
     <div>
       <button type="button">
