@@ -2,7 +2,7 @@ import { elementType, node } from 'prop-types';
 
 /**
  * @typedef Props
- * @prop {React.ElementType} [props.as] 숨기고 싶은 React element type의 요소를 넣어주세요. HTML 표준 태그를 넣고 싶을 경우, HTML 표준 태그 이름을 string
+ * @prop { React.ElementType } [props.as] 숨기고 싶은 React element type의 요소를 넣어주세요. HTML 표준 태그를 넣고 싶을 경우, HTML 표준 태그 이름을 string
  * 값으로 넣어주시면 됩니다.
  * e.g.) 'div', 'h2'
  * @prop { React.ReactNode } props.children 해당 컴포넌트의 children이 들어오는 자리입니다.
