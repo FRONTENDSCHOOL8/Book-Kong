@@ -21,9 +21,6 @@ export default {
         'content-xl': '20px',
         'content-2xl': '24px',
         'content-3xl': '32px',
-        'content-small--medium': '14px',
-        'content-medium--medium': '16px',
-        'content-xs--medium': '12px',
         'booktree-list': '16px',
       },
       colors: {

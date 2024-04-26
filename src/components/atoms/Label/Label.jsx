@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const Label = memo(function Label({
   children,
-  className = 'contents-md-bold text-grayscale-900 w-16',
+  className = 'contents-md-md text-grayscale-900 w-16',
   htmlFor: id,
   isHidden = false,
   ...restProps

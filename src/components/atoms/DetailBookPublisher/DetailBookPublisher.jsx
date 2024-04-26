@@ -4,9 +4,7 @@
 function DetailBookPublisher() {
   // const [searchParams] = useSearchParams();
   // const publisher = searchParams.get('publisher');
-  return <span className="contents-xs-bold text-grayscale-700">현대지성</span>;
+  return <span className="contents-xs-md text-grayscale-700">현대지성</span>;
 }
-
-
 
 export default DetailBookPublisher;

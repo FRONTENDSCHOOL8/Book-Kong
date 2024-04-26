@@ -45,7 +45,7 @@ const InputContainer = forwardRef(
       className = 'flex items-center gap-2',
       labelProps: {
         content: labelContent,
-        className: labelClassName = 'contents-md-bold text-grayscale-900 w-16',
+        className: labelClassName = 'contents-md-md text-grayscale-900 w-16',
         isHidden,
         ...restLabelProps
       },

@@ -3,7 +3,7 @@ function SaveButton() {
     <button
       type="submit"
       form="bookInfo"
-      className="contents-md-bold text-primary-500"
+      className="contents-md-md text-primary-500"
     >
       저장
     </button>

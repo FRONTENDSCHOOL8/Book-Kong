@@ -8,8 +8,6 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-
-
 function DetailBookMemo() {
   const initialOrder = localStorage.getItem('order') || '최신순';
 
@@ -50,7 +48,7 @@ function DetailBookMemo() {
       },
     },
   };
-  
+
   const [listCount, setListCount] = useState(0);
   // const dataList = []; // 여기에 리스트 데이터가 들어간다고 가정합니다.
 
@@ -58,12 +56,16 @@ function DetailBookMemo() {
     setListCount(data?.length || 0);
   }, [data]);
 
-  
   return (
-    <div className="pb-8 bg-grayscale-white before:content-[''] before:block before:h-3 before:border-t before:border-b before:border-grayscale-100 before:mb-10 before:bg-background-gray" id="memo">
+    <div
+      className="pb-8 bg-grayscale-white before:content-[''] before:block before:h-3 before:border-t before:border-b before:border-grayscale-100 before:mb-10 before:bg-background-gray"
+      id="memo"
+    >
       <div className="flex gap-2 mx-4">
-        <h4 className="contents-lg-bold text-grayscale-400">메모</h4>
-        <span className="font-bold align-middle text-primary-500 contents-lg-bold">{listCount}</span>
+        <h4 className="contents-lg-md text-grayscale-400">메모</h4>
+        <span className="font-bold align-middle text-primary-500 contents-lg-md">
+          {listCount}
+        </span>
       </div>
       <motion.main className="flex flex-col items-end px-4 pb-[56px] ">
         <OrderButton onClick={toggleSort} order={order} />
@@ -83,14 +85,12 @@ function DetailBookMemo() {
           ))}
         </motion.ul>
       </motion.main>
-      
-      
     </div>
   );
 }
 
-// DetailBookMemo.propTypes = { 
-  
+// DetailBookMemo.propTypes = {
+
 //  };
 
 export default DetailBookMemo;

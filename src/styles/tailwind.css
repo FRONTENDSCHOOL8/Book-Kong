@@ -8,83 +8,87 @@
 
 /* Heading */
 .heading-lg {
-  @apply text-heading-large font-bold;
+  @apply text-heading-large font-bold tracking-tight leading-relaxed;
 }
 
 .heading-md {
-  @apply text-heading-medium font-bold;
+  @apply text-heading-medium font-bold tracking-tight leading-relaxed;
 }
 
 .heading-sm {
-  @apply text-heading-small font-bold;
+  @apply text-heading-small font-bold tracking-tight leading-relaxed;
 }
 
 .heading-xs {
-  @apply text-heading-xs font-bold tracking-[-0.36px];
+  @apply text-heading-xs font-bold tracking-tight leading-relaxed;
 }
 
 .heading-2xs {
-  @apply text-heading-2xs font-bold tracking-[-0.28px];
+  @apply text-heading-2xs font-bold tracking-tight leading-relaxed;
 }
 
 /* Contents */
 .contents-2xl {
-  @apply text-content-2xl font-normal tracking-[-0.48px];
+  @apply text-content-2xl font-normal tracking-tight leading-relaxed;
 }
 
 .contents-2xl-md {
-  @apply text-content-2xl font-medium tracking-[-0.48px];
+  @apply text-content-2xl font-medium tracking-tight leading-relaxed;
 }
 
 .contents-xl {
-  @apply text-content-xl font-normal tracking-[-0.4px];
+  @apply text-content-xl font-normal tracking-tight leading-relaxed;
+}
+
+.contents-xl-md {
+  @apply text-content-xl font-medium tracking-tight leading-relaxed;
 }
 
 .contents-lg {
-  @apply text-content-large font-normal tracking-[-0.36px];
+  @apply text-content-large font-normal tracking-tight leading-relaxed;
 }
 
-.contents-lg-bold {
-  @apply text-content-large font-medium tracking-[-0.36px];
+.contents-lg-md {
+  @apply text-content-large font-medium tracking-tight leading-relaxed;
 }
 
 .contents-md {
-  @apply text-content-medium font-medium tracking-[-0.32px];
+  @apply text-content-medium font-medium tracking-tight leading-relaxed;
 }
 
-.contents-md-bold {
-  @apply text-content-medium font-medium tracking-[-0.16px] leading-[22px];
+.contents-md-md {
+  @apply text-content-medium font-medium tracking-tight leading-relaxed;
 }
 
 .contents-sm {
-  @apply text-content-small font-normal tracking-[-0.14px] leading-relaxed;
+  @apply text-content-small font-normal tracking-tight leading-relaxed;
 }
 
-.contents-sm-bold {
-  @apply text-content-small font-medium tracking-[-0.16px];
+.contents-sm-md {
+  @apply text-content-small font-medium tracking-tight leading-relaxed;
 }
 
 .contents-xs {
-  @apply text-content-xs font-normal;
+  @apply text-content-xs font-normal tracking-tight leading-relaxed;
 }
 
-.contents-xs-bold {
-  @apply text-content-xs font-medium;
+.contents-xs-md {
+  @apply text-content-xs font-medium tracking-tight leading-relaxed;
 }
 
 .contents-2xs {
-  @apply text-content-2xs font-normal tracking-[-0.2px];
+  @apply text-content-2xs font-normal tracking-tight leading-relaxed;
 }
 
-.contents-lg-bold {
-  @apply text-content-large font-medium tracking-[-0.36px];
+.contents-2xs-md {
+  @apply text-content-2xs font-medium tracking-tight leading-relaxed;
 }
 
 /* -------------------------------------------- */
 /*                      ETC                     */
 /* -------------------------------------------- */
 .nav-list {
-  @apply text-nav-list font-medium;
+  @apply text-nav-list font-medium tracking-tight leading-relaxed;
 }
 
 .tab-menu {
@@ -92,23 +96,23 @@
 }
 
 .character-list {
-  @apply text-character-list font-medium tracking-[-2%];
-}
-
-.nav-listItem {
-  @apply flex justify-center items-center w-[20%] h-[50px] text-nav-list;
-}
-
-.text-button {
-  @apply text-[14px] font-medium tracking-[-1%];
+  @apply text-character-list font-medium tracking-tight leading-relaxed;
 }
 
 .bookTree-list {
-  @apply text-[16px] font-medium;
+  @apply text-base font-medium tracking-tight leading-relaxed;
+}
+
+.nav-listItem {
+  @apply flex justify-center items-center w-1/5 h-[50px] text-nav-list;
+}
+
+.text-button {
+  @apply text-sm font-medium tracking-tight leading-relaxed;
 }
 
 .nav-button {
-  @apply flex gap-[2px] flex-col justify-center items-center cursor-pointer;
+  @apply flex gap-0.5 flex-col justify-center items-center cursor-pointer;
 }
 
 .clip-text-1 {
@@ -176,4 +180,3 @@
 .book-shadow {
   box-shadow: 8px 12px 18px 0px rgba(0, 0, 0, 0.25);
 }
-
