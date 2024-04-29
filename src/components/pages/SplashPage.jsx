@@ -1,7 +1,7 @@
 
 const Splash = () => {
   return (
-    <div className="flex flex-col items-center w-full h-screen  z-9999 bg-primary-500">
+    <div className="flex flex-col items-center w-full h-screen z-9999 bg-primary-500">
       <div className="w-[375px]">
         <img src="/splash/splash-1.png" className="w-full translate-y-[-272px] animate-splash-1 splash-delay animate-splash" alt="read" />
         <img src="/splash/splash-2.png" className="w-full translate-y-[-500px] animate-splash-2 splash-delay animate-splash" alt="and" />

@@ -3,7 +3,7 @@ import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNav
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { loginUserData } from '../utils/controlUserData';
-import Splash from '../components/pages/Splash';
+import Splash from '../components/pages/SplashPage';
 
 function App() {
   const { pathname } = useLocation();
