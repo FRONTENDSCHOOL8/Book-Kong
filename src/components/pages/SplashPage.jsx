@@ -1,5 +1,5 @@
 
-const Splash = () => {
+function SplashPage () {
   return (
     <div className="flex flex-col items-center w-full h-screen z-9999 bg-primary-500">
       <div className="w-[375px]">
@@ -12,6 +12,6 @@ const Splash = () => {
       </h1>
     </div>
   );
-};
+}
 
-export default Splash;
+export default SplashPage;
