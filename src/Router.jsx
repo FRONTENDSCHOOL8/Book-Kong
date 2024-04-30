@@ -15,6 +15,7 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
+import SplashPage from './components/pages/SplashPage';
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: 'mypage',
         element: <MypagePage />,
+      },
+      {
+        path: 'splash',
+        element: <SplashPage />,
       },
     ],
   },

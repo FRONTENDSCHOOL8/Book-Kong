@@ -180,3 +180,15 @@
 .book-shadow {
   box-shadow: 8px 12px 18px 0px rgba(0, 0, 0, 0.25);
 }
+
+/* -------------------------------------------- */
+/*                    SPLASH                    */
+/* -------------------------------------------- */
+
+.splash-delay {
+  animation-delay: 0.4s;
+}
+
+.animate-splash {
+  animation-fill-mode: forwards;
+}
