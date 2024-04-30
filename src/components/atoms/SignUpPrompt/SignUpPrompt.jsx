@@ -1,4 +1,4 @@
-import { PropTypes } from 'prop-types';
+import { string, node } from 'prop-types';
 import { memo } from 'react';
 
 const SignUpPrompt = memo(function SignUpPrompt({ title, children }) {
@@ -11,8 +11,8 @@ const SignUpPrompt = memo(function SignUpPrompt({ title, children }) {
 });
 
 SignUpPrompt.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node,
+  title: string.isRequired,
+  children: node,
 };
 
 export default SignUpPrompt;
