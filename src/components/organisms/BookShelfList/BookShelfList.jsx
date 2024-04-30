@@ -1,4 +1,4 @@
-import Card from '../../molecules/BookCard/BookCard';
+import BookCard from '../../molecules/BookCard/BookCard';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,7 +11,7 @@ function List({ data }) {
       className="flex flex-col gap-3"
     >
       {data?.map((book) => (
-        <Card key={uuidv4()} data={book} />
+        <BookCard key={uuidv4()} data={book} />
       ))}
     </motion.ul>
   );

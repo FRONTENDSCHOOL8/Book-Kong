@@ -1,8 +1,8 @@
-import List from './List';
+import BookShelfList from './BookShelfList';
 
 const metaConfig = {
-  title: 'components/List',
-  component: List,
+  title: 'components/BookShelfList',
+  component: BookShelfList,
   tags: ['autodocs'],
   args: {},
 };

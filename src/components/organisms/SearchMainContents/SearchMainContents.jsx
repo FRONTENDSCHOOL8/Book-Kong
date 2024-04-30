@@ -1,6 +1,6 @@
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import SearchCount from '../../atoms/SearchCount/SearchCount';
-import List from '../List/List';
+import BookShelfList from '../BookShelfList/BookShelfList';
 import { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getBookData } from '../../../api/searchAladin';
@@ -28,7 +28,7 @@ function SearchMainContents() {
         totalResults={data?.totalResults}
         isLoading={isLoading}
       />
-      <List data={data?.item} />
+      <BookShelfList data={data?.item} />
     </main>
   );
 }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import Filter from '../../molecules/Filter/Filter';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
-import List from '../List/List';
+import BookShelfList from '../BookShelfList/BookShelfList';
 import { useBookshelfData } from '../../../hooks/useBookshelfData';
 
 function Bookshelf() {
@@ -29,7 +29,7 @@ function Bookshelf() {
       </Helmet>
       <SearchBar onSubmit={handleSubmit} />
       <Filter onClick={handleClick} filter={filter} />
-      <List
+      <BookShelfList
         data={
           filter === '전체'
             ? data
