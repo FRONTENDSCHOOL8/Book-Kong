@@ -7,6 +7,7 @@ import Filter from '../../molecules/Filter/Filter';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import SearchBarSkeleton from '../../molecules/SearchBar/SearchBarSkeleton';
 
 function Bookshelf() {
   const [filter, setFilter] = useState('전체');
@@ -46,15 +47,23 @@ function Bookshelf() {
       <Helmet>
         <title>책콩 | 서재 페이지 - 책장</title>
       </Helmet>
-      <SearchBar onSubmit={handleSubmit} />
-      <Filter onClick={handleClick} filter={filter} />
-      <List
-        data={
-          filter === '전체'
-            ? data
-            : data?.filter((data) => data.status === filter)
-        }
-      />
+      {isLoading ? (
+        <>
+          <SearchBarSkeleton />
+        </>
+      ) : (
+        <>
+          <SearchBar onSubmit={handleSubmit} />
+          <Filter onClick={handleClick} filter={filter} />
+          <List
+            data={
+              filter === '전체'
+                ? data
+                : data?.filter((data) => data.status === filter)
+            }
+          />
+        </>
+      )}
     </main>
   );
 }
