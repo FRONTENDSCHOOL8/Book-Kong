@@ -15,7 +15,7 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
-import SplashPage from './components/pages/SplashPage';
+import SplashPage from './components/pages/SplashPage/SplashPage';
 
 const router = createBrowserRouter([
   {
