@@ -18,7 +18,7 @@ function List({ data }) {
       className="flex flex-col gap-3"
     >
       {data?.map((book) => (
-        <Card key={uuidv4()} data={book} />
+        <Card key={uuidv4()} book={book} />
       ))}
     </motion.ul>
   );

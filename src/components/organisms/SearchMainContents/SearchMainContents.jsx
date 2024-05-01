@@ -14,9 +14,10 @@ function SearchMainContents() {
     setQuery(newKeyword);
   };
 
+  // 이 부분을 커스텀 hook으로 만들면 props drilling 을 해소할 수 있을거에요.
   const { data, isLoading } = useQuery({
     queryKey: ['search', query],
-    queryFn: async () => getBookData(query),
+    queryFn: () => getBookData(query),
     staleTime: 1000 * 60 * 15,
   });
 

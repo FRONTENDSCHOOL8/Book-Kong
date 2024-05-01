@@ -4,12 +4,13 @@ import { getRandomNumber } from '../../../utils/getRandomNumber';
 import CardImage from '../../atoms/CardImage/CardImage';
 import CardInfo from '../CardInfo/CardInfo';
 import { useLocation } from 'react-router-dom';
-function Card({ data }) {
-  const CardVar = {
-    start: { y: 20 },
-    end: { y: 0 },
-  };
 
+const CardVar = {
+  start: { y: 20 },
+  end: { y: 0 },
+};
+
+function Card({ book }) {
   const { pathname } = useLocation();
 
   return (
@@ -21,20 +22,20 @@ function Card({ data }) {
       <a
         href={
           pathname === '/library/search'
-            ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
+            ? `/library/book-registration?title=${book.title}&author=${book.author}&publisher=${book.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${book.isbn}&cover=${book.cover}`
             : '/'
         }
         className="flex w-full"
       >
-        <CardImage data={data} />
-        <CardInfo data={data} />
+        <CardImage data={book} />
+        <CardInfo data={book} />
       </a>
     </motion.li>
   );
 }
 
 Card.propTypes = {
-  data: PropTypes.object,
+  book: PropTypes.object,
 };
 
 export default Card;
