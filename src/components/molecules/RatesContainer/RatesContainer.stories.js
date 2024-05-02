@@ -10,7 +10,7 @@ const metaConfig = {
     className: 'flex items-center gap-2',
     labelProps: {
       content: '평점',
-      className: 'contents-md-md text-grayscale-900 w-16',
+      className: 'contents-md-bold text-grayscale-900 w-16',
     },
     selectProps: {
       className:

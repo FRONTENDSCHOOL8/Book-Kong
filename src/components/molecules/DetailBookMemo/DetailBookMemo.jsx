@@ -62,8 +62,8 @@ function DetailBookMemo() {
       id="memo"
     >
       <div className="flex gap-2 mx-4">
-        <h4 className="contents-lg-md text-grayscale-400">메모</h4>
-        <span className="font-bold align-middle text-primary-500 contents-lg-md">
+        <h4 className="contents-lg-bold text-grayscale-400">메모</h4>
+        <span className="font-bold align-middle text-primary-500 contents-lg-bold">
           {listCount}
         </span>
       </div>

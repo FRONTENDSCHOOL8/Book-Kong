@@ -9,7 +9,7 @@ const metaConfig = {
   tags: ['autodocs'],
   args: {
     children: ['Label'],
-    className: 'contents-md-md text-grayscale-900 w-16',
+    className: 'contents-md-bold text-grayscale-900 w-16',
     htmlFor: id,
     hiddenLabel: false,
     restProps: {},

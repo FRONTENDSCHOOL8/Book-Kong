@@ -3,7 +3,7 @@ import {} from 'prop-types';
 function DetailBookInfo() {
   return (
     <div className="px-4 mt-4 mb-8 bg-grayscale-white" id="bookInfo">
-      <h4 className="mt-10 contents-lg-md text-grayscale-400">책 소개</h4>
+      <h4 className="mt-10 contents-lg-bold text-grayscale-400">책 소개</h4>
       <p className="mt-4 contents-sm -webkit-line-clamp:20 ">
         인간관계는 친구를 만들고 적을 만들지 않는 것에서 시작된다. 『데일 카네기
         인간관계론』은 이런 인간관계의 핵심을 꿰뚫는다. “친구를 만들고, 사람을
@@ -20,15 +20,15 @@ function DetailBookInfo() {
         있게 된 셈이다. 카네기의 생생한 말과 함께 시대를 초월하고 지역을
         뛰어넘은 세계적인 베스트셀러를 만나보자.
       </p>
-      <span className="block mt-12 contents-md-md text-grayscale-400">
+      <span className="block mt-12 contents-md-bold text-grayscale-400">
         쪽 수
       </span>
       <p className="mt-4 contents-sm">239 쪽</p>
-      <span className="block mt-12 contents-md-md text-grayscale-400">
+      <span className="block mt-12 contents-md-bold text-grayscale-400">
         ISBN
       </span>
       <p className="mt-4 contents-sm">9791187142560</p>
-      <span className="block mt-12 contents-md-md text-grayscale-400">
+      <span className="block mt-12 contents-md-bold text-grayscale-400">
         출간일
       </span>
       <p className="mt-4 contents-sm">2022-02-15</p>

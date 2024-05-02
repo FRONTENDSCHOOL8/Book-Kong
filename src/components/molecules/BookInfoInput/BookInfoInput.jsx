@@ -30,7 +30,7 @@ function BookInfoInput({ title }) {
   else if (title === 'ISBN') value = isbn;
   return (
     <li className="flex flex-col justify-center gap-2">
-      <label className="contents-md-md text-grayscale-900" htmlFor={title}>
+      <label className="contents-md-bold text-grayscale-900" htmlFor={title}>
         {title}
       </label>
       <input

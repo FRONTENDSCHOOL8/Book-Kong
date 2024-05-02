@@ -11,7 +11,7 @@ const metaConfig = {
     className: 'flex items-center gap-2',
     labelProps: {
       content: '라벨',
-      className: 'contents-md-md text-grayscale-900 w-16',
+      className: 'contents-md-bold text-grayscale-900 w-16',
     },
     inputProps: {
       type: 'text',
@@ -51,7 +51,7 @@ export const Date = {
       ...defaultInputProps,
       type: 'date',
       className:
-        'px-3 py-2 contents-sm-md text-grayscale-900 bg-grayscale-white border border-grayscale-400 rounded w-[128px] h-[36px]',
+        'px-3 py-2 contents-sm-bold text-grayscale-900 bg-grayscale-white border border-grayscale-400 rounded w-[128px] h-[36px]',
     },
     labelProps: {
       ...defaultLabelProps,

@@ -8,87 +8,83 @@
 
 /* Heading */
 .heading-lg {
-  @apply text-heading-large font-bold tracking-tight leading-relaxed;
+  @apply text-heading-large font-bold;
 }
 
 .heading-md {
-  @apply text-heading-medium font-bold tracking-tight leading-relaxed;
+  @apply text-heading-medium font-bold;
 }
 
 .heading-sm {
-  @apply text-heading-small font-bold tracking-tight leading-relaxed;
+  @apply text-heading-small font-bold;
 }
 
 .heading-xs {
-  @apply text-heading-xs font-bold tracking-tight leading-relaxed;
+  @apply text-heading-xs font-bold tracking-[-0.36px];
 }
 
 .heading-2xs {
-  @apply text-heading-2xs font-bold tracking-tight leading-relaxed;
+  @apply text-heading-2xs font-bold tracking-[-0.28px];
 }
 
 /* Contents */
 .contents-2xl {
-  @apply text-content-2xl font-normal tracking-tight leading-relaxed;
+  @apply text-content-2xl font-normal tracking-[-0.48px];
 }
 
 .contents-2xl-md {
-  @apply text-content-2xl font-medium tracking-tight leading-relaxed;
+  @apply text-content-2xl font-medium tracking-[-0.48px];
 }
 
 .contents-xl {
-  @apply text-content-xl font-normal tracking-tight leading-relaxed;
-}
-
-.contents-xl-md {
-  @apply text-content-xl font-medium tracking-tight leading-relaxed;
+  @apply text-content-xl font-normal tracking-[-0.4px];
 }
 
 .contents-lg {
-  @apply text-content-large font-normal tracking-tight leading-relaxed;
+  @apply text-content-large font-normal tracking-[-0.36px];
 }
 
-.contents-lg-md {
-  @apply text-content-large font-medium tracking-tight leading-relaxed;
+.contents-lg-bold {
+  @apply text-content-large font-medium tracking-[-0.36px];
 }
 
 .contents-md {
-  @apply text-content-medium font-medium tracking-tight leading-relaxed;
+  @apply text-content-medium font-medium tracking-[-0.32px];
 }
 
-.contents-md-md {
-  @apply text-content-medium font-medium tracking-tight leading-relaxed;
+.contents-md-bold {
+  @apply text-content-medium font-medium tracking-[-0.16px] leading-[22px];
 }
 
 .contents-sm {
-  @apply text-content-small font-normal tracking-tight leading-relaxed;
+  @apply text-content-small font-normal tracking-[-0.14px] leading-relaxed;
 }
 
-.contents-sm-md {
-  @apply text-content-small font-medium tracking-tight leading-relaxed;
+.contents-sm-bold {
+  @apply text-content-small font-medium tracking-[-0.16px];
 }
 
 .contents-xs {
-  @apply text-content-xs font-normal tracking-tight leading-relaxed;
+  @apply text-content-xs font-normal;
 }
 
-.contents-xs-md {
-  @apply text-content-xs font-medium tracking-tight leading-relaxed;
+.contents-xs-bold {
+  @apply text-content-xs font-medium;
 }
 
 .contents-2xs {
-  @apply text-content-2xs font-normal tracking-tight leading-relaxed;
+  @apply text-content-2xs font-normal tracking-[-0.2px];
 }
 
-.contents-2xs-md {
-  @apply text-content-2xs font-medium tracking-tight leading-relaxed;
+.contents-lg-bold {
+  @apply text-content-large font-medium tracking-[-0.36px];
 }
 
 /* -------------------------------------------- */
 /*                      ETC                     */
 /* -------------------------------------------- */
 .nav-list {
-  @apply text-nav-list font-medium tracking-tight leading-relaxed;
+  @apply text-nav-list font-medium;
 }
 
 .tab-menu {
@@ -96,23 +92,23 @@
 }
 
 .character-list {
-  @apply text-character-list font-medium tracking-tight leading-relaxed;
-}
-
-.bookTree-list {
-  @apply text-base font-medium tracking-tight leading-relaxed;
+  @apply text-character-list font-medium tracking-[-2%];
 }
 
 .nav-listItem {
-  @apply flex justify-center items-center w-1/5 h-[50px] text-nav-list;
+  @apply flex justify-center items-center w-[20%] h-[50px] text-nav-list;
 }
 
 .text-button {
-  @apply text-sm font-medium tracking-tight leading-relaxed;
+  @apply text-[14px] font-medium tracking-[-1%];
+}
+
+.bookTree-list {
+  @apply text-[16px] font-medium;
 }
 
 .nav-button {
-  @apply flex gap-0.5 flex-col justify-center items-center cursor-pointer;
+  @apply flex gap-[2px] flex-col justify-center items-center cursor-pointer;
 }
 
 .clip-text-1 {
