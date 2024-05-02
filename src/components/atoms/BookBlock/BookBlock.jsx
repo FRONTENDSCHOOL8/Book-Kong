@@ -14,21 +14,18 @@ const getPageClassNames = (page) => {
 
 const getClassNames = ({ page, index }) => {
   // 병합할 클래스 이름 (공통 클래스 이름 + 페이지 맵의 클래스 이름)
-  const classNames = getPageClassNames(page);
-
   // 조건 처리
   // 케이스 별 클래스 이름 병합
-  const modValue = index % 3;
-  if (modValue === 0) {
-    return [classNames, 'ml-[-24px] bg-primary-500 text-white'].join(' ');
+  if (index % 3 === 0) {
+    return [getPageClassNames(page), 'ml-[-24px] bg-primary-500 text-white'].join(' ');
   }
 
-  if (modValue === 1) {
-    return [classNames, 'ml-6 bg-badge-yellow text-primary-500'].join(' ');
+  if (index % 3 === 1) {
+    return [getPageClassNames(page), 'ml-6 bg-badge-yellow text-primary-500'].join(' ');
   }
 
-  if (modValue === 2) {
-    return [classNames, 'bg-badge-yellow-02 text-grayscale-900'].join(' ');
+  if (index % 3 === 2) {
+    return [getPageClassNames(page), 'bg-badge-yellow-02 text-grayscale-900'].join(' ');
   }
 }
 
