@@ -18,7 +18,7 @@ function BookRegistForm() {
   };
 
   return (
-    <form id="bookInfo" onSubmit={handleSubmit}>
+    <form id="book-register" onSubmit={handleSubmit}>
       <BookInfoState status={status} onClick={handleClick} />
       <hr className="mt-6 mb-6" />
       <BookInfoList />

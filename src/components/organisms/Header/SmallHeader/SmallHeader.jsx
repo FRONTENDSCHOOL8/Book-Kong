@@ -26,7 +26,7 @@ function SmallHeader({ title }) {
         </div>
       )}
       {title === '피드 작성' && <SaveButton />}
-      {title === '직접 입력하기' && <SaveButton />}
+      {title === '직접 입력하기' && <SaveButton formId="book-register" />}
     </header>
   );
 }
