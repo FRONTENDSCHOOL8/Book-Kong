@@ -2,7 +2,7 @@ import BookCard from '../../molecules/BookCard/BookCard';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-function List({ data }) {
+function BookShelfList({ data }) {
   return (
     <motion.ul
       variants={ListVar}
@@ -25,8 +25,8 @@ const ListVar = {
   },
 };
 
-List.propTypes = {
+BookShelfList.propTypes = {
   data: PropTypes.arrayOf(object),
 };
 
-export default List;
+export default BookShelfList;
