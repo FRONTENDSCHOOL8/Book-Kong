@@ -3,7 +3,7 @@ import { signUpUser } from '../../utils/controlUserData';
 import debounce from '../../utils/debounce';
 import checkPbDuplication from '../../utils/checkPbDuplication';
 import InputField from '../atoms/InputField/InputField';
-import SignupButton from '../atoms/SignupButton/SignUpButton';
+import SignUpButton from '../atoms/SignUpButton/SignUpButton';
 import Or from '../atoms/Or/Or';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SnsIcons from './../atoms/SnsIcon/SnsIcon';
@@ -227,7 +227,7 @@ export default function Register() {
           </div>
         </div>
 
-        <SignupButton
+        <SignUpButton
           disabled={!(isNickname && isEmail && isPwd && isConfirm)}
           text="회원가입"
           className={`${
