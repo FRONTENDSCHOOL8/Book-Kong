@@ -4,6 +4,7 @@ import CharacterImg from '../../atoms/CharacterImg/CharacterImg';
 import CharacterLevel from '../../atoms/CharacterLevel/CharacterLevel';
 import CharacterCentimeter from './../../atoms/CharacterCentimeter/CharacterCentimeter';
 import CharacterDesc from './../../atoms/CharacterDesc/CharacterDesc';
+import CharacterBadge from './../../atoms/CharacterBadge/CharacterBadge';
 
 function UserCharacterCard({ height }) {
   return (
@@ -12,6 +13,9 @@ function UserCharacterCard({ height }) {
       <CharacterDesc height={height} />
       <div className="flex justify-center">
         <CharacterImg height={height} />
+      </div>
+      <div>
+        <CharacterBadge height={height} />
       </div>
       <div className="flex-col px-6 pt-[49px] justify-end">
         <CharacterLevel height={height} />
