@@ -46,8 +46,8 @@ export default function MypagePage() {
       let totalBookHeight = 0;
 
       if (books) {
-        for (const pages of data) {
-          totalBookHeight += pages.total_page;
+        for (const book of books) {
+          totalBookHeight += book.total_page;
         }
       }
 
