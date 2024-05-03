@@ -77,6 +77,7 @@ export default function Login() {
         <InputField
           label="이메일"
           id="email"
+          name="email"
           type="email"
           value={email}
           placeholder="이메일을 입력해주세요."
@@ -88,6 +89,7 @@ export default function Login() {
         <InputField
           label="비밀번호"
           id="password"
+          name="password"
           type="password"
           value={password}
           placeholder="비밀번호를 입력해주세요."
