@@ -4,7 +4,7 @@ import debounce from '../../utils/debounce';
 import InputField from '../atoms/InputField/InputField';
 import Or from '../atoms/Or/Or';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
-import SignupButton from '../atoms/SignupButton/SignUpButton';
+import SignUpButton from '../atoms/SignUpButton/SignUpButton';
 import SnsIcon from '../atoms/SnsIcon/SnsIcon';
 import { useNavigate } from 'react-router-dom';
 import Link from '../molecules/Link/Link';
@@ -95,7 +95,7 @@ export default function Login() {
         />
         <p className={isPwd ? '' : 'text-red-500 mt-2'}>{PwdMessage}</p>
 
-        <SignupButton
+        <SignUpButton
           disabled={!(isEmail && isPwd)}
           text="로그인"
           className={`${isEmail && isPwd ? 'bg-[#F24822]' : 'bg-[#CCCCCC]'}`}
