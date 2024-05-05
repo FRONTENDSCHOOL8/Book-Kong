@@ -7,6 +7,7 @@ import Filter from '../../molecules/Filter/Filter';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Skeleton } from '@mui/material';
 
 function Bookshelf() {
   const [filter, setFilter] = useState('전체');
@@ -41,20 +42,43 @@ function Bookshelf() {
     setQuery(newKeyword);
   };
 
+  // const [timer, setTimer] = useState(0);
+
+  // setTimeout(() => setTimer(3), 3000);
+
   return (
     <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen">
       <Helmet>
         <title>책콩 | 서재 페이지 - 책장</title>
       </Helmet>
-      <SearchBar onSubmit={handleSubmit} />
-      <Filter onClick={handleClick} filter={filter} />
-      <List
-        data={
-          filter === '전체'
-            ? data
-            : data?.filter((data) => data.status === filter)
-        }
-      />
+      {/* {isLoading ? ( */}
+      <>
+        <Skeleton variant="rounded">
+          <SearchBar onSubmit={handleSubmit} />
+        </Skeleton>
+        <Filter onClick={handleClick} filter={filter} isLoading={isLoading} />
+        <List
+          data={
+            filter === '전체'
+              ? data
+              : data?.filter((data) => data.status === filter)
+          }
+          isLoading={isLoading}
+        />
+      </>
+      {/* ) : (
+        <>
+          <SearchBar onSubmit={handleSubmit} />
+          <Filter onClick={handleClick} filter={filter} />
+          <List
+            data={
+              filter === '전체'
+                ? data
+                : data?.filter((data) => data.status === filter)
+            }
+          />
+        </>
+      )} */}
     </main>
   );
 }

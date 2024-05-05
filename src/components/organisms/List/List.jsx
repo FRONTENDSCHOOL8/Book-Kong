@@ -1,8 +1,8 @@
 import Card from '../../molecules/Card/Card';
 import { motion } from 'framer-motion';
-import PropTypes, { object } from 'prop-types';
+import { arrayOf, object, bool } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-function List({ data }) {
+function List({ data, isLoading = false }) {
   const ListVar = {
     start: { opacity: 0 },
     end: {
@@ -18,14 +18,15 @@ function List({ data }) {
       className="flex flex-col gap-3"
     >
       {data?.map((book) => (
-        <Card key={uuidv4()} data={book} />
+        <Card key={uuidv4()} data={book} isLoading={isLoading} />
       ))}
     </motion.ul>
   );
 }
 
 List.propTypes = {
-  data: PropTypes.arrayOf(object),
+  data: arrayOf(object),
+  isLoading: bool,
 };
 
 export default List;
