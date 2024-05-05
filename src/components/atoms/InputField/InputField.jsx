@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types';
 
-function InputField({ label, id, type, placeholder, value, onChange }) {
+// name 속성을 필수값으로 지정해야 form 태그와 상호작용할 수 있습니다.
+function InputField({ label, id, type, placeholder, value, onChange, name }) {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className=" text-sm font-normal">
@@ -23,6 +24,7 @@ function InputField({ label, id, type, placeholder, value, onChange }) {
 InputField.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
