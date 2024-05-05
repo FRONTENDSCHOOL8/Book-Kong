@@ -42,10 +42,6 @@ function Bookshelf() {
     setQuery(newKeyword);
   };
 
-  // const [timer, setTimer] = useState(0);
-
-  // setTimeout(() => setTimer(3), 3000);
-
   return (
     <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen">
       <Helmet>
