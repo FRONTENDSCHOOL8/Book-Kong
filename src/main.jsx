@@ -6,7 +6,7 @@ import router from './Router';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider, createTheme } from '@mui/material';
 
-const theme = createTheme({
+const muiTheme = createTheme({
   components: {
     MuiSkeleton: {
       styleOverrides: {
@@ -22,7 +22,7 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={muiTheme}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
       </QueryClientProvider>
