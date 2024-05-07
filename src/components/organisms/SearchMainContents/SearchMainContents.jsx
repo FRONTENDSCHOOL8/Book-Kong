@@ -1,9 +1,10 @@
-import SearchBar from '../../molecules/SearchBar/SearchBar';
-import SearchCount from '../../atoms/SearchCount/SearchCount';
-import BookShelfList from '../BookShelfList/BookShelfList';
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { getBookData } from '../../../api/searchAladin';
+import SearchCount from '../../atoms/SearchCount/SearchCount';
+import SearchBar from '../../molecules/SearchBar/SearchBar';
+import SearchList from '../SearchList/SearchList';
 
 function SearchMainContents() {
   const [query, setQuery] = useState('');
@@ -14,21 +15,42 @@ function SearchMainContents() {
     setQuery(newKeyword);
   };
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['search', query],
-    queryFn: async () => getBookData(query),
-    staleTime: 1000 * 60 * 15,
-  });
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ['search', query],
+      queryFn: ({ pageParam }) => getBookData(query, pageParam),
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) => {
+        return lastPage.current_page + 1;
+      },
+    });
+
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, fetchNextPage]);
 
   return (
     <main className="px-4 pt-[81px] pb-[200px] overflow-scroll h-screen">
       <SearchBar onSubmit={handleSubmit} />
       <SearchCount
         query={query}
-        totalResults={data?.totalResults}
+        totalResults={data?.pages[0].page_data.totalResults}
         isLoading={isLoading}
       />
-      <BookShelfList data={data?.item} />
+      <SearchList data={data?.pages} />
+      <div ref={hasNextPage ? ref : undefined}>
+        {isFetchingNextPage ? (
+          <p>Loading more...</p>
+        ) : hasNextPage ? (
+          <p>Load more</p>
+        ) : (
+          <p>No more items</p>
+        )}
+      </div>
     </main>
   );
 }
