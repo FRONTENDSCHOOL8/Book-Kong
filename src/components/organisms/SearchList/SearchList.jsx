@@ -12,7 +12,7 @@ function SearchList({ data }) {
     >
       {data?.map((book) =>
         book?.page_data.item.map((book) => (
-          <BookCard key={uuidv4()} data={book} />
+          <BookCard key={uuidv4()} book={book} />
         ))
       )}
     </motion.ul>
