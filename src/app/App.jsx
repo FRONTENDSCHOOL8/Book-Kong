@@ -1,12 +1,14 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { loginUserData } from '../utils/controlUserData';
+import Splash from '../components/pages/SplashPage';
 
 function App() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const [splashing, isSplashing] = useState(true);
 
   useEffect(() => {
     if (pathname === '/') navigate('/library/booktree');
@@ -18,20 +20,32 @@ function App() {
     }
   }, [navigate, pathname]);
 
+  useEffect(() => {
+    const splashDisplayed = sessionStorage.getItem('splashDisplayed');
+
+    if (!splashDisplayed) {
+      setTimeout(() => {
+        isSplashing(false);
+        sessionStorage.setItem('splashDisplayed', 'true');
+      }, 3000);
+    } else {
+      isSplashing(false);
+    }
+  }, []);
+
+  if (splashing) {
+    return <Splash />;
+  }
+
+  if (pathname === '/login' || pathname === '/register') {
+    return <Outlet />;
+  }
+
   return (
-    <>
-      <Outlet />
-      {pathname === '/login' || pathname === '/register' ? (
-        ''
-      ) : (
+      <>
+        <Outlet />
         <GlobalNavigator />
-      )}
-      {pathname === '/login' || pathname === '/register' ? (
-        ''
-      ) : (
-        <GlobalNavigator />
-      )}
-    </>
+      </>
   );
 }
 

@@ -11,6 +11,7 @@ import Link from '../molecules/Link/Link';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 
+// 이 페이지는 Form의 기능을 적극적으로 사용하는 것이 좋습니다.
 export default function Register() {
   // 초기값 세팅
   const [nickname, setNickname] = useState('');
@@ -157,6 +158,7 @@ export default function Register() {
         <InputField
           label="닉네임"
           id="nickname"
+          name="nickname"
           type="text"
           value={nickname}
           placeholder="닉네임을 입력해주세요"
@@ -171,6 +173,7 @@ export default function Register() {
             <InputField
               label="이메일"
               id="email"
+              name="email"
               type="email"
               placeholder="예) bookkong@book.com"
               value={email}
@@ -187,6 +190,7 @@ export default function Register() {
               <InputField
                 label="비밀번호"
                 id="password"
+                name="password"
                 type={pwType.type}
                 value={password}
                 placeholder="비밀번호를 입력해주세요"
@@ -212,6 +216,7 @@ export default function Register() {
             <InputField
               label="비밀번호 확인"
               id="password-repeat"
+              name="password-repeat"
               type="password"
               placeholder="비밀번호를 한 번 더 입력해주세요"
               onChange={onChangeConfirm}

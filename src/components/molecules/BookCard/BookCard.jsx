@@ -4,7 +4,7 @@ import { getRandomNumber } from '../../../utils/getRandomNumber';
 import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import { useLocation } from 'react-router-dom';
-function BookCard({ data }) {
+function BookCard({ book }) {
   const { pathname } = useLocation();
 
   return (
@@ -16,13 +16,13 @@ function BookCard({ data }) {
       <a
         href={
           pathname === '/library/search'
-            ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
+            ? `/library/book-registration?title=${book.title}&author=${book.author}&publisher=${book.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${book.isbn}&cover=${book.cover}`
             : '/'
         }
         className="flex w-full"
       >
-        <BookCardImage data={data} />
-        <BookCardInfo data={data} />
+        <BookCardImage data={book} />
+        <BookCardInfo data={book} />
       </a>
     </motion.li>
   );
@@ -34,7 +34,7 @@ const CardVar = {
 };
 
 BookCard.propTypes = {
-  data: PropTypes.object,
+  book: PropTypes.object,
 };
 
 export default BookCard;

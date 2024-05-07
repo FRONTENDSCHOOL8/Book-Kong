@@ -2,7 +2,7 @@ import BookCard from '../../molecules/BookCard/BookCard';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-function BookList({ data }) {
+function BookList({ book }) {
   return (
     <motion.ul
       variants={ListVar}
@@ -10,7 +10,7 @@ function BookList({ data }) {
       animate="end"
       className="flex flex-col gap-3"
     >
-      {data?.map((book) => (
+      {book?.map((book) => (
         <BookCard key={uuidv4()} data={book} />
       ))}
     </motion.ul>
@@ -26,7 +26,7 @@ const ListVar = {
 };
 
 BookList.propTypes = {
-  data: PropTypes.arrayOf(object),
+  book: PropTypes.arrayOf(object),
 };
 
 export default BookList;

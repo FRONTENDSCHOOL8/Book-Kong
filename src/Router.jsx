@@ -15,7 +15,11 @@ import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
+import SplashPage from './components/pages/SplashPage';
 
+// 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
+// 선언형 코드를 작성하면 눈의 피로가 줄어드는 효과가 있었습니다.
+// https://reactrouter.com/en/main/utils/create-routes-from-elements
 const router = createBrowserRouter([
   {
     path: '/',
@@ -78,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: 'mypage',
         element: <MypagePage />,
+      },
+      {
+        path: 'splash',
+        element: <SplashPage />,
       },
     ],
   },
