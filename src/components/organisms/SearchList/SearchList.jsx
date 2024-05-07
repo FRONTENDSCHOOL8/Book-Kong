@@ -1,7 +1,7 @@
-import BookCard from '../../molecules/BookCard/BookCard';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import SearchCard from '../../molecules/SearchCard/SearchCard';
 function SearchList({ data }) {
   return (
     <motion.ul
@@ -12,7 +12,7 @@ function SearchList({ data }) {
     >
       {data?.map((book) =>
         book?.page_data.item.map((book) => (
-          <BookCard key={uuidv4()} book={book} />
+          <SearchCard key={uuidv4()} data={book} />
         ))
       )}
     </motion.ul>

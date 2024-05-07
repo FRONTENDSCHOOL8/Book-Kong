@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
-import { getRandomNumber } from '../../../utils/getRandomNumber';
-import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
-import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import { useLocation } from 'react-router-dom';
-function BookCard({ data }) {
+import { getRandomNumber } from '../../../utils/getRandomNumber';
+import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
+import BookCardInfo from '../BookCardInfo/BookCardInfo';
+function SearchCard({ data }) {
   const { pathname } = useLocation();
 
   return (
@@ -21,7 +21,7 @@ function BookCard({ data }) {
         }
         className="flex w-full"
       >
-        <BookCardImage data={data} />
+        <SearchCardImage data={data} />
         <BookCardInfo data={data} />
       </a>
     </motion.li>
@@ -33,8 +33,8 @@ const CardVar = {
   end: { y: 0 },
 };
 
-BookCard.propTypes = {
+SearchCard.propTypes = {
   data: PropTypes.object,
 };
 
-export default BookCard;
+export default SearchCard;
