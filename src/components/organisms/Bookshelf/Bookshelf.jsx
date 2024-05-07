@@ -23,7 +23,7 @@ function Bookshelf() {
   };
 
   return (
-    <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen">
+    <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen hide-scrollbar">
       <Helmet>
         <title>책콩 | 서재 페이지 - 책장</title>
       </Helmet>

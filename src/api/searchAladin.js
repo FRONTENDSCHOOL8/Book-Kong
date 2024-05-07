@@ -1,5 +1,5 @@
 export async function getBookData(keyword = '', pageParam) {
-  if (keyword.replace(/\s/g, '') === '') return null;
+  if (keyword.replace(/\s/g, '') === '') return;
 
   const bookData = await (
     await fetch(
