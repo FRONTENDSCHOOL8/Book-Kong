@@ -3,7 +3,7 @@ import { loginWithEmail } from '../../utils/controlUserData';
 import debounce from '../../utils/debounce';
 import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
-import SignUpButton from '../atoms/SignUpButton/SignUpButton';
+import SignUpButton from '../atoms/SignupButton/SignUpButton';
 import SnsIcons from '../atoms/SnsIcons/SnsIcons';
 import { useNavigate } from 'react-router-dom';
 import Link from '../molecules/Link/Link';

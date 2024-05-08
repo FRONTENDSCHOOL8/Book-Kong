@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { signUpUser } from '../../utils/controlUserData';
 import debounce from '../../utils/debounce';
 import checkPbDuplication from '../../utils/checkPbDuplication';
-import SignUpButton from '../atoms/SignUpButton/SignUpButton';
+import SignUpButton from '../atoms/SignupButton/SignUpButton';
 import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SnsIcons from '../atoms/SnsIcons/SnsIcons';
