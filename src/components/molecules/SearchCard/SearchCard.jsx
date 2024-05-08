@@ -1,15 +1,10 @@
 import { motion } from 'framer-motion';
-import { object } from 'prop-types';
-import { getRandomNumber } from '../../../utils/getRandomNumber';
-import CardImage from '../../atoms/CardImage/CardImage';
-import CardInfo from '../CardInfo/CardInfo';
+import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
-function Card({ data }) {
-  const CardVar = {
-    start: { y: 20 },
-    end: { y: 0 },
-  };
-
+import { getRandomNumber } from '../../../utils/getRandomNumber';
+import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
+import BookCardInfo from '../BookCardInfo/BookCardInfo';
+function SearchCard({ data }) {
   const { pathname } = useLocation();
 
   return (
@@ -26,15 +21,20 @@ function Card({ data }) {
         }
         className="flex w-full"
       >
-        <CardImage data={data} />
-        <CardInfo data={data} />
+        <SearchCardImage data={data} />
+        <BookCardInfo data={data} />
       </a>
     </motion.li>
   );
 }
 
-Card.propTypes = {
-  data: object,
+const CardVar = {
+  start: { y: 20 },
+  end: { y: 0 },
 };
 
-export default Card;
+SearchCard.propTypes = {
+  data: PropTypes.object,
+};
+
+export default SearchCard;
