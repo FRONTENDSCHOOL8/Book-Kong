@@ -9,7 +9,7 @@ import { useBookshelfData } from '../../../hooks/useBookshelfData';
 function Bookshelf() {
   const [filter, setFilter] = useState('전체');
   const [query, setQuery] = useState('');
-  const { data } = useBookshelfData(query);
+  const { data, isLoading } = useBookshelfData(query);
 
   const handleClick = (e) => {
     const button = e.target.closest('button');
