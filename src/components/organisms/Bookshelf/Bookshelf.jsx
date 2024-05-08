@@ -47,22 +47,21 @@ function Bookshelf() {
       <Helmet>
         <title>책콩 | 서재 페이지 - 책장</title>
       </Helmet>
-      {/* {isLoading ? ( */}
-      <>
-        <Skeleton variant="rounded">
-          <SearchBar onSubmit={handleSubmit} />
-        </Skeleton>
-        <Filter onClick={handleClick} filter={filter} isLoading={isLoading} />
-        <List
-          data={
-            filter === '전체'
-              ? data
-              : data?.filter((data) => data.status === filter)
-          }
-          isLoading={isLoading}
-        />
-      </>
-      {/* ) : (
+      {isLoading ? (
+        <>
+          <Skeleton variant="rounded">
+            <SearchBar onSubmit={handleSubmit} />
+          </Skeleton>
+          <Filter onClick={handleClick} filter={filter} isLoading={isLoading} />
+          <List
+            data={
+              filter === '전체'
+                ? data
+                : data?.filter((data) => data.status === filter)
+            }
+          />
+        </>
+      ) : (
         <>
           <SearchBar onSubmit={handleSubmit} />
           <Filter onClick={handleClick} filter={filter} />
@@ -74,7 +73,7 @@ function Bookshelf() {
             }
           />
         </>
-      )} */}
+      )}
     </main>
   );
 }
