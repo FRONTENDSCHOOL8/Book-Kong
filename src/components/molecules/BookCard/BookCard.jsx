@@ -1,16 +1,10 @@
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { getRandomNumber } from '../../../utils/getRandomNumber';
-import CardImage from '../../atoms/CardImage/CardImage';
-import CardInfo from '../CardInfo/CardInfo';
+import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
+import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import { useLocation } from 'react-router-dom';
-
-const CardVar = {
-  start: { y: 20 },
-  end: { y: 0 },
-};
-
-function Card({ book }) {
+function BookCard({ data }) {
   const { pathname } = useLocation();
 
   return (
@@ -22,20 +16,25 @@ function Card({ book }) {
       <a
         href={
           pathname === '/library/search'
-            ? `/library/book-registration?title=${book.title}&author=${book.author}&publisher=${book.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${book.isbn}&cover=${book.cover}`
+            ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
             : '/'
         }
         className="flex w-full"
       >
-        <CardImage data={book} />
-        <CardInfo data={book} />
+        <BookCardImage data={data} />
+        <BookCardInfo data={data} />
       </a>
     </motion.li>
   );
 }
 
-Card.propTypes = {
-  book: PropTypes.object,
+const CardVar = {
+  start: { y: 20 },
+  end: { y: 0 },
 };
 
-export default Card;
+BookCard.propTypes = {
+  data: PropTypes.object,
+};
+
+export default BookCard;

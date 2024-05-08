@@ -1,8 +1,8 @@
-import CardImage from './CardImage';
+import BookCardImage from './BookCardImage';
 
 const metaConfig = {
   title: 'components/CardImage',
-  component: CardImage,
+  component: BookCardImage,
   tags: ['autodocs'],
   args: {},
 };
@@ -12,4 +12,4 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = 'CardImage';
+Base.storyName = 'BookCardImage';
