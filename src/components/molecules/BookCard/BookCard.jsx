@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
+import { object } from 'prop-types';
 import { getRandomNumber } from '../../../utils/getRandomNumber';
 import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
@@ -34,7 +34,7 @@ const CardVar = {
 };
 
 BookCard.propTypes = {
-  data: PropTypes.object,
+  data: object,
 };
 
 export default BookCard;
