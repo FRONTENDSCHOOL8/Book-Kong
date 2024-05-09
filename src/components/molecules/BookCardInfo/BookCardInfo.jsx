@@ -7,12 +7,12 @@ function BookCardInfo({ data }) {
   return (
     <div className="flex flex-col justify-between py-4 pr-6 pl-4 w-full">
       <div className="flex flex-col gap-1">
-        <h3 className="contents-sm-bold clip-text-2">{data.title}</h3>
+        <h3 className="contents-sm-md clip-text-2">{data.title}</h3>
         <p className="contents-xs text-grayscale-400 clip-text-1">
           {data.author}
         </p>
       </div>
-      {currentPage === '/library/search' && (
+      {currentPage === '/library/book-search' && (
         <span className="contents-xs text-grayscale-700 clip-text-1">
           {data.publisher}
         </span>

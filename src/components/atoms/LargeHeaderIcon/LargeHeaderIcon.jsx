@@ -1,14 +1,15 @@
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 function LargeHeaderIcon({ title }) {
   const iconDetails = {
     서재: {
-      href: '/library/search',
+      href: '/library/book-search',
       src: '/images/icons/addBook.svg',
       alt: '책 추가',
     },
     기록: {
-      href: '/library',
+      href: '/library/booktree',
       src: '/images/icons/newrecord.svg',
       alt: '글 작성',
     },
@@ -16,7 +17,9 @@ function LargeHeaderIcon({ title }) {
 
   const icon = iconDetails[title];
 
-  if (!icon) return null;
+  const { pathname } = useLocation();
+
+  if (!icon || pathname === '/record/statistics') return null;
 
   return (
     <a href={icon.href}>
@@ -25,6 +28,8 @@ function LargeHeaderIcon({ title }) {
   );
 }
 
-LargeHeaderIcon.propTypes = { title: PropTypes.string.isRequired };
+LargeHeaderIcon.propTypes = {
+  title: string.isRequired,
+};
 
 export default LargeHeaderIcon;

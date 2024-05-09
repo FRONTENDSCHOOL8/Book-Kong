@@ -8,7 +8,9 @@ function SearchCardImage({ data }) {
     <div className="relative">
       <img
         className="w-[125px] h-[130px]"
-        src={pathname === '/library/search' ? data.cover : getPbImage(data)}
+        src={
+          pathname === '/library/book-search' ? data.cover : getPbImage(data)
+        }
         alt={data.title}
       />
     </div>

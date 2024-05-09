@@ -1,4 +1,4 @@
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 function MediumBookBadge({ data }) {
   return (
@@ -12,8 +12,8 @@ function MediumBookBadge({ data }) {
   );
 }
 
-MediumBookBadge.propTypes = { 
-  data: PropTypes.object
- };
+MediumBookBadge.propTypes = {
+  data: PropTypes.object,
+};
 
 export default MediumBookBadge;
