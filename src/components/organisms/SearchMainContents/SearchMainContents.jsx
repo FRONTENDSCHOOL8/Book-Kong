@@ -1,9 +1,11 @@
-import SearchBar from '../../molecules/SearchBar/SearchBar';
-import SearchCount from '../../atoms/SearchCount/SearchCount';
-import List from '../List/List';
-import { useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { getBookData } from '../../../api/searchAladin';
+import SearchCount from '../../atoms/SearchCount/SearchCount';
+import SearchBar from '../../molecules/SearchBar/SearchBar';
+import SearchList from '../SearchList/SearchList';
+import { Link } from 'react-router-dom';
 
 function SearchMainContents() {
   const [query, setQuery] = useState('');
@@ -14,21 +16,72 @@ function SearchMainContents() {
     setQuery(newKeyword);
   };
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['search', query],
-    queryFn: async () => getBookData(query),
-    staleTime: 1000 * 60 * 15,
-  });
+  const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ['search', query],
+      queryFn: ({ pageParam }) => getBookData(query, pageParam),
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) => {
+        if (lastPage && 'current_page' in lastPage) {
+          return lastPage.current_page + 1;
+        }
+        return undefined;
+      },
+    });
+
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView && hasNextPage && query !== '') {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, fetchNextPage, query]);
 
   return (
-    <main className="px-4 pt-[81px] pb-[200px] overflow-scroll h-screen">
+    <main className="relative px-4 pt-[81px] pb-[200px] overflow-scroll h-screen hide-scrollbar">
       <SearchBar onSubmit={handleSubmit} />
-      <SearchCount
-        query={query}
-        totalResults={data?.totalResults}
-        isLoading={isLoading}
-      />
-      <List data={data?.item} />
+      {query === '' ? (
+        <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">
+          <img className="w-24" src="/images/characters/잠금캐릭.png" alt="" />
+          <span className="text-grayscale-500 text-content-small">
+            책을 검색하여 책장에 추가해보세요.
+          </span>
+        </div>
+      ) : data?.pages[0].page_data.totalResults !== 0 ? (
+        <>
+          <SearchCount
+            query={query}
+            totalResults={data?.pages[0].page_data.totalResults}
+            isLoading={isLoading}
+          />
+          <SearchList data={data?.pages} />
+          <div ref={hasNextPage ? ref : undefined}>
+            {isFetchingNextPage ? (
+              <p>불러오는 중...</p>
+            ) : hasNextPage ? (
+              <p></p>
+            ) : (
+              <p></p>
+            )}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col text-grayscale-500 text-content-small text-center gap-8">
+            <span>검색 내역이 없어요.</span>
+            <div className="flex flex-col">
+              <span>해당 책이 없다면 책 정보를</span>
+              <span>직접 입력하여 추가할 수 있답니다!</span>
+            </div>
+            <Link
+              to="/library/book-registration"
+              className="text-primary-500 underline underline-offset-4"
+            >
+              직접 입력하기
+            </Link>
+          </div>
+        </>
+      )}
     </main>
   );
 }

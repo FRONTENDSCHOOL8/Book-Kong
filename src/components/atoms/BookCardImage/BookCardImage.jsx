@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import getPbImage from '../../../utils/getPbImage';
 
-function CardImage({ data }) {
+function BookCardImage({ data }) {
   const { pathname } = useLocation();
   return (
     <div className="relative">
@@ -20,6 +20,6 @@ function CardImage({ data }) {
   );
 }
 
-CardImage.propTypes = { data: PropTypes.object };
+BookCardImage.propTypes = { data: PropTypes.object };
 
-export default CardImage;
+export default BookCardImage;

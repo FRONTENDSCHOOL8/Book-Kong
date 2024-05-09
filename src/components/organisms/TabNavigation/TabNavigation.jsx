@@ -4,15 +4,16 @@ import TabLink from '../../atoms/TabLink/TabLink';
 import { useState } from 'react';
 
 function TabNavigation({ page }) {
-  
+  // 네비게이션 정보는 되도록 주소 입력창에 저장하는 것이 좋습니다.
+  //
   const [button, setButton] = useState('책 정보');
-  
+
   const handleClick = (e) => {
     const a = e.target.closest('a');
     if (!a) return;
-    
+
     const target = a.innerText;
-    
+
     if (target === '책 정보') {
       setButton('책 정보');
     } else if (target === '메모') {

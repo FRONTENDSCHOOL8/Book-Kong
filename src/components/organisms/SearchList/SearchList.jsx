@@ -1,8 +1,8 @@
-import BookCard from '../../molecules/BookCard/BookCard';
 import { motion } from 'framer-motion';
 import PropTypes, { object } from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-function BookList({ book }) {
+import SearchCard from '../../molecules/SearchCard/SearchCard';
+function SearchList({ data }) {
   return (
     <motion.ul
       variants={ListVar}
@@ -10,9 +10,11 @@ function BookList({ book }) {
       animate="end"
       className="flex flex-col gap-3"
     >
-      {book?.map((book) => (
-        <BookCard key={uuidv4()} data={book} />
-      ))}
+      {data?.map((book) =>
+        book?.page_data.item.map((book) => (
+          <SearchCard key={uuidv4()} data={book} />
+        ))
+      )}
     </motion.ul>
   );
 }
@@ -25,8 +27,8 @@ const ListVar = {
   },
 };
 
-BookList.propTypes = {
-  book: PropTypes.arrayOf(object),
+SearchList.propTypes = {
+  data: PropTypes.arrayOf(object),
 };
 
-export default BookList;
+export default SearchList;

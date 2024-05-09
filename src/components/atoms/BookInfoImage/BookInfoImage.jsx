@@ -1,25 +1,37 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+// 파일 리더를 Promise와 통합한 유틸리티
+const file2Image = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    if (!file) {
+      reject('파일이 선택되지 않았습니다.');
+    }
+
+    reader.onload = (e) => {
+      const imageURL = e.target.result;
+      resolve(imageURL);
+    };
+    reader.onerror = () => reject('파일을 읽는 중에 에러가 발생했습니다.');
+
+    reader.readAsDataURL(file);
+  })
+}
+
 function BookInfoImage() {
   const [searchParams] = useSearchParams();
   const initialImageUrl = searchParams.get('cover');
   const [url, setUrl] = useState(initialImageUrl);
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const file = e.target.files[0];
 
-    if (file) {
-      const reader = new FileReader();
-
-      reader.onload = (e) => {
-        const imageURL = e.target.result;
-        setUrl(imageURL);
-      };
-
-      reader.readAsDataURL(file);
-    } else {
-      console.log('파일이 선택되지 않았습니다.');
+    try {
+      const imageURL = await file2Image(file);
+      setUrl(imageURL);
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -56,6 +68,7 @@ function BookInfoImage() {
         type="file"
         id="cover"
         onChange={handleChange}
+        accept="image/*"
       />
     </li>
   );

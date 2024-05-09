@@ -4,11 +4,13 @@ import { useSearchParams } from 'react-router-dom';
 
 function BookInfoInput({ title }) {
   const [searchParams] = useSearchParams();
-  const [bookTitle, setBookTitle] = useState(searchParams.get('title'));
-  const [author, setAuthor] = useState(searchParams.get('author'));
-  const [publisher, setPublisher] = useState(searchParams.get('publisher'));
-  const [page, setPage] = useState(searchParams.get('page'));
-  const [isbn, setIsbn] = useState(searchParams.get('isbn'));
+  const [bookTitle, setBookTitle] = useState(searchParams.get('title') || '');
+  const [author, setAuthor] = useState(searchParams.get('author') || '');
+  const [publisher, setPublisher] = useState(
+    searchParams.get('publisher') || ''
+  );
+  const [page, setPage] = useState(searchParams.get('page') || '');
+  const [isbn, setIsbn] = useState(searchParams.get('isbn') || '');
 
   const handleChange = (e) => {
     const target = e.target.id;
@@ -21,7 +23,7 @@ function BookInfoInput({ title }) {
     else if (target === 'ISBN') setIsbn(value);
   };
 
-  let value = null;
+  let value = '';
 
   if (title === '책 제목') value = bookTitle;
   else if (title === '지은이/옮긴이') value = author;
