@@ -1,19 +1,27 @@
 import { string } from 'prop-types';
 
 function LargeHeaderIcon({ title }) {
+  const iconDetails = {
+    서재: {
+      href: '/library/book-search',
+      src: '/images/icons/addBook.svg',
+      alt: '책 추가',
+    },
+    기록: {
+      href: '/library',
+      src: '/images/icons/newrecord.svg',
+      alt: '글 작성',
+    },
+  };
+
+  const icon = iconDetails[title];
+
+  if (!icon) return null;
+
   return (
-    <>
-      {title === '서재' && (
-        <a href="/library/book-search">
-          <img src="/images/icons/addBook.svg" alt="책 추가" />
-        </a>
-      )}
-      {title === '기록' && (
-        <a href="/library">
-          <img src="/images/icons/newRecord.svg" alt="글 작성" />
-        </a>
-      )}
-    </>
+    <a href={icon.href}>
+      <img src={icon.src} alt={icon.alt} />
+    </a>
   );
 }
 

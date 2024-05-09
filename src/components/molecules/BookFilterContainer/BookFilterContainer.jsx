@@ -1,17 +1,69 @@
-import { func, string } from 'prop-types';
+import { func, string, bool } from 'prop-types';
 import BookFilterButton from '../../atoms/BookFilterButton/BookFilterButton';
+import { Skeleton } from '@mui/material';
 
-function BookFilterContainer({ onClick, filter: filterType }) {
+function BookFilterContainer({
+  onClick,
+  filter: filterType,
+  isLoading = false,
+}) {
   return (
     <div className="flex py-4 gap-1">
-      <BookFilterButton type="전체" onClick={onClick} filter={filterType} />
-      <BookFilterButton type="완독" onClick={onClick} filter={filterType} />
-      <BookFilterButton type="독서 중" onClick={onClick} filter={filterType} />
-      <BookFilterButton
-        type="희망 도서"
-        onClick={onClick}
-        filter={filterType}
-      />
+      {isLoading ? (
+        <>
+          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
+            <BookFilterButton
+              title="전체"
+              onClick={onClick}
+              filter={filterType}
+            />
+          </Skeleton>
+          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
+            <BookFilterButton
+              title="완독"
+              onClick={onClick}
+              filter={filterType}
+            />
+          </Skeleton>
+          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
+            <BookFilterButton
+              title="독서중"
+              onClick={onClick}
+              filter={filterType}
+            />
+          </Skeleton>
+          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
+            <BookFilterButton
+              title="희망 도서"
+              onClick={onClick}
+              filter={filterType}
+            />
+          </Skeleton>
+        </>
+      ) : (
+        <>
+          <BookFilterButton
+            title="전체"
+            onClick={onClick}
+            filter={filterType}
+          />
+          <BookFilterButton
+            title="완독"
+            onClick={onClick}
+            filter={filterType}
+          />
+          <BookFilterButton
+            title="독서중"
+            onClick={onClick}
+            filter={filterType}
+          />
+          <BookFilterButton
+            title="희망 도서"
+            onClick={onClick}
+            filter={filterType}
+          />
+        </>
+      )}
     </div>
   );
 }
@@ -19,6 +71,7 @@ function BookFilterContainer({ onClick, filter: filterType }) {
 BookFilterContainer.propTypes = {
   onClick: func.isRequired,
   filter: string.isRequired,
+  isLoading: bool,
 };
 
 export default BookFilterContainer;

@@ -9,11 +9,17 @@ function BackButton({ title }) {
 
     if (title === '검색하기') {
       navigate('/library/booktree');
-    } else if (title === '직접 입력하기') {
+      return;
+    }
+    if (title === '직접 입력하기') {
       navigate('/library/book-search');
-    } else if (title === '메모' || title === '메모 작성') {
+      return;
+    }
+    if (title === '메모' || title === '메모 작성') {
       navigate('/record');
-    } else if (title === '피드' || title === '피드 작성') {
+      return;
+    }
+    if (title === '피드' || title === '피드 작성') {
       navigate('/feed');
     }
   };

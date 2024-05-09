@@ -18,6 +18,7 @@ export const EmailInputBox = {
   args: {
     label: '이메일',
     id: 'email',
+    name: 'email',
     type: 'email',
     placeholder: '이메일을 입력해주세요',
     value: 'bookkong@fes8.dev',
@@ -26,6 +27,7 @@ export const EmailInputBox = {
   argTypes: {
     label: createArgTypesControl(),
     id: createArgTypesControl(),
+    name: createArgTypesControl(),
     type: createArgTypesControl(),
     placeholder: createArgTypesControl(),
     value: createArgTypesControl(),

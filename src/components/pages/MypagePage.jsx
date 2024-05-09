@@ -38,23 +38,28 @@ function MypagePage() {
       }
     }
   };
-
-  const { data } = useQuery({
+  const {
+    data: { userFinishBookNum, userTotalPage },
+  } = useQuery({
     queryKey: ['book'],
     queryFn: () => getUserLibraryData('완독'),
+    // 파생상태는 select 옵션에 정리하면 좋습니다.
+    select: (books) => {
+      // 유저의 다 읽은 책 권수 계산
+      const userFinishBookNum = books?.length;
+
+      // 유저의 다 읽은 책 페이지 합계
+      let userTotalPage = 0;
+
+      if (books) {
+        for (const book of books) {
+          userTotalPage += book.total_page;
+        }
+      }
+
+      return { userFinishBookNum, userTotalPage };
+    },
   });
-
-  // 유저의 다 읽은 책 권수 계산
-  const userFinishBookNum = data?.length;
-
-  // 유저의 다 읽은 책 페이지 합계
-  let userTotalPage = 0;
-
-  if (data) {
-    for (const book of data) {
-      userTotalPage += book.total_page;
-    }
-  }
 
   const loginUserNickName = loginUserData.nickname;
   const loginUserEmail = loginUserData.email;

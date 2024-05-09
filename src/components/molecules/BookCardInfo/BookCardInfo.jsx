@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import convertDayFormat from '../../../utils/convertDayFormat';
 
-function CardInfo({ data }) {
+function BookCardInfo({ data }) {
   const { pathname: currentPage } = useLocation();
   return (
     <div className="flex flex-col justify-between py-4 pr-6 pl-4 w-full">
@@ -96,8 +96,8 @@ function CardInfo({ data }) {
   );
 }
 
-CardInfo.propTypes = {
+BookCardInfo.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
-export default CardInfo;
+export default BookCardInfo;
