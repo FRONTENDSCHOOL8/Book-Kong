@@ -4,7 +4,7 @@ import debounce from '../../utils/debounce';
 import InputField from '../atoms/InputField/InputField';
 import Or from '../atoms/Or/Or';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
-import SignUpButton from '../atoms/SignUpButton/SignUpButton';
+import SignUpButton from '../atoms/SignupButton/SignUpButton';
 import SnsIcon from '../atoms/SnsIcon/SnsIcon';
 import { useNavigate } from 'react-router-dom';
 import Link from '../molecules/Link/Link';
