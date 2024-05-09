@@ -261,7 +261,7 @@ function RegisterPage() {
       <p className="text-center mt-10 text-[#AAA]">
         이미 계정이 있으신가요?{' '}
         <a
-          href="#"
+          href="/login"
           className="text-[#333] font-medium underline tracking-[0.14px]"
         >
           로그인
