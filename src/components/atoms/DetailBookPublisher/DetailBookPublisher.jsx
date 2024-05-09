@@ -7,6 +7,4 @@ function DetailBookPublisher() {
   return <span className="contents-xs-bold text-grayscale-700">현대지성</span>;
 }
 
-
-
 export default DetailBookPublisher;

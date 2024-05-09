@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import Back from '../../../atoms/Back/Back';
+import { string } from 'prop-types';
+import BackButton from '../../../atoms/BackButton/BackButton';
 import SmallHeaderTitle from '../../../atoms/SmallHeaderTitle/SmallHeaderTitle';
 import AddBookIconButton from '../../../atoms/AddBookIconButton/AddBookIconButton';
 import DeleteIconButton from '../../../atoms/DeleteIconButton/DeleteIconButton';
@@ -31,7 +31,7 @@ function SmallHeader({ title }) {
 
   return (
     <header className="relative flex justify-between items-center px-4 py-[16px] border-b border-grayscale-200 bg-grayscale-white">
-      <Back title={title} />
+      <BackButton title={title} />
       <SmallHeaderTitle title={title} />
       {renderButtons()}
     </header>
@@ -39,7 +39,7 @@ function SmallHeader({ title }) {
 }
 
 SmallHeader.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: string.isRequired,
 };
 
 export default SmallHeader;

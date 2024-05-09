@@ -1,7 +1,8 @@
 import { any, bool, node, objectOf, string } from 'prop-types';
 import A11yHidden from '../A11yHidden/A11yHidden';
+import { memo } from 'react';
 
-function Label({
+const Label = memo(function Label({
   children,
   className = 'contents-md-bold text-grayscale-900 w-16',
   htmlFor: id,
@@ -10,17 +11,17 @@ function Label({
 }) {
   if (isHidden) {
     return (
-      <A11yHidden as="label" className={className} htmlFor={id} {...restProps}>
+      <A11yHidden as="label" htmlFor={id} {...restProps}>
         {children}
       </A11yHidden>
     );
   }
   return (
-    <label htmlFor={id} className={className}>
+    <label htmlFor={id} className={className} {...restProps}>
       {children}
     </label>
   );
-}
+});
 
 Label.propTypes = {
   children: node.isRequired,

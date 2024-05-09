@@ -1,18 +1,18 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '/src/app/App';
-import LibraryPage from '/src/components/pages/LibraryPage';
+import LibraryPage from './components/pages/LibraryPage/LibraryPage';
 import RecordPage from '/src/components/pages/RecordPage';
 import FeedPage from '/src/components/pages/FeedPage';
 import CharacterPage from '/src/components/pages/CharacterPage';
 import MypagePage from '/src/components/pages/MypagePage';
 import MemoList from './components/organisms/MemoList/MemoList';
-import SearchPage from './components/pages/SearchPage';
-import BookRegistrationPage from './components/pages/BookRegistrationPage';
+import BookSearchPage from './components/pages/BookSearchPage';
+import BookRegisterPage from './components/pages/BookRegisterPage/BookRegisterPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
-import DetailPage from './components/pages/DetailPage';
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
+import BookDetailPage from './components/pages/BookDetailPage';
+import LoginPage from './components/pages/LoginPage';
+import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
 import SplashPage from './components/pages/SplashPage';
@@ -30,24 +30,24 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'library/detail',
-        element: <DetailPage />,
+        path: 'library/book-detail',
+        element: <BookDetailPage />,
       },
       {
-        path: 'library/search',
-        element: <SearchPage />,
+        path: 'library/book-search',
+        element: <BookSearchPage />,
       },
       {
         path: 'library/book-registration',
-        element: <BookRegistrationPage />,
+        element: <BookRegisterPage />,
       },
       {
         path: 'login',
-        element: <Login />,
+        element: <LoginPage />,
       },
       {
         path: 'register',
-        element: <Register />,
+        element: <RegisterPage />,
       },
       {
         path: 'library',

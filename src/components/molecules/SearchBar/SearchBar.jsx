@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import InputBar from '../../atoms/InputBar/InputBar';
+import { func } from 'prop-types';
+import SearchInput from '../../atoms/SearchInput/SearchInput';
 import SearchButton from '../../atoms/SearchButton/SearchButton';
 import { useState } from 'react';
 
@@ -8,22 +8,21 @@ function SearchBar({ onSubmit }) {
 
   const handleChange = (e) => {
     setKeyword(e.target.value);
-    return;
   };
 
   return (
     <form
       onSubmit={onSubmit}
-      className="bg-primary-50 w-full flex justify-center items-center flex-shrink-0 rounded-[4px] border-[1px] border-primary-500 px-3 py-2 "
+      className="bg-primary-50 w-full flex justify-center items-center flex-shrink-0 rounded border border-primary-500 px-3 py-2 "
     >
-      <InputBar keyword={keyword} onChange={handleChange} />
+      <SearchInput keyword={keyword} onChange={handleChange} />
       <SearchButton />
     </form>
   );
 }
 
 SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  onSubmit: func.isRequired,
 };
 
 export default SearchBar;

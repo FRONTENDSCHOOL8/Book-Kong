@@ -15,7 +15,7 @@ function BookCard({ data }) {
     >
       <a
         href={
-          pathname === '/library/search'
+          pathname === '/library/book-search'
             ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
             : '/'
         }
