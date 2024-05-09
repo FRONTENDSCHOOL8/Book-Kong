@@ -4,7 +4,7 @@ import { memo } from 'react';
 
 const Label = memo(function Label({
   children,
-  className = 'contents-md-bold text-grayscale-900 w-16',
+  className: customClassName = '',
   htmlFor: id,
   isHidden = false,
   ...restProps
@@ -16,6 +16,10 @@ const Label = memo(function Label({
       </A11yHidden>
     );
   }
+
+  const DEFAULT_CLASSNAME = 'contents-md-bold text-grayscale-900 w-16';
+  const className = `${DEFAULT_CLASSNAME} ${customClassName}`;
+
   return (
     <label htmlFor={id} className={className} {...restProps}>
       {children}
