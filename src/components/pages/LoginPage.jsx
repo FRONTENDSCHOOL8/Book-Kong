@@ -110,7 +110,7 @@ function LoginPage() {
       <div className="flex items-center justify-center gap-3 mt-20">
         <a className="text-[#848484]">회원가입</a>
         <div className=" bg-[#AAA] w-[1px] h-3"></div>
-        <a className="text-[#848484]">비밀번호찾기</a>
+        <a className="text-[#848484]">아이디 혹은 비밀번호 찾기</a>
       </div>
       <Link />
     </div>
