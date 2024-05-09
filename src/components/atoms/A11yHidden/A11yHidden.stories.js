@@ -1,4 +1,4 @@
-import { createArgTypesControl } from '../../../utils/StoryBook';
+import { createArgTypesControl } from '../../../utils/storybook';
 import A11yHidden from './A11yHidden';
 
 const metaConfig = {

@@ -1,5 +1,5 @@
 import FormInputBox from './FormInputBox';
-import { createArgTypesControl } from '../../../utils/StoryBook';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 const onChangeEmail = () => {
   return 'change e-mail';

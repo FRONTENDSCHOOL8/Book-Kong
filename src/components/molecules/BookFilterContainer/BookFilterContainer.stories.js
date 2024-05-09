@@ -1,5 +1,5 @@
 import BookFilterContainer from './BookFilterContainer';
-import { createArgTypesControl } from '../../../utils/StoryBook';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 let filterType = '전체';
 

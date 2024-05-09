@@ -1,4 +1,4 @@
-import { createArgTypesControl } from '../../../utils/StoryBook';
+import { createArgTypesControl } from '../../../utils/storybook';
 import RatesContainer from './RatesContainer';
 
 const metaConfig = {
