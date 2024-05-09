@@ -103,7 +103,7 @@ function RegisterPage() {
       setConfirmPwdErrorMsg('비밀번호가 다릅니다.');
       setIsConfirmPwdValid(false);
     } else {
-      setConfirmPwdErrorMsg('사용가능한 비밀번호입니다😊');
+      setConfirmPwdErrorMsg('비밀번호가 일치합니다😊');
       setIsConfirmPwdValid(true);
     }
   };
