@@ -1,4 +1,5 @@
 import { string } from 'prop-types';
+import { useLocation } from 'react-router-dom';
 
 function LargeHeaderIcon({ title }) {
   const iconDetails = {
@@ -8,7 +9,7 @@ function LargeHeaderIcon({ title }) {
       alt: '책 추가',
     },
     기록: {
-      href: '/library',
+      href: '/library/booktree',
       src: '/images/icons/newrecord.svg',
       alt: '글 작성',
     },
@@ -16,7 +17,9 @@ function LargeHeaderIcon({ title }) {
 
   const icon = iconDetails[title];
 
-  if (!icon) return null;
+  const { pathname } = useLocation();
+
+  if (!icon || pathname === '/record/statistics') return null;
 
   return (
     <a href={icon.href}>
