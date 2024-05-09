@@ -1,27 +1,18 @@
-import { any, bool, node, objectOf, string } from 'prop-types';
+import { bool, node, string } from 'prop-types';
 import A11yHidden from '../A11yHidden/A11yHidden';
 import { memo } from 'react';
 
-const Label = memo(function Label({
-  children,
-  className: customClassName = '',
-  htmlFor: id,
-  isHidden = false,
-  ...restProps
-}) {
+const Label = memo(function Label({ children, htmlFor: id, isHidden = false }) {
   if (isHidden) {
     return (
-      <A11yHidden as="label" htmlFor={id} {...restProps}>
+      <A11yHidden as="label" htmlFor={id}>
         {children}
       </A11yHidden>
     );
   }
 
-  const DEFAULT_CLASSNAME = 'contents-md-bold text-grayscale-900 w-16';
-  const className = `${DEFAULT_CLASSNAME} ${customClassName}`;
-
   return (
-    <label htmlFor={id} className={className} {...restProps}>
+    <label htmlFor={id} className="contents-md-bold text-grayscale-900 w-16">
       {children}
     </label>
   );
@@ -30,9 +21,7 @@ const Label = memo(function Label({
 Label.propTypes = {
   children: node.isRequired,
   htmlFor: string.isRequired,
-  className: string,
   isHidden: bool,
-  restProps: objectOf(any),
 };
 
 export default Label;
