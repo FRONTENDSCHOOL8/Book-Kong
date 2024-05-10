@@ -1,4 +1,4 @@
-# 용범 1차 전체 리팩토링 이후 To-dos
+# To-dos
 
 ## 유의 사항
 
@@ -135,6 +135,10 @@
       - **현재 origin-develop 버전 ~/components/organisms 폴더에 List와 BookList 폴더가 모두 존재. Contents는 똑같아 보임. 확인 후 필요 없는 거 지워서 다시 커밋하기.**
 
         - **`<BookSearchMain>`(구 'SearchMainContents') 컴포넌트 내에는 현재 origin-develop 버전 기준으로 `<List>`가 사용 되고 있음. 뭔가 `<BookList>`가 더 최신 버전의 책 리스트 컴포넌트인 것 같은데, 이 부분 확인하고 수정 필요하면 수정 요.**
+
+    - **MemoCard**
+
+      - **`<a>` 안에 `<button>` 있음. 마크업 수정 필요.**
 
   - _Molecule 단위 component들_
 
