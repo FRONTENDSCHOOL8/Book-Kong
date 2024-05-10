@@ -3,12 +3,12 @@ async function convertImgUrlToFile(url) {
   const response = await fetch(url);
   const data = await response.blob();
   const ext = url.split('.').pop(); // url 구조에 맞게 수정할 것
-  const filename = url.split('/').pop(); // url 구조에 맞게 수정할 것
-  const metadata = { type: `image/${ext}` };
+  const fileName = url.split('/').pop(); // url 구조에 맞게 수정할 것
+  const metaData = { type: `image/${ext}` };
 
-  if (!filename) console.error('파일 이름이 제대로 추출 되지 않았습니다.');
+  if (!fileName) console.error('파일 이름이 제대로 추출 되지 않았습니다.');
 
-  return new File([data], filename, metadata);
+  return new File([data], fileName, metaData);
 }
 
 export default convertImgUrlToFile;
