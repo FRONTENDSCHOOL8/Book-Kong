@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import TextInputBox from '../../molecules/TextInputBox/TextInputBox';
-import BookInfoImage from '../../atoms/BookInfoImage/BookInfoImage';
+import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
 
 function BookInfoList() {
   const [searchParams] = useSearchParams();
@@ -21,7 +21,7 @@ function BookInfoList() {
 
   return (
     <ul className="flex flex-col gap-6">
-      <BookInfoImage />
+      <BookCoverInput />
       <TextInputBox
         id="title"
         label={'책 제목'}

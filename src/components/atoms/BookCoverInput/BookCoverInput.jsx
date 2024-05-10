@@ -16,10 +16,10 @@ const file2Image = (file) => {
     reader.onerror = () => reject('파일을 읽는 중에 에러가 발생했습니다.');
 
     reader.readAsDataURL(file);
-  })
-}
+  });
+};
 
-function BookInfoImage() {
+function BookCoverInput() {
   const [searchParams] = useSearchParams();
   const initialImageUrl = searchParams.get('cover');
   const [url, setUrl] = useState(initialImageUrl);
@@ -40,7 +40,7 @@ function BookInfoImage() {
       {url && (
         <>
           <label className="w-[110px] h-[158px]" htmlFor="cover">
-            <img src={url} alt="" className="" />
+            <img id="exist-book-cover" src={url} alt="" className="" />
           </label>
         </>
       )}
@@ -56,6 +56,7 @@ function BookInfoImage() {
               등록해주세요.
             </div>
             <img
+              id="regist-book-cover"
               src="/images/characters/7단계.png"
               alt=""
               className="w-[90px] h-[74px] translate-y-[14px]"
@@ -74,4 +75,6 @@ function BookInfoImage() {
   );
 }
 
-export default BookInfoImage;
+BookCoverInput.propTypes = {};
+
+export default BookCoverInput;
