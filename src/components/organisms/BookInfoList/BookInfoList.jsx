@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import debounce from '../../utils/debounce';
+import { useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import TextInputBox from '../../molecules/TextInputBox/TextInputBox';
 import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
@@ -6,54 +7,59 @@ import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
 function BookInfoList() {
   const [searchParams] = useSearchParams();
   const [bookInfo, setBookInfo] = useState({
-    title: searchParams.get('title'),
-    author: searchParams.get('author'),
-    publisher: searchParams.get('publisher'),
-    page: searchParams.get('page'),
-    isbn: searchParams.get('isbn'),
+    title: searchParams.get('title') || '',
+    author: searchParams.get('author') || '',
+    publisher: searchParams.get('publisher') || '',
+    page: searchParams.get('page') || '',
+    isbn: searchParams.get('isbn') || '',
   });
-  const handleChange = (e) => {
-    const inputName = e.target.name;
-    const inputValue = e.target.value;
+  const handleChange = debounce(
+    useCallback(
+      (e) => {
+        const inputName = e.target.name;
+        const inputValue = e.target.value;
 
-    setBookInfo({ ...bookInfo, [inputName]: inputValue });
-  };
+        setBookInfo({ ...bookInfo, [inputName]: inputValue });
+      },
+      [bookInfo]
+    )
+  );
 
   return (
     <ul className="flex flex-col gap-6">
       <BookCoverInput />
       <TextInputBox
         id="title"
-        label={'책 제목'}
+        label="책 제목"
         name="title"
         value={bookInfo.title}
-        onchange={handleChange}
+        onChange={handleChange}
       />
       <TextInputBox
         id="author"
-        label={'지은이/옮긴이'}
+        label="지은이/옮긴이"
         name="author"
         value={bookInfo.author}
-        onchange={handleChange}
+        onChange={handleChange}
       />
       <TextInputBox
         id="publisher"
-        label={'출판사'}
+        label="출판사"
         name="publisher"
         value={bookInfo.publisher}
-        onchange={handleChange}
+        onChange={handleChange}
       />
       <TextInputBox
         id="page"
-        label={'총 페이지'}
-        name="page"
-        onchange={handleChange}
+        label="총 페이지"
+        name="total_page"
+        onChange={handleChange}
       />
       <TextInputBox
         id="isbn"
-        label={'ISBN'}
-        name="isbn"
-        onchange={handleChange}
+        label="ISBN"
+        name="isbn_13"
+        onChange={handleChange}
       />
     </ul>
   );

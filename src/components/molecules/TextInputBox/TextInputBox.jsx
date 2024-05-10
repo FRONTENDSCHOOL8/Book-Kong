@@ -3,14 +3,14 @@ import Label from '../../atoms/Label/Label';
 import TextInput from '../../atoms/TextInput/TextInput';
 import { memo } from 'react';
 
-const TextInputBox = memo(function TextInputBox(
+const TextInputBox = memo(function TextInputBox({
   id,
   label,
   name,
-  value = '',
+  value,
   placeholder = '',
-  onChange
-) {
+  onChange,
+}) {
   return (
     <li className="flex flex-col justify-center gap-2">
       <Label htmlFor={id}>{label}</Label>

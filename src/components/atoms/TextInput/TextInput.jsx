@@ -1,13 +1,13 @@
 import { string, func } from 'prop-types';
 
-function TextInput({ id, name, value = '', placeholder = '', onChange }) {
+function TextInput({ id, name, value, placeholder = '', onChange }) {
   return (
     <input
       id={id}
       type="text"
       name={name}
-      value={value}
-      className="px-3 py-2 contents-sm-bold text-grayscale-900 bg-grayscale-white border border-grayscale-400 rounded w-[343px] h-[48px]"
+      defaultValue={value}
+      className="px-3 py-2 contents-sm-bold text-grayscale-900 bg-grayscale-white border border-grayscale-400 rounded w-full h-[48px]"
       placeholder={placeholder}
       onChange={onChange}
     />

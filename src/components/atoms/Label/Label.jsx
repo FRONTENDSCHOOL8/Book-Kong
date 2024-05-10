@@ -12,7 +12,7 @@ const Label = memo(function Label({ children, htmlFor: id, isHidden = false }) {
   }
 
   return (
-    <label htmlFor={id} className="contents-md-bold text-grayscale-900 w-16">
+    <label htmlFor={id} className="contents-md-bold text-grayscale-900 w-full">
       {children}
     </label>
   );
