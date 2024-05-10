@@ -13,28 +13,28 @@ function BookFilterContainer({
         <>
           <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
             <BookFilterButton
-              title="전체"
+              type="전체"
               onClick={onClick}
               filter={filterType}
             />
           </Skeleton>
           <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
             <BookFilterButton
-              title="완독"
+              type="완독"
               onClick={onClick}
               filter={filterType}
             />
           </Skeleton>
           <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
             <BookFilterButton
-              title="독서중"
+              type="독서중"
               onClick={onClick}
               filter={filterType}
             />
           </Skeleton>
           <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
             <BookFilterButton
-              title="희망 도서"
+              type="희망 도서"
               onClick={onClick}
               filter={filterType}
             />
@@ -42,23 +42,15 @@ function BookFilterContainer({
         </>
       ) : (
         <>
+          <BookFilterButton type="전체" onClick={onClick} filter={filterType} />
+          <BookFilterButton type="완독" onClick={onClick} filter={filterType} />
           <BookFilterButton
-            title="전체"
+            type="독서중"
             onClick={onClick}
             filter={filterType}
           />
           <BookFilterButton
-            title="완독"
-            onClick={onClick}
-            filter={filterType}
-          />
-          <BookFilterButton
-            title="독서중"
-            onClick={onClick}
-            filter={filterType}
-          />
-          <BookFilterButton
-            title="희망 도서"
+            type="희망 도서"
             onClick={onClick}
             filter={filterType}
           />
