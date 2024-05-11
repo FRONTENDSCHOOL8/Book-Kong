@@ -3,10 +3,10 @@ import { object } from 'prop-types';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
-import { getRandomNumber } from '../../../utils/getRandomNumber';
 import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
 
-const UserBookCard = memo(function UserBookCard({ data }) {
+const UserBookCard = memo(function UserBookCard({ record: userLibRecord }) {
+  console.log(userLibRecord);
   return (
     <motion.li
       variants={CardVar}
@@ -14,11 +14,11 @@ const UserBookCard = memo(function UserBookCard({ data }) {
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
       <Link
-        to={`/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`}
+        to={`/library/book-detail#${userLibRecord.id}`}
         className="flex w-full"
       >
-        <BookCardImage data={data} />
-        <BookCardInfo data={data} />
+        <BookCardImage data={userLibRecord} />
+        <BookCardInfo data={userLibRecord} />
       </Link>
     </motion.li>
   );
@@ -30,7 +30,7 @@ const CardVar = {
 };
 
 UserBookCard.propTypes = {
-  data: object,
+  record: object.isRequired,
 };
 
 export default UserBookCard;

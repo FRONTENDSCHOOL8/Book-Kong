@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { loginUserData } from '../utils/controlUserData';
-import { searchLibraryData } from '../utils/controlBookData';
+import { searchUserLibData } from '../utils/controlBookData';
 
-export function useBookshelfData(query) {
+export default function useUserLibData(query) {
   const {
     data: constData,
     isLoading,
@@ -11,7 +11,7 @@ export function useBookshelfData(query) {
     refetch,
   } = useQuery({
     queryKey: ['bookshelf', loginUserData.id],
-    queryFn: () => searchLibraryData(query),
+    queryFn: () => searchUserLibData(query),
   });
 
   const [data, setData] = useState([]);

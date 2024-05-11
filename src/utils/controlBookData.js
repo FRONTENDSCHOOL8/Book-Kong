@@ -29,7 +29,7 @@ export async function getUserLibraryData(status = 'all', sort = 'created') {
   }
 }
 
-export async function searchLibraryData(query) {
+export async function searchUserLibData(query) {
   if (query !== '') {
     const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}" && title ~ "${query}"`,

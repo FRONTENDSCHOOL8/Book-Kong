@@ -4,9 +4,9 @@ import { Skeleton } from '@mui/material';
 import { arrayOf, object } from 'prop-types';
 import UserBookCard from '../../molecules/UserBookCard/UserBookCard';
 
-function UserBookList({ data }) {
+function UserBookList({ data: userLibData }) {
   // data가 넘어오지 않았을 때 skeleton UI를 보여주는 기능 아직 구현 못 함. 해당 기능 구현 필요.
-  if (!data) {
+  if (!userLibData) {
     return (
       <Skeleton
         variant="rounded"
@@ -22,8 +22,8 @@ function UserBookList({ data }) {
       animate="end"
       className="flex flex-col gap-3"
     >
-      {data.map((book) => (
-        <UserBookCard key={uuidv4()} data={book} />
+      {userLibData.map((record) => (
+        <UserBookCard key={uuidv4()} record={record} />
       ))}
     </motion.ul>
   );
