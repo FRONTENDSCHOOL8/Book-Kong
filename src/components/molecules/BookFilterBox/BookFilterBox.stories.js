@@ -1,11 +1,11 @@
-import BookFilterContainer from './BookFilterContainer';
+import BookFilterBox from './BookFilterBox';
 import { createArgTypesControl } from '../../../utils/storybook';
 
 let filterType = '전체';
 
 const metaConfig = {
-  title: 'components/BookFilterContainer',
-  component: BookFilterContainer,
+  title: 'components/BookFilterBox',
+  component: BookFilterBox,
   tags: ['autodocs'],
   args: {
     onClick: (e) => {
@@ -29,4 +29,4 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = 'BookFilterContainer';
+Base.storyName = 'BookFilterBox';

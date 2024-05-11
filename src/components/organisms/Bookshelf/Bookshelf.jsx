@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import BookFilterContainer from '../../molecules/BookFilterContainer/BookFilterContainer';
-import { Helmet } from 'react-helmet-async';
-import SearchBar from '../../molecules/SearchBar/SearchBar';
 import { Skeleton } from '@mui/material';
-import BookShelfList from '../BookShelfList/BookShelfList';
+import { Helmet } from 'react-helmet-async';
+import UserBookList from '../UserBookList/UserBookList';
+import SearchBar from '../../molecules/SearchBar/SearchBar';
 import { useBookshelfData } from '../../../hooks/useBookshelfData';
+import BookFilterBox from '../../molecules/BookFilterBox/BookFilterBox';
 
 function Bookshelf() {
   const [filterType, setFilterType] = useState('전체');
@@ -34,12 +34,12 @@ function Bookshelf() {
           <Skeleton variant="rounded">
             <SearchBar onSubmit={handleSubmit} />
           </Skeleton>
-          <BookFilterContainer
+          <BookFilterBox
             onClick={handleClick}
             filter={filterType}
             isLoading={isLoading}
           />
-          <BookShelfList
+          <UserBookList
             data={
               filterType === '전체'
                 ? data
@@ -50,8 +50,8 @@ function Bookshelf() {
       ) : (
         <>
           <SearchBar onSubmit={handleSubmit} />
-          <BookFilterContainer onClick={handleClick} filter={filterType} />
-          <BookShelfList
+          <BookFilterBox onClick={handleClick} filter={filterType} />
+          <UserBookList
             data={
               filterType === '전체'
                 ? data

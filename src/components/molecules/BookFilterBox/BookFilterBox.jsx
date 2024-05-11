@@ -1,12 +1,8 @@
+import { Skeleton } from '@mui/material';
 import { func, string, bool } from 'prop-types';
 import BookFilterButton from '../../atoms/BookFilterButton/BookFilterButton';
-import { Skeleton } from '@mui/material';
 
-function BookFilterContainer({
-  onClick,
-  filter: filterType,
-  isLoading = false,
-}) {
+function BookFilterBox({ onClick, filter: filterType, isLoading = false }) {
   return (
     <div className="flex py-4 gap-1">
       {isLoading ? (
@@ -60,10 +56,10 @@ function BookFilterContainer({
   );
 }
 
-BookFilterContainer.propTypes = {
+BookFilterBox.propTypes = {
   onClick: func.isRequired,
   filter: string.isRequired,
   isLoading: bool,
 };
 
-export default BookFilterContainer;
+export default BookFilterBox;
