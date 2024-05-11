@@ -9,7 +9,9 @@ import BookFilterBox from '../../molecules/BookFilterBox/BookFilterBox';
 function Bookshelf() {
   const [filterType, setFilterType] = useState('전체');
   const [query, setQuery] = useState('');
-  const { data, isLoading } = useBookshelfData(query);
+  const { data, isLoading, isStale, refetch } = useBookshelfData(query);
+
+  if (isStale) refetch();
 
   const handleClick = (e) => {
     const button = e.target.closest('button');

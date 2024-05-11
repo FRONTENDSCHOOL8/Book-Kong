@@ -4,7 +4,12 @@ import { loginUserData } from '../utils/controlUserData';
 import { searchLibraryData } from '../utils/controlBookData';
 
 export function useBookshelfData(query) {
-  const { data: constData, isLoading } = useQuery({
+  const {
+    data: constData,
+    isLoading,
+    isStale,
+    refetch,
+  } = useQuery({
     queryKey: ['bookshelf', loginUserData.id],
     queryFn: () => searchLibraryData(query),
   });
@@ -21,5 +26,5 @@ export function useBookshelfData(query) {
     }
   }, [query, isLoading, constData]);
 
-  return { data, isLoading };
+  return { data, isLoading, isStale, refetch };
 }
