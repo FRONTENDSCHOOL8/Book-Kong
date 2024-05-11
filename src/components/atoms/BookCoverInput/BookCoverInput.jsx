@@ -1,34 +1,16 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-
-// 파일 리더를 Promise와 통합한 유틸리티
-const file2Image = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    if (!file) {
-      reject('파일이 선택되지 않았습니다.');
-    }
-
-    reader.onload = (e) => {
-      const imageURL = e.target.result;
-      resolve(imageURL);
-    };
-    reader.onerror = () => reject('파일을 읽는 중에 에러가 발생했습니다.');
-
-    reader.readAsDataURL(file);
-  });
-};
+import convertFileToImg from '../../../utils/convertFileToImg';
 
 function BookCoverInput() {
   const [searchParams] = useSearchParams();
-  const initialImageUrl = searchParams.get('cover');
-  const [url, setUrl] = useState(initialImageUrl);
+  const [url, setUrl] = useState(searchParams.get('cover'));
 
   const handleChange = async (e) => {
     const file = e.target.files[0];
 
     try {
-      const imageURL = await file2Image(file);
+      const imageURL = await convertFileToImg(file);
       setUrl(imageURL);
     } catch (e) {
       console.error(e);
@@ -39,8 +21,12 @@ function BookCoverInput() {
     <li className="flex justify-center overflow-hidden ">
       {url && (
         <>
-          <label className="w-[110px] h-[158px]" htmlFor="cover">
-            <img id="exist-book-cover" src={url} alt="" className="" />
+          <label
+            id="book-cover"
+            className="w-[110px] h-[158px]"
+            htmlFor="cover"
+          >
+            <img src={url} alt={searchParams.get('title')} />
           </label>
         </>
       )}
@@ -56,7 +42,6 @@ function BookCoverInput() {
               등록해주세요.
             </div>
             <img
-              id="regist-book-cover"
               src="/images/characters/7단계.png"
               alt=""
               className="w-[90px] h-[74px] translate-y-[14px]"
@@ -68,6 +53,7 @@ function BookCoverInput() {
         className="hidden"
         type="file"
         id="cover"
+        name="cover"
         onChange={handleChange}
         accept="image/*"
       />

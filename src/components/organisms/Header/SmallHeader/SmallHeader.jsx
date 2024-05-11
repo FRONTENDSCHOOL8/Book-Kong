@@ -23,7 +23,7 @@ function SmallHeader({ title }) {
       case '메모 작성':
       case '피드 작성':
       case '직접 입력하기':
-        return <SaveButton />;
+        return <SaveButton formId="book-register" />;
       default:
         return null;
     }

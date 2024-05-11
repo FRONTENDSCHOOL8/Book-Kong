@@ -1,4 +1,4 @@
-import debounce from '../../utils/debounce';
+import debounce from '../../../utils/debounce';
 import { useState, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import TextInputBox from '../../molecules/TextInputBox/TextInputBox';

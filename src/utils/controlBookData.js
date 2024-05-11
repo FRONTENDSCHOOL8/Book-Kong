@@ -1,7 +1,9 @@
+import { loginUserData } from './controlUserData';
 import pb from '/src/api/pocketbase';
+import convertImgUrlToFile from './convertImgUrlToFile';
 
 /* -------------------------------------------- */
-/*                  책 관련 데이터 로딩                 */
+/*              책 관련 데이터 컨트롤             */
 /* -------------------------------------------- */
 
 /**
@@ -62,5 +64,50 @@ export async function searchUserLibraryData(keyword, status = 'all') {
     });
 
     return resultList;
+  }
+}
+
+/**
+ * 로그인 한 유저가 등록하고자 하는 책 정보를 포켓호스트 DB 내 'library' collection에 등록하는 함수
+ * @param { string } formId 'form' element에 할당된 id
+ * @returns { Object } 'library' collection에 create 된 record 객체
+ */
+export async function createLibRecordByForm(formId) {
+  const formElement = document.getElementById(formId);
+  const formData = new FormData(formElement);
+  const bookCoverLabel = document.getElementById('book-cover');
+  const isBookCover = !!bookCoverLabel;
+
+  if (!isBookCover) {
+    alert('책 사진을 등록해주세요.');
+    return;
+  }
+
+  for (const value of formData.values()) {
+    if (!value) {
+      alert('입력이 필요한 정보를 모두 입력해주세요.');
+      return;
+    }
+  }
+
+  const urlSearchParams = new URLSearchParams(window.location.search);
+  const bookCoverInput = document.getElementById('cover');
+
+  if (urlSearchParams && !bookCoverInput.value) {
+    const bookCoverFileName = urlSearchParams.get('cover').split('/').pop();
+    const bookCoverImgFile = await convertImgUrlToFile(
+      urlSearchParams.get('cover')
+    );
+
+    formData.set('cover', bookCoverImgFile, bookCoverFileName);
+  }
+
+  formData.append('user_id', loginUserData.id);
+
+  try {
+    const record = await pb.collection('library').create(formData);
+    return record;
+  } catch (e) {
+    console.error(e);
   }
 }
