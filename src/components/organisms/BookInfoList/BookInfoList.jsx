@@ -53,12 +53,14 @@ function BookInfoList() {
         id="page"
         label="총 페이지"
         name="total_page"
+        value={bookInfo.page}
         onChange={handleChange}
       />
       <TextInputBox
         id="isbn"
         label="ISBN"
         name="isbn_13"
+        value={bookInfo.isbn}
         onChange={handleChange}
       />
     </ul>
