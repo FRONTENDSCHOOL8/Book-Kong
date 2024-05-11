@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import convertFileToImg from '../../../utils/convertFileToImg';
+import convertFileToImgUrl from '../../../utils/convertFileToImgUrl';
 
 function BookCoverInput() {
   const [searchParams] = useSearchParams();
@@ -10,7 +10,7 @@ function BookCoverInput() {
     const file = e.target.files[0];
 
     try {
-      const imageURL = await convertFileToImg(file);
+      const imageURL = await convertFileToImgUrl(file);
       setUrl(imageURL);
     } catch (e) {
       console.error(e);

@@ -1,5 +1,5 @@
 // 파일 리더를 Promise와 통합한 유틸리티
-function convertFileToImg(file) {
+function convertFileToImgUrl(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     if (!file) {
@@ -16,4 +16,4 @@ function convertFileToImg(file) {
   });
 }
 
-export default convertFileToImg;
+export default convertFileToImgUrl;
