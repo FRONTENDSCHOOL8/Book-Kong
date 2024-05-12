@@ -11,7 +11,12 @@ function Header({ title }) {
     '캐릭터',
     '마이페이지',
   ];
-  const titlesWithSmallHeader = ['검색하기', '직접 입력하기', '상세페이지'];
+  const titlesWithSmallHeader = [
+    '검색하기',
+    '직접 입력하기',
+    '상세페이지',
+    '피드 작성',
+  ];
   const titlesWithTabNavigation = ['기록', '서재'];
 
   return (

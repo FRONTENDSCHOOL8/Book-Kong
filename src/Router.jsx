@@ -16,6 +16,7 @@ import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
 import SplashPage from './components/pages/SplashPage';
+import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 
 // 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
 // 선언형 코드를 작성하면 눈의 피로가 줄어드는 효과가 있었습니다.
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
             element: <StatisticsMemo />,
           },
         ],
+      },
+      {
+        path: 'feedregistration',
+        element: <FeedRegistrationPage />,
       },
       {
         path: 'feed',
