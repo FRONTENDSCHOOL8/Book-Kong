@@ -1,8 +1,13 @@
+import {
+  addFormDataProps,
+  createLibFormData,
+  postLibFormData,
+} from '../../../utils/controlBookData';
+import { useState, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import BookInfoList from '../BookInfoList/BookInfoList';
 import BookInfoState from '../../molecules/BookInfoState/BookInfoState';
-import { useState, useCallback } from 'react';
-import { createLibRecordByForm } from '../../../utils/controlBookData';
-import { useNavigate } from 'react-router-dom';
 
 function BookRegistForm() {
   const [status, setStatus] = useState('완독');
@@ -15,22 +20,30 @@ function BookRegistForm() {
     setStatus(button.innerText);
   }, []);
 
+  const aladinBook = useLoaderData();
   const navigate = useNavigate();
 
   const handleSubmit = useCallback(
-    (e) => {
+    async (e) => {
       e.preventDefault();
-      createLibRecordByForm('book-register');
+      const formData = await createLibFormData('book-register');
+
+      if (!aladinBook) postLibFormData(formData);
+
+      addFormDataProps({ formData, aladinBook });
+
+      postLibFormData(formData);
+
       navigate('/library/bookshelf');
     },
-    [navigate]
+    [aladinBook, navigate]
   );
 
   return (
     <form id="book-register" onSubmit={handleSubmit}>
       <BookInfoState status={status} onClick={handleClick} />
       <hr className="mt-6 mb-6" />
-      <BookInfoList />
+      <BookInfoList data={aladinBook} />
     </form>
   );
 }

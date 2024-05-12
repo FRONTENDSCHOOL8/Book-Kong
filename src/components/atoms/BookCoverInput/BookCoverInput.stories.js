@@ -9,7 +9,10 @@ const metaConfig = {
 
 export default metaConfig;
 
-export const Base = {
-  args: {},
+export const Example = {
+  args: {
+    title: '책만 보는 바보',
+    cover: 'https://image.aladin.co.kr/product/59/42/cover200/8943305842_2.jpg',
+  },
 };
-Base.storyName = 'BookCoverInput';
+Example.storyName = 'BookCoverInput';

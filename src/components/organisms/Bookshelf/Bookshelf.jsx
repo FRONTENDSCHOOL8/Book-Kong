@@ -5,7 +5,6 @@ import UserBookList from '../UserBookList/UserBookList';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import useUserLibData from '../../../hooks/useUserLibData';
 import BookFilterBox from '../../molecules/BookFilterBox/BookFilterBox';
-import { getBookData } from '../../../api/searchAladin';
 
 function Bookshelf() {
   const [filterType, setFilterType] = useState('전체');
@@ -26,9 +25,7 @@ function Bookshelf() {
 
   if (isStale) refetch();
 
-  const handleClick = async (e) => {
-    console.log(getBookData('9788937460883'));
-
+  const handleClick = (e) => {
     const button = e.target.closest('button');
     if (!button) return;
 

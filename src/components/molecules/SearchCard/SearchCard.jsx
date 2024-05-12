@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { object } from 'prop-types';
-import { getRandomNumber } from '../../../utils/getRandomNumber';
 import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
 function SearchCard({ data }) {
@@ -11,7 +10,7 @@ function SearchCard({ data }) {
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
       <a
-        href={`/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`}
+        href={`/library/book-registration/:${data.isbn13}`}
         className="flex w-full"
       >
         <SearchCardImage data={data} />

@@ -1,4 +1,4 @@
-import { string, func } from 'prop-types';
+import { string, number, oneOfType, func } from 'prop-types';
 import Label from '../../atoms/Label/Label';
 import TextInput from '../../atoms/TextInput/TextInput';
 import { memo } from 'react';
@@ -29,7 +29,7 @@ TextInputBox.propTypes = {
   id: string.isRequired,
   label: string.isRequired,
   name: string.isRequired,
-  value: string,
+  value: oneOfType([string, number]),
   placeholder: string,
   onChange: func,
 };

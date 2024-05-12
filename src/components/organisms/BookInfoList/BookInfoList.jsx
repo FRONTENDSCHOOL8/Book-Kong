@@ -1,17 +1,16 @@
-import debounce from '../../../utils/debounce';
+import { object } from 'prop-types';
 import { useState, useCallback } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import debounce from '../../../utils/debounce';
 import TextInputBox from '../../molecules/TextInputBox/TextInputBox';
 import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
 
-function BookInfoList() {
-  const [searchParams] = useSearchParams();
+function BookInfoList({ data: aladinBook }) {
   const [bookInfo, setBookInfo] = useState({
-    title: searchParams.get('title') || '',
-    author: searchParams.get('author') || '',
-    publisher: searchParams.get('publisher') || '',
-    page: searchParams.get('page') || '',
-    isbn: searchParams.get('isbn') || '',
+    title: aladinBook?.title || '',
+    author: aladinBook?.author || '',
+    publisher: aladinBook?.publisher || '',
+    page: aladinBook?.subInfo.itemPage || '',
+    isbn: aladinBook?.isbn13 || '',
   });
   const handleChange = debounce(
     useCallback(
@@ -27,7 +26,7 @@ function BookInfoList() {
 
   return (
     <ul className="flex flex-col gap-6">
-      <BookCoverInput />
+      <BookCoverInput title={bookInfo.title} cover={aladinBook.cover} />
       <TextInputBox
         id="title"
         label="책 제목"
@@ -66,5 +65,9 @@ function BookInfoList() {
     </ul>
   );
 }
+
+BookInfoList.propTypes = {
+  data: object,
+};
 
 export default BookInfoList;

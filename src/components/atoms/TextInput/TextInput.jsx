@@ -1,4 +1,4 @@
-import { string, func } from 'prop-types';
+import { string, number, oneOfType, func } from 'prop-types';
 
 function TextInput({ id, name, value, placeholder = '', onChange }) {
   return (
@@ -17,7 +17,7 @@ function TextInput({ id, name, value, placeholder = '', onChange }) {
 TextInput.propTypes = {
   id: string.isRequired,
   name: string.isRequired,
-  value: string,
+  value: oneOfType([string, number]),
   placeholder: string,
   onChange: func,
 };
