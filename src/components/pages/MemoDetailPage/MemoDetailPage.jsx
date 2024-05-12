@@ -1,8 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import pb from '../../api/pocketbase';
+import pb from '../../../api/pocketbase';
+import { Helmet } from 'react-helmet-async';
+import Header from '../../organisms/Header/Header/Header';
 
-export default function MemoPage() {
+function MemoDetailPage() {
   const { memoId } = useParams();
   const { data } = useQuery({
     queryKey: ['memo', memoId],
@@ -25,7 +27,11 @@ export default function MemoPage() {
 
   return (
     <>
-      <div className="pt-6 px-4 my-2 h-max bg-white">
+      <Helmet>
+        <title>책콩 | 기록 페이지</title>
+      </Helmet>
+      <Header title={'메모'} />
+      <main className="px-4 my-2 h-full bg-white">
         <div className="text-gray-500 text-right">
           {data.updated?.slice(0, 10)}
         </div>
@@ -49,7 +55,9 @@ export default function MemoPage() {
         <div className=" h-full whitespace-pre-wrap mt-4 text-sm">
           {data.content}
         </div>
-      </div>
+      </main>
     </>
   );
 }
+
+export default MemoDetailPage;
