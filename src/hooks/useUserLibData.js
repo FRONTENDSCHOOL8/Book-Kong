@@ -9,6 +9,9 @@ export default function useUserLibData(query) {
     isLoading,
     isStale,
     refetch,
+    failureCount,
+    failureReason,
+    error,
   } = useQuery({
     queryKey: ['bookshelf', loginUserData.id],
     queryFn: () => searchUserLibData(query),
@@ -26,5 +29,13 @@ export default function useUserLibData(query) {
     }
   }, [query, isLoading, constData]);
 
-  return { data, isLoading, isStale, refetch };
+  return {
+    data,
+    isLoading,
+    isStale,
+    refetch,
+    failureCount,
+    failureReason,
+    error,
+  };
 }

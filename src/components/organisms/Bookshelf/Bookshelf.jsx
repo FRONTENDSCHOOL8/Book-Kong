@@ -9,7 +9,19 @@ import BookFilterBox from '../../molecules/BookFilterBox/BookFilterBox';
 function Bookshelf() {
   const [filterType, setFilterType] = useState('전체');
   const [query, setQuery] = useState('');
-  const { data, isLoading, isStale, refetch } = useUserLibData(query);
+  const {
+    data,
+    isLoading,
+    isStale,
+    refetch,
+    failureCount,
+    failureReason,
+    error,
+  } = useUserLibData(query);
+
+  if (failureReason.startsWith('Server')) throw error;
+
+  if (failureCount === 4) throw error;
 
   if (isStale) refetch();
 

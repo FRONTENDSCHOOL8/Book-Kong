@@ -6,7 +6,6 @@ import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
 
 const UserBookCard = memo(function UserBookCard({ record: userLibRecord }) {
-  console.log(userLibRecord);
   return (
     <motion.li
       variants={CardVar}
