@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import PropTypes from 'prop-types';
-import { useLocation } from 'react-router-dom';
+import { object } from 'prop-types';
 import { getRandomNumber } from '../../../utils/getRandomNumber';
+import { useLocation } from 'react-router-dom';
 import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
 function SearchCard({ data }) {
@@ -15,7 +15,7 @@ function SearchCard({ data }) {
     >
       <a
         href={
-          pathname === '/library/search'
+          pathname === '/library/book-search'
             ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
             : '/'
         }
@@ -34,7 +34,7 @@ const CardVar = {
 };
 
 SearchCard.propTypes = {
-  data: PropTypes.object,
+  data: object,
 };
 
 export default SearchCard;

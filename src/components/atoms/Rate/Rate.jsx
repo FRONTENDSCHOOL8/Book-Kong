@@ -1,15 +1,15 @@
-import PropTypes from "prop-types";
+import { node } from 'prop-types';
 
-function Rate({rate}) {
+function Rate({ children }) {
   return (
     <>
-      <span>{rate}</span>
+      <span>{children}</span>
     </>
   );
 }
 
-Rate.propTypes = { 
-  rate: PropTypes.string.isRequired
- };
+Rate.propTypes = {
+  children: node.isRequired,
+};
 
 export default Rate;

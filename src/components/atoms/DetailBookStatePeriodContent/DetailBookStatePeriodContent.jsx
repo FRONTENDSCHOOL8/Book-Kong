@@ -1,4 +1,4 @@
-import {} from "prop-types";
+import {} from 'prop-types';
 
 function DetailBookStatePeriodContent() {
   return (
@@ -8,6 +8,6 @@ function DetailBookStatePeriodContent() {
   );
 }
 
-DetailBookStatePeriodContent.propTypes = {  };
+DetailBookStatePeriodContent.propTypes = {};
 
 export default DetailBookStatePeriodContent;

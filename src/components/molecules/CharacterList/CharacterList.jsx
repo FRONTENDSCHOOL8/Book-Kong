@@ -1,20 +1,24 @@
 import { number } from 'prop-types';
-import CharacterCard from '../../atoms/CharacterCard/CharacterCard';
+import CharacterItem from '../../atoms/CharacterItem/CharacterItem';
 import characterData from '../../../data/character.json';
-import { calcCentimeter, calcLevel } from '../../../utils/calcCentimeter';
+
+import {
+  calcUserBookHeight,
+  calcUserLevel,
+} from '../../../utils/calcUserLevel';
 import { v4 as uuidv4 } from 'uuid';
 
-function CharacterList({ height }) {
-  const userLevel = calcLevel(calcCentimeter(height));
+function CharacterList({ page: userTotalPage }) {
+  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
 
   return (
     <div className="overflow-scroll">
       <ul className="flex gap-4 w-[1184px]">
         {characterData.map((data, index) => (
-          <CharacterCard
+          <CharacterItem
             key={uuidv4()}
-            level={userLevel}
             data={data}
+            level={userLevel}
             index={index}
           />
         ))}
@@ -24,7 +28,7 @@ function CharacterList({ height }) {
 }
 
 CharacterList.propTypes = {
-  height: number,
+  page: number,
 };
 
 export default CharacterList;

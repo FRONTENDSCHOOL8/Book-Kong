@@ -1,4 +1,4 @@
-import SignUpButton from './SignUpButton';
+import SignUpButton from './SignupButton';
 
 const metaConfig = {
   title: 'components/SignUpButton',
