@@ -1,12 +1,9 @@
 import { motion } from 'framer-motion';
 import { object } from 'prop-types';
 import { getRandomNumber } from '../../../utils/getRandomNumber';
-import { useLocation } from 'react-router-dom';
 import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
 function SearchCard({ data }) {
-  const { pathname } = useLocation();
-
   return (
     <motion.li
       variants={CardVar}
@@ -14,11 +11,7 @@ function SearchCard({ data }) {
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
       <a
-        href={
-          pathname === '/library/book-search'
-            ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
-            : '/'
-        }
+        href={`/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`}
         className="flex w-full"
       >
         <SearchCardImage data={data} />

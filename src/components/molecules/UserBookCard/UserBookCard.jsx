@@ -1,7 +1,6 @@
 import { memo } from 'react';
 import { object } from 'prop-types';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
 import BookCardImage from '../../atoms/BookCardImage/BookCardImage';
 
@@ -12,13 +11,13 @@ const UserBookCard = memo(function UserBookCard({ record: userLibRecord }) {
       whileHover={{ scale: 1.02 }}
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
-      <Link
-        to={`/library/book-detail#${userLibRecord.id}`}
+      <a
+        href={`/library/book-detail#${userLibRecord.id}`}
         className="flex w-full"
       >
         <BookCardImage data={userLibRecord} />
         <BookCardInfo data={userLibRecord} />
-      </Link>
+      </a>
     </motion.li>
   );
 });
