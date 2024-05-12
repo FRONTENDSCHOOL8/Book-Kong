@@ -5,18 +5,15 @@ import MemoDate from '../../atoms/MemoDate/MemoDate';
 import RecordTitle from '../../molecules/RecordTitle/RecordTitle';
 import { motion } from 'framer-motion';
 
-function MemoCard({ title, contents, date }) {
+function MemoCard({ title, contents, date, id }) {
   const cardVar = {
     start: { y: 30 },
     end: { y: 0 },
   };
   return (
-    <motion.li
-      variants={cardVar}
-      whileHover={{ scale: 1.03 }}
-    >
+    <motion.li variants={cardVar} whileHover={{ scale: 1.03 }}>
       <a
-        href="/"
+        href={`/record/memo/${id}`}
         className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative list-shadow border border-grayscale-100"
       >
         <ContextButtonVertical />
@@ -29,6 +26,7 @@ function MemoCard({ title, contents, date }) {
 }
 
 MemoCard.propTypes = {
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   contents: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
