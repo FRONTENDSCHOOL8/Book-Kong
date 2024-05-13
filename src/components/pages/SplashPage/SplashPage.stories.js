@@ -12,4 +12,4 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = '';
+Base.storyName = 'SplashPage';
