@@ -1,7 +1,7 @@
 import BookList from './BookList.jsx';
 
 const metaConfig = {
-  title: 'components/List',
+  title: 'components/BookList',
   component: BookList,
   tags: ['autodocs'],
   args: {},

@@ -1,15 +1,11 @@
-export async function getBookData(
-  keyword = '',
-  startPage = '1',
-  maxResults = '10'
-) {
-  if (keyword.replace(/\s/g, '') === '') return null;
+export async function getBookData(keyword = '', pageParam) {
+  if (keyword.replace(/\s/g, '') === '') return;
 
   const bookData = await (
     await fetch(
-      `${import.meta.env.VITE_PB_SEARCH}/?Query=${keyword}&start=${startPage}&MaxResults=${maxResults}`
+      `${import.meta.env.VITE_PB_SEARCH}/?Query=${keyword}&start=${pageParam}&MaxResults=10`
     )
   ).json();
 
-  return bookData.response.json;
+  return { current_page: pageParam, page_data: bookData.response.json };
 }

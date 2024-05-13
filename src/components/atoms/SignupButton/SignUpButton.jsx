@@ -1,21 +1,21 @@
-import { PropTypes } from 'prop-types';
+import { bool, string, node } from 'prop-types';
 
-function SignupButton({ disabled, text, className }) {
+function SignUpButton({ disabled, className, children }) {
   return (
     <button
       className={`w-full h-[51px] rounded text-white mt-8 ${className}`}
       type="submit"
       disabled={disabled}
     >
-      {text}
+      {children}
     </button>
   );
 }
 
-SignupButton.propTypes = {
-  disabled: PropTypes.bool.isRequired,
-  text: PropTypes.string.isRequired,
-  className: PropTypes.string,
+SignUpButton.propTypes = {
+  disabled: bool.isRequired,
+  className: string,
+  children: node.isRequired,
 };
 
-export default SignupButton;
+export default SignUpButton;

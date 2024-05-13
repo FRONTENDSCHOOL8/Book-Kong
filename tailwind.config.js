@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -58,27 +59,39 @@ export default {
       },
       keyframes: {
         'splash-1': {
-          '0%': { transform: 'translateY(-272px)', opacity: '0'  },
-          '70%': { transform: 'translateY(-272px)', opacity: '0'  },
-          '100%': { transform: 'translateY(0px)', opacity: '1'  },
+          '0%': { transform: 'translateY(-272px)', opacity: '0' },
+          '70%': { transform: 'translateY(-272px)', opacity: '0' },
+          '100%': { transform: 'translateY(0px)', opacity: '1' },
         },
         'splash-2': {
-          '0%': { transform: 'translateY(-500px)', opacity: '0'  },
-          '50%': { transform: 'translateY(-500px)', opacity: '0'  },
-          '100%': { transform: 'translateY(-64px)', opacity: '1'  },
+          '0%': { transform: 'translateY(-500px)', opacity: '0' },
+          '50%': { transform: 'translateY(-500px)', opacity: '0' },
+          '100%': { transform: 'translateY(-64px)', opacity: '1' },
         },
         'splash-3': {
-          '0%': { transform: 'translateY(-740px)', opacity: '0'  },
-          '100%': { transform: 'translateY(-96px)', opacity: '1'  },
+          '0%': { transform: 'translateY(-740px)', opacity: '0' },
+          '100%': { transform: 'translateY(-96px)', opacity: '1' },
         },
       },
       animation: {
         'splash-1': 'splash-1 .7s cubic-bezier(.04,.7,.57,1.34) 1',
         'splash-2': 'splash-2 .5s cubic-bezier(.04,.7,.57,1.34) 1',
         'splash-3': 'splash-3 .3s cubic-bezier(.04,.7,.57,1.34) 1',
-      }
-      
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.hide-scrollbar': {
+          '-ms-overflow-style': 'none' /* IE and Edge */,
+          'scrollbar-width': 'none' /* Firefox */,
+          '&::-webkit-scrollbar': {
+            display: 'none' /* Chrome, Safari and Opera */,
+          },
+        },
+      };
+      addUtilities(newUtilities);
+    }),
+  ],
 };

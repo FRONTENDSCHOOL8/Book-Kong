@@ -19,7 +19,7 @@ function App() {
       if (pathname !== '/register') navigate('/login');
     }
   }, [navigate, pathname]);
-  
+
   useEffect(() => {
     const splashDisplayed = sessionStorage.getItem('splashDisplayed');
 
@@ -27,32 +27,25 @@ function App() {
       setTimeout(() => {
         isSplashing(false);
         sessionStorage.setItem('splashDisplayed', 'true');
-      }, 3000); 
+      }, 3000);
     } else {
       isSplashing(false);
     }
   }, []);
 
+  if (splashing) {
+    return <Splash />;
+  }
+
+  if (pathname === '/login' || pathname === '/register') {
+    return <Outlet />;
+  }
+
   return (
-    <>
-      {splashing ? (
-        <SplashPage />
-      ) : (
-        <>
-          <Outlet />
-          {pathname === '/login' || pathname === '/register' ? (
-            ''
-          ) : (
-            <GlobalNavigator />
-          )}
-          {pathname === '/login' || pathname === '/register' ? (
-            ''
-          ) : (
-            <GlobalNavigator />
-          )}
-        </>
-      )}
-    </>
+      <>
+        <Outlet />
+        <GlobalNavigator />
+      </>
   );
 }
 
