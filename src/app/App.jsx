@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   if (splashing) {
-    return <Splash />;
+    return <SplashPage />;
   }
 
   if (pathname === '/login' || pathname === '/register') {
