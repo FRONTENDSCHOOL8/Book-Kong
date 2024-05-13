@@ -11,7 +11,7 @@ function Header({ title }) {
     '캐릭터',
     '마이페이지',
   ];
-  const titlesWithSmallHeader = ['검색하기', '직접 입력하기', '상세페이지'];
+  const titlesWithSmallHeader = ['검색하기', '직접 입력하기', '책 상세'];
   const titlesWithTabNavigation = ['기록', '서재'];
 
   return (
@@ -26,7 +26,7 @@ function Header({ title }) {
       )}
       {titlesWithSmallHeader.includes(title) && (
         <>
-          <SmallHeader title={title === '상세페이지' ? '' : title} />
+          <SmallHeader title={title === '책 상세' ? '' : title} />
         </>
       )}
     </header>

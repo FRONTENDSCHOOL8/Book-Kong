@@ -10,7 +10,7 @@ function BookDetailPage() {
       <Helmet>
         <title>책콩 | 책 상세</title>
       </Helmet>
-      <Header title="상세페이지" />
+      <Header title="책 상세" />
       <DetailBook />
     </>
   );

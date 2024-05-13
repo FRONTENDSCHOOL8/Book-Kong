@@ -16,7 +16,7 @@ function DetailBook() {
       <div className="flex flex-col gap-6 border-t border-b bg-grayscale-white border-grayscale-100 pb-[56px] ">
         <DetailTitle />
         <DetailBookState />
-        <TabNavigation page="상세페이지" />
+        <TabNavigation page="책 상세" />
         <DetailBookInfo />
         <DetailBookMemo />
         <DetailBookFeed />
