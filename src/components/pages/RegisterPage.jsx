@@ -6,10 +6,10 @@ import SignUpButton from '../atoms/SignupButton/SignUpButton';
 import SnsDivider from '../atoms/SnsDivider/SnsDivider';
 import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SnsIcons from '../atoms/SnsIcons/SnsIcons';
-import Link from '../molecules/Link/Link';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import FormInputBox from '../molecules/FormInputBox/FormInputBox';
+import { Link } from 'react-router-dom';
 
 // 이 페이지는 Form의 기능을 적극적으로 사용하는 것이 좋습니다.
 function RegisterPage() {
@@ -260,14 +260,22 @@ function RegisterPage() {
       <SnsIcons />
       <p className="text-center mt-10 text-[#AAA]">
         이미 계정이 있으신가요?{' '}
-        <a
-          href="/login"
+        <Link
+          to="/login"
           className="text-[#333] font-medium underline tracking-[0.14px]"
         >
           로그인
-        </a>
+        </Link>
       </p>
-      <Link />
+      <div className="flex gap-3 justify-center items-center mt-20">
+        <Link to="#" className="text-[#AAA]">
+          개인정보 보호정책
+        </Link>
+        <div className="bg-[#AAA] w-[1px] h-3"></div>
+        <Link to="#" className="text-[#AAA]">
+          이용약관
+        </Link>
+      </div>
       <span className=" text-[10px] text-center">
         회원가입 시 서비스 이용 약관 및 개인정보 보호정책에 동의하게 됩니다.
       </span>

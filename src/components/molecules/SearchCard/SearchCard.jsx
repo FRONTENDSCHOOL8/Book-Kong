@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { object } from 'prop-types';
 import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
+import { Link } from 'react-router-dom';
+
 function SearchCard({ data }) {
   return (
     <motion.li
@@ -9,13 +11,13 @@ function SearchCard({ data }) {
       whileHover={{ scale: 1.02 }}
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
-      <a
-        href={`/library/book-registration/:${data.isbn13}`}
+      <Link
+        to={`/library/book-registration/:${data.isbn13}`}
         className="flex w-full"
       >
         <SearchCardImage data={data} />
         <BookCardInfo data={data} />
-      </a>
+      </Link>
     </motion.li>
   );
 }
