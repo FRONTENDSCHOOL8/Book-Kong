@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import 완독버튼 from "../../atoms/BookInfoStateButton/완독버튼.jsx";
-import 독서중버튼 from "../../atoms/BookInfoStateButton/독서중버튼.jsx";
-import 희망도서버튼 from "../../atoms/BookInfoStateButton/희망도서버튼.jsx";
+import WishButton from '../../atoms/BookInfoStateButton/WishButton/WishButton';
+import DoneButton from '../../atoms/BookInfoStateButton/DoneButton/DoneButton';
+import ReadingButton from '../../atoms/BookInfoStateButton/ReadingButton/ReadingButton';
 
 function BookInfoState({ status, onClick }) {
   return (
     <>
       <div className="flex justify-center gap-2 items-center">
-        <완독버튼 onClick={onClick} isActive={status === '완독'} />
-        <독서중버튼 onClick={onClick} isActive={status === '독서중'} />
-        <희망도서버튼 onClick={onClick} isActive={status === '희망 도서'} />
+        <DoneButton onClick={onClick} isActive={status === '완독'} />
+        <ReadingButton onClick={onClick} isActive={status === '독서중'} />
+        <WishButton onClick={onClick} isActive={status === '희망 도서'} />
       </div>
     </>
   );
