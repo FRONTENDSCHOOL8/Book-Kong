@@ -1,20 +1,16 @@
 # To-dos
 
-## 유의 사항
-
-- **아래 수정 요청 사항 보면 `<a>`태그로 구현한 페이지 이동 기능을 React-router의 `<Link>` 컴포넌트를 이용하여 대체 구현해달라는 요청이 있는데, 이거는 일단 문제가 있는지 없는지 확실하지가 않아져서 읽을 때 무시하고 읽어도 될 것 같음.**
-
 ## 수정 요청 사항
 
 ### 공통
 
 - 피그마 시안에 있는 디자인 가이드 참고하여 컴포넌트 스타일 적용 시 디자인 토큰(피그마 시안에서 추출하여 tailwindCSS로 쓸 수 있게 우리 프로젝트에서 가공한 클래스들)을 사용할 수 있도록 하고, 같은 컴포넌트가 다른 곳에서 쓰일 경우 그 컴포넌트 만든 사람과 협의하여 같은 디자인 토큰을 이용할 수 있도록 하기(className을 props로 넘겨줘야 하는 경우).
 
-- ~~코드를 이용한 페이지 이동 시 React-router에서 제공하는 기능(e.g. useNavigate, `<Link>` component)을 이용하여 페이지 이동을 하지 않은 경우(e.g. `<a>` JSX 요소를 이용하여 'href' property로 페이지 이동을 한 경우), React-router에서 제공하는 기능을 이용하여 페이지를 이동할 수 있도록 코드 변경~~
+- **코드를 이용한 페이지 이동 시 React-router에서 제공하는 기능(e.g. useNavigate, `<Link>` component)을 이용하여 페이지 이동을 하지 않은 경우(e.g. `<a>` JSX 요소를 이용하여 'href' property로 페이지 이동을 한 경우), React-router에서 제공하는 기능을 이용하여 페이지를 이동할 수 있도록 코드 변경**
 
-  - ~~사유: `<a>` 태그로 그냥 주소 이동하면 React-router로 라우팅이 안 됨.~~
+  - **사유: `<a>` 태그로 그냥 주소 이동하면 React-router로 라우팅이 안 됨.**
 
-  - ~~페이지 이동 시 `<a>` 태그와 같이 다른 페이지로 이동하는 링크를 삽입하고 싶으면 `<a>` 태그 대신에 React-router의 `<Link>` component를 사용하면 됨.~~
+  - **페이지 이동 시 `<a>` 태그와 같이 다른 페이지로 이동하는 링크를 삽입하고 싶으면 `<a>` 태그 대신에 React-router의 `<Link>` component를 사용하면 됨.**
 
 - TailwindCSS에서 기본적으로 제공하는 유틸리티 클래스는 반응형으로 이루어진 부분들이 있음. 우리는 반응형으로 개발하고 디자인 시스템이 갖춰져 있으니까, 가급적이면 스타일을 적용할 때는 arbitrary value (e.g. border-[1px]) 말고 기본 유틸리티 클래스를 이용하는 것이 좋을 것 같음.
 
@@ -44,9 +40,9 @@
 
       - Input error message 뿌리는 JSX 요소들 각각 컴포넌트화 하기.
 
-      - ~~마크업 맨 아래에 있는 회원가입이랑 비밀번호 찾기도 Link component를 이용하여 마크업 해놓기.~~
+      - **마크업 맨 아래에 있는 회원가입이랑 비밀번호 찾기도 Link component를 이용하여 마크업 해놓기.**
 
-        - ~~Link 관련 내용 주소: <https://reactrouter.com/en/main/components/link>~~
+        - **Link 관련 내용 주소: <https://reactrouter.com/en/main/components/link>**
 
     - **RegisterPage**
 
@@ -56,9 +52,9 @@
 
       - 비밀번호 숨김/표시 처리하는 눈 모양 아이콘 컴포넌트로 만들어서 관리하고, 비밀번호 관련 컴포넌트들 re-rendering 시 눈 모양 컴포넌트가 같이 re-rendering 될 필요가 없다면 memoization(memo 함수로 컴포넌트 기억시켜두는 것) 해놓기.
 
-      - ~~'로그인' `<a>` 태그로 구현한 글자는 React Router의 Link 컴포넌트를 이용하여 구현하기.~~
+      - **'로그인' `<a>` 태그로 구현한 글자는 React Router의 Link 컴포넌트를 이용하여 구현하기.**
 
-        - ~~그냥 `<a>` 태그로 구현하면 React Router에서 navigate(html 파일 같은 거 찾는 거)이 안 됨.~~
+        - **그냥 `<a>` 태그로 구현하면 React Router에서 navigate(html 파일 같은 거 찾는 거)이 안 됨.**
 
     - **MypagePage**
 
@@ -78,7 +74,7 @@
 
     - **Link**
 
-      - Link component 제거하고 React Router에서 제공하는 Link component를 이용하여 마크업 구현하기.
+      - **Link component 제거하고 React Router에서 제공하는 Link component를 이용하여 마크업 구현하기.**
 
   - _Atom 단위 component들_
 
@@ -112,13 +108,15 @@
 
     - **TabLink**
 
-      - TabLink component 대신 React Router에서 제공하는 Link 컴포넌트 불러와서 그걸로 마크업 하기.
+      - **TabLink component 대신 React Router에서 제공하는 Link 컴포넌트 불러와서 그걸로 마크업 하기.**
 
-        - TabLink component 삭제하기.
+        - **TabLink component 삭제하기.**
 
-        - TabLink component 쓰는 component들에서 TabLink component 대신에 React Router의 'Link' component 사용하기.
+        - **TabLink component 쓰는 component들에서 TabLink component 대신에 React Router의 'Link'나 'NavLink' component 사용하기.**
 
-          - Link 관련 내용 주소: <https://reactrouter.com/en/main/components/link>
+          - **Link 관련 내용 주소: <https://reactrouter.com/en/main/components/link>**
+
+          - **NavLink 관련 내용 주소: <https://reactrouter.com/en/main/components/nav-link>**
 
 &nbsp;
 
@@ -128,7 +126,7 @@
 
     - **BookSearchMain (구 'SearchMainContents')**
 
-      - 'main' JSX 태그에 className 적용된 거 디자인 토큰(피그마 시안을 통해 정의 된 디자인 변수들)을 이용하여 구현할 수는 없는지, 확인 안 해봤으면 확인하기.
+      - **'main' JSX 태그에 className 적용된 거 디자인 토큰(피그마 시안을 통해 정의 된 디자인 변수들)을 이용하여 구현할 수는 없는지, 확인 안 해봤으면 확인하기.**
 
     - **List와 BookList**
 
@@ -144,9 +142,9 @@
 
     - **Card**
 
-      - ~~Card 내 `<a>` 태그 React-router의 `<Link>` 컴포넌트로 대체하여 구현~~
+      - **Card 내 `<a>` 태그 React-router의 `<Link>` 컴포넌트로 대체하여 구현**
 
-        - ~~사유: `<a>` 태그로 그냥 주소 이동하면 React-router로 라우팅이 안 됨.~~
+        - **사유: `<a>` 태그로 그냥 주소 이동하면 React-router로 라우팅이 안 됨.**
 
       - **책 검색 페이지 route path를 'search' -> 'book-search'로 변경하면서 Card 컴포넌트 내에서 조건부 페이지 이동(현재 `<a>`에 href로 구현 되어 있는)할 때에도 routh path 값 변경이 필요.**
 
@@ -160,11 +158,11 @@
 
     - **AddBookIconButton**
 
-      - ~~`<a>`로 구현한 링크 라우터의 `<Link>` component로 바꿔서 구현하기.~~
+      - **`<a>`로 구현한 링크 라우터의 `<Link>` component로 바꿔서 구현하기.**
 
     - **LargeHeaderIcon**
 
-      - ~~`<a>`로 구현한 링크 라우터의 `<Link>` component로 바꿔서 구현하기.~~
+      - **`<a>`로 구현한 링크 라우터의 `<Link>` component로 바꿔서 구현하기.**
 
 &nbsp;
 
@@ -182,11 +180,11 @@
 
     - **BookBlock**
 
-      - ~~BookBlock의 `<li>` 안에 링크 거는 태그 넣을 때 `<a>` 태그 사용하지 말고 React-router의 `<Link>` component 사용하기.~~
+      - **BookBlock의 `<li>` 안에 링크 거는 태그 넣을 때 `<a>` 태그 사용하지 말고 React-router의 `<Link>` component 사용하기.**
 
-        - ~~사유: `<a>` 태그로 그냥 주소 이동하면 React-router로 라우팅이 안 됨.~~
+        - **사유: `<a>` 태그로 그냥 주소 이동하면 React-router로 라우팅이 안 됨.**
 
-          - ~~Link 관련 내용 주소: <https://reactrouter.com/en/main/components/link>~~
+          - **Link 관련 내용 주소: <https://reactrouter.com/en/main/components/link>**
 
       - **컴포넌트 맨 위쪽 8번 줄에 pageMap으로 BookBlock의 높이를 클래스로 만들어 전체 className에 병합을 해서 집어넣었음에도 불구하고 아래 마크업 `<li>`에 style로 height 스타일이 한번 더 적용 되게 코드가 만들어져 있음. 확인 후, 마크업 내 style property를 넣을 필요가 없다면 해당 property 빼기.**
 
