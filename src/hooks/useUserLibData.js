@@ -7,8 +7,6 @@ export default function useUserLibData(query) {
   const {
     data: constData,
     isLoading,
-    isStale,
-    refetch,
     error,
     failureCount,
     failureReason,
@@ -32,8 +30,6 @@ export default function useUserLibData(query) {
   return {
     data,
     isLoading,
-    isStale,
-    refetch,
     error,
     failureCount,
     failureReason,

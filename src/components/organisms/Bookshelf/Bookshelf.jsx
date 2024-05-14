@@ -9,21 +9,12 @@ import BookFilterBox from '../../molecules/BookFilterBox/BookFilterBox';
 function Bookshelf() {
   const [filterType, setFilterType] = useState('전체');
   const [query, setQuery] = useState('');
-  const {
-    data,
-    isLoading,
-    isStale,
-    refetch,
-    error,
-    failureCount,
-    failureReason,
-  } = useUserLibData(query);
+  const { data, isLoading, error, failureCount, failureReason } =
+    useUserLibData(query);
 
   if (failureCount >= 1 && failureReason.startsWith('Server')) throw error;
 
   if (failureCount === 4) throw error;
-
-  if (isStale) refetch();
 
   const handleClick = (e) => {
     const button = e.target.closest('button');

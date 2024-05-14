@@ -91,6 +91,8 @@ export async function createLibFormData(formId) {
     }
   }
 
+  formData.append('user_id', loginUserData.id);
+
   return formData;
 }
 
@@ -99,10 +101,9 @@ export async function createLibFormData(formId) {
  * @param { Object }
  * @prop { Object } formData 기존에 만들어진 formData 객체
  * @prop { Object } aladinBook 추가로 삽입 될 formData props
- * @prop { string } aladinBook.bookCoverUrl 알라딘 DB에서 가져온 책 커버 이미지 url
+ * @prop { string } aladinBook.cover 알라딘 DB에서 가져온 책 커버 이미지 url
  * @prop { string } aladinBook.description 알라딘 DB에서 가져온 책 소개 글
- * @prop { number } aladinBook.page 알라딘 DB에서 가져온 책 페이지 수
- * @prop { string } aladinBook.productUrl 알라딘 서비스 내 해당 책의 상세 페이지 url
+ * @prop { string } aladinBook.link 알라딘 서비스 내 해당 책의 상세 페이지 url
  * @returns { undefined }
  */
 export async function addFormDataProps({
@@ -123,13 +124,11 @@ export async function addFormDataProps({
   formData.set('cover', bookCoverImgFile, bookCoverFileName);
   formData.append('description', description);
   formData.append('url', productUrl);
-  formData.append('user_id', loginUserData.id);
 }
 
 /**
  * 만들어진 formData 객체를 포켓호스트 DB 내 'library' collection에 post하는 함수
  * @param { Object } formData Post 할 formData 객체
- * @returns { Object } 만들어진 포켓호스트 DB 내 'library' collection의 record
  */
 export async function postLibFormData(formData) {
   try {

@@ -39,9 +39,13 @@ const router = createBrowserRouter([
         element: <BookSearchPage />,
       },
       {
-        path: 'library/book-registration/:isbn13',
+        path: 'library/book-registration/:isbn13?',
         element: <BookRegisterPage />,
-        loader: async ({ params }) => await getBookData(params.isbn13.slice(1)),
+        loader: async ({ params }) => {
+          if (!params.isbn13) return null;
+
+          return await getBookData(params.isbn13.slice(1));
+        },
       },
       {
         path: 'login',

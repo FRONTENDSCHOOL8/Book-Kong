@@ -28,11 +28,17 @@ function BookRegistForm() {
       e.preventDefault();
       const formData = await createLibFormData('book-register');
 
-      if (!aladinBook) postLibFormData(formData);
+      if (!formData) return;
 
-      addFormDataProps({ formData, aladinBook });
+      if (!aladinBook) {
+        await postLibFormData(formData);
 
-      postLibFormData(formData);
+        return navigate('/library/bookshelf');
+      }
+
+      await addFormDataProps({ formData, aladinBook });
+
+      await postLibFormData(formData);
 
       navigate('/library/bookshelf');
     },

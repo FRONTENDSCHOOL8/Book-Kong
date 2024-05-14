@@ -26,7 +26,7 @@ function BookInfoList({ data: aladinBook }) {
 
   return (
     <ul className="flex flex-col gap-6">
-      <BookCoverInput title={bookInfo.title} cover={aladinBook.cover} />
+      <BookCoverInput title={bookInfo.title} cover={aladinBook?.cover} />
       <TextInputBox
         id="title"
         label="책 제목"
