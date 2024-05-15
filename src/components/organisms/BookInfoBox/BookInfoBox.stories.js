@@ -1,8 +1,8 @@
-import BookInfoList from './BookInfoList';
+import BookInfoBox from './BookInfoBox';
 
 const metaConfig = {
-  title: 'components/BookInfoList',
-  component: BookInfoList,
+  title: 'components/BookInfoBox',
+  component: BookInfoBox,
   tags: ['autodocs'],
   args: {
     data: {
@@ -49,4 +49,5 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
-Base.storyName = 'BookInfoList';
+
+Base.storyName = 'BookInfoBox';

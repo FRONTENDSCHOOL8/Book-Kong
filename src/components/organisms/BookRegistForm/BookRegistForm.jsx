@@ -6,8 +6,8 @@ import {
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
-import BookInfoList from '../BookInfoList/BookInfoList';
-import BookInfoState from '../../molecules/BookInfoState/BookInfoState';
+import BookInfoBox from '../BookInfoBox/BookInfoLBox';
+import ReadingState from '../../molecules/ReadingState/ReadingState';
 
 function BookRegistForm() {
   const [status, setStatus] = useState('완독');
@@ -47,9 +47,9 @@ function BookRegistForm() {
 
   return (
     <form id="book-register" onSubmit={handleSubmit}>
-      <BookInfoState status={status} onClick={handleClick} />
+      <ReadingState status={status} onClick={handleClick} />
       <hr className="mt-6 mb-6" />
-      <BookInfoList data={aladinBook} />
+      <BookInfoBox data={aladinBook} />
     </form>
   );
 }

@@ -4,7 +4,7 @@ import debounce from '../../../utils/debounce';
 import TextInputBox from '../../molecules/TextInputBox/TextInputBox';
 import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
 
-function BookInfoList({ data: aladinBook }) {
+function BookInfoBox({ data: aladinBook }) {
   const [bookInfo, setBookInfo] = useState({
     title: aladinBook?.title || '',
     author: aladinBook?.author || '',
@@ -66,8 +66,8 @@ function BookInfoList({ data: aladinBook }) {
   );
 }
 
-BookInfoList.propTypes = {
+BookInfoBox.propTypes = {
   data: object,
 };
 
-export default BookInfoList;
+export default BookInfoBox;

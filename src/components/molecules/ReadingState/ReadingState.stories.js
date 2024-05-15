@@ -1,4 +1,4 @@
-import BookInfoState from './BookInfoState';
+import ReadingState from './ReadingState';
 import { createArgTypesControl } from '../../../utils/storybook';
 
 let status = '완독';
@@ -13,8 +13,8 @@ let status = '완독';
 // };
 
 const metaConfig = {
-  title: 'components/BookInfoState',
-  component: BookInfoState,
+  title: 'components/ReadingState',
+  component: ReadingState,
   tags: ['autodocs'],
   args: {
     status,
@@ -32,4 +32,4 @@ export const Base = {
   args: {},
 };
 
-Base.storyName = 'BookInfoState';
+Base.storyName = 'ReadingState';
