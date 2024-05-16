@@ -23,7 +23,7 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
           <img src={bookImgUrl} alt={bookTitle} />
         </label>
         <input
-          className="hidden"
+          className="sr-only"
           type="file"
           id="cover"
           name="cover"
@@ -51,7 +51,7 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
         />
       </label>
       <input
-        className="hidden"
+        className="sr-only"
         type="file"
         id="cover"
         name="cover"
