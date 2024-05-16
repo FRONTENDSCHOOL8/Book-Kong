@@ -5,7 +5,8 @@ function DoneButton({ onChange, isChecked }) {
   return (
     <>
       <motion.label
-        whileHover={{ scale: 1.02 }}
+        whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+        whileTap={{ scale: 0.9 }}
         htmlFor="완독"
         className={`h-16 flex justify-center flex-col items-center gap-2 border  rounded-[4px] flex-1 cursor-pointer contents-sm-bold ${isChecked ? 'border-badge-skyblue text-badge-skyblue' : 'border-grayscale-300 text-grayscale-300'}`}
       >
