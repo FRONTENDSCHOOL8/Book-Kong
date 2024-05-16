@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { string } from 'prop-types';
+import { motion } from 'framer-motion';
 import convertFileToImgUrl from '../../../utils/convertFileToImgUrl';
 
 function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
@@ -19,9 +20,15 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
   if (bookImgUrl)
     return (
       <li className="flex justify-center overflow-hidden ">
-        <label id="book-cover" className="w-[110px] h-[158px]" htmlFor="cover">
+        <motion.label
+          id="book-cover"
+          whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+          whileTap={{ scale: 0.9 }}
+          className="w-[110px] h-[158px] cursor-pointer"
+          htmlFor="cover"
+        >
           <img src={bookImgUrl} alt={bookTitle} />
-        </label>
+        </motion.label>
         <input
           className="sr-only"
           type="file"
@@ -35,8 +42,10 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
 
   return (
     <li className="flex justify-center overflow-hidden ">
-      <label
-        className="contents-xs flex flex-col justify-center items-center pt-[48px] border w-[110px] h-[158px]"
+      <motion.label
+        whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+        whileTap={{ scale: 0.9 }}
+        className="contents-xs flex flex-col justify-center items-center pt-[48px] border w-[110px] h-[158px] cursor-pointer"
         htmlFor="cover"
       >
         <div className="text-center">
@@ -49,7 +58,7 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
           alt=""
           className="w-[90px] h-[74px] translate-y-[14px]"
         />
-      </label>
+      </motion.label>
       <input
         className="sr-only"
         type="file"
