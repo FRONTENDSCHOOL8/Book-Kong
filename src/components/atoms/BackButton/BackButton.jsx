@@ -1,31 +1,16 @@
-import { string } from 'prop-types';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-function BackButton({ title }) {
+function BackButton() {
   const navigate = useNavigate();
-  const handleClick = (e) => {
-    const button = e.target.closest('button');
-    if (!button) return;
-
-    if (title === '검색하기') {
-      navigate('/library/booktree');
-      return;
-    }
-    if (title === '직접 입력하기') {
-      navigate('/library/book-search');
-      return;
-    }
-    if (title === '메모' || title === '메모 작성') {
-      navigate('/record');
-      return;
-    }
-    if (title === '피드' || title === '피드 작성') {
-      navigate('/feed');
-    }
-  };
 
   return (
-    <button onClick={handleClick}>
+    <motion.button
+      whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+      whileTap={{ scale: 0.8 }}
+      onClick={() => navigate(-1)}
+      aria-label="뒤로가기 버튼"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -38,12 +23,10 @@ function BackButton({ title }) {
           fill="#1E1E1E"
         />
       </svg>
-    </button>
+    </motion.button>
   );
 }
 
-BackButton.propTypes = {
-  title: string,
-};
+BackButton.propTypes = {};
 
 export default BackButton;
