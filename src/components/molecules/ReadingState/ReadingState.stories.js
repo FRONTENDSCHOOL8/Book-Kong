@@ -4,12 +4,12 @@ import { createArgTypesControl } from '../../../utils/storybook';
 let status = '완독';
 
 // 현재 작동 안 함. 수정 요.
-// const onClick = (e) => {
-//   e.preventDefault();
-//   const button = e.target.closest('button');
-//   if (!button) return;
+// const onChange = (e) => {
+//   const input = e.target.closest('input');
 
-//   status = button.innerText;
+//   if (!input) return;
+
+//   status = input.value;
 // };
 
 const metaConfig = {
@@ -18,11 +18,11 @@ const metaConfig = {
   tags: ['autodocs'],
   args: {
     status,
-    // onClick,
+    // onChange,
   },
   argTypes: {
     status: createArgTypesControl(),
-    // onClick: createArgTypesControl(),
+    // onChange: createArgTypesControl(),
   },
 };
 

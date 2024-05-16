@@ -1,16 +1,11 @@
-import { createArgTypesControl } from '../../../../utils/storybook';
 import DoneButton from './DoneButton';
+import { createArgTypesControl } from '../../../../utils/storybook';
 
-let status = '완독';
-let isActive = status === '완독';
+let isChecked = true;
 
 // 현재 작동 안 함. 수정 요.
-// const onClick = (e) => {
-//   e.preventDefault();
-//   const button = e.target.closest('button');
-//   if (!button) return;
-
-//   isActive = !isActive;
+// const onChange = (e) => {
+//   isChecked = !isChecked;
 // };
 
 const metaConfig = {
@@ -18,10 +13,10 @@ const metaConfig = {
   component: DoneButton,
   tags: ['autodocs'],
   args: {
-    isActive,
+    isChecked,
   },
   argTypes: {
-    isActive: createArgTypesControl('boolean'),
+    isChecked: createArgTypesControl('boolean'),
   },
 };
 
@@ -29,10 +24,10 @@ export default metaConfig;
 
 // export const Base = {
 //   args: {
-//     onClick,
+//     onChange,
 //   },
 //   argTypes: {
-//     onClick: createArgTypesControl(),
+//     onChange: createArgTypesControl(),
 //   },
 // };
 
@@ -40,7 +35,7 @@ export default metaConfig;
 
 export const Inactive = {
   args: {
-    isActive: false,
+    isChecked: false,
   },
 };
 
@@ -48,7 +43,7 @@ Inactive.storyName = '비활성화 상태';
 
 export const Active = {
   args: {
-    isActive: true,
+    isChecked: true,
   },
 };
 
