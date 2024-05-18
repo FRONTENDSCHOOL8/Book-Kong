@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
 import { motion } from 'framer-motion';
 import { Skeleton } from '@mui/material';
 import { arrayOf, object } from 'prop-types';
@@ -23,7 +22,7 @@ function UserBookList({ data: userLibData }) {
       className="flex flex-col gap-3"
     >
       {userLibData.map((record) => (
-        <UserBookCard key={uuidv4()} record={record} />
+        <UserBookCard key={record.id} record={record} />
       ))}
     </motion.ul>
   );
