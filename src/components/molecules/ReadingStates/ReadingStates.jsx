@@ -1,4 +1,5 @@
 import DateInputsBox from '../DateInputsBox/DateInputsBox';
+import ReviewContainer from '../ReviewContainer/ReviewContainer';
 import ReadingStateButtons from '../ReadingStateButtons/ReadingStateButtons';
 
 function ReadingStates() {
@@ -6,6 +7,7 @@ function ReadingStates() {
     <>
       <ReadingStateButtons />
       <DateInputsBox />
+      <ReviewContainer />
     </>
   );
 }

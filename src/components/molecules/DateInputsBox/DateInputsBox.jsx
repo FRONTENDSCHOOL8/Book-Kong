@@ -16,7 +16,7 @@ function DateInputsBox() {
   );
 
   return (
-    <div className="flex items-center mt-6">
+    <div className="flex items-center mt-6 mb-3">
       <span className="contents-md-bold text-grayscale-900 pr-2">
         독서 기간
       </span>
