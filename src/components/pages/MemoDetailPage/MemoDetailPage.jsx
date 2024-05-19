@@ -28,11 +28,11 @@ function MemoDetailPage() {
   return (
     <>
       <Helmet>
-        <title>책콩 | 기록 페이지</title>
+        <title>책콩 | 메모</title>
       </Helmet>
       <Header title={'메모'} />
       <main className="px-4 my-2 h-full bg-white">
-        <div className="text-gray-500 text-right">
+        <div className=" text-grayscale-500 text-right pt-6">
           {data.updated?.slice(0, 10)}
         </div>
         <div className=" flex text-xm mt-6 text-[#F24822] font-normal">
@@ -50,9 +50,9 @@ function MemoDetailPage() {
             />
           </svg>
 
-          {data.expand.book_id.title}
+          {data?.expand.book_id.title}
         </div>
-        <div className=" h-full whitespace-pre-wrap mt-4 text-sm">
+        <div className=" h-full whitespace-pre-wrap mt-4 contents-sm">
           {data.content}
         </div>
       </main>
