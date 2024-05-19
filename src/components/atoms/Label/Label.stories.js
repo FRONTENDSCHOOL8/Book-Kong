@@ -1,5 +1,5 @@
-import { createArgTypesControl } from '../../../utils/storybook';
 import Label from './Label';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 const id = crypto.randomUUID;
 
@@ -9,27 +9,19 @@ const metaConfig = {
   tags: ['autodocs'],
   args: {
     htmlFor: id,
-    isHidden: false,
+    children: ['라벨'],
+    className: '',
   },
   argTypes: {
     htmlFor: createArgTypesControl(),
-    isHidden: createArgTypesControl('boolean'),
+    children: createArgTypesControl('array'),
+    className: createArgTypesControl(),
   },
 };
 
 export default metaConfig;
 
-export const LabelShown = {
-  args: {
-    children: '일반 label',
-  },
+export const Base = {
+  args: {},
 };
-LabelShown.storyName = '일반 label';
-
-export const LabelHidden = {
-  args: {
-    children: '숨겨진 label',
-    isHidden: true,
-  },
-};
-LabelHidden.storyName = '숨겨진 label';
+Base.storyName = 'Label';
