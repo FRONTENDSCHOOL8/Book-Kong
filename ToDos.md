@@ -170,6 +170,10 @@
 
       - **`<a>`로 구현한 링크 라우터의 `<Link>` component로 바꿔서 구현하기.**
 
+  - 유틸 함수
+
+    - **'controlBookData.js'에 있는 searchUserLibData 함수와 searchUserLibraryData 함수의 역할이 같아보이는데, 확인 후 같으면 하나로 통합하기.**
+
 &nbsp;
 
 - **예은**
