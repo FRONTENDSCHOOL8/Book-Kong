@@ -1,5 +1,3 @@
-import {} from 'prop-types';
-
 import DetailBook from '../organisms/DetailBook/DetailBook';
 import Header from '../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
@@ -15,7 +13,5 @@ function BookDetailPage() {
     </>
   );
 }
-
-BookDetailPage.propTypes = {};
 
 export default BookDetailPage;

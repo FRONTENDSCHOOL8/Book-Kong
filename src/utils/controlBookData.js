@@ -64,3 +64,7 @@ export async function searchUserLibraryData(keyword, status = 'all') {
     return resultList;
   }
 }
+
+export async function getLibraryData(recordId) {
+  return await pb.collection('library').getOne(recordId);
+}
