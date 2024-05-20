@@ -1,7 +1,7 @@
 import { getStaticImage } from '../../../utils/getStaticAsset';
 
 // 나중에 수정 필요. 현재는 시간이 없어서 디자인만 구현.
-function ReviewInput() {
+function RatingInput() {
   const emptyStarImg = getStaticImage('icons/star=default.svg');
   const fullStarImg = getStaticImage('icons/star=selected.svg');
 
@@ -16,4 +16,4 @@ function ReviewInput() {
   );
 }
 
-export default ReviewInput;
+export default RatingInput;
