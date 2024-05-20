@@ -7,10 +7,11 @@ export default function getCombinedClassName(
 
   const finalClassName = rawClassNameArr.reduceRight((acc, cur) => {
     if (acc) {
-      const accPrefixArr = acc.split('-');
-      const curPrefix = cur.split('-')[0];
+      const accClassNameArr = acc.split(' ');
 
-      if (accPrefixArr.includes(curPrefix)) return acc;
+      for (const accClassName of accClassNameArr) {
+        if (accClassName.split('-')[0] === cur.split('-')[0]) return acc;
+      }
     }
 
     return acc + ' ' + cur;
