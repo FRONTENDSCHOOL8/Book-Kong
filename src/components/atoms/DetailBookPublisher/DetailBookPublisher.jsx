@@ -1,10 +1,17 @@
-// import PropTypes from "prop-types";
-// import { useSearchParams } from "react-router-dom";
+import { string, exact } from 'prop-types';
 
-function DetailBookPublisher() {
-  // const [searchParams] = useSearchParams();
-  // const publisher = searchParams.get('publisher');
-  return <span className="contents-xs-bold text-grayscale-700">현대지성</span>;
+function DetailBookPublisher({ data: bookData }) {
+  return (
+    <span className="contents-xs-bold text-grayscale-700">
+      {bookData.publisher}
+    </span>
+  );
 }
+
+DetailBookPublisher.propTypes = {
+  data: exact({
+    publisher: string.isRequired,
+  }),
+};
 
 export default DetailBookPublisher;
