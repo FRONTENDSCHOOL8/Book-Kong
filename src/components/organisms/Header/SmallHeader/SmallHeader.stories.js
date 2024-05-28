@@ -1,15 +1,25 @@
 import SmallHeader from './SmallHeader';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 const metaConfig = {
   title: 'components/SmallHeader',
   component: SmallHeader,
   tags: ['autodocs'],
   args: { title: '제목' },
+  argTypes: {
+    title: createArgTypesControl(),
+  },
 };
 
 export default metaConfig;
 
-export const Base = {
-  args: { title: '메모' },
+export const BookRegistPgHeader = {
+  args: {
+    title: '직접 입력하기',
+    formId: 'book-register',
+  },
+  argTypes: {
+    formId: createArgTypesControl(),
+  },
 };
-Base.storyName = '메모';
+BookRegistPgHeader.storyName = '책 등록 페이지 헤더';
