@@ -6,17 +6,10 @@ import { loginUserData } from '../../../utils/controlUserData';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-// Library 패치 함수
-const loadLibraryData = async () => {
-  const data = await pb.collection('library').getFullList({
-    filter: `user_id ?= "${loginUserData.id}"`,
-  });
-  return data;
-};
+import { getUserLibraryData } from '/src/utils/controlBookData';
 
 // 피드 생성 패치 함수
-const fetchCreateFeed = async (formData) => {
+const createFeed = async (formData) => {
   await pb.collection('feeds').create(formData);
 };
 
@@ -28,12 +21,12 @@ const FeedRegistrationPage = () => {
   // 데이터 패칭 및 캐시
   const { data: librariesData } = useQuery({
     queryKey: ['library', loginUserData.id],
-    queryFn: async () => loadLibraryData(),
+    queryFn: async () => getUserLibraryData(),
   });
 
   // 데이터 생성
-  const createFeed = useMutation({
-    mutationFn: fetchCreateFeed,
+  const feedMutation = useMutation({
+    mutationFn: createFeed,
     onSuccess: () => {
       navigate('/feed');
     },
@@ -55,7 +48,7 @@ const FeedRegistrationPage = () => {
         throw new Error('책 제목을 선택해주세요.');
       }
 
-      createFeed.mutate(formData);
+      feedMutation.mutate(formData);
     }
   };
 
@@ -65,15 +58,17 @@ const FeedRegistrationPage = () => {
         <title>책콩 | 피드</title>
       </Helmet>
       <Header title="피드 작성" />
-      <div className=" h-[68px]"></div>
-      <main className="px-4 h-full bg-white">
+      <main className="px-4 h-full mt-[68px] bg-white">
         <form
           method="get"
           ref={formRef}
           id="bookInfo"
           onSubmit={handleFeedSubmit}
         >
-          <select onChange={handleSelect} className=" text-xs text-primary-500">
+          <select
+            onChange={handleSelect}
+            className=" text-content-xs text-primary-500"
+          >
             <option selected value="" disabled>
               책 제목을 선택해주세요.
             </option>
@@ -84,11 +79,14 @@ const FeedRegistrationPage = () => {
             ))}
           </select>
           <hr className="mt-4" />
+          <label className="sr-only" htmlFor="title">
+            제목
+          </label>
           <input
             required
             id="title"
             name="title"
-            className="w-full text-lg mt-6 outline-none"
+            className="w-full text-content-large mt-6 outline-none"
             placeholder="제목을 입력해주세요."
           />
           <textarea

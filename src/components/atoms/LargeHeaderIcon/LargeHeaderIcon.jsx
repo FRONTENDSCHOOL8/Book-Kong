@@ -14,7 +14,7 @@ function LargeHeaderIcon({ title }) {
       alt: '글 작성',
     },
     피드: {
-      href: '/feedregistration',
+      href: '/feed/registration',
       src: '/images/icons/newrecord.svg',
       alt: '피드 작성',
     },
