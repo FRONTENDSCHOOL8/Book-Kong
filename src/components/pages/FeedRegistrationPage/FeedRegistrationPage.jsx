@@ -62,7 +62,7 @@ const FeedRegistrationPage = () => {
         <form
           method="get"
           ref={formRef}
-          id="bookInfo"
+          id="feed-data"
           onSubmit={handleFeedSubmit}
         >
           <select
