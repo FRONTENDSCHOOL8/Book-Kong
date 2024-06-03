@@ -54,7 +54,7 @@ const FeedRegistrationPage = () => {
 
   return (
     <>
-      <Helmet>
+      <Helmet formId="feed-data">
         <title>책콩 | 피드</title>
       </Helmet>
       <Header title="피드 작성" />
