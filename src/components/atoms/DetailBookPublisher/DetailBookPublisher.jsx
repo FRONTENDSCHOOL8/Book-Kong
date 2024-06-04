@@ -1,4 +1,4 @@
-import { string, exact } from 'prop-types';
+import { string, shape } from 'prop-types';
 
 function DetailBookPublisher({ data: bookData }) {
   return (
@@ -9,7 +9,7 @@ function DetailBookPublisher({ data: bookData }) {
 }
 
 DetailBookPublisher.propTypes = {
-  data: exact({
+  data: shape({
     publisher: string.isRequired,
   }),
 };
