@@ -7,7 +7,7 @@ import Header from '../../organisms/Header/Header/Header';
 function MemoDetailPage() {
   const { memoId } = useParams();
   const { data } = useQuery({
-    queryKey: ['memo', memoId],
+    queryKey: ['memo-detail', memoId],
     queryFn: async () => {
       const data = await pb
         .collection('memos')
