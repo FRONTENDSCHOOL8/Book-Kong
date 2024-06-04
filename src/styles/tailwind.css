@@ -49,7 +49,7 @@
 }
 
 .contents-md {
-  @apply text-content-medium font-medium tracking-[-0.32px];
+  @apply text-content-medium font-normal tracking-[-0.32px];
 }
 
 .contents-md-bold {
