@@ -17,7 +17,7 @@ function MemoDetailPage() {
     initialData: {
       expand: {
         book_id: {
-          title: 'Loading...', // 임시 제목
+          title: 'Loading...',
         },
       },
       content: 'Loading...',
