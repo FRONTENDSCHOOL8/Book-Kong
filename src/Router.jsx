@@ -15,7 +15,7 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
-import SplashPage from './components/pages/SplashPage';
+import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
 
 // 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
