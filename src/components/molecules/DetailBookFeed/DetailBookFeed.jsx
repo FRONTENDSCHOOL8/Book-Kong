@@ -1,3 +1,4 @@
+import { string, shape } from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { loginUserData } from '../../../utils/controlUserData';
 import { getUserFeedData } from '../../../utils/controlFeedData';
@@ -5,12 +6,20 @@ import { motion } from 'framer-motion';
 import FeedCard from '../../organisms/FeedCard/FeedCard';
 import { useState, useEffect } from 'react';
 import WriteMemoIconButton from '../../atoms/WriteMemoIconButton/WriteMemoIconButton';
+import NoneCardState from '../NoneCardState/NoneCardState';
 
-function DetailBookFeed() {
+function DetailBookFeed({ data: bookData }) {
   const { data } = useQuery({
-    queryKey: ['feed', loginUserData],
-    queryFn: async () => await getUserFeedData(),
-    staleTime: 1000 * 60 * 5,
+    queryKey: ['feed-detail', loginUserData, bookData.id],
+    queryFn: async () => {
+      const feedData = await getUserFeedData();
+
+      const filteredData = feedData?.filter(
+        (feed) => feed.expand.book_id.id === bookData.id
+      );
+
+      return filteredData;
+    },
   });
 
   const listVar = {
@@ -56,19 +65,23 @@ function DetailBookFeed() {
             variants={listVar}
             initial="start"
             animate="end"
-            className="flex flex-col gap-4"
+            className="flex flex-col w-full gap-4"
           >
-            {data?.map((feed) => (
-              <FeedCard
-                key={feed.id}
-                bookTitle={feed.expand.book_id.title}
-                title={feed.title}
-                content={feed.content}
-                date={feed.created}
-                nickname={feed.expand.book_id.expand.user_id.nickname}
-                book_height={feed.expand.book_id.expand.user_id.book_height}
-              />
-            ))}
+            {data?.length !== 0 ? (
+              data?.map((feed) => (
+                <FeedCard
+                  key={feed.id}
+                  bookTitle={feed.expand.book_id.title}
+                  title={feed.title}
+                  content={feed.content}
+                  date={feed.created}
+                  nickname={feed.expand.book_id.expand.user_id.nickname}
+                  book_height={feed.expand.book_id.expand.user_id.book_height}
+                />
+              ))
+            ) : (
+              <NoneCardState data="feed" />
+            )}
           </motion.ul>
         </div>
       </div>
@@ -76,6 +89,10 @@ function DetailBookFeed() {
   );
 }
 
-DetailBookFeed.propTypes = {};
+DetailBookFeed.propTypes = {
+  data: shape({
+    id: string.isRequired,
+  }),
+};
 
 export default DetailBookFeed;
