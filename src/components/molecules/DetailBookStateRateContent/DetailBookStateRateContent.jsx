@@ -1,16 +1,20 @@
-import {} from 'prop-types';
+import { number, shape } from 'prop-types';
 import Star from '../../atoms/Star/Star';
 import Rate from '../../atoms/Rate/Rate';
 
-function DetailBookStateRate() {
+function DetailBookStateRateContent({ state: bookData }) {
   return (
     <div className="flex gap-1 text-primary-500 contents-md-bold">
       <Star />
-      <Rate>4.5</Rate>
+      <Rate>{bookData.score}</Rate>
     </div>
   );
 }
 
-DetailBookStateRate.propTypes = {};
+DetailBookStateRateContent.propTypes = {
+  state: shape({
+    score: number,
+  }),
+};
 
-export default DetailBookStateRate;
+export default DetailBookStateRateContent;
