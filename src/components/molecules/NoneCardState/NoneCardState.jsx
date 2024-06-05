@@ -13,7 +13,7 @@ function NoneCardState({ data }) {
   }, [data]);
 
   return (
-    <div className="w-full py-[32px] flex flex-col gap-4 items-center text-center contents-md">
+    <div className="w-full py-[32px] flex flex-col gap-4 items-center text-center contents-md text-grayscale-600">
       <img src="/images/characters/잠금캐릭.png" alt="" width="82" />
       <p>
         등록된 {message}가 없습니다. <br />
