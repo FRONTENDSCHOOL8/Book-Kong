@@ -1,3 +1,4 @@
+import { string, shape } from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import OrderButton from '../OrderButton/OrderButton';
 import MemoCard from '../../organisms/MemoCard/MemoCard';
@@ -7,8 +8,9 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import WriteMemoIconButton from '../../atoms/WriteMemoIconButton/WriteMemoIconButton';
+import NoneCardState from '../NoneCardState/NoneCardState';
 
-function DetailBookMemo() {
+function DetailBookMemo({ data: bookData }) {
   const initialOrder = localStorage.getItem('order') || '최신순';
 
   const [order, setOrder] = useState(initialOrder);
@@ -31,9 +33,18 @@ function DetailBookMemo() {
   }, [order]);
 
   const { data } = useQuery({
-    queryKey: ['memo', loginUserData],
-    queryFn: async () =>
-      getUserMemoData(order === '최신순' ? 'created' : '-created'),
+    queryKey: ['memo-detail', loginUserData, bookData.id],
+    queryFn: async () => {
+      const memoData = await getUserMemoData(
+        order === '최신순' ? 'created' : '-created'
+      );
+
+      const filteredData = memoData?.filter(
+        (memo) => memo.expand.book_id.id === bookData.id
+      );
+
+      return filteredData;
+    },
     staleTime: 1000 * 60 * 5,
   });
 
@@ -77,7 +88,15 @@ function DetailBookMemo() {
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
           <div className="flex items-center justify-between w-full mt-6 mb-4">
-            <OrderButton onClick={toggleSort} order={order} />
+            {data?.length !== 0 ? (
+              <OrderButton
+                onClick={toggleSort}
+                order={order}
+                className="align-end"
+              />
+            ) : (
+              <p></p>
+            )}
             <WriteMemoIconButton />
           </div>
           <motion.ul
@@ -86,19 +105,29 @@ function DetailBookMemo() {
             animate="end"
             className="flex flex-col w-full gap-3"
           >
-            {data?.map((memo) => (
-              <MemoCard
-                key={memo.id}
-                title={memo.expand.book_id.title}
-                contents={memo.content}
-                date={memo.created}
-              />
-            ))}
+            {data?.length !== 0 ? (
+              data?.map((memo) => (
+                <MemoCard
+                  key={memo.id}
+                  title={memo.expand.book_id.title}
+                  contents={memo.content}
+                  date={memo.created}
+                />
+              ))
+            ) : (
+              <NoneCardState data="memo" />
+            )}
           </motion.ul>
         </div>
       </div>
     </section>
   );
 }
+
+DetailBookMemo.propTypes = {
+  data: shape({
+    id: string.isRequired,
+  }),
+};
 
 export default DetailBookMemo;
