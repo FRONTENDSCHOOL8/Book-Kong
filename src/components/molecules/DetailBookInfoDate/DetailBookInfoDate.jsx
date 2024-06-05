@@ -15,7 +15,9 @@ function DetailBookInfoDate({ data: bookData }) {
 
   return (
     <>
-      <span className="block mt-12 contents-md text-grayscale-400">출간일</span>
+      <span className="block mt-12 contents-md-bold text-grayscale-900">
+        출간일
+      </span>
       <p className="mt-4 contents-sm">{pulicationDate}</p>
     </>
   );

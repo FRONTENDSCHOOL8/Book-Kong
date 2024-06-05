@@ -10,8 +10,8 @@ function DetailBookInfo({ data: bookData }) {
       className="before:content-[''] before:block before:pt-[111px] mt-[-111px] border-b"
       id="bookInfo"
     >
-      <div className="px-4 pb-8 bg-grayscale-white">
-        <h4 className="pt-8 border-t contents-lg-bold text-grayscale-900">
+      <div className="px-4 pb-8 bg-grayscale-white text-grayscale-700">
+        <h4 className="pt-8 border-t contents-lg-bold text-grayscale-black">
           책 소개
         </h4>
         <DetailBookInfoDesc data={bookData} />
