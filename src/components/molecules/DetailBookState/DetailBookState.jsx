@@ -1,14 +1,14 @@
 import { number, shape } from 'prop-types';
 
-import DetailBookStateDays from '../DetailBookStateDays/DetailBookStateDays';
 import DetailBookStatePeriod from '../DetailBookStatePeriod/DetailBookStatePeriod';
 import DetailBookStateRate from '../DetailBookStateRate/DetailBookStateRate';
+import DetailBookStateProgress from '../DetailBookStateDays/DetailBookStateDays';
 
 function DetailBookState({ state: bookState }) {
   return (
     <div className="flex py-3 justify-stretch">
       <DetailBookStateRate state={bookState} />
-      <DetailBookStateDays state={bookState} />
+      <DetailBookStateProgress state={bookState} />
       <DetailBookStatePeriod state={bookState} />
     </div>
   );
