@@ -2,7 +2,7 @@ import { number, shape } from 'prop-types';
 
 import DetailBookStatePeriod from '../DetailBookStatePeriod/DetailBookStatePeriod';
 import DetailBookStateRate from '../DetailBookStateRate/DetailBookStateRate';
-import DetailBookStateProgress from '../DetailBookStateDays/DetailBookStateDays';
+import DetailBookStateProgress from '../DetailBookStateProgress/DetailBookStateProgress';
 
 function DetailBookState({ state: bookState }) {
   return (
