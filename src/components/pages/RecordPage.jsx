@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 
 export default function RecordPage() {
   return (
-    <div className=" max-w-md m-auto min-w-80 bg-background-gray pt-[98px]">
+    <div className=" max-w-md m-auto min-w-80 bg-background-gray pt-[105px]">
       <Helmet>
         <title>책콩 | 기록 페이지</title>
       </Helmet>
