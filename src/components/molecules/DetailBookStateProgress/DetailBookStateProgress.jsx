@@ -5,10 +5,26 @@ import DetailBookStateProgressContent from '../../atoms/DetailBookStateProgressC
 
 function DetailBookStateProgress({ state: bookState }) {
   return (
-    <div className="flex flex-col items-center gap-3 w-[33.3333%] border-l border-grayscale-100">
-      <DetailBookStateProgressContent state={bookState} />
-      <DetailBookStateTitle title="독서 일수" />
-    </div>
+    <>
+      {bookState.status === '완독' && (
+        <div className="flex flex-col items-center gap-3 w-[33.3333%] border-l border-grayscale-100">
+          <DetailBookStateProgressContent state={bookState} />
+          <DetailBookStateTitle title="독서 일수" />
+        </div>
+      )}
+      {bookState.status === '독서중' && (
+        <div className="flex flex-col items-center gap-3 w-[33.3333%] border-l border-grayscale-100">
+          <DetailBookStateProgressContent state={bookState} />
+          <DetailBookStateTitle title="읽는 중" />
+        </div>
+      )}
+      {bookState.status === '희망 도서' && (
+        <div className="hidden">
+          <DetailBookStateProgressContent state={bookState} />
+          <DetailBookStateTitle />
+        </div>
+      )}
+    </>
   );
 }
 

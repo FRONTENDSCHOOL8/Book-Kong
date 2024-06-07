@@ -17,9 +17,18 @@ function DetailBookStateProgressContent({ state: bookState }) {
   );
 
   return (
-    <span className="text-primary-500 contents-md-bold">
-      {daysBetweenDates} 일
-    </span>
+    <>
+      {bookState.status === '완독' && (
+        <span className="text-primary-500 contents-md-bold">
+          {daysBetweenDates} 일
+        </span>
+      )}
+      {bookState.status === '독서중' && (
+        <span className="text-primary-500 contents-md-bold">
+          {bookState.read_page} 쪽
+        </span>
+      )}
+    </>
   );
 }
 
