@@ -6,7 +6,7 @@ import DetailBookStateProgress from '../DetailBookStateProgress/DetailBookStateP
 
 function DetailBookState({ state: bookState }) {
   return (
-    <div className="flex py-3 justify-stretch">
+    <div className="flex justify-center py-3">
       <DetailBookStateRate state={bookState} />
       <DetailBookStateProgress state={bookState} />
       <DetailBookStatePeriod state={bookState} />
