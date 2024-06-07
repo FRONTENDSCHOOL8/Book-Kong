@@ -1,5 +1,3 @@
-import {} from 'prop-types';
-
 function FeedDetailCommentContents() {
   return (
     <section className="bg-grayscale-white border-grayscale-100 border py-6 px-4">
@@ -7,9 +5,13 @@ function FeedDetailCommentContents() {
         onSubmit={onsubmit}
         className="flex items-center flex-shrink-0 justify-between w-full rounded bg-grayscale-white border border-primary-500 mb-6 px-3 py-2"
       >
-        <input type="text" className=" rounded" placeholder="Placeholder" />
+        <input
+          type="text"
+          className=" rounded"
+          placeholder="댓글을 남겨보세요!"
+        />
         <button className="w-[50px] h-[24px] bg-grayscale-200 rounded justify-center align-middle flex">
-          <img src="/images/icons/arrow-up.svg" alt="검색버튼" />
+          <img src="/images/icons/arrow-up.svg" alt="등록버튼" />
         </button>
       </form>
       <span className="pr-2 text-grayscale-900 contents-md-bold">댓글</span>
@@ -17,7 +19,7 @@ function FeedDetailCommentContents() {
       <div className="flex gap-3 p-4 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow mt-6 mb-3">
         <img
           src="/images/characters/Rectangle 99.png"
-          alt="/"
+          alt="캐릭터"
           className="w-[45px] h-[45px]"
         />
         <div className="flex flex-col">
@@ -37,7 +39,7 @@ function FeedDetailCommentContents() {
       <div className="flex gap-3 p-4 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow">
         <img
           src="/images/characters/Rectangle 99.png"
-          alt="/"
+          alt="캐릭터"
           className="w-[45px] h-[45px]"
         />
         <div className="flex flex-col">
@@ -60,7 +62,7 @@ function FeedDetailCommentContents() {
       <div className="flex gap-3 p-4 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow mt-3 mb-3">
         <img
           src="/images/characters/Rectangle 99.png"
-          alt="/"
+          alt="캐릭터"
           className="w-[45px] h-[45px]"
         />
         <div className="flex flex-col">
@@ -80,7 +82,5 @@ function FeedDetailCommentContents() {
     </section>
   );
 }
-
-FeedDetailCommentContents.propTypes = {};
 
 export default FeedDetailCommentContents;

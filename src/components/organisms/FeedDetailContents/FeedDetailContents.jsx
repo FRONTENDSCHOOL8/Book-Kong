@@ -4,7 +4,7 @@ import FeedDetailCommentContents from './../../molecules/FeedDetailCommentConten
 
 function FeedDetailContents() {
   return (
-    <main className="mb-[100px] bg-gray">
+    <main className="mb-[100px] bg-background-gray">
       <FeedDetailPostContents />
       <FeedDetailCommentContents />
     </main>
