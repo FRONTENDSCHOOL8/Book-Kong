@@ -68,6 +68,7 @@ function MemoList() {
         {data?.map((memo) => (
           <MemoCard
             key={memo.id}
+            id={memo.id}
             title={memo.expand.book_id.title}
             contents={memo.content}
             date={memo.created}

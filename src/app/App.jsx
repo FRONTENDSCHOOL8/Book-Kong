@@ -3,7 +3,7 @@ import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNav
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { loginUserData } from '../utils/controlUserData';
-import SplashPage from '../components/pages/SplashPage';
+import SplashPage from '../components/pages/SplashPage/SplashPage';
 
 function App() {
   const { pathname } = useLocation();
@@ -42,10 +42,10 @@ function App() {
   }
 
   return (
-      <>
-        <Outlet />
-        <GlobalNavigator />
-      </>
+    <>
+      <Outlet />
+      <GlobalNavigator />
+    </>
   );
 }
 
