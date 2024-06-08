@@ -15,6 +15,7 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
+import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
 import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             element: <StatisticsMemo />,
           },
         ],
+      },
+      {
+        path: 'record/memo/:memoId',
+        element: <MemoDetailPage />,
       },
       {
         path: 'feed/registration',
