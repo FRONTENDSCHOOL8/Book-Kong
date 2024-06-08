@@ -1,12 +1,18 @@
-import { node } from 'prop-types';
+import { node, string } from 'prop-types';
 import { memo } from 'react';
 
-const BookTitle = memo(function BookTitle({ children }) {
-  return <a className="block bookTree-list">{children}</a>;
+const BookTitle = memo(function BookTitle({ children, id }) {
+  console.log(id);
+  return (
+    <a href={`/library/book-detail/${id}`} className="block bookTree-list">
+      {children}
+    </a>
+  );
 });
 
 BookTitle.propTypes = {
   children: node,
+  id: string,
 };
 
 export default BookTitle;

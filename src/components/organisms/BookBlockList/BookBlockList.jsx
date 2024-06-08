@@ -3,9 +3,15 @@ import BookBlock from '../../molecules/BookBlock/BookBlock';
 
 function BookBlockList({ data }) {
   return (
-    <ul className="flex flex-col justify-center items-center">
+    <ul className="flex flex-col items-center justify-center">
       {data?.map(({ id, title, total_page }, index) => (
-        <BookBlock key={id} title={title} page={total_page} index={index} />
+        <BookBlock
+          key={id}
+          title={title}
+          page={total_page}
+          index={index}
+          data={data}
+        />
       ))}
     </ul>
   );
