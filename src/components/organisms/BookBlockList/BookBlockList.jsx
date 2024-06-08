@@ -10,7 +10,7 @@ function BookBlockList({ data }) {
           title={title}
           page={total_page}
           index={index}
-          data={data}
+          id={id}
         />
       ))}
     </ul>

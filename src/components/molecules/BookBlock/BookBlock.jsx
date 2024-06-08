@@ -1,4 +1,4 @@
-import { number, string, shape } from 'prop-types';
+import { number, string } from 'prop-types';
 import BookTitle from '../../atoms/BookTitle/BookTitle';
 import { memo } from 'react';
 
@@ -40,25 +40,23 @@ const getClassNames = ({ page, index }) => {
 };
 
 // 페이지 별 키(key)에 설정할 높이를 아래처럼 작성합니다.
-const BookBlock = memo(function BookBlock({ title, page, index, data }) {
+const BookBlock = memo(function BookBlock({ title, page, index, id }) {
   // 마크업 반환 (병합된 클래스 이름 설정)
   return (
     <li
       className={getClassNames({ page, index })}
       style={{ height: `${Math.max(page * 0.1, 24)}px` }}
     >
-      <BookTitle id={data[index].id}>{title}</BookTitle>
+      <BookTitle id={id}>{title}</BookTitle>
     </li>
   );
 });
 
 BookBlock.propTypes = {
-  title: string,
-  page: number,
-  index: number,
-  data: shape({
-    id: string,
-  }),
+  title: string.isRequired,
+  page: number.isRequired,
+  index: number.isRequired,
+  id: string.isRequired,
 };
 
 export default BookBlock;
