@@ -13,6 +13,11 @@ function LargeHeaderIcon({ title }) {
       src: '/images/icons/newrecord.svg',
       alt: '글 작성',
     },
+    피드: {
+      href: '/library/booktree',
+      src: '/images/icons/newrecord.svg',
+      alt: '글 작성',
+    },
   };
 
   const icon = iconDetails[title];
