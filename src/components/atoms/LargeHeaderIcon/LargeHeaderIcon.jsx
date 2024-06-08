@@ -14,9 +14,9 @@ function LargeHeaderIcon({ title }) {
       alt: '글 작성',
     },
     피드: {
-      href: '/library/booktree',
+      href: '/feed/registration',
       src: '/images/icons/newrecord.svg',
-      alt: '글 작성',
+      alt: '피드 작성',
     },
   };
 
