@@ -112,6 +112,7 @@ function DetailBookMemo({ data: bookData }) {
                   title={memo.expand.book_id.title}
                   contents={memo.content}
                   date={memo.created}
+                  id={memo.id}
                 />
               ))
             ) : (
