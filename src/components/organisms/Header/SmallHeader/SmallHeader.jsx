@@ -13,7 +13,7 @@ function SmallHeader({ title }) {
       case '검색하기':
         return <AddBookIconButton />;
       case '메모':
-      case '피드':
+      case '피드 상세':
         return (
           <div className="flex gap-5">
             <DeleteIconButton />
@@ -23,7 +23,7 @@ function SmallHeader({ title }) {
       case '메모 작성':
       case '피드 작성':
       case '직접 입력하기':
-        return <SaveButton />;
+        return <SaveButton formId="book-register" />;
       default:
         return null;
     }

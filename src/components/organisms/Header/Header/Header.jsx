@@ -16,6 +16,7 @@ function Header({ title }) {
     '직접 입력하기',
     '상세페이지',
     '피드 작성',
+    '피드 상세',
   ];
   const titlesWithTabNavigation = ['기록', '서재'];
 
