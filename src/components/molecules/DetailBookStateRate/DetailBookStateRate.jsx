@@ -3,7 +3,7 @@ import { number, shape } from 'prop-types';
 import DetailBookStateRateContent from '../DetailBookStateRateContent/DetailBookStateRateContent';
 import DetailBookStateTitle from '../../atoms/DetailBookStateTitle/DetailBookStateTitle';
 
-function DetailBookStateBox({ state: bookData }) {
+function DetailBookStateRate({ state: bookData }) {
   return (
     <>
       {bookData.status === '완독' && (
@@ -22,10 +22,10 @@ function DetailBookStateBox({ state: bookData }) {
   );
 }
 
-DetailBookStateBox.propTypes = {
+DetailBookStateRate.propTypes = {
   state: shape({
     score: number.isRequired,
   }),
 };
 
-export default DetailBookStateBox;
+export default DetailBookStateRate;
