@@ -1,7 +1,7 @@
-import BookCardInfo from './CardInfo';
+import BookCardInfo from './BookCardInfo';
 
 const metaConfig = {
-  title: 'components/CardInfo',
+  title: 'components/BookCardInfo',
   component: BookCardInfo,
   tags: ['autodocs'],
   args: {},
