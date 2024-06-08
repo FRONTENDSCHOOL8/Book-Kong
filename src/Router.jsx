@@ -17,6 +17,7 @@ import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
 import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
 import SplashPage from './components/pages/SplashPage/SplashPage';
+import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
 
 // 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
       {
         path: 'record/memo/:memoId',
         element: <MemoDetailPage />,
+      },
+      {
+        path: 'feed/registration',
+        element: <FeedRegistrationPage />,
       },
       {
         path: 'feed',
