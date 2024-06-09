@@ -1,11 +1,15 @@
 import { node, string } from 'prop-types';
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
 const BookTitle = memo(function BookTitle({ children, id }) {
   return (
-    <a href={`/library/book-detail/${id}`} className="block bookTree-list">
+    <Link
+      to={`/library/book-detail/${id}`}
+      className="flex items-center justify-center w-full h-full bookTree-list"
+    >
       {children}
-    </a>
+    </Link>
   );
 });
 
