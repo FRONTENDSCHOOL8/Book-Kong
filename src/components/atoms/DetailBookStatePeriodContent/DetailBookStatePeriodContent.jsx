@@ -1,25 +1,17 @@
 import { string, shape } from 'prop-types';
+import convertDayFormat from '../../../utils/convertDayFormat';
 
 function DetailBookStatePeriodContent({ state: bookState }) {
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-
-    return `${year}년 ${month}월 ${day}일`;
-  };
   return (
     <>
       {bookState.status === '완독' && (
         <span className="text-primary-500 contents-sm-bold">
-          {formatDate(bookState.end_date)}
+          {convertDayFormat(bookState.end_date)}
         </span>
       )}
       {bookState.status === '독서중' && (
         <span className="text-primary-500 contents-sm-bold">
-          {formatDate(bookState.start_date)}
+          {convertDayFormat(bookState.start_date)}
         </span>
       )}
     </>
