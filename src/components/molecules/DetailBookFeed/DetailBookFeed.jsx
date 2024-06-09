@@ -59,7 +59,7 @@ function DetailBookFeed({ data: bookData }) {
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
           <div className="flex items-center justify-end w-full mt-6 mb-4">
-            <WriteMemoIconButton />
+            <WriteMemoIconButton page={'feed'} />
           </div>
           <motion.ul
             variants={listVar}

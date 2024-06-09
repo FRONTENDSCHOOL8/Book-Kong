@@ -1,6 +1,9 @@
-function WriteMemoIconButton() {
+import { Link } from 'react-router-dom';
+import { string } from 'prop-types';
+
+function WriteMemoIconButton({ page }) {
   return (
-    <button>
+    <Link to={`/${page}/registration`}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -21,8 +24,12 @@ function WriteMemoIconButton() {
           fill="#F24822"
         />
       </svg>
-    </button>
+    </Link>
   );
 }
+
+WriteMemoIconButton.propTypes = {
+  page: string.isRequired,
+};
 
 export default WriteMemoIconButton;

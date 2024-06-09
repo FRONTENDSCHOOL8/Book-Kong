@@ -97,7 +97,7 @@ function DetailBookMemo({ data: bookData }) {
             ) : (
               <p></p>
             )}
-            <WriteMemoIconButton />
+            <WriteMemoIconButton page={'memo'} />
           </div>
           <motion.ul
             variants={listVar}
