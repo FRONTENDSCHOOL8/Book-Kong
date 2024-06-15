@@ -201,3 +201,11 @@
 .nav-active {
   @apply text-primary-500 border-b-[3px] border-primary-500;
 }
+
+
+/* -------------------------------------------- */
+/*     memo/feed detail page article height     */
+/* -------------------------------------------- */
+.full-height {
+  min-height: calc(100vh - 128px);
+}
