@@ -10,7 +10,7 @@ import BookSearchPage from './components/pages/BookSearchPage';
 import BookRegisterPage from './components/pages/BookRegisterPage/BookRegisterPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
-import BookDetailPage from './components/pages/BookDetailPage';
+import BookDetailPage from './components/pages/BookDetailPage/BookDetailPage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
