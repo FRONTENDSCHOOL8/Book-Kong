@@ -1,6 +1,3 @@
-// import { useQuery } from '@tanstack/react-query';
-// import { useParams } from 'react-router-dom';
-// import pb from '../../../api/pocketbase';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../organisms/Header/Header/Header';
 import convertDayFormat from '../../../utils/convertDayFormat';
@@ -8,25 +5,6 @@ import { useLoaderData } from 'react-router-dom';
 
 function MemoDetailPage() {
   const memoId = useLoaderData();
-  // const { memoId } = useParams();
-  // const { data } = useQuery({
-  //   queryKey: ['memo-detail', memoId],
-  //   queryFn: async () => {
-  //     const data = await pb
-  //       .collection('memos')
-  //       .getOne(memoId, { expand: 'book_id' });
-  //     return data;
-  //   },
-  //   initialData: {
-  //     expand: {
-  //       book_id: {
-  //         title: 'Loading...',
-  //       },
-  //     },
-  //     content: 'Loading...',
-  //     updated: '',
-  //   },
-  // });
 
   console.log(memoId);
   return (
