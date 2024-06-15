@@ -7,8 +7,8 @@ import { getUserMemoData } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import WriteMemoIconButton from '../../atoms/WriteMemoIconButton/WriteMemoIconButton';
 import NoneCardState from '../NoneCardState/NoneCardState';
+import RegistrationIcon from '../../atoms/RegistrationIcon/RegistrationIcon';
 
 function DetailBookMemo({ data: bookData }) {
   const initialOrder = localStorage.getItem('order') || '최신순';
@@ -97,7 +97,7 @@ function DetailBookMemo({ data: bookData }) {
             ) : (
               <p></p>
             )}
-            <WriteMemoIconButton page={'memo'} />
+            <RegistrationIcon page={'memo'} />
           </div>
           <motion.ul
             variants={listVar}

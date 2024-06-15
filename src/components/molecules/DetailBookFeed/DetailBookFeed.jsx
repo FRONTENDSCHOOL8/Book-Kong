@@ -5,8 +5,8 @@ import { getUserFeedData } from '../../../utils/controlFeedData';
 import { motion } from 'framer-motion';
 import FeedCard from '../../organisms/FeedCard/FeedCard';
 import { useState, useEffect } from 'react';
-import WriteMemoIconButton from '../../atoms/WriteMemoIconButton/WriteMemoIconButton';
 import NoneCardState from '../NoneCardState/NoneCardState';
+import RegistrationIcon from '../../atoms/RegistrationIcon/RegistrationIcon';
 
 function DetailBookFeed({ data: bookData }) {
   const { data } = useQuery({
@@ -59,7 +59,7 @@ function DetailBookFeed({ data: bookData }) {
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
           <div className="flex items-center justify-end w-full mt-6 mb-4">
-            <WriteMemoIconButton page={'feed'} />
+            <RegistrationIcon page={'feed'} />
           </div>
           <motion.ul
             variants={listVar}

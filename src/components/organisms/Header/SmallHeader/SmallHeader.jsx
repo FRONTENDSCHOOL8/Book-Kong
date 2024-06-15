@@ -3,8 +3,8 @@ import BackButton from '../../../atoms/BackButton/BackButton';
 import SmallHeaderTitle from '../../../atoms/SmallHeaderTitle/SmallHeaderTitle';
 import AddBookIconButton from '../../../atoms/AddBookIconButton/AddBookIconButton';
 import DeleteIconButton from '../../../atoms/DeleteIconButton/DeleteIconButton';
-import WriteMemoIconButton from '../../../atoms/WriteMemoIconButton/WriteMemoIconButton';
 import SaveButton from '../../../atoms/SaveButton/SaveButton';
+import RegistrationIcon from '../../../atoms/RegistrationIcon/RegistrationIcon';
 
 function SmallHeader({ title }) {
   // 버튼 그룹을 렌더링하는 함수를 정의
@@ -17,7 +17,7 @@ function SmallHeader({ title }) {
         return (
           <div className="flex gap-5">
             <DeleteIconButton />
-            <WriteMemoIconButton />
+            <RegistrationIcon />
           </div>
         );
       case '메모 작성':
