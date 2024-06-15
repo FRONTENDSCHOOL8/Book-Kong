@@ -1,40 +1,34 @@
-import { useQuery } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
-import pb from '../../../api/pocketbase';
+// import { useQuery } from '@tanstack/react-query';
+// import { useParams } from 'react-router-dom';
+// import pb from '../../../api/pocketbase';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../organisms/Header/Header/Header';
+import convertDayFormat from '../../../utils/convertDayFormat';
+import { useLoaderData } from 'react-router-dom';
 
 function MemoDetailPage() {
-  const { memoId } = useParams();
-  const { data } = useQuery({
-    queryKey: ['memo-detail', memoId],
-    queryFn: async () => {
-      const data = await pb
-        .collection('memos')
-        .getOne(memoId, { expand: 'book_id' });
-      return data;
-    },
-    initialData: {
-      expand: {
-        book_id: {
-          title: 'Loading...',
-        },
-      },
-      content: 'Loading...',
-      updated: '',
-    },
-  });
+  const memoId = useLoaderData();
+  // const { memoId } = useParams();
+  // const { data } = useQuery({
+  //   queryKey: ['memo-detail', memoId],
+  //   queryFn: async () => {
+  //     const data = await pb
+  //       .collection('memos')
+  //       .getOne(memoId, { expand: 'book_id' });
+  //     return data;
+  //   },
+  //   initialData: {
+  //     expand: {
+  //       book_id: {
+  //         title: 'Loading...',
+  //       },
+  //     },
+  //     content: 'Loading...',
+  //     updated: '',
+  //   },
+  // });
 
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-
-    return `${year}년 ${month}월 ${day}일`;
-  };
-
+  console.log(memoId);
   return (
     <>
       <Helmet>
@@ -42,9 +36,9 @@ function MemoDetailPage() {
       </Helmet>
       <Header title={'메모'} />
       <main className="min-h-screen pb-[63px] pt-[65px]">
-        <article className="px-4 py-6 border-y bg-grayscale-white border-1 border-grayscale-200">
+        <article className="px-4 py-6 border-y bg-grayscale-white border-1 border-grayscale-200 full-height">
           <div className="text-right text-grayscale-500">
-            {formatDate(data.created)}
+            {convertDayFormat(memoId.created)}
           </div>
           <div className=" flex text-xm mt-6 text-[#F24822] font-normal">
             <svg
@@ -60,10 +54,10 @@ function MemoDetailPage() {
                 fill="#F24822"
               />
             </svg>
-            {data?.expand.book_id.title}
+            {memoId?.expand?.book_id?.title}
           </div>
           <div className="mt-4 whitespace-pre-wrap contents-sm">
-            {data.content}
+            {memoId.content}
           </div>
         </article>
       </main>
