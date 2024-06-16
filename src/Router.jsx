@@ -92,7 +92,7 @@ const router = createBrowserRouter([
         element: <FeedPage />,
       },
       {
-        path: 'feed/feed-datail',
+        path: 'feed/feed-detail',
         element: <FeedDetailPage />,
       },
       {
