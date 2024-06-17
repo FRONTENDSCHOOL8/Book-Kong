@@ -36,6 +36,4 @@ function DetailBook() {
   );
 }
 
-DetailBook.propTypes = {};
-
 export default DetailBook;
