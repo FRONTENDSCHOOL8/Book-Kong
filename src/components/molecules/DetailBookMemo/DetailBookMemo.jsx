@@ -88,15 +88,13 @@ function DetailBookMemo({ data: bookData }) {
           </Link>
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
-          <div className="flex items-center justify-between w-full mt-6 mb-4">
+          <div
+            className={`flex items-center ${data?.length !== 0 ? 'justify-between' : 'justify-end'} mt-6 mb-4`}
+          >
             {data?.length !== 0 ? (
-              <OrderButton
-                onClick={toggleSort}
-                order={order}
-                className="align-end"
-              />
+              <OrderButton onClick={toggleSort} order={order} />
             ) : (
-              <p></p>
+              ''
             )}
             <RegistrationIcon page={'memo'} />
           </div>
