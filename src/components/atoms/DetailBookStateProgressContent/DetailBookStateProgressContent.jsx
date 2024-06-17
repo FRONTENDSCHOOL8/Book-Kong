@@ -11,16 +11,13 @@ function DetailBookStateProgressContent({ state: bookState }) {
 
     return differenceInDays;
   };
-  const daysBetweenDates = calculateDaysBetweenDates(
-    bookState.start_date,
-    bookState.end_date
-  );
 
   return (
     <>
       {bookState.status === '완독' && (
         <span className="text-primary-500 contents-md-bold">
-          {daysBetweenDates} 일
+          {calculateDaysBetweenDates(bookState.start_date, bookState.end_date)}{' '}
+          일
         </span>
       )}
       {bookState.status === '독서중' && (
