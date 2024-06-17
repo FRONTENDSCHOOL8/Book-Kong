@@ -4,9 +4,7 @@ import convertDayFormat from '../../../utils/convertDayFormat';
 import { useLoaderData } from 'react-router-dom';
 
 function MemoDetailPage() {
-  const memoId = useLoaderData();
-
-  console.log(memoId);
+  const memo = useLoaderData();
   return (
     <>
       <Helmet>
@@ -16,7 +14,7 @@ function MemoDetailPage() {
       <main className="min-h-screen pb-[63px] pt-[65px]">
         <article className="px-4 py-6 border-y bg-grayscale-white border-1 border-grayscale-200 full-height">
           <div className="text-right text-grayscale-500">
-            {convertDayFormat(memoId.created)}
+            {convertDayFormat(memo.created)}
           </div>
           <div className=" flex text-xm mt-6 text-[#F24822] font-normal">
             <svg
@@ -32,10 +30,10 @@ function MemoDetailPage() {
                 fill="#F24822"
               />
             </svg>
-            {memoId?.expand?.book_id?.title}
+            {memo?.expand.book_id.title}
           </div>
           <div className="mt-4 whitespace-pre-wrap contents-sm">
-            {memoId.content}
+            {memo.content}
           </div>
         </article>
       </main>
