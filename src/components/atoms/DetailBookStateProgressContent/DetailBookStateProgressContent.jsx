@@ -31,9 +31,10 @@ function DetailBookStateProgressContent({ state: bookState }) {
 
 DetailBookStateProgressContent.propTypes = {
   state: shape({
-    start_date: string.isRequired,
-    end_date: string.isRequired,
-  }),
+    start_date: string,
+    end_date: string,
+    read_page: string,
+  }).isRequired,
 };
 
 export default DetailBookStateProgressContent;
