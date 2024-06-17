@@ -24,7 +24,8 @@ function DetailBookStateRateContent({ state: bookState }) {
 DetailBookStateRateContent.propTypes = {
   state: shape({
     score: number,
-  }),
+    expectation_score: number,
+  }).isRequired,
 };
 
 export default DetailBookStateRateContent;
