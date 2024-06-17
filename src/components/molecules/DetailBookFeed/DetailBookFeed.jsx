@@ -81,7 +81,7 @@ function DetailBookFeed({ data: bookData }) {
                 />
               ))
             ) : (
-              <NoneCardState data="feed" />
+              <NoneCardState data="피드" />
             )}
           </motion.ul>
         </div>

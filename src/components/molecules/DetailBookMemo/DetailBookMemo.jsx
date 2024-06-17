@@ -115,7 +115,7 @@ function DetailBookMemo({ data: bookData }) {
                 />
               ))
             ) : (
-              <NoneCardState data="memo" />
+              <NoneCardState data="메모" />
             )}
           </motion.ul>
         </div>
