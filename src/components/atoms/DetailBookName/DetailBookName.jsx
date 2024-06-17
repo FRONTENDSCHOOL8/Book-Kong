@@ -1,13 +1,13 @@
 import { string, shape } from 'prop-types';
 
-function DetailBookTitle({ data: bookData }) {
+function DetailBooKName({ data: bookData }) {
   return <p className="contents-lg-bold">{bookData.title}</p>;
 }
 
-DetailBookTitle.propTypes = {
+DetailBooKName.propTypes = {
   data: shape({
     title: string.isRequired,
   }),
 };
 
-export default DetailBookTitle;
+export default DetailBooKName;
