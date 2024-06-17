@@ -89,7 +89,7 @@ function DetailBookMemo({ data: bookData }) {
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
           <div
-            className={`flex items-center ${data?.length !== 0 ? 'justify-between' : 'justify-end'} mt-6 mb-4`}
+            className={`w-full flex items-center ${data?.length !== 0 ? 'justify-between' : 'justify-end'} mt-6 mb-4`}
           >
             {data?.length !== 0 ? (
               <OrderButton onClick={toggleSort} order={order} />
