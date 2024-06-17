@@ -1,4 +1,4 @@
-import { string, shape } from 'prop-types';
+import { string, number, shape } from 'prop-types';
 
 function DetailBookStateProgressContent({ state: bookState }) {
   const calculateDaysBetweenDates = (startDateString, endDateString) => {
@@ -33,7 +33,7 @@ DetailBookStateProgressContent.propTypes = {
   state: shape({
     start_date: string,
     end_date: string,
-    read_page: string,
+    read_page: number,
   }).isRequired,
 };
 

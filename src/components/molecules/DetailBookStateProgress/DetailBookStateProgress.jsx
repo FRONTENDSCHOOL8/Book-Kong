@@ -1,4 +1,4 @@
-import { string, shape } from 'prop-types';
+import { string, number, shape } from 'prop-types';
 
 import DetailBookStateTitle from '../../atoms/DetailBookStateTitle/DetailBookStateTitle';
 import DetailBookStateProgressContent from '../../atoms/DetailBookStateProgressContent/DetailBookStateProgressContent';
@@ -30,9 +30,10 @@ function DetailBookStateProgress({ state: bookState }) {
 
 DetailBookStateProgress.propTypes = {
   state: shape({
-    start_date: string.isRequired,
-    end_date: string.isRequired,
-  }),
+    start_date: string,
+    end_date: string,
+    read_page: number,
+  }).isRequired,
 };
 
 export default DetailBookStateProgress;
