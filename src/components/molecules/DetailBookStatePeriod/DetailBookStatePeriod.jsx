@@ -30,7 +30,8 @@ function DetailBookStatePeriod({ state: bookState }) {
 DetailBookStatePeriod.propTypes = {
   state: shape({
     start_date: string,
-  }),
+    end_date: string,
+  }).isRequired,
 };
 
 export default DetailBookStatePeriod;
