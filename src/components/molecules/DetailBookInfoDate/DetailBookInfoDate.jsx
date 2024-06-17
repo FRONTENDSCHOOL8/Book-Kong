@@ -17,7 +17,7 @@ function DetailBookInfoDate({ data: bookData }) {
 DetailBookInfoDate.propTypes = {
   data: shape({
     publication_date: string.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default DetailBookInfoDate;

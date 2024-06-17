@@ -13,8 +13,8 @@ function DetailBookInfoPage({ data: bookData }) {
 
 DetailBookInfoPage.propTypes = {
   data: shape({
-    description: string.isRequired,
-  }),
+    total_page: string.isRequired,
+  }).isRequired,
 };
 
 export default DetailBookInfoPage;

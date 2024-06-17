@@ -13,8 +13,8 @@ function DetailBookInfoIsbn({ data: bookData }) {
 
 DetailBookInfoIsbn.propTypes = {
   data: shape({
-    description: string.isRequired,
-  }),
+    isbn_13: string.isRequired,
+  }).isRequired,
 };
 
 export default DetailBookInfoIsbn;
