@@ -17,12 +17,6 @@ function DetailBookStatePeriod({ state: bookState }) {
           <DetailBookStateTitle title="시작일" />
         </div>
       )}
-      {bookState.status === '희망 도서' && (
-        <div className="hidden">
-          <DetailBookStatePeriodContent state={bookState} />
-          <DetailBookStateTitle />
-        </div>
-      )}
     </>
   );
 }

@@ -18,12 +18,6 @@ function DetailBookStateProgress({ state: bookState }) {
           <DetailBookStateTitle title="읽는 중" />
         </div>
       )}
-      {bookState.status === '희망 도서' && (
-        <div className="hidden">
-          <DetailBookStateProgressContent state={bookState} />
-          <DetailBookStateTitle />
-        </div>
-      )}
     </>
   );
 }
