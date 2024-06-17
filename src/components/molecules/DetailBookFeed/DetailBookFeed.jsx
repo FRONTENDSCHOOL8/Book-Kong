@@ -7,6 +7,7 @@ import FeedCard from '../../organisms/FeedCard/FeedCard';
 import { useState, useEffect } from 'react';
 import NoneCardState from '../NoneCardState/NoneCardState';
 import RegistrationIcon from '../../atoms/RegistrationIcon/RegistrationIcon';
+import { Link } from 'react-router-dom';
 
 function DetailBookFeed({ data: bookData }) {
   const { data } = useQuery({
@@ -53,9 +54,9 @@ function DetailBookFeed({ data: bookData }) {
               {listCount}
             </span>
           </div>
-          <a href="/feed" className="text-grayscale-500 contents-sm-bold">
+          <Link to="/feed" className="text-grayscale-500 contents-sm-bold">
             전체보기
-          </a>
+          </Link>
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
           <div className="flex items-center justify-end w-full mt-6 mb-4">
@@ -92,7 +93,7 @@ function DetailBookFeed({ data: bookData }) {
 DetailBookFeed.propTypes = {
   data: shape({
     id: string.isRequired,
-  }),
+  }).isRequired,
 };
 
 export default DetailBookFeed;
