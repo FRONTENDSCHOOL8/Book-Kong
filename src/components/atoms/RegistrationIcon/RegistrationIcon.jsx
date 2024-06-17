@@ -4,9 +4,24 @@ import { getStaticImage } from '../../../utils/getStaticAsset';
 
 function RegistrationIcon({ page }) {
   return (
-    <Link to={`/${page}/registration`}>
-      <img src={getStaticImage('icons/newrecord.svg')} alt={`${page}작성`} />
-    </Link>
+    <>
+      {page === 'memo' && (
+        <Link to={`/record/${page}/registration`}>
+          <img
+            src={getStaticImage('icons/newrecord.svg')}
+            alt={`${page}작성`}
+          />
+        </Link>
+      )}
+      {page === 'feed' && (
+        <Link to={`/${page}/registration`}>
+          <img
+            src={getStaticImage('icons/newrecord.svg')}
+            alt={`${page}작성`}
+          />
+        </Link>
+      )}
+    </>
   );
 }
 
