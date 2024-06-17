@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 function BookDetailNavigation() {
   const [activeTab, setActiveTab] = useState('bookInfo');
-  const NavStyle = 'text-gray-500 nav-default tab-menu w-full';
-  const NavActive = 'nav-active';
+  const navStyle = 'text-gray-500 nav-default tab-menu w-full';
+  const navActive = 'nav-active';
 
   function handleTabClick(tab) {
     setActiveTab(tab);
@@ -16,8 +16,8 @@ function BookDetailNavigation() {
         <li className="flex items-center justify-center h-full grow ">
           <NavLink
             to="#bookInfo"
-            className={`${NavStyle} ${
-              activeTab === 'bookInfo' ? NavActive : 'text-gray-500'
+            className={`${navStyle} ${
+              activeTab === 'bookInfo' ? navActive : 'text-gray-500'
             }`}
             onClick={() => {
               handleTabClick('bookInfo');
@@ -30,8 +30,8 @@ function BookDetailNavigation() {
         <li className="flex items-center justify-center h-full grow">
           <NavLink
             to="#memo"
-            className={`${NavStyle} ${
-              activeTab === 'memo' ? NavActive : 'text-gray-500'
+            className={`${navStyle} ${
+              activeTab === 'memo' ? navActive : 'text-gray-500'
             }`}
             onClick={() => {
               handleTabClick('memo');
@@ -45,8 +45,8 @@ function BookDetailNavigation() {
           <NavLink
             // href="#feed"
             to="#feed"
-            className={`${NavStyle} ${
-              activeTab === 'feed' ? NavActive : 'text-gray-500'
+            className={`${navStyle} ${
+              activeTab === 'feed' ? navActive : 'text-gray-500'
             }`}
             onClick={() => {
               handleTabClick('feed');
