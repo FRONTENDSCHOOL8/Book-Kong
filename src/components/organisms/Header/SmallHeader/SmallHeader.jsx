@@ -13,7 +13,7 @@ function SmallHeader({ title }) {
       case '검색하기':
         return <AddBookIconButton />;
       case '메모':
-      case '피드':
+      case '피드 상세':
         return (
           <div className="flex gap-5">
             <DeleteIconButton />

@@ -14,6 +14,11 @@ function LargeHeaderIcon({ title }) {
       src: '/images/icons/newrecord.svg',
       alt: '글 작성',
     },
+    피드: {
+      href: '/feed/registration',
+      src: '/images/icons/newrecord.svg',
+      alt: '피드 작성',
+    },
   };
 
   const icon = iconDetails[title];

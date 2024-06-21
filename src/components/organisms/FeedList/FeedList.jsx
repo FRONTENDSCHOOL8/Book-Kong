@@ -34,12 +34,12 @@ function FeedList() {
         {data?.map((feed) => (
           <FeedCard
             key={feed.id}
-            bookTitle={feed.expand.book_id.title}
+            bookTitle={feed.expand?.book_id?.title}
             title={feed.title}
             content={feed.content}
             date={feed.created}
-            nickname={feed.expand.book_id.expand.user_id.nickname}
-            book_height={feed.expand.book_id.expand.user_id.book_height}
+            nickname={feed.expand?.book_id?.expand.user_id.nickname}
+            book_height={feed.expand?.book_id?.expand.user_id.book_height}
           />
         ))}
       </motion.ul>
