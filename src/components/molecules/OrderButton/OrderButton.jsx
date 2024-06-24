@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 
-function OrderButton({ onClick, order }) {
+function OrderButton({ onClick, order, customClassName }) {
+  const defaultClassName =
+    'sort-button flex justify-center items-end gap-2 text-gray-700 contents-xs';
+
+  const className = `${defaultClassName} ${customClassName}`;
+
   return (
-    <button
-      onClick={onClick}
-      className="sort-button flex justify-center items-end gap-2 text-gray-700 contents-xs pt-6 py-3"
-    >
+    <button onClick={onClick} className={className}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -28,6 +30,7 @@ function OrderButton({ onClick, order }) {
 OrderButton.propTypes = {
   onClick: PropTypes.func.isRequired,
   order: PropTypes.string.isRequired,
+  customClassName: PropTypes.string,
 };
 
 export default OrderButton;

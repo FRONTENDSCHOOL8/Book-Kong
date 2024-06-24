@@ -10,15 +10,17 @@ import BookSearchPage from './components/pages/BookSearchPage';
 import BookRegisterPage from './components/pages/BookRegisterPage/BookRegisterPage';
 import BookTree from './components/organisms/BookTree/BookTree';
 import Bookshelf from './components/organisms/Bookshelf/Bookshelf';
-import BookDetailPage from './components/pages/BookDetailPage';
+import BookDetailPage from './components/pages/BookDetailPage/BookDetailPage';
 import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
+import { getLibraryData } from './utils/controlBookData';
 import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
 import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
+import { getMemoData } from './utils/controlMemoData';
 
 // 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
 // 선언형 코드를 작성하면 눈의 피로가 줄어드는 효과가 있었습니다.
@@ -33,8 +35,9 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'library/book-detail',
+        path: 'library/book-detail/:recordId?',
         element: <BookDetailPage />,
+        loader: async ({ params }) => await getLibraryData(params.recordId),
       },
       {
         path: 'library/book-search',
@@ -77,6 +80,8 @@ const router = createBrowserRouter([
       {
         path: 'record/memo/:memoId',
         element: <MemoDetailPage />,
+        loader: async ({ params }) =>
+          await getMemoData(params.memoId, { expand: 'book_id' }),
       },
       {
         path: 'feed/registration',
@@ -87,7 +92,7 @@ const router = createBrowserRouter([
         element: <FeedPage />,
       },
       {
-        path: 'feed/feed-datail',
+        path: 'feed/feed-detail',
         element: <FeedDetailPage />,
       },
       {
