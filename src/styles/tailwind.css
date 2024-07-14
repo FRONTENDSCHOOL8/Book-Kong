@@ -209,3 +209,16 @@
 .full-height {
   min-height: calc(100vh - 128px);
 }
+
+
+
+/* -------------------------------------------------- */
+/*                   memoBeforeIcon                   */
+/* -------------------------------------------------- */
+.memo-icon {
+  @apply before:content-[''] before:block before:w-[18px] before:h-[18px] before:absolute before:top-[26px] before:left-4 before:bg-[url('/images/icons/memo.svg')] before:bg-cover /* after:content-[''] after:block after:w-[18px] after:h-[18px] after:absolute*/;
+}
+
+.default-option {
+  @apply text-grayscale-400;
+}
