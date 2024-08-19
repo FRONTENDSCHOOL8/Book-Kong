@@ -12,7 +12,8 @@ function Bookshelf() {
   const { data, isLoading, error, failureCount, failureReason } =
     useUserLibData(query);
 
-  if (failureCount >= 1 && failureReason.startsWith('Server')) throw error;
+  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
+    throw error;
 
   if (failureCount === 4) throw error;
 
