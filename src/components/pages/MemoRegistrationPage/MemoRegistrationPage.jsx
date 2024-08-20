@@ -16,7 +16,7 @@ function MemoRegistrationPage() {
   return (
     <>
       <Helmet>
-        <title>책콩 | 메모</title>
+        <title>책콩 | 메모 작성</title>
       </Helmet>
       <Header title="메모 작성" formId="memo-data" />
       <main className="h-screen pb-[63px] pt-[65px]">
