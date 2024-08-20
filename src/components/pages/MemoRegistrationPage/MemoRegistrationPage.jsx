@@ -24,9 +24,12 @@ function MemoRegistrationPage() {
           <A11yHidden as="h2">메모 작성하기</A11yHidden>
           <form action="get" id="memo-data">
             <div className="relative w-full h-auto pt-6 pb-4 pl-10 pr-4 leading-4 border-b border-grayscale-200 memo-icon text-primary-500">
-              <label htmlFor="MemoBookSelect" className="sr-only">
+              {/* <label htmlFor="MemoBookSelect" className="sr-only">
                 등록할 메모의 책 선택
-              </label>
+              </label> */}
+              <A11yHidden as="label" htmlFor="MemoBookSelect">
+                등록할 메모의 책 선택
+              </A11yHidden>
               <select
                 id="MemoBookSelect"
                 className="block w-full outline-none contents-sm-bold"
@@ -56,9 +59,12 @@ function MemoRegistrationPage() {
                 </span>{' '}
                 / 1000
               </p>
-              <label htmlFor="MemoTextarea" className="sr-only">
+              {/* <label htmlFor="MemoTextarea" className="sr-only">
                 책의 메모 입력
-              </label>
+              </label> */}
+              <A11yHidden as="label" htmlFor="MemoTextarea">
+                책의 메모 입력
+              </A11yHidden>
               <textarea
                 className="w-full mt-[6px] h-[524px] block resize-none focus:outline-none"
                 onChange={handleText}
