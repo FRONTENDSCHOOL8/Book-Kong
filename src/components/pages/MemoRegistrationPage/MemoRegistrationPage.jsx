@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import Header from '../../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
+import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 
 function MemoRegistrationPage() {
   const [text, setText] = useState('');
 
-  const handleTextCount = (e) => {
+  const handleText = (e) => {
     const newText = e.target.value;
     if (newText.length <= 1000) {
       setText(newText);
@@ -20,7 +21,7 @@ function MemoRegistrationPage() {
       <Header title="메모 작성" formId="memo-data" />
       <main className="h-screen pb-[63px] pt-[65px]">
         <article className="h-full border-y bg-grayscale-white border-1 border-grayscale-200">
-          <h2 className="sr-only">메모 작성</h2>
+          <A11yHidden as="h2">메모 작성하기</A11yHidden>
           <form action="get" id="memo-data">
             <div className="relative w-full h-auto pt-6 pb-4 pl-10 pr-4 leading-4 border-b border-grayscale-200 memo-icon text-primary-500">
               <label htmlFor="MemoBookSelect" className="sr-only">
@@ -60,7 +61,7 @@ function MemoRegistrationPage() {
               </label>
               <textarea
                 className="w-full mt-[6px] h-[524px] block resize-none focus:outline-none"
-                onChange={handleTextCount}
+                onChange={handleText}
                 value={text}
                 // name=""
                 id="MemoTextarea"
