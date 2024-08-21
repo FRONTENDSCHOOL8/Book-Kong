@@ -55,7 +55,7 @@ const FeedRegistrationPage = () => {
   return (
     <>
       <Helmet>
-        <title>책콩 | 피드</title>
+        <title>책콩 | 피드 작성</title>
       </Helmet>
       <Header title="피드 작성" formId="feed-data" />
       <main className="px-4 h-full mt-[68px] bg-white">
@@ -86,7 +86,7 @@ const FeedRegistrationPage = () => {
             required
             id="title"
             name="title"
-            className="w-full text-content-large mt-6 outline-none"
+            className="w-full mt-6 outline-none text-content-large"
             placeholder="제목을 입력해주세요."
           />
           <textarea
