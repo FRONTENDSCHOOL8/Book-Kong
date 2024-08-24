@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Header from '../../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
 import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
+import { useQuery } from '@tanstack/react-query';
+import { getUserLibraryData } from '../../../utils/controlBookData';
+import { loginUserData } from '../../../utils/controlUserData';
 
 function MemoRegistrationPage() {
   const [text, setText] = useState('');
@@ -12,6 +15,12 @@ function MemoRegistrationPage() {
       setText(newText);
     }
   };
+
+  // 데이터 패칭 및 캐시
+  const { data: librariesData } = useQuery({
+    queryKey: ['library', loginUserData.id],
+    queryFn: async () => getUserLibraryData(),
+  });
 
   return (
     <>
@@ -35,13 +44,11 @@ function MemoRegistrationPage() {
                 <option disabled selected className="default-option" value="">
                   어떤 책에 대한 메모인가요?
                 </option>
-                <option value="데일카네기 인간관계론 : 인간관계 바이블(원본 번역판)">
-                  데일카네기 인간관계론 : 인간관계 바이블(원본 번역판)
-                </option>
-                <option value="총 균 쇠">총 균 쇠</option>
-                <option value="사랑의 기술">사랑의 기술</option>
-                <option value="오만과 편견">오만과 편견</option>
-                <option value="사피엔스">사피엔스</option>
+                {librariesData?.map((library) => (
+                  <option key={library.id} value={library.id}>
+                    {library.title}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="flex flex-col items-end px-4 pt-3">
