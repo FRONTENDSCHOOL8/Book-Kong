@@ -44,9 +44,9 @@ function MemoRegistrationPage() {
                 <option disabled selected className="default-option" value="">
                   어떤 책에 대한 메모인가요?
                 </option>
-                {librariesData?.map((library) => (
-                  <option key={library.id} value={library.id}>
-                    {library.title}
+                {librariesData?.map((libRecord) => (
+                  <option key={libRecord.id} value={libRecord.title}>
+                    {libRecord.title}
                   </option>
                 ))}
               </select>
