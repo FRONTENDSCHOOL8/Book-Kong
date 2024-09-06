@@ -108,7 +108,7 @@ export async function createLibFormData(formId) {
  */
 export async function addFormDataProps({
   formData,
-  aladinBook: { cover: bookCoverUrl, description, link: productUrl },
+  aladinBook: { cover: bookCoverUrl, description, link: productUrl, pubDate },
 }) {
   if (!bookCoverUrl) {
     const bookCoverInput = document.getElementById('cover');
@@ -124,11 +124,13 @@ export async function addFormDataProps({
   formData.set('cover', bookCoverImgFile, bookCoverFileName);
   formData.append('description', description);
   formData.append('url', productUrl);
+  formData.append('publication_date', pubDate);
 }
 
 /**
  * 만들어진 formData 객체를 포켓호스트 DB 내 'library' collection에 post하는 함수
  * @param { Object } formData Post 할 formData 객체
+ * @returns { undefined }
  */
 export async function postLibFormData(formData) {
   try {
