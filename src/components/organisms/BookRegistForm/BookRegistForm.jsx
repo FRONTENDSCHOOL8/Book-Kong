@@ -4,7 +4,7 @@ import {
   postLibFormData,
 } from '../../../utils/controlBookData';
 import { useState, useCallback } from 'react';
-import BookInfoBox from '../BookInfoBox/BookInfoLBox';
+import BookInfoBox from '../BookInfoBox/BookInfoBox';
 import { useNavigate, useLoaderData } from 'react-router-dom';
 import ReadingState from '../../molecules/ReadingState/ReadingState';
 
