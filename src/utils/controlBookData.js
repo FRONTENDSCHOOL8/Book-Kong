@@ -125,6 +125,8 @@ export async function addFormDataProps({
   formData.append('description', description);
   formData.append('url', productUrl);
   formData.append('publication_date', pubDate);
+  formData.append('score', 3); // 임시 필드 값
+  formData.append('expectation_score', 3); // 임시 필드 값
 }
 
 /**
