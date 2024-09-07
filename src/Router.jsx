@@ -21,6 +21,7 @@ import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
 import { getMemoData } from './utils/controlMemoData';
+import MemoRegistrationPage from './components/pages/MemoRegistrationPage/MemoRegistrationPage';
 
 // 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
 // 선언형 코드를 작성하면 눈의 피로가 줄어드는 효과가 있었습니다.
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
             element: <StatisticsMemo />,
           },
         ],
+      },
+      {
+        path: 'record/memo/registration',
+        element: <MemoRegistrationPage />,
       },
       {
         path: 'record/memo/:memoId',

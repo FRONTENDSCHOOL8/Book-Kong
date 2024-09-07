@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUserLibraryData } from '/src/utils/controlBookData';
+import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 
 // 피드 생성 패치 함수
 const createFeed = async (formData) => {
@@ -55,48 +56,61 @@ const FeedRegistrationPage = () => {
   return (
     <>
       <Helmet>
-        <title>책콩 | 피드</title>
+        <title>책콩 | 피드 작성</title>
       </Helmet>
       <Header title="피드 작성" formId="feed-data" />
-      <main className="px-4 h-full mt-[68px] bg-white">
-        <form
-          method="get"
-          ref={formRef}
-          id="feed-data"
-          onSubmit={handleFeedSubmit}
-        >
-          <select
-            onChange={handleSelect}
-            className=" text-content-xs text-primary-500"
+      <main className="h-screen pb-[63px] pt-[65px]">
+        <article className="h-full border-y bg-grayscale-white border-1 border-grayscale-200">
+          <form
+            method="get"
+            ref={formRef}
+            id="feed-data"
+            onSubmit={handleFeedSubmit}
           >
-            <option selected value="" disabled>
-              책 제목을 선택해주세요.
-            </option>
-            {librariesData?.map((library) => (
-              <option key={library.id} value={library.id}>
-                {library.title}
-              </option>
-            ))}
-          </select>
-          <hr className="mt-4" />
-          <label className="sr-only" htmlFor="title">
-            제목
-          </label>
-          <input
-            required
-            id="title"
-            name="title"
-            className="w-full text-content-large mt-6 outline-none"
-            placeholder="제목을 입력해주세요."
-          />
-          <textarea
-            required
-            id="content"
-            name="content"
-            className="w-full mt-4 outline-none"
-            placeholder="메모를 입력해주세요."
-          />
-        </form>
+            <div className="relative w-full h-auto px-4 pt-6 pb-4 leading-4 border-b border-grayscale-200 text-primary-500">
+              <A11yHidden as="label" htmlFor="feed-book-select">
+                등록할 피드의 책 선택
+              </A11yHidden>
+              <select
+                id="feed-book-select"
+                name="book-title"
+                onChange={handleSelect}
+                className="block w-full outline-none contents-sm-bold"
+              >
+                <option selected value="" disabled>
+                  책 제목을 선택해주세요.
+                </option>
+                {librariesData?.map((library) => (
+                  <option key={library.id} value={library.id}>
+                    {library.title}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="px-4 pt-3">
+              <A11yHidden as="label" htmlFor="feed-title">
+                책의 피드 제목 입력
+              </A11yHidden>
+              <input
+                required
+                id="feed-title"
+                name="feed-title"
+                className="w-full mt-6 outline-none text-content-large"
+                placeholder="제목을 입력해주세요."
+              />
+              <A11yHidden as="label" htmlFor="feed-textarea">
+                책의 피드 내용 입력
+              </A11yHidden>
+              <textarea
+                required
+                id="feed-textarea"
+                name="feed-contents"
+                className="w-full mt-4 outline-none text-content-small h-[524px] resize-none"
+                placeholder="내용을 입력해주세요."
+              />
+            </div>
+          </form>
+        </article>
       </main>
     </>
   );

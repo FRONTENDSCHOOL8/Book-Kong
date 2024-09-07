@@ -16,7 +16,7 @@ function BackButton({ title }) {
       return;
     }
     if (title === '메모' || title === '메모 작성') {
-      navigate('/record');
+      navigate('/record/memo');
       return;
     }
     if (title === '피드' || title === '피드 작성') {

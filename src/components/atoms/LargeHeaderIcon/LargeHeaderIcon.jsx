@@ -9,9 +9,9 @@ function LargeHeaderIcon({ title }) {
       alt: '책 추가',
     },
     기록: {
-      href: '/library/booktree',
+      href: '/record/memo/registration',
       src: '/images/icons/newrecord.svg',
-      alt: '글 작성',
+      alt: '메모 작성',
     },
     피드: {
       href: '/feed/registration',
