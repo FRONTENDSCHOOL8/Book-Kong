@@ -1,7 +1,5 @@
-import {} from 'prop-types';
-
-import DetailBook from '../organisms/DetailBook/DetailBook';
-import Header from '../organisms/Header/Header/Header';
+import DetailBook from '../../organisms/DetailBook/DetailBook';
+import Header from '../../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
 
 function BookDetailPage() {
@@ -10,12 +8,10 @@ function BookDetailPage() {
       <Helmet>
         <title>책콩 | 책 상세</title>
       </Helmet>
-      <Header title="상세페이지" />
+      <Header title="책 상세" />
       <DetailBook />
     </>
   );
 }
-
-BookDetailPage.propTypes = {};
 
 export default BookDetailPage;

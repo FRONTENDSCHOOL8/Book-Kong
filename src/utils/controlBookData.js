@@ -139,3 +139,7 @@ export async function postLibFormData(formData) {
     console.error(e);
   }
 }
+
+export async function getLibraryData(recordId) {
+  return await pb.collection('library').getOne(recordId);
+}

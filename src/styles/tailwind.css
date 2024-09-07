@@ -49,7 +49,7 @@
 }
 
 .contents-md {
-  @apply text-content-medium font-medium tracking-[-0.32px];
+  @apply text-content-medium font-normal tracking-[-0.32px];
 }
 
 .contents-md-bold {
@@ -187,4 +187,34 @@
 
 .animate-splash {
   animation-fill-mode: forwards;
+}
+
+/* ------------------------------------------------ */
+/*                  tabNavigaiton                   */
+/* ------------------------------------------------ */
+.nav-default {
+  @apply box-border block h-full leading-[54px];
+}
+
+.nav-active {
+  @apply text-primary-500 border-b-[3px] border-primary-500;
+}
+
+/* -------------------------------------------- */
+/*     memo/feed detail page article height     */
+/* -------------------------------------------- */
+.full-height {
+  min-height: calc(100vh - 128px);
+}
+
+/* -------------------------------------------------- */
+/*                   memoBeforeIcon                   */
+/* -------------------------------------------------- */
+/* memo book title 책 아이콘 */
+.memo-icon {
+  @apply before:content-[''] before:block before:w-[18px] before:h-[18px] before:absolute before:top-[26px] before:left-4 before:bg-[url('/images/icons/memo.svg')] before:bg-cover /* after:content-[''] after:block after:w-[18px] after:h-[18px] after:absolute*/;
+}
+
+.default-option {
+  @apply text-grayscale-400;
 }

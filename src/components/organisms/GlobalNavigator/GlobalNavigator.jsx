@@ -14,7 +14,7 @@ const GlobalNavigator = memo(function GlobalNavigator() {
   };
 
   return (
-    <nav className="fixed bottom-0 left-[50%] translate-x-[-50%] w-screen border-t border-primary-500 min-w-[320px] max-w-md bg-grayscale-white">
+    <nav className="fixed bottom-0 left-[50%] translate-x-[-50%] w-screen border-t border-primary-500 min-w-[320px] max-w-md bg-grayscale-white z-[100]">
       <ul
         onClick={handleClick}
         className="flex items-center justify-between gap-4 font-medium text-gray-400"

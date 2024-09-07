@@ -42,10 +42,10 @@ function App() {
   }
 
   return (
-      <>
-        <Outlet />
-        <GlobalNavigator />
-      </>
+    <>
+      <Outlet />
+      <GlobalNavigator />
+    </>
   );
 }
 

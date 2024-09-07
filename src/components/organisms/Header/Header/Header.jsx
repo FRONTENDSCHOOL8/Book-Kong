@@ -14,8 +14,9 @@ function Header({ title }) {
   const titlesWithSmallHeader = [
     '검색하기',
     '직접 입력하기',
-    '상세페이지',
+    '책 상세',
     '메모',
+    '메모 작성',
     '피드 작성',
     '피드 상세',
   ];
@@ -33,7 +34,7 @@ function Header({ title }) {
       )}
       {titlesWithSmallHeader.includes(title) && (
         <>
-          <SmallHeader title={title === '상세페이지' ? '' : title} />
+          <SmallHeader title={title === '책 상세' ? '' : title} />
         </>
       )}
     </header>

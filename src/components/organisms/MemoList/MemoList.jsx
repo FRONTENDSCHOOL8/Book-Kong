@@ -52,9 +52,13 @@ function MemoList() {
   return (
     <motion.main className="flex flex-col items-end bg-background-gray px-4 pb-[120px] overflow-scroll hide-scrollbar">
       <Helmet>
-        <title>책콩 | 기록 페이지 - 메모</title>
+        <title>책콩 | 메모</title>
       </Helmet>
-      <OrderButton onClick={toggleSort} order={order} />
+      <OrderButton
+        onClick={toggleSort}
+        order={order}
+        customClassName="mt-6 mb-3"
+      />
       <motion.ul
         variants={listVar}
         initial="start"
