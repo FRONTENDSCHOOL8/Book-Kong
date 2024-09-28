@@ -1,8 +1,8 @@
-import TextInputBox from './TextInputBox';
+import TextInputLi from './TextInputLi';
 
 const metaConfig = {
-  title: 'components/TextInputBox',
-  component: TextInputBox,
+  title: 'components/TextInputLi',
+  component: TextInputLi,
   tags: ['autodocs'],
   args: {
     id: 'text',

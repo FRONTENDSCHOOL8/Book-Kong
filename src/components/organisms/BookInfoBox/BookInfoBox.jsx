@@ -1,7 +1,7 @@
 import { object } from 'prop-types';
 import { useState, useCallback } from 'react';
 import debounce from '../../../utils/debounce';
-import TextInputBox from '../../molecules/TextInputBox/TextInputBox';
+import TextInputLi from '../../molecules/TextInputLi/TextInputLi';
 import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
 
 function BookInfoBox({ data: aladinBook }) {
@@ -27,35 +27,35 @@ function BookInfoBox({ data: aladinBook }) {
   return (
     <ul className="flex flex-col gap-6">
       <BookCoverInput title={bookInfo.title} cover={aladinBook?.cover} />
-      <TextInputBox
+      <TextInputLi
         id="title"
         label="책 제목"
         name="title"
         value={bookInfo.title}
         onChange={handleChange}
       />
-      <TextInputBox
+      <TextInputLi
         id="author"
         label="지은이/옮긴이"
         name="author"
         value={bookInfo.author}
         onChange={handleChange}
       />
-      <TextInputBox
+      <TextInputLi
         id="publisher"
         label="출판사"
         name="publisher"
         value={bookInfo.publisher}
         onChange={handleChange}
       />
-      <TextInputBox
+      <TextInputLi
         id="page"
         label="총 페이지"
         name="total_page"
         value={bookInfo.page}
         onChange={handleChange}
       />
-      <TextInputBox
+      <TextInputLi
         id="isbn"
         label="ISBN"
         name="isbn_13"

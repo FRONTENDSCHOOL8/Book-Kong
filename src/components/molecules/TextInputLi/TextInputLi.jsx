@@ -1,9 +1,9 @@
-import { string, number, oneOfType, func } from 'prop-types';
+import { memo } from 'react';
 import Label from '../../atoms/Label/Label';
 import TextInput from '../../atoms/TextInput/TextInput';
-import { memo } from 'react';
+import { string, number, oneOfType, func } from 'prop-types';
 
-const TextInputBox = memo(function TextInputBox({
+const TextInputLi = memo(function TextInputLi({
   id,
   label,
   name,
@@ -25,7 +25,7 @@ const TextInputBox = memo(function TextInputBox({
   );
 });
 
-TextInputBox.propTypes = {
+TextInputLi.propTypes = {
   id: string.isRequired,
   label: string.isRequired,
   name: string.isRequired,
@@ -34,4 +34,4 @@ TextInputBox.propTypes = {
   onChange: func,
 };
 
-export default TextInputBox;
+export default TextInputLi;
