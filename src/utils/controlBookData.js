@@ -77,7 +77,7 @@ export async function createLibFormData(formId) {
   const isBookCover = !!bookCoverLabel;
 
   if (!isBookCover) {
-    alert('책 사진을 등록해주세요.');
+    alert('책 이미지를 등록해주세요.');
     return;
   }
 
