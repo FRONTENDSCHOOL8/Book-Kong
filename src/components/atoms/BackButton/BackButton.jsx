@@ -27,6 +27,4 @@ function BackButton() {
   );
 }
 
-BackButton.propTypes = {};
-
 export default BackButton;

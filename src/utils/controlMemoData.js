@@ -13,3 +13,7 @@ export async function getUserMemoData(sort = '-created') {
     (memo) => memo.expand.book_id.user_id === loginUserData.id
   );
 }
+
+export async function getMemoData(memoId, options) {
+  return await pb.collection('memos').getOne(memoId, options);
+}

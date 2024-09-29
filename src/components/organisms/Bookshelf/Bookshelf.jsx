@@ -4,15 +4,16 @@ import { Helmet } from 'react-helmet-async';
 import UserBookList from '../UserBookList/UserBookList';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import useUserLibData from '../../../hooks/useUserLibData';
-import BookFilterBox from '../../molecules/BookFilterBox/BookFilterBox';
+import ReadingStateFilter from '../../molecules/ReadingStateFilter/ReadingStateFilter';
 
 function Bookshelf() {
-  const [filterType, setFilterType] = useState('전체');
+  const [readingState, setReadingState] = useState('전체');
   const [query, setQuery] = useState('');
   const { data, isLoading, error, failureCount, failureReason } =
     useUserLibData(query);
 
-  if (failureCount >= 1 && failureReason.startsWith('Server')) throw error;
+  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
+    throw error;
 
   if (failureCount === 4) throw error;
 
@@ -20,7 +21,7 @@ function Bookshelf() {
     const button = e.target.closest('button');
     if (!button) return;
 
-    setFilterType(button.innerText);
+    setReadingState(button.innerText);
   };
 
   const handleSubmit = (e) => {
@@ -39,28 +40,28 @@ function Bookshelf() {
           <Skeleton variant="rounded">
             <SearchBar onSubmit={handleSubmit} />
           </Skeleton>
-          <BookFilterBox
+          <ReadingStateFilter
             onClick={handleClick}
-            filter={filterType}
+            readingState={readingState}
             isLoading={isLoading}
           />
           <UserBookList
             data={
-              filterType === '전체'
+              readingState === '전체'
                 ? data
-                : data?.filter((record) => record.status === filterType)
+                : data?.filter((record) => record.status === readingState)
             }
           />
         </>
       ) : (
         <>
           <SearchBar onSubmit={handleSubmit} />
-          <BookFilterBox onClick={handleClick} filter={filterType} />
+          <ReadingStateFilter onClick={handleClick} readingState={readingState} />
           <UserBookList
             data={
-              filterType === '전체'
+              readingState === '전체'
                 ? data
-                : data?.filter((record) => record.status === filterType)
+                : data?.filter((record) => record.status === readingState)
             }
           />
         </>

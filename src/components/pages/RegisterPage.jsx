@@ -271,7 +271,7 @@ function RegisterPage() {
         <Link to="#" className="text-[#AAA]">
           개인정보 보호정책
         </Link>
-        <div className="bg-[#AAA] w-[1px] h-3"></div>
+        <span className="block bg-[#AAA] w-[1px] h-3"></span>
         <Link to="#" className="text-[#AAA]">
           이용약관
         </Link>

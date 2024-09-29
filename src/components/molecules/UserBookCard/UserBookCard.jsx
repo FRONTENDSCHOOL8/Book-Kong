@@ -13,7 +13,7 @@ const UserBookCard = memo(function UserBookCard({ record: userLibRecord }) {
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
       <Link
-        to={`/library/book-detail#${userLibRecord.id}`}
+        to={`/library/book-detail/${userLibRecord.id}`}
         className="flex w-full"
       >
         <BookCardImage data={userLibRecord} />

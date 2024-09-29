@@ -15,13 +15,10 @@ function FeedCard({ bookTitle, title, content, date, nickname, book_height }) {
     <motion.li
       variants={cardVar}
       whileHover={{ scale: 1.03 }}
-      className="flex flex-col gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow"
+      className="flex flex-col w-full gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow"
     >
-      <div className="flex items-center justify-between">
-        <span className="contents-xs text-primary-500 clip-text-1">
-          {bookTitle}
-        </span>
-        <button>
+      <div className="relative">
+        <button className="float-right">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -35,6 +32,11 @@ function FeedCard({ bookTitle, title, content, date, nickname, book_height }) {
             />
           </svg>
         </button>
+      </div>
+      <div className="flex items-center justify-between absolute">
+        <span className="contents-xs text-primary-500 clip-text-1">
+          {bookTitle}
+        </span>
       </div>
       <span className="contents-lg-md text-grayscale-900 clip-text-1">
         {title}
