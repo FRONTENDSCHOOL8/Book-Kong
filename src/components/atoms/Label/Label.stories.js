@@ -8,18 +8,12 @@ const metaConfig = {
   component: Label,
   tags: ['autodocs'],
   args: {
-    children: ['Label'],
-    className: 'contents-md-bold text-grayscale-900 w-16',
     htmlFor: id,
-    hiddenLabel: false,
-    restProps: {},
+    isHidden: false,
   },
   argTypes: {
-    children: createArgTypesControl('array'),
-    className: createArgTypesControl(),
     htmlFor: createArgTypesControl(),
-    hiddenLabel: createArgTypesControl('boolean'),
-    restProps: createArgTypesControl('object'),
+    isHidden: createArgTypesControl('boolean'),
   },
 };
 
@@ -35,7 +29,7 @@ LabelShown.storyName = '일반 label';
 export const LabelHidden = {
   args: {
     children: '숨겨진 label',
-    hiddenLabel: true,
+    isHidden: true,
   },
 };
 LabelHidden.storyName = '숨겨진 label';

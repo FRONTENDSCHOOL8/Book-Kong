@@ -12,4 +12,5 @@ export default metaConfig;
 export const Base = {
   args: {},
 };
+
 Base.storyName = 'BookCardInfo';

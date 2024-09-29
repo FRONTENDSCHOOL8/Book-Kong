@@ -1,7 +1,9 @@
+import { loginUserData } from './controlUserData';
 import pb from '/src/api/pocketbase';
+import convertImgUrlToFile from './convertImgUrlToFile';
 
 /* -------------------------------------------- */
-/*                  책 관련 데이터 로딩                 */
+/*              책 관련 데이터 컨트롤             */
 /* -------------------------------------------- */
 
 /**
@@ -27,7 +29,7 @@ export async function getUserLibraryData(status = 'all', sort = 'created') {
   }
 }
 
-export async function searchLibraryData(query) {
+export async function searchUserLibData(query) {
   if (query !== '') {
     const resultList = await pb.collection('library').getFullList({
       filter: `user_id = "${pb.authStore.model.id}" && title ~ "${query}"`,
@@ -62,6 +64,81 @@ export async function searchUserLibraryData(keyword, status = 'all') {
     });
 
     return resultList;
+  }
+}
+
+/**
+ * 포켓호스트 DB 내 'library' collection에 post 할 formData 객체를 생성하는 함수
+ * @param { string } formId 'form' element에 할당된 id
+ * @returns { Object } formData 객체
+ */
+export async function createLibFormData(formId) {
+  const bookCoverLabel = document.getElementById('book-cover');
+  const isBookCover = !!bookCoverLabel;
+
+  if (!isBookCover) {
+    alert('책 이미지를 등록해주세요.');
+    return;
+  }
+
+  const formElement = document.getElementById(formId);
+  const formData = new FormData(formElement);
+
+  for (const value of formData.values()) {
+    if (!value) {
+      alert('책 정보를 모두 입력해주세요.');
+      return;
+    }
+  }
+
+  formData.append('user_id', loginUserData.id);
+
+  return formData;
+}
+
+/**
+ * 포켓호스트 DB 내 'library' collection에 추가로 보낼 field data를 생성한 formData 객체에 추가하는 함수
+ * @param { Object }
+ * @prop { Object } formData 기존에 만들어진 formData 객체
+ * @prop { Object } aladinBook 추가로 삽입 될 formData props
+ * @prop { string } aladinBook.cover 알라딘 DB에서 가져온 책 커버 이미지 url
+ * @prop { string } aladinBook.description 알라딘 DB에서 가져온 책 소개 글
+ * @prop { string } aladinBook.link 알라딘 서비스 내 해당 책의 상세 페이지 url
+ * @returns { undefined }
+ */
+export async function addFormDataProps({
+  formData,
+  aladinBook: { cover: bookCoverUrl, description, link: productUrl, pubDate },
+}) {
+  if (!bookCoverUrl) {
+    const bookCoverInput = document.getElementById('cover');
+    const bookCoverFileName = bookCoverInput.value;
+    const bookCoverImgFile = bookCoverInput.files[0];
+
+    formData.set('cover', bookCoverImgFile, bookCoverFileName);
+  }
+
+  const bookCoverFileName = bookCoverUrl.split('/').pop();
+  const bookCoverImgFile = await convertImgUrlToFile(bookCoverUrl);
+
+  formData.set('cover', bookCoverImgFile, bookCoverFileName);
+  formData.append('description', description);
+  formData.append('url', productUrl);
+  formData.append('publication_date', pubDate);
+  formData.append('score', 3); // 임시 필드 값
+  formData.append('expectation_score', 3); // 임시 필드 값
+}
+
+/**
+ * 만들어진 formData 객체를 포켓호스트 DB 내 'library' collection에 post하는 함수
+ * @param { Object } formData Post 할 formData 객체
+ * @returns { undefined }
+ */
+export async function postLibFormData(formData) {
+  try {
+    await pb.collection('library').create(formData);
+  } catch (e) {
+    console.error(e);
   }
 }
 

@@ -3,7 +3,7 @@ import SearchInfo from '../../atoms/SearchInfo/SearchInfo';
 import { useState, useEffect } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useInView } from 'react-intersection-observer';
-import { getBookData } from '../../../api/searchAladin';
+import { getBookSearchData } from '../../../api/searchAladin';
 import SearchList from '../SearchList/SearchList';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ function BookSearchMain() {
   const { data, isLoading, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
       queryKey: ['search', query],
-      queryFn: ({ pageParam }) => getBookData(query, pageParam),
+      queryFn: ({ pageParam }) => getBookSearchData(query, pageParam),
       initialPageParam: 1,
       getNextPageParam: (lastPage) => {
         if (lastPage && 'current_page' in lastPage) {

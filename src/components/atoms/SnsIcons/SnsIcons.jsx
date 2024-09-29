@@ -1,18 +1,20 @@
+import { Link } from 'react-router-dom';
+
 function SnsIcons() {
   return (
     <div className="flex gap-4 justify-center mt-[31px]">
-      <a href="#">
+      <Link to="#">
         <img src="/images/icons/kakao_icon.svg" alt="kakao Icon" />
-      </a>
-      <a href="#">
+      </Link>
+      <Link to="#">
         <img src="/images/icons/naver_icon.svg" alt="naver Icon" />
-      </a>
-      <a href="#">
+      </Link>
+      <Link to="#">
         <img src="/images/icons/facebook_icon.svg" alt="facebook Icon" />
-      </a>
-      <a href="#">
+      </Link>
+      <Link to="#">
         <img src="/images/icons/apple_icon.svg" alt="apple Icon" />
-      </a>
+      </Link>
     </div>
   );
 }

@@ -23,7 +23,7 @@ function BookCardImage({ data }) {
 }
 
 BookCardImage.propTypes = {
-  data: object,
+  data: object.isRequired,
 };
 
 export default BookCardImage;
