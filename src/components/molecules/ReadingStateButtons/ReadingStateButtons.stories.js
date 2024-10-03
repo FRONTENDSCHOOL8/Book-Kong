@@ -1,9 +1,9 @@
-import ReadingState from './ReadingState';
+import ReadingStateButtons from './ReadingStateButtons';
 import { createArgTypesControl } from '../../../utils/storybook';
 
 let status = '완독';
 
-// 현재 작동 안 함. 수정 요.
+// 스토리북 내에서 함수 작동 안 함. 나중에 원인 파악하고 해결 필요.
 // const onChange = (e) => {
 //   const input = e.target.closest('input');
 
@@ -13,8 +13,8 @@ let status = '완독';
 // };
 
 const metaConfig = {
-  title: 'components/ReadingState',
-  component: ReadingState,
+  title: 'components/ReadingStateButtons',
+  component: ReadingStateButtons,
   tags: ['autodocs'],
   args: {
     status,
@@ -32,4 +32,4 @@ export const Base = {
   args: {},
 };
 
-Base.storyName = 'ReadingState';
+Base.storyName = 'ReadingStateButtons';

@@ -51,7 +51,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           if (!params.isbn13) return null;
 
-          return await getBookData(params.isbn13.slice(1));
+          return await getBookData(params.isbn13);
         },
       },
       {

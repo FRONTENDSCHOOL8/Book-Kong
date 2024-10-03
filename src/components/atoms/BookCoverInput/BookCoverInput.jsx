@@ -19,12 +19,12 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
 
   if (bookImgUrl)
     return (
-      <li className="flex justify-center overflow-hidden ">
+      <li className="flex justify-center">
         <motion.label
           id="book-cover"
           whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
           whileTap={{ scale: 0.9 }}
-          className="w-[110px] h-[158px] cursor-pointer"
+          className="w-[110px] h-[158px] overflow-hidden cursor-pointer"
           htmlFor="cover"
         >
           <img src={bookImgUrl} alt={bookTitle} />
@@ -41,11 +41,11 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
     );
 
   return (
-    <li className="flex justify-center overflow-hidden ">
+    <li className="flex justify-center">
       <motion.label
         whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
         whileTap={{ scale: 0.9 }}
-        className="contents-xs flex flex-col justify-center items-center pt-[48px] border w-[110px] h-[158px] cursor-pointer"
+        className="contents-xs flex flex-col justify-center items-center pt-[48px] border w-[110px] h-[158px] overflow-hidden cursor-pointer"
         htmlFor="cover"
       >
         <div className="text-center">

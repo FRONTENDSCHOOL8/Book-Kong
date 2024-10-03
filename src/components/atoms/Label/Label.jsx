@@ -1,27 +1,38 @@
-import { bool, node, string } from 'prop-types';
-import A11yHidden from '../A11yHidden/A11yHidden';
 import { memo } from 'react';
+import { node, string } from 'prop-types';
+import getCombinedClassName from '../../../utils/getCombinedClassName';
 
-const Label = memo(function Label({ children, htmlFor: id, isHidden = false }) {
-  if (isHidden) {
+const Label = memo(function Label({
+  htmlFor: id,
+  children,
+  className: customClassName = '',
+  ...restProps
+}) {
+  const defaultClassName = 'contents-md-bold text-grayscale-900 w-full';
+
+  if (customClassName) {
     return (
-      <A11yHidden as="label" htmlFor={id}>
+      <label
+        htmlFor={id}
+        className={getCombinedClassName(defaultClassName, customClassName)}
+        {...restProps}
+      >
         {children}
-      </A11yHidden>
+      </label>
     );
   }
 
   return (
-    <label htmlFor={id} className="contents-md-bold text-grayscale-900 w-full">
+    <label htmlFor={id} className={defaultClassName} {...restProps}>
       {children}
     </label>
   );
 });
 
 Label.propTypes = {
-  children: node.isRequired,
   htmlFor: string.isRequired,
-  isHidden: bool,
+  children: node.isRequired,
+  className: string,
 };
 
 export default Label;

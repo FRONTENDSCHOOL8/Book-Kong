@@ -37,11 +37,11 @@ function SmallHeader({ title }) {
   };
 
   return (
-    <header className="relative flex justify-between items-center px-4 py-[16px] border-b border-grayscale-200 bg-grayscale-white">
+    <div className="relative flex justify-between items-center px-4 py-[16px] border-b border-grayscale-200 bg-grayscale-white">
       <BackButton />
       <SmallHeaderTitle title={title} />
       {renderButtons()}
-    </header>
+    </div>
   );
 }
 

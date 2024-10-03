@@ -12,7 +12,7 @@ function SearchCard({ data }) {
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
       <Link
-        to={`/library/book-registration/:${data.isbn13}`}
+        to={`/library/book-registration/${data.isbn13}`}
         className="flex w-full"
       >
         <SearchCardImage data={data} />

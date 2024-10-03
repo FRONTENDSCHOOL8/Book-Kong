@@ -1,29 +1,21 @@
+import { useCallback } from 'react';
 import {
   addFormDataProps,
   createLibFormData,
   postLibFormData,
 } from '../../../utils/controlBookData';
-import { useState, useCallback } from 'react';
 import BookInfoBox from '../BookInfoBox/BookInfoBox';
 import { useNavigate, useLoaderData } from 'react-router-dom';
-import ReadingState from '../../molecules/ReadingState/ReadingState';
+import ReadingStates from '../../molecules/ReadingStates/ReadingStates';
 
 function BookRegistForm() {
-  const [status, setStatus] = useState('완독');
-
-  const handleChange = useCallback((e) => {
-    const input = e.target.closest('input');
-    if (!input) return;
-
-    setStatus(input.value);
-  }, []);
-
   const aladinBook = useLoaderData();
   const navigate = useNavigate();
 
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+
       const formData = await createLibFormData('book-register');
 
       if (!formData) return;
@@ -45,7 +37,7 @@ function BookRegistForm() {
 
   return (
     <form id="book-register" onSubmit={handleSubmit}>
-      <ReadingState status={status} onChange={handleChange} />
+      <ReadingStates />
       <hr className="mt-6 mb-6" />
       <BookInfoBox data={aladinBook} />
     </form>

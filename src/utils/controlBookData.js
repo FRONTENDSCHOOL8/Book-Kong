@@ -84,10 +84,30 @@ export async function createLibFormData(formId) {
   const formElement = document.getElementById(formId);
   const formData = new FormData(formElement);
 
-  for (const value of formData.values()) {
+  for (const [key, value] of formData) {
     if (!value) {
-      alert('책 정보를 모두 입력해주세요.');
-      return;
+      switch (key) {
+        case 'start_date':
+          return alert(`'시작일'을 입력해주세요.`);
+
+        case 'end_date':
+          return alert(`'완독일'을 입력해주세요.`);
+
+        case 'title':
+          return alert(`'책 제목'을 입력해주세요.`);
+
+        case 'author':
+          return alert(`'지은이/옮긴이'를 입력해주세요.`);
+
+        case 'publisher':
+          return alert(`'출판사'를 입력해주세요.`);
+
+        case 'total_page':
+          return alert(`'총 페이지'를 입력해주세요.`);
+
+        case 'isbn_13':
+          return alert(`'ISBN'을 입력해주세요.`);
+      }
     }
   }
 

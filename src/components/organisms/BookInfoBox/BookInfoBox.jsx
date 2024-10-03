@@ -1,9 +1,9 @@
 import { object } from 'prop-types';
 import { useState, useCallback } from 'react';
 import debounce from '../../../utils/debounce';
+import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 import TextInputLi from '../../molecules/TextInputLi/TextInputLi';
 import BookCoverInput from '../../atoms/BookCoverInput/BookCoverInput';
-import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 
 function BookInfoBox({ data: aladinBook }) {
   const [bookInfo, setBookInfo] = useState({
