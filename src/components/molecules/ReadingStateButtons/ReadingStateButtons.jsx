@@ -11,7 +11,7 @@ const ReadingStateButtons = memo(function ReadingStateButtons({
 }) {
   return (
     <fieldset className="flex justify-center gap-2 items-center">
-      <A11yHidden as="legend">독서 상태</A11yHidden>
+      <A11yHidden as="legend">독서 상태 선택</A11yHidden>
       <DoneButton onChange={onChange} isChecked={status === '완독'} />
       <ReadingButton onChange={onChange} isChecked={status === '독서중'} />
       <WishButton onChange={onChange} isChecked={status === '희망 도서'} />
