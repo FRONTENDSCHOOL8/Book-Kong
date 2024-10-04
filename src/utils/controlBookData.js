@@ -77,7 +77,7 @@ export async function createLibFormData(formId) {
   const isBookCover = !!bookCoverLabel;
 
   if (!isBookCover) {
-    alert('책 사진을 등록해주세요.');
+    alert('책 이미지를 등록해주세요.');
     return;
   }
 
@@ -128,7 +128,7 @@ export async function createLibFormData(formId) {
  */
 export async function addFormDataProps({
   formData,
-  aladinBook: { cover: bookCoverUrl, description, link: productUrl },
+  aladinBook: { cover: bookCoverUrl, description, link: productUrl, pubDate },
 }) {
   if (!bookCoverUrl) {
     const bookCoverInput = document.getElementById('cover');
@@ -144,11 +144,15 @@ export async function addFormDataProps({
   formData.set('cover', bookCoverImgFile, bookCoverFileName);
   formData.append('description', description);
   formData.append('url', productUrl);
+  formData.append('publication_date', pubDate);
+  formData.append('score', 3); // 임시 필드 값
+  formData.append('expectation_score', 3); // 임시 필드 값
 }
 
 /**
  * 만들어진 formData 객체를 포켓호스트 DB 내 'library' collection에 post하는 함수
  * @param { Object } formData Post 할 formData 객체
+ * @returns { undefined }
  */
 export async function postLibFormData(formData) {
   try {
@@ -156,4 +160,8 @@ export async function postLibFormData(formData) {
   } catch (e) {
     console.error(e);
   }
+}
+
+export async function getLibraryData(recordId) {
+  return await pb.collection('library').getOne(recordId);
 }

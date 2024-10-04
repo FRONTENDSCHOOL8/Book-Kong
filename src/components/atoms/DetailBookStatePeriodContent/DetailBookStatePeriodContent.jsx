@@ -1,13 +1,28 @@
-import {} from 'prop-types';
+import { string, shape } from 'prop-types';
+import convertDayFormat from '../../../utils/convertDayFormat';
 
-function DetailBookStatePeriodContent() {
+function DetailBookStatePeriodContent({ state: bookState }) {
   return (
     <>
-      <span className="text-primary-500 contents-sm-bold">2023년 4월 5일</span>
+      {bookState.status === '완독' && (
+        <span className="text-primary-500 contents-sm-bold">
+          {convertDayFormat(bookState.end_date)}
+        </span>
+      )}
+      {bookState.status === '독서중' && (
+        <span className="text-primary-500 contents-sm-bold">
+          {convertDayFormat(bookState.start_date)}
+        </span>
+      )}
     </>
   );
 }
 
-DetailBookStatePeriodContent.propTypes = {};
+DetailBookStatePeriodContent.propTypes = {
+  state: shape({
+    start_date: string,
+    end_state: string,
+  }).isRequired,
+};
 
 export default DetailBookStatePeriodContent;
