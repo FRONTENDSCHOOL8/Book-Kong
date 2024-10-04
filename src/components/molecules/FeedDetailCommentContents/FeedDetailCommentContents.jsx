@@ -18,7 +18,7 @@ function FeedDetailCommentContents() {
       <span className="text-primary-500 contents-md-bold">5</span>
       <div className="flex gap-3 p-4 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow mt-6 mb-3">
         <img
-          src="/images/characters/Rectangle 99.png"
+          src="/images/characters/character_sm.png"
           alt="캐릭터"
           className="w-[45px] h-[45px]"
         />
@@ -38,7 +38,7 @@ function FeedDetailCommentContents() {
       </div>
       <div className="flex gap-3 p-4 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow">
         <img
-          src="/images/characters/Rectangle 99.png"
+          src="/images/characters/character_sm.png"
           alt="캐릭터"
           className="w-[45px] h-[45px]"
         />
@@ -61,7 +61,7 @@ function FeedDetailCommentContents() {
       </div>
       <div className="flex gap-3 p-4 border rounded-lg bg-grayscale-white border-grayscale-100 list-shadow mt-3 mb-3">
         <img
-          src="/images/characters/Rectangle 99.png"
+          src="/images/characters/character_sm.png"
           alt="캐릭터"
           className="w-[45px] h-[45px]"
         />
