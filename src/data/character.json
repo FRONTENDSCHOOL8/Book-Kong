@@ -1,86 +1,86 @@
 [
   {
-    "name": "뿡뿡이",
+    "name": "책콩이",
     "image": "/images/characters/1단계.png",
     "level": 1,
-    "height": "0 ~ 34cm",
+    "height": "0 ~ 9.99 cm",
     "description": "안녕하세요. 이런 콩은 처음 보죠?\n저는 책에서 사는 책콩이에요.\n얼른 책을 읽고 친구를 만들어주면 좋겠어요."
   },
   {
-    "name": "빵빵이",
+    "name": "구름이",
     "image": "/images/characters/2단계.png",
     "level": 2,
-    "height": "35 ~ 69cm",
+    "height": "10 ~ 29.99 cm",
     "description": "책나무가 자라기 시작했네요.\n무럭무럭 자라라!"
   },
   {
-    "name": "뺭뺭이",
+    "name": "당근이",
     "image": "/images/characters/3단계.png",
     "level": 3,
-    "height": "70 ~ 104cm",
-    "description": "열매 모양을 하고 있는 나!\n책콩들은 각기 다른 다양한 모습을 하고 있답니다.\n다른 친구들도 얼른 만나보세요."
+    "height": "30 ~ 59.99 cm",
+    "description": "당근 모양을 하고 있는 나!\n책콩들은 각기 다른 다양한 모습을 하고 있답니다.\n다른 친구들도 얼른 만나보세요."
   },
   {
-    "name": "뻥뻥이",
+    "name": "귀욤이",
     "image": "/images/characters/4단계.png",
     "level": 4,
-    "height": "105 ~ 139cm",
+    "height": "60 ~ 99.99 cm",
     "description": "흠…제 생각엔 제가 가장 귀여운 것 같아요.\n무슨 책콩이 가장 귀여운가요?\n궁금하네요."
   },
   {
-    "name": "쁭쁭이",
+    "name": "모음이",
     "image": "/images/characters/5단계.png",
     "level": 5,
-    "height": "140 ~ 174cm",
+    "height": "100 ~ 149.99 cm",
     "description": "사랑하면 닮는다라…\n책을 사랑한 저는 책을 닮아버렸습니다.\n당신은 무엇을 사랑하고 있나요."
   },
   {
-    "name": "뼝뼝이",
+    "name": "지렁이",
     "image": "/images/characters/6단계.png",
     "level": 6,
-    "height": "175 ~ 209cm",
+    "height": "150 ~ 199.99 cm",
     "description": "눌어붙은 껌마냥 누워버리고 싶은 마음을 몸소 실천중이에요.\n열심히 책을 읽어온 당신,\n쉬어도 좋으니 책콩들을 뒤로하고 드러누워봅시다."
   },
   {
-    "name": "뽕뽕이",
+    "name": "씨앗이",
     "image": "/images/characters/7단계.png",
     "level": 7,
-    "height": "210 ~ 244cm",
+    "height": "200 ~ 249.99 cm",
     "description": "책콩들은 작은 씨앗에서 시작해 큰 나무가 되었어요.\n우리도 지금의 작은 노력과 열정을 통해 더 큰 성취를 이루어낼 수 있을 거예요!"
   },
   {
-    "name": "뿅뿅이",
+    "name": "그릇이",
     "image": "/images/characters/8단계.png",
     "level": 8,
-    "height": "245 ~ 279cm",
+    "height": "250 ~ 299.99 cm",
     "description": "저처럼 그릇이 큰 책콩을 봤나요?\n저는 다 담을 수 있죠.\n시대를 뛰어넘는 책나무늬토기!"
   },
   {
-    "name": "쁑쁑이",
+    "name": "느름이",
     "image": "/images/characters/9단계.png",
     "level": 9,
-    "height": "280 ~ 314cm",
+    "height": "300 ~ 349.99 cm",
     "description": "책 속으로 빠져들어요.\n마음껏 상상하는 재미,\n 책콩들과 함께 떠나보세요!"
   },
   {
-    "name": "삥삥이",
+    "name": "으린이",
     "image": "/images/characters/10단계.png",
     "level": 10,
-    "height": "315 ~ 349cm",
+    "height": "350 ~ 399.99 cm",
     "description": "삥삥이는 지식의 영양분을 받으며 자라는 중!\n당신의 호기심과 지적 성장을 응원해요."
   },
   {
-    "name": "뼁뼁이",
+    "name": "돌맹이",
     "image": "/images/characters/11단계.png",
     "level": 11,
-    "height": "350 ~ 384cm",
+    "height": "400 ~ 449.99 cm",
     "description": "지식의 오아시스로 영혼을 달래다오..!\n책콩들과 함께하는 시간은 마음의 여유를 선사해요."
   },
   {
-    "name": "뺑뺑이",
+    "name": "뿡뿡이",
     "image": "/images/characters/12단계.png",
     "level": 12,
-    "height": "385 ~ 420cm",
+    "height": "450 cm ~",
     "description": "결국 나를 만나다니..\n꾸준한 습관을 가진 당신,\n존경스럽네요."
   }
 ]
