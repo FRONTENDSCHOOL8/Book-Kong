@@ -103,7 +103,7 @@ const router = createBrowserRouter([
         element: <FeedPage />,
       },
       {
-        path: 'feed/feed-detail',
+        path: 'feed/detail',
         element: <FeedDetailPage />,
       },
       {
