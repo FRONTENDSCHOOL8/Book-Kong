@@ -54,7 +54,7 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
           등록해주세요.
         </div>
         <img
-          src="/images/characters/7단계.png"
+          src="/images/characters/stage7.png"
           alt=""
           className="w-[90px] h-[74px] translate-y-[14px]"
         />

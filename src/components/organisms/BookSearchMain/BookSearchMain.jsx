@@ -42,7 +42,7 @@ function BookSearchMain() {
       <SearchBar onSubmit={handleSubmit} />
       {query === '' ? (
         <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">
-          <img className="w-24" src="/images/characters/잠금캐릭.png" alt="" />
+          <img className="w-24" src="/images/characters/locked.png" alt="" />
           <span className="text-grayscale-500 text-content-small">
             책을 검색하여 책장에 추가해보세요.
           </span>
