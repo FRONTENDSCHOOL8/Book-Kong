@@ -59,6 +59,7 @@ export async function signUpUser(nickname, email, password) {
     passwordConfirm: password,
     nickname: nickname,
     book_height: 0,
+    level: 1,
   };
 
   try {
