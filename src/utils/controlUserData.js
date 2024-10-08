@@ -113,6 +113,32 @@ export async function searchUserEmail(email) {
 }
 
 /* -------------------------------------------- */
+/*              읽은 책 등록 시 사용              */
+/* -------------------------------------------- */
+
+/**
+ *
+ * @param { number } totBookHeight DB 내 user의 기존 'book_height' field 값에 등록한 책의 height 수치를 더한 값
+ * @returns Update 된 user의 record
+ */
+export async function putUserBookHeight(totBookHeight) {
+  return await pb
+    .collection('users')
+    .update(loginUserData.id, { book_height: totBookHeight });
+}
+
+/**
+ *
+ * @param { number } newUserLevel 책 등록 시 변화 된 user의 level
+ * @returns Update 된 user의 record
+ */
+export async function putUserNewLevel(newUserLevel) {
+  return await pb
+    .collection('users')
+    .update(loginUserData.id, { level: newUserLevel });
+}
+
+/* -------------------------------------------- */
 /*                      ETC                     */
 /* -------------------------------------------- */
 
