@@ -1,11 +1,8 @@
 import { number } from 'prop-types';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
+import { calcBookHeight, calcLevel } from '../../../utils/calcLevel';
 
 function CharacterLevel({ page: userTotalPage }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
+  const userLevel = calcLevel(calcBookHeight(userTotalPage));
 
   return (
     <div className="flex justify-end">

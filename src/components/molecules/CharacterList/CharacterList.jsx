@@ -2,14 +2,11 @@ import { number } from 'prop-types';
 import CharacterItem from '../../atoms/CharacterItem/CharacterItem';
 import characterData from '../../../data/character.json';
 
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
+import { calcBookHeight, calcLevel } from '../../../utils/calcLevel';
 import { v4 as uuidv4 } from 'uuid';
 
 function CharacterList({ page: userTotalPage }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
+  const userLevel = calcLevel(calcBookHeight(userTotalPage));
 
   return (
     <div className="overflow-scroll">

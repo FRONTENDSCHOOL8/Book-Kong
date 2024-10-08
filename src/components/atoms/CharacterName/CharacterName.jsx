@@ -1,12 +1,9 @@
 import { number, string } from 'prop-types';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
+import { calcBookHeight, calcLevel } from '../../../utils/calcLevel';
 import characterData from '../../../data/character.json';
 
 function CharacterName({ page: userTotalPage, pageName: webPageName }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
+  const userLevel = calcLevel(calcBookHeight(userTotalPage));
   const userCharacterName = characterData.filter(
     (data) => data.level === userLevel
   )[0].name;
