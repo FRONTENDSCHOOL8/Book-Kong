@@ -16,27 +16,27 @@ export function calcUserBookHeight(page) {
 export function calcUserLevel(height) {
   let level = 1;
 
-  if (height < 10) {
+  if (height < 3) {
     level = 1;
-  } else if (height < 30) {
+  } else if (height < 6) {
     level = 2;
-  } else if (height < 60) {
+  } else if (height < 10) {
     level = 3;
-  } else if (height < 100) {
+  } else if (height < 14) {
     level = 4;
-  } else if (height < 150) {
+  } else if (height < 17) {
     level = 5;
-  } else if (height < 200) {
+  } else if (height < 20) {
     level = 6;
-  } else if (height < 250) {
+  } else if (height < 23) {
     level = 7;
-  } else if (height < 300) {
+  } else if (height < 26) {
     level = 8;
-  } else if (height < 350) {
+  } else if (height < 28) {
     level = 9;
-  } else if (height < 400) {
+  } else if (height < 30) {
     level = 10;
-  } else if (height < 450) {
+  } else if (height < 32) {
     level = 11;
   } else {
     level = 12;
