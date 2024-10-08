@@ -17,7 +17,7 @@ function CharacterItem({
   } else {
     return (
       <li className="w-20 flex-col justify-center rounded-lg bg-white">
-        <img src="/images/characters/locked.png" alt="잠금 캐릭" />
+        <img src="/images/characters/locked.png" alt="잠겨있는 캐릭터" />
         <span className="character-list text-grayscale-700 flex justify-center">
           {characterLevel}단계
         </span>
