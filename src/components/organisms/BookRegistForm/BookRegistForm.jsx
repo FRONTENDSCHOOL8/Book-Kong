@@ -23,21 +23,26 @@ function BookRegistForm() {
     // 페이지 내 form 요소 data를 DB의 'library' collection으로 post
     await postLibFormData(formData);
 
-    // DB 내 'users' collection의 book_height 값을 update하기 위한 변수 선언
-    const bookPageNum = formData.get('total_page');
-    const bookHeight = calcBookHeight(bookPageNum) * 1;
-    const userRecord = await pb.collection('users').getOne(loginUserData.id);
-    const totBookHeight = userRecord['book_height'] * 1 + bookHeight;
+    // User의 reading status를 읽어, status가 '완독'이면 'users' collection update
+    const readStatus = formData.get('status');
 
-    // DB 내 'users' collection의 book_height 값 update
-    const updatedUserRec = await putUserBookHeight(totBookHeight);
+    if (readStatus === '완독') {
+      // DB 내 'users' collection의 book_height 값을 update하기 위한 변수 선언
+      const bookPageNum = formData.get('total_page');
+      const bookHeight = calcBookHeight(bookPageNum) * 1;
+      const userRecord = await pb.collection('users').getOne(loginUserData.id);
+      const totBookHeight = userRecord['book_height'] * 1 + bookHeight;
 
-    // 더해진 bookHeight 값으로 인해 user의 level이 변동 되었을 경우 DB에 반영하는 로직
-    const updatedBookHeight = updatedUserRec['book_height'] * 1;
-    const userLevelCur = updatedUserRec.level * 1;
+      // DB 내 'users' collection의 book_height 값 update
+      const updatedUserRec = await putUserBookHeight(totBookHeight);
 
-    if (calcLevel(updatedBookHeight) !== userLevelCur) {
-      putUserNewLevel(calcLevel(updatedBookHeight));
+      // 더해진 bookHeight 값으로 인해 user의 level이 변동 되었을 경우 DB에 반영하는 로직
+      const updatedBookHeight = updatedUserRec['book_height'] * 1;
+      const userLevelCur = updatedUserRec.level * 1;
+
+      if (calcLevel(updatedBookHeight) !== userLevelCur) {
+        putUserNewLevel(calcLevel(updatedBookHeight));
+      }
     }
   }, []);
 
