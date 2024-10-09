@@ -46,28 +46,6 @@ export async function searchUserLibData(query) {
 }
 
 /**
- * 나의 책을 검색하는 함수
- * * 책의 status 별로 검색 가능
- * * 기본적으로는 모든 책을 검색
- * @param {string} keyword 검색 키워드
- */
-export async function searchUserLibraryData(keyword, status = 'all') {
-  if (status === 'all') {
-    const resultList = await pb.collection('library').getFullList({
-      filter: `user_id = "${pb.authStore.model.id}" && title ~ "${keyword}"`,
-    });
-
-    return resultList;
-  } else {
-    const resultList = await pb.collection('library').getFullList({
-      filter: `user_id = "${pb.authStore.model.id}" && status = "${status}" && title ~ "${keyword}"`,
-    });
-
-    return resultList;
-  }
-}
-
-/**
  * 포켓호스트 DB 내 'library' collection에 post 할 formData 객체를 생성하는 함수
  * @param { string } formId 'form' element에 할당된 id
  * @returns { Object } formData 객체
