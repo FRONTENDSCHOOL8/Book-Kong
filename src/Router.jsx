@@ -16,7 +16,7 @@ import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
 import { getBookData } from './api/searchAladin';
-import { getLibraryData } from './utils/controlBookData';
+import { getOneLibraryData } from './utils/controlBookData';
 import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
 import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
       {
         path: 'library/book-detail/:recordId?',
         element: <BookDetailPage />,
-        loader: async ({ params }) => await getLibraryData(params.recordId),
+        loader: async ({ params }) => await getOneLibraryData(params.recordId),
       },
       {
         path: 'library/book-search',

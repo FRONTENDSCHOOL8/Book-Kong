@@ -140,6 +140,6 @@ export async function postLibFormData(formData) {
   }
 }
 
-export async function getLibraryData(recordId) {
+export async function getOneLibraryData(recordId) {
   return await pb.collection('library').getOne(recordId);
 }
