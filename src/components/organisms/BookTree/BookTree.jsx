@@ -38,8 +38,8 @@ function BookTree() {
           />
           <ContextButton shape="horizontal" alt="책나무 이미지 저장 버튼" />
         </div>
-        <Character page={userTotalPage} />
-        <BookBlockList data={data} />
+        <Character page={userTotalPage} isLoading={isLoading} />
+        <BookBlockList data={data} isLoading={isLoading} />
       </div>
     </main>
   );

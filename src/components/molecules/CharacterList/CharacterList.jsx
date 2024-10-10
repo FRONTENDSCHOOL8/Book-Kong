@@ -1,7 +1,6 @@
 import { number } from 'prop-types';
 import CharacterItem from '../../atoms/CharacterItem/CharacterItem';
 import characterData from '../../../data/character.json';
-
 import { calcBookHeight, calcLevel } from '../../../utils/calcLevel';
 import { v4 as uuidv4 } from 'uuid';
 
