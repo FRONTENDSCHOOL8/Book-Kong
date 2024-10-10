@@ -1,12 +1,9 @@
 import { number } from 'prop-types';
 import CharacterItem from '../../atoms/CharacterItem/CharacterItem';
 import characterData from '../../../data/character.json';
-import { calcBookHeight, calcLevel } from '../../../utils/calcLevel';
 import { v4 as uuidv4 } from 'uuid';
 
-function CharacterList({ page: userTotalPage }) {
-  const userLevel = calcLevel(calcBookHeight(userTotalPage));
-
+function CharacterList({ level: userLevel }) {
   return (
     <div className="overflow-scroll">
       <ul className="flex gap-4 w-[1184px]">
@@ -24,7 +21,7 @@ function CharacterList({ page: userTotalPage }) {
 }
 
 CharacterList.propTypes = {
-  page: number,
+  level: number,
 };
 
 export default CharacterList;

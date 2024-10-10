@@ -1,9 +1,7 @@
 import { number, string } from 'prop-types';
-import { calcBookHeight, calcLevel } from '../../../utils/calcLevel';
 import characterData from '../../../data/character.json';
 
-function CharacterName({ page: userTotalPage, pageName: webPageName }) {
-  const userLevel = calcLevel(calcBookHeight(userTotalPage));
+function CharacterName({ level: userLevel, pageName }) {
   const userCharacterName = characterData.filter(
     (data) => data.level === userLevel
   )[0].name;
@@ -11,7 +9,7 @@ function CharacterName({ page: userTotalPage, pageName: webPageName }) {
   return (
     <span
       className={
-        webPageName === '책나무' ? 'heading-xs text-primary-500' : 'heading-xs'
+        pageName === '책나무' ? 'heading-xs text-primary-500' : 'heading-xs'
       }
     >
       {userCharacterName}
@@ -20,7 +18,7 @@ function CharacterName({ page: userTotalPage, pageName: webPageName }) {
 }
 
 CharacterName.propTypes = {
-  page: number,
+  level: number,
   pageName: string,
 };
 
