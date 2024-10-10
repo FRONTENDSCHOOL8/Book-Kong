@@ -122,6 +122,8 @@ export async function searchUserEmail(email) {
  * @returns Update 된 user의 record
  */
 export async function putUserBookHeight(totBookHeight) {
+  if (!totBookHeight) return;
+
   return await pb
     .collection('users')
     .update(loginUserData.id, { book_height: totBookHeight });
@@ -133,6 +135,8 @@ export async function putUserBookHeight(totBookHeight) {
  * @returns Update 된 user의 record
  */
 export async function putUserNewLevel(newUserLevel) {
+  if (!newUserLevel) return;
+
   return await pb
     .collection('users')
     .update(loginUserData.id, { level: newUserLevel });
