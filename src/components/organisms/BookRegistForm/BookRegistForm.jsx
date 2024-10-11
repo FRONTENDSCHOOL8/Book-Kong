@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import {
   loginUserData,
-  putUserBookHeight,
+  putBookToUser,
   putUserNewLevel,
 } from '../../../utils/controlUserData';
 import {
@@ -27,18 +27,24 @@ function BookRegistForm() {
     const readStatus = formData.get('status');
 
     if (readStatus === '완독') {
-      // DB 내 'users' collection의 book_height 값을 update하기 위한 변수 선언
+      // DB 내 'users' collection의 user record를 update하기 위한 변수 선언
       const bookPageNum = formData.get('total_page');
       const bookHeight = calcBookHeight(bookPageNum) * 1;
-      const userRecord = await pb.collection('users').getOne(loginUserData.id);
-      const totBookHeight = userRecord['book_height'] * 1 + bookHeight;
+      const userRec = await pb.collection('users').getOne(loginUserData.id);
+      const totBookHeight = (userRec?.['book_height'] * 1 + bookHeight).toFixed(
+        2
+      );
+      const doneBookNum = userRec?.['done_book'] * 1;
 
-      // DB 내 'users' collection의 book_height 값 update
-      const updatedUserRec = await putUserBookHeight(totBookHeight);
+      // DB 내 'users' collection의 user record 값 update
+      const updatedUserRec = await putBookToUser({
+        totBookHeight,
+        doneBookNum,
+      });
 
       // 더해진 bookHeight 값으로 인해 user의 level이 변동 되었을 경우 DB에 반영하는 로직
-      const updatedBookHeight = updatedUserRec['book_height'] * 1;
-      const userLevelCur = updatedUserRec.level * 1;
+      const updatedBookHeight = updatedUserRec?.['book_height'] * 1;
+      const userLevelCur = updatedUserRec?.level * 1;
 
       if (calcLevel(updatedBookHeight) !== userLevelCur) {
         putUserNewLevel(calcLevel(updatedBookHeight));

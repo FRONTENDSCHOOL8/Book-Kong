@@ -119,14 +119,16 @@ export async function searchUserEmail(email) {
 /**
  *
  * @param { number } totBookHeight DB 내 user의 기존 'book_height' field 값에 등록한 책의 height 수치를 더한 값
+ * @param { number } doneBookNum DB 내 user의 기존 'done_book' field 값
  * @returns Update 된 user의 record
  */
-export async function putUserBookHeight(totBookHeight) {
-  if (!totBookHeight) return;
+export async function putBookToUser({ totBookHeight, doneBookNum }) {
+  if (!(totBookHeight && doneBookNum)) return;
 
-  return await pb
-    .collection('users')
-    .update(loginUserData.id, { book_height: totBookHeight });
+  return await pb.collection('users').update(loginUserData.id, {
+    book_height: totBookHeight,
+    done_book: doneBookNum + 1,
+  });
 }
 
 /**
