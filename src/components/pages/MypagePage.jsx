@@ -6,13 +6,12 @@ import {
 } from '../../utils/controlUserData';
 import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
 import CharacterImg from '../atoms/CharacterImg/CharacterImg';
-import { useQuery } from '@tanstack/react-query';
-import { getUserLibraryData } from '../../utils/controlBookData';
 import CharacterName from '../atoms/CharacterName/CharacterName';
 import CharacterLevel from '../atoms/CharacterLevel/CharacterLevel';
 import TotalBookHeight from '../atoms/TotalBookHeight/TotalBookHeight';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -39,31 +38,13 @@ function MypagePage() {
       }
     }
   };
-  const {
-    data: { userFinishBookNum, userTotalPage },
-  } = useQuery({
-    queryKey: ['book'],
-    queryFn: () => getUserLibraryData('완독'),
-    // 파생상태는 select 옵션에 정리하면 좋습니다.
-    select: (books) => {
-      // 유저의 다 읽은 책 권수 계산
-      const userFinishBookNum = books?.length;
-
-      // 유저의 다 읽은 책 페이지 합계
-      let userTotalPage = 0;
-
-      if (books) {
-        for (const book of books) {
-          userTotalPage += book.total_page;
-        }
-      }
-
-      return { userFinishBookNum, userTotalPage };
-    },
-  });
 
   const loginUserNickName = loginUserData.nickname;
   const loginUserEmail = loginUserData.email;
+  const userRec = useLoaderData();
+  const userLevel = userRec?.level * 1 || 1;
+  const doneBookNum = userRec?.['done_book'] * 1 || 0;
+  const userBookHeight = userRec?.['book_height'] * 1 || 0;
 
   return (
     <>
@@ -81,19 +62,16 @@ function MypagePage() {
           </span>
         </div>
         <div className="flex flex-col items-center bg-white border-t">
-          <CharacterImg page={userTotalPage} />
+          <CharacterImg level={userLevel} />
           <span className="bg-[#FFE0DA] px-3 py-2 rounded-3xl">
-            <CharacterName
-              className="text-grayscale-900"
-              page={userTotalPage}
-            />
+            <CharacterName level={userLevel} />
           </span>
-          <CharacterLevel page={userTotalPage} />
+          <CharacterLevel level={userLevel} />
           <div className="flex bg-grayscale-100 w-[263px] items-center rounded-lg px-8 py-1">
             <span className="text-[#F24822] text-right mr-2 w-[35%]">
-              {userFinishBookNum}권
+              {doneBookNum}권
             </span>
-            <TotalBookHeight page={userTotalPage} />
+            <TotalBookHeight height={userBookHeight} />
           </div>
         </div>
 

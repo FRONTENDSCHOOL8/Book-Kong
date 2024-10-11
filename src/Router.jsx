@@ -117,6 +117,8 @@ const router = createBrowserRouter([
       {
         path: 'mypage',
         element: <MypagePage />,
+        loader: async () =>
+          await pb.collection('users').getOne(loginUserData.id),
       },
       {
         path: 'splash',

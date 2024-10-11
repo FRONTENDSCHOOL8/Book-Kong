@@ -13,7 +13,7 @@ function BookTree() {
   });
 
   // 유저의 다 읽은 책 권수 계산
-  const userFinishBookNum = data?.length;
+  const userFinishBookNum = data?.length || 0;
 
   // 유저의 다 읽은 책 페이지 합계
   let userTotalPage = 0;

@@ -4,7 +4,7 @@ import { useLoaderData } from 'react-router-dom';
 
 function CharacterCollection() {
   const userRec = useLoaderData();
-  const userLevel = userRec.level - 0;
+  const userLevel = userRec?.level * 1 || 1;
 
   return (
     <main className=" bg-background-gray relative justify-end flex flex-col  px-4 ">

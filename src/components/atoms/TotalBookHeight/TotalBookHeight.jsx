@@ -1,11 +1,6 @@
 import { number } from 'prop-types';
-import { calcBookHeight } from '../../../utils/calcLevel';
 
-// BookInfo에서 받아온 data
-function TotalBookHeight({ page: userTotalPage }) {
-  // 유틸 함수를 활용하여 계산식을 totalbookHeight에 담아 사용한다.
-  const userBookHeight = calcBookHeight(userTotalPage);
-
+function TotalBookHeight({ height: userBookHeight }) {
   return (
     <div className="flex items-end gap-2 grow">
       <p className="contents-2xl-md text-primary-500">{userBookHeight}</p>
@@ -15,7 +10,7 @@ function TotalBookHeight({ page: userTotalPage }) {
 }
 
 TotalBookHeight.propTypes = {
-  page: number,
+  height: number,
 };
 
 export default TotalBookHeight;
