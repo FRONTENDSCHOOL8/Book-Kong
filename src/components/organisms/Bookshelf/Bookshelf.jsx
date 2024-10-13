@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { Skeleton } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
 import UserBookList from '../UserBookList/UserBookList';
-import SearchBar from '../../molecules/SearchBar/SearchBar';
 import useUserLibData from '../../../hooks/useUserLibData';
+import SearchBar from '../../molecules/SearchBar/SearchBar';
 import ReadingStateFilter from '../../molecules/ReadingStateFilter/ReadingStateFilter';
 
 function Bookshelf() {
@@ -35,37 +34,16 @@ function Bookshelf() {
       <Helmet>
         <title>책콩 | 서재 - 책장</title>
       </Helmet>
-      {isLoading ? (
-        <>
-          <Skeleton variant="rounded">
-            <SearchBar onSubmit={handleSubmit} />
-          </Skeleton>
-          <ReadingStateFilter
-            onClick={handleClick}
-            readingState={readingState}
-            isLoading={isLoading}
-          />
-          <UserBookList
-            data={
-              readingState === '전체'
-                ? data
-                : data?.filter((record) => record.status === readingState)
-            }
-          />
-        </>
-      ) : (
-        <>
-          <SearchBar onSubmit={handleSubmit} />
-          <ReadingStateFilter onClick={handleClick} readingState={readingState} />
-          <UserBookList
-            data={
-              readingState === '전체'
-                ? data
-                : data?.filter((record) => record.status === readingState)
-            }
-          />
-        </>
-      )}
+      <SearchBar onSubmit={handleSubmit} />
+      <ReadingStateFilter onClick={handleClick} readingState={readingState} />
+      <UserBookList
+        data={
+          readingState === '전체'
+            ? data
+            : data?.filter((record) => record.status === readingState)
+        }
+        isLoading={isLoading}
+      />
     </main>
   );
 }

@@ -1,11 +1,12 @@
 import UserBookCard from './UserBookCard';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 const metaConfig = {
   title: 'components/UserBookCard',
   component: UserBookCard,
   tags: ['autodocs'],
   args: {
-    data: {
+    record: {
       id: 'RECORD_ID',
       collectionId: 'msuc2divt2x4pye',
       collectionName: 'library',
@@ -28,6 +29,9 @@ const metaConfig = {
       read_page: 123,
       expectation_description: 'test',
     },
+  },
+  argTypes: {
+    record: createArgTypesControl('object'),
   },
 };
 

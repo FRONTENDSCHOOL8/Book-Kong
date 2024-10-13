@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
 import { motion } from 'framer-motion';
 import convertDayFormat from '/src/utils/convertDayFormat.js';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
+import { calcUserLevel } from '../../../utils/calcUserLevel';
 
 function FeedCard({ bookTitle, title, content, date, nickname, book_height }) {
   const cardVar = {
@@ -46,7 +43,7 @@ function FeedCard({ bookTitle, title, content, date, nickname, book_height }) {
       </span>
       <div className="flex items-center gap-3 pt-4 border-t border-grayscale-200">
         <img
-          src={`/images/characters/${calcUserLevel(calcUserBookHeight(book_height))}단계.png`}
+          src={`/images/characters/stage${calcUserLevel(book_height)}.png`}
           className="w-10 h-10"
         />
         <div className="flex flex-col gap-1">
