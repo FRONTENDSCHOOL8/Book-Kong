@@ -6,15 +6,20 @@ function CharacterName({ level: userLevel, pageName }) {
     (data) => data.level === userLevel
   )[0].name;
 
-  return (
-    <span
-      className={
-        pageName === '책나무' ? 'heading-xs text-primary-500' : 'heading-xs'
-      }
-    >
-      {userCharacterName}
-    </span>
-  );
+  switch (pageName) {
+    case '책나무':
+      return (
+        <span className="heading-xs text-primary-500">{userCharacterName}</span>
+      );
+    case '마이페이지':
+      return (
+        <span className="heading-xs text-primary-500 bg-[#FFE0DA] px-3 py-2 rounded-3xl">
+          {userCharacterName}
+        </span>
+      );
+    default:
+      return <span className="heading-xs">{userCharacterName}</span>;
+  }
 }
 
 CharacterName.propTypes = {
