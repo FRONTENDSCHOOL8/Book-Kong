@@ -6,7 +6,7 @@ function CharacterImg({ level: userLevel }) {
     (data) => data.level === userLevel
   )[0].image;
 
-  return <img src={userCharacterImg} width={150} />;
+  return <img src={userCharacterImg} alt="캐릭터 이미지" width={150} />;
 }
 
 CharacterImg.propTypes = {
