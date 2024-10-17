@@ -70,14 +70,13 @@ export async function signUpUser(nickname, email, password) {
 /**
  * 회원탈퇴 함수
  * * 로그인된 회원의 id를 가져와 회원탈퇴를 하는 함수
- * TODO 회원가입에 문제가 없을 시 '로그인 정보가 없습니다.' 제거
  */
 export async function withdrawUser() {
   if (loginUserData) {
     return await pb.collection('users').delete(loginUserData.id);
-  } else {
-    return '로그인 정보가 없습니다.';
   }
+
+  return alert('통신 오류입니다. 다시 시도해주시길 바랍니다.');
 }
 
 /**
