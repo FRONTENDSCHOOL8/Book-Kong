@@ -3,6 +3,7 @@ import { number, object, func } from 'prop-types';
 function CharacterItem({
   data: { image: characterImg, level: characterLevel },
   userLv,
+  clickedLv,
   index,
   onClick,
 }) {
@@ -10,7 +11,7 @@ function CharacterItem({
     return (
       <li data-index={`${index}`}>
         <button
-          className="w-20 flex-col justify-center border-[3px] rounded-lg border-primary-500 bg-white"
+          className={`w-20 flex-col justify-center rounded-lg bg-white ${clickedLv === index + 1 ? 'border-[3px] border-primary-500' : ''}`}
           onClick={onClick}
         >
           <img src={characterImg} alt={`${characterLevel}단계 캐릭터`} />
@@ -36,6 +37,7 @@ CharacterItem.propTypes = {
   data: object,
   index: number,
   userLv: number,
+  clickedLv: number,
   onClick: func,
 };
 
