@@ -17,7 +17,7 @@ import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 function MypagePage() {
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleLogOut = () => {
     const isLoginDataCleared = clearLoginUserData();
     if (isLoginDataCleared) {
       alert('로그아웃이 되었습니다.');
@@ -27,7 +27,7 @@ function MypagePage() {
     }
   };
 
-  const handleWithdrawClick = async () => {
+  const handleWithdraw = async () => {
     const isConfirmed = confirm('정말로 탈퇴하시겠습니까?');
     if (isConfirmed) {
       const result = await withdrawUser();
@@ -129,12 +129,12 @@ function MypagePage() {
         <section className="flex flex-col bg-white mt-2">
           <A11yHidden as="h2">로그아웃 및 탈퇴</A11yHidden>
           <button
-            onClick={handleClick}
+            onClick={handleLogOut}
             className=" text-start p-4 border-b text-[#F24822]"
           >
             로그아웃
           </button>
-          <button onClick={handleWithdrawClick} className=" text-start p-4">
+          <button onClick={handleWithdraw} className=" text-start p-4">
             회원 탈퇴
           </button>
         </section>
