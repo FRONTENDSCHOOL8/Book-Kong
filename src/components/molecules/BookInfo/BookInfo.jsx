@@ -8,7 +8,7 @@ function BookInfo({
   page: userTotalPage,
   isLoading,
 }) {
-  const userBookHeight = calcBookHeight(userTotalPage);
+  const userBookHeight = calcBookHeight(userTotalPage) * 1;
 
   return (
     <div className="w-[287px] h-[84px] py-6 flex justify-center items-center border rounded-lg bg-background-gray border-grayscale-100">
