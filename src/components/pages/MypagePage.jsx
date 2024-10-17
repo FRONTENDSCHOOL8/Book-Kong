@@ -13,13 +13,17 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 import A11yHidden from '../atoms/A11yHidden/A11yHidden';
+import pb from '../../api/pocketbase';
 
 function MypagePage() {
   const navigate = useNavigate();
 
   const handleLogOut = () => {
-    const isLoginDataCleared = clearLoginUserData();
-    if (isLoginDataCleared) {
+    const willLogOut = confirm('로그아웃 하시겠습니까?');
+
+    if (willLogOut) clearLoginUserData();
+
+    if (!pb.authStore.isValid) {
       alert('로그아웃이 되었습니다.');
       // 로그아웃시 로그인페이지로 이동
       navigate('/login');
@@ -28,15 +32,18 @@ function MypagePage() {
   };
 
   const handleWithdraw = async () => {
-    const isConfirmed = confirm('정말로 탈퇴하시겠습니까?');
-    if (isConfirmed) {
-      const result = await withdrawUser();
-      if (result) {
-        alert('회원 탈퇴가 완료되었습니다.');
-        navigate('/login');
-      } else {
-        alert('오류가 발생했습니다. 다시 시도해주세요.');
-      }
+    let isWithdrawn = false;
+
+    const willWithdraw = confirm('정말로 탈퇴하시겠습니까?');
+
+    if (willWithdraw) {
+      await withdrawUser();
+      isWithdrawn = true;
+    }
+
+    if (isWithdrawn) {
+      alert('회원 탈퇴가 완료되었습니다.');
+      navigate('/login');
     }
   };
 
