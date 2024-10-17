@@ -31,9 +31,6 @@ export async function loginWithEmail(email, password) {
 export function clearLoginUserData() {
   if (loginUserData) {
     pb.authStore.clear();
-    return true;
-  } else {
-    return false;
   }
 }
 
