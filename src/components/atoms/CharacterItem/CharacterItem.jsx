@@ -2,11 +2,11 @@ import { number, object, func } from 'prop-types';
 
 function CharacterItem({
   data: { image: characterImg, level: characterLevel },
-  level: userLevel,
+  userLv,
   index,
   onClick,
 }) {
-  if (userLevel >= index + 1) {
+  if (userLv >= index + 1) {
     return (
       <li data-index={`${index}`}>
         <button
@@ -35,7 +35,7 @@ function CharacterItem({
 CharacterItem.propTypes = {
   data: object,
   index: number,
-  level: number,
+  userLv: number,
   onClick: func,
 };
 

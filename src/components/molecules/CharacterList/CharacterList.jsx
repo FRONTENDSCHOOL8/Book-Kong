@@ -3,7 +3,7 @@ import CharacterItem from '../../atoms/CharacterItem/CharacterItem';
 import characterData from '../../../data/character.json';
 import { v4 as uuidv4 } from 'uuid';
 
-function CharacterList({ level: userLevel, onClick }) {
+function CharacterList({ userLv, onClick }) {
   return (
     <div className="overflow-scroll">
       <ul className="flex gap-4 w-[1184px]">
@@ -11,7 +11,7 @@ function CharacterList({ level: userLevel, onClick }) {
           <CharacterItem
             key={uuidv4()}
             data={data}
-            level={userLevel}
+            userLv={userLv}
             index={index}
             onClick={onClick}
           />
@@ -22,7 +22,7 @@ function CharacterList({ level: userLevel, onClick }) {
 }
 
 CharacterList.propTypes = {
-  level: number,
+  userLv: number,
   onClick: func,
 };
 
