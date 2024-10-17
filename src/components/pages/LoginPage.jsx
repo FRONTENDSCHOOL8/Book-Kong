@@ -108,7 +108,7 @@ function LoginPage() {
       <SnsDivider />
       <SnsIcons />
       <div className="flex items-center justify-center gap-3 mt-20">
-        <Link to="#" className="text-[#848484]">
+        <Link to="/register" className="text-[#848484]">
           회원가입
         </Link>
         <div className=" bg-[#AAA] w-[1px] h-3"></div>

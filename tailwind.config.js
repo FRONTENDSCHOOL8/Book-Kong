@@ -6,6 +6,9 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     current: 'currentColor',
+    fontFamily: {
+      display: ['"IBM Plex Sans KR"', 'sans-serif'],
+    },
     extend: {
       fontSize: {
         'nav-list': '10px',

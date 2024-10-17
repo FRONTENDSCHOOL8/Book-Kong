@@ -1,21 +1,16 @@
 import { number } from 'prop-types';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
 import characterData from '../../../data/character.json';
 
-function CharacterImg({ page: userTotalPage }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
+function CharacterImg({ level: userLevel }) {
   const userCharacterImg = characterData.filter(
     (data) => data.level === userLevel
   )[0].image;
 
-  return <img src={userCharacterImg} width={150} />;
+  return <img src={userCharacterImg} alt="캐릭터 이미지" width={150} />;
 }
 
 CharacterImg.propTypes = {
-  page: number,
+  level: number,
 };
 
 export default CharacterImg;
