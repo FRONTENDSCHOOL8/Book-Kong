@@ -78,7 +78,7 @@ function MypagePage() {
             <div className="mb-3 mt-8">
               <CharacterName level={userLevel} pageName="마이페이지" />
             </div>
-            <CharacterLevel level={userLevel} />
+            <CharacterLevel level={userLevel} pgName="마이페이지" />
             <div className="flex bg-grayscale-100 w-[263px] items-center rounded-lg px-8 py-1 my-6">
               <span className="text-[#F24822] text-right mr-2 w-[35%]">
                 {doneBookNum}권

@@ -16,7 +16,7 @@ function UserCharacterCard({ userLv, clickedLv }) {
         <MyCharBadge />
       </figure>
       <div className="flex-col px-6 pt-[49px] justify-end">
-        <CharacterLevel level={clickedLv} />
+        <CharacterLevel level={clickedLv} pgName="캐릭터" />
         <CharacterHeight level={clickedLv} />
       </div>
     </div>

@@ -13,7 +13,7 @@ function CharacterName({ level: userLevel, pageName }) {
       );
     case '마이페이지':
       return (
-        <span className="heading-xs text-primary-500 bg-[#FFE0DA] px-3 py-2 rounded-3xl">
+        <span className="tab-menu text-primary-500 bg-[#FFE0DA] px-3 py-2 rounded-3xl">
           {userCharacterName}
         </span>
       );
