@@ -31,9 +31,6 @@ export async function loginWithEmail(email, password) {
 export function clearLoginUserData() {
   if (loginUserData) {
     pb.authStore.clear();
-    return true;
-  } else {
-    return false;
   }
 }
 
@@ -59,6 +56,7 @@ export async function signUpUser(nickname, email, password) {
     passwordConfirm: password,
     nickname: nickname,
     book_height: 0,
+    level: 1,
   };
 
   try {
@@ -72,14 +70,13 @@ export async function signUpUser(nickname, email, password) {
 /**
  * 회원탈퇴 함수
  * * 로그인된 회원의 id를 가져와 회원탈퇴를 하는 함수
- * TODO 회원가입에 문제가 없을 시 '로그인 정보가 없습니다.' 제거
  */
 export async function withdrawUser() {
   if (loginUserData) {
     return await pb.collection('users').delete(loginUserData.id);
-  } else {
-    return '로그인 정보가 없습니다.';
   }
+
+  return alert('통신 오류입니다. 다시 시도해주시길 바랍니다.');
 }
 
 /**
@@ -109,6 +106,38 @@ export async function searchUserEmail(email) {
 
   if (userList.length === 0) return '사용가능한 이메일 입니다.';
   else return '이미 존재하는 이메일 입니다.';
+}
+
+/* -------------------------------------------- */
+/*              읽은 책 등록 시 사용              */
+/* -------------------------------------------- */
+
+/**
+ *
+ * @param { number } totBookHeight DB 내 user의 기존 'book_height' field 값에 등록한 책의 height 수치를 더한 값
+ * @param { number } doneBookNum DB 내 user의 기존 'done_book' field 값
+ * @returns Update 된 user의 record
+ */
+export async function putBookToUser({ totBookHeight, doneBookNum }) {
+  if (!(totBookHeight && doneBookNum)) return;
+
+  return await pb.collection('users').update(loginUserData.id, {
+    book_height: totBookHeight,
+    done_book: doneBookNum + 1,
+  });
+}
+
+/**
+ *
+ * @param { number } newUserLevel 책 등록 시 변화 된 user의 level
+ * @returns Update 된 user의 record
+ */
+export async function putUserNewLevel(newUserLevel) {
+  if (!newUserLevel) return;
+
+  return await pb
+    .collection('users')
+    .update(loginUserData.id, { level: newUserLevel });
 }
 
 /* -------------------------------------------- */

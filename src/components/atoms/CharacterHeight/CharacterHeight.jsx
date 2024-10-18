@@ -1,12 +1,7 @@
 import { number } from 'prop-types';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
 import characterData from '../../../data/character.json';
 
-function CharacterHeight({ page: userTotalPage }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
+function CharacterHeight({ level: userLevel }) {
   const characterHeight = characterData.filter(
     (data) => data.level === userLevel
   )[0].height;
@@ -19,7 +14,7 @@ function CharacterHeight({ page: userTotalPage }) {
 }
 
 CharacterHeight.propTypes = {
-  page: number,
+  level: number,
 };
 
 export default CharacterHeight;
