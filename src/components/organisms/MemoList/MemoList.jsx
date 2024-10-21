@@ -92,7 +92,7 @@ function MemoList() {
             <MemoCard
               key={memo.id}
               id={memo.id}
-              title={memo.expand.book_id.title}
+              title={memo.book_title}
               contents={memo.content}
               date={memo.created}
             />

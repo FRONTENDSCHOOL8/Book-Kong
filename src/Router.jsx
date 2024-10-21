@@ -93,8 +93,7 @@ const router = createBrowserRouter([
       {
         path: 'record/memo/:memoId',
         element: <MemoDetailPage />,
-        loader: async ({ params }) =>
-          await getMemoData(params.memoId, { expand: 'book_id' }),
+        loader: async ({ params }) => await getMemoData(params.memoId),
       },
       {
         path: 'feed/registration',
