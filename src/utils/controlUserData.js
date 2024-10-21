@@ -145,4 +145,5 @@ export async function putUserNewLevel(newUserLevel) {
 /* -------------------------------------------- */
 
 // 현재 로그인된 유저의 정보를 가져오는 변수
+// 다른 정보 ( e.g., book_height ) 는 DB data 반영이 제대로 안 되니, loginUserData 객체에서는 id 값만 가져다가 쓸 것
 export const loginUserData = pb.authStore.model;
