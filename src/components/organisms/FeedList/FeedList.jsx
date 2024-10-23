@@ -1,15 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { loginUserData } from '../../../utils/controlUserData';
-import { getUserFeedData } from '../../../utils/controlFeedData';
+import { getAllFeedsRec } from '../../../utils/controlFeedData';
 import { motion } from 'framer-motion';
 import FeedCard from '../FeedCard/FeedCard';
 import { Skeleton } from '@mui/material';
 
 function FeedList() {
-  const { data, isLoading } = useQuery({
-    queryKey: ['feed', loginUserData],
-    queryFn: async () => getUserFeedData(),
-    staleTime: 1000 * 60 * 5,
+  const { data: feedsRecs, isLoading } = useQuery({
+    queryKey: ['feeds', loginUserData],
+    queryFn: () => getAllFeedsRec(),
   });
 
   const listVar = {
@@ -54,15 +53,15 @@ function FeedList() {
             </Skeleton>
           </>
         ) : (
-          data?.map((feed) => (
+          feedsRecs?.map((feedsRec) => (
             <FeedCard
-              key={feed.id}
-              bookTitle={feed.expand?.book_id?.title}
-              title={feed.title}
-              content={feed.content}
-              date={feed.created}
-              nickname={feed.expand?.book_id?.expand.user_id.nickname}
-              book_height={feed.expand?.book_id?.expand.user_id.book_height}
+              key={feedsRec.id}
+              bookTitle={feedsRec.book_title}
+              title={feedsRec.feed_title}
+              content={feedsRec.content}
+              date={feedsRec.created}
+              nickname={feedsRec.expand?.user_id.nickname}
+              book_height={feedsRec.expand?.user_id.book_height}
               isLoading={isLoading}
             />
           ))
