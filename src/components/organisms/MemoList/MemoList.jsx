@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import OrderButton from '../../molecules/OrderButton/OrderButton';
 import MemoCard from '../MemoCard/MemoCard';
 import { loginUserData } from '../../../utils/controlUserData';
-import { getUserMemoData } from '../../../utils/controlMemoData';
+import { getUserMemosRecs } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -32,10 +32,9 @@ function MemoList() {
   }, [order]);
 
   const { data, isLoading } = useQuery({
-    queryKey: ['memo', loginUserData],
-    queryFn: async () =>
-      getUserMemoData(order === '최신순' ? 'created' : '-created'),
-    staleTime: 1000 * 60 * 5,
+    queryKey: ['memos', loginUserData],
+    queryFn: () =>
+      getUserMemosRecs(order === '최신순' ? 'created' : '-created'),
   });
 
   const listVar = {

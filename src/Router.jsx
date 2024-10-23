@@ -21,7 +21,7 @@ import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
 import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
-import { getMemoData } from './utils/controlMemoData';
+import { getOneMemosRec } from './utils/controlMemoData';
 import MemoRegistrationPage from './components/pages/MemoRegistrationPage/MemoRegistrationPage';
 import pb from './api/pocketbase';
 import { loginUserData } from './utils/controlUserData';
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
       {
         path: 'record/memo/:memoId',
         element: <MemoDetailPage />,
-        loader: async ({ params }) => await getMemoData(params.memoId),
+        loader: async ({ params }) => await getOneMemosRec(params.memoId),
       },
       {
         path: 'feed/registration',

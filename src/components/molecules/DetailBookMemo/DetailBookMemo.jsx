@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import OrderButton from '../OrderButton/OrderButton';
 import MemoCard from '../../organisms/MemoCard/MemoCard';
 import { loginUserData } from '../../../utils/controlUserData';
-import { getUserMemoData } from '../../../utils/controlMemoData';
+import { getUserMemosRecs } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -22,10 +22,10 @@ function DetailBookMemo({ data: bookData }) {
 
     if (order === '최신순') {
       setOrder('오래된순');
-      data.reverse();
+      memosOfTheBook.reverse();
     } else {
       setOrder('최신순');
-      data.reverse();
+      memosOfTheBook.reverse();
     }
   };
 
@@ -33,20 +33,12 @@ function DetailBookMemo({ data: bookData }) {
     localStorage.setItem('order', order);
   }, [order]);
 
-  const { data } = useQuery({
-    queryKey: ['memo-detail', loginUserData, bookData.id],
-    queryFn: async () => {
-      const memoData = await getUserMemoData(
-        order === '최신순' ? 'created' : '-created'
-      );
-
-      const filteredData = memoData?.filter(
-        (memo) => memo.expand.book_id.id === bookData.id
-      );
-
-      return filteredData;
-    },
-    staleTime: 1000 * 60 * 5,
+  const { data: memosOfTheBook } = useQuery({
+    queryKey: ['memos', loginUserData, bookData.id],
+    queryFn: () =>
+      getUserMemosRecs(order === '최신순' ? 'created' : '-created'),
+    select: (memosRecs) =>
+      memosRecs?.filter((memosRec) => memosRec.book_title === bookData.title),
   });
 
   const listVar = {
@@ -64,8 +56,8 @@ function DetailBookMemo({ data: bookData }) {
   const [listCount, setListCount] = useState(0);
 
   useEffect(() => {
-    setListCount(data?.length || 0);
-  }, [data]);
+    setListCount(memosOfTheBook?.length || 0);
+  }, [memosOfTheBook]);
 
   return (
     <section
@@ -89,9 +81,9 @@ function DetailBookMemo({ data: bookData }) {
         </div>
         <div className="flex flex-col items-end px-4 pb-[56px] ">
           <div
-            className={`w-full flex items-center ${data?.length !== 0 ? 'justify-between' : 'justify-end'} mt-6 mb-4`}
+            className={`w-full flex items-center ${memosOfTheBook?.length !== 0 ? 'justify-between' : 'justify-end'} mt-6 mb-4`}
           >
-            {data?.length !== 0 ? (
+            {memosOfTheBook?.length !== 0 ? (
               <OrderButton onClick={toggleSort} order={order} />
             ) : (
               ''
@@ -104,14 +96,14 @@ function DetailBookMemo({ data: bookData }) {
             animate="end"
             className="flex flex-col w-full gap-3"
           >
-            {data?.length !== 0 ? (
-              data?.map((memo) => (
+            {memosOfTheBook?.length !== 0 ? (
+              memosOfTheBook?.map((memosRec) => (
                 <MemoCard
-                  key={memo.id}
-                  title={memo.expand.book_id.title}
-                  contents={memo.content}
-                  date={memo.created}
-                  id={memo.id}
+                  key={memosRec.id}
+                  title={memosRec.book_title}
+                  contents={memosRec.content}
+                  date={memosRec.created}
+                  id={memosRec.id}
                 />
               ))
             ) : (
