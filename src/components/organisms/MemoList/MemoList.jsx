@@ -2,11 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import OrderButton from '../../molecules/OrderButton/OrderButton';
 import MemoCard from '../MemoCard/MemoCard';
 import { loginUserData } from '../../../utils/controlUserData';
-import { getUserMemoData } from '../../../utils/controlMemoData';
+import { getUserMemosRecs } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { Skeleton } from '@mui/material';
 
 function MemoList() {
   const initialOrder = localStorage.getItem('order') || '최신순';
@@ -30,11 +31,10 @@ function MemoList() {
     localStorage.setItem('order', order);
   }, [order]);
 
-  const { data } = useQuery({
-    queryKey: ['memo', loginUserData],
-    queryFn: async () =>
-      getUserMemoData(order === '최신순' ? 'created' : '-created'),
-    staleTime: 1000 * 60 * 5,
+  const { data, isLoading } = useQuery({
+    queryKey: ['memos', loginUserData],
+    queryFn: () =>
+      getUserMemosRecs(order === '최신순' ? 'created' : '-created'),
   });
 
   const listVar = {
@@ -65,15 +65,38 @@ function MemoList() {
         animate="end"
         className="flex flex-col w-full gap-3"
       >
-        {data?.map((memo) => (
-          <MemoCard
-            key={memo.id}
-            id={memo.id}
-            title={memo.expand.book_id.title}
-            contents={memo.content}
-            date={memo.created}
-          />
-        ))}
+        {isLoading ? (
+          <>
+            <Skeleton
+              variant="rounded"
+              sx={{ borderRadius: '0.5rem', width: 1, height: 180 }}
+            >
+              <li className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative border border-grayscale-100"></li>
+            </Skeleton>
+            <Skeleton
+              variant="rounded"
+              sx={{ borderRadius: '0.5rem', width: 1, height: 180 }}
+            >
+              <li className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative border border-grayscale-100"></li>
+            </Skeleton>
+            <Skeleton
+              variant="rounded"
+              sx={{ borderRadius: '0.5rem', width: 1, height: 180 }}
+            >
+              <li className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative border border-grayscale-100"></li>
+            </Skeleton>
+          </>
+        ) : (
+          data?.map((memo) => (
+            <MemoCard
+              key={memo.id}
+              id={memo.id}
+              title={memo.book_title}
+              contents={memo.content}
+              date={memo.created}
+            />
+          ))
+        )}
       </motion.ul>
     </motion.main>
   );

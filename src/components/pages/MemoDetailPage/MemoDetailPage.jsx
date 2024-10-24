@@ -30,7 +30,7 @@ function MemoDetailPage() {
                 fill="#F24822"
               />
             </svg>
-            {memo?.expand.book_id.title}
+            {memo?.book_title}
           </div>
           <div className="mt-4 whitespace-pre-wrap contents-sm">
             {memo.content}

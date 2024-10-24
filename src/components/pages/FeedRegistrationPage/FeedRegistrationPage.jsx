@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import Header from '../../organisms/Header/Header/Header';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import pb from '../../../api/pocketbase';
 import { loginUserData } from '../../../utils/controlUserData';
 import { useState } from 'react';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getUserLibraryData } from '/src/utils/controlBookData';
 import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
+import { v4 as uuidv4 } from 'uuid';
 
 // 피드 생성 패치 함수
 const createFeed = async (formData) => {
@@ -17,13 +17,7 @@ const createFeed = async (formData) => {
 const FeedRegistrationPage = () => {
   const navigate = useNavigate();
   const formRef = useRef(null);
-  const [selectState, setSelectState] = useState('');
-
-  // 데이터 패칭 및 캐시
-  const { data: librariesData } = useQuery({
-    queryKey: ['library', loginUserData.id],
-    queryFn: async () => getUserLibraryData(),
-  });
+  const [bookTitle, setBookTitle] = useState('');
 
   // 데이터 생성
   const feedMutation = useMutation({
@@ -34,24 +28,36 @@ const FeedRegistrationPage = () => {
   });
 
   const handleSelect = (e) => {
-    setSelectState(e.target.value);
+    setBookTitle(e.target.value);
   };
 
   // 폼 태그 Submit 작동 Action
   const handleFeedSubmit = (e) => {
     e.preventDefault();
+
     if (formRef.current) {
-      const formData = Object.fromEntries(
-        new FormData(formRef.current).entries()
-      );
-      formData.book_id = selectState;
-      if (formData.book_id === '') {
+      const formData = new FormData(formRef.current);
+
+      if (formData.get('book_title') === '') {
         throw new Error('책 제목을 선택해주세요.');
       }
+
+      formData.append('user_id', loginUserData.id);
 
       feedMutation.mutate(formData);
     }
   };
+
+  const dummyData = [
+    '오만과 편견',
+    '자유론',
+    '사피엔스',
+    '총 균 쇠',
+    '프랑켄슈타인 (무선)',
+    '나는 3학년 2반 7번 애벌레',
+    '죄와 벌 1',
+    '사랑의 기술',
+  ];
 
   return (
     <>
@@ -73,16 +79,17 @@ const FeedRegistrationPage = () => {
               </A11yHidden>
               <select
                 id="feed-book-select"
-                name="book-title"
+                name="book_title"
                 onChange={handleSelect}
-                className="block w-full outline-none contents-sm-bold"
+                className="block w-full outline-none contents-sm-bold cursor-pointer"
+                value={bookTitle}
               >
-                <option selected value="" disabled>
+                <option value="" disabled>
                   책 제목을 선택해주세요.
                 </option>
-                {librariesData?.map((library) => (
-                  <option key={library.id} value={library.id}>
-                    {library.title}
+                {dummyData?.map((bookTitle) => (
+                  <option key={uuidv4()} value={bookTitle}>
+                    {bookTitle}
                   </option>
                 ))}
               </select>
@@ -94,7 +101,7 @@ const FeedRegistrationPage = () => {
               <input
                 required
                 id="feed-title"
-                name="feed-title"
+                name="feed_title"
                 className="w-full mt-6 outline-none text-content-large"
                 placeholder="제목을 입력해주세요."
               />
@@ -104,7 +111,7 @@ const FeedRegistrationPage = () => {
               <textarea
                 required
                 id="feed-textarea"
-                name="feed-contents"
+                name="content"
                 className="w-full mt-4 outline-none text-content-small h-[524px] resize-none"
                 placeholder="내용을 입력해주세요."
               />

@@ -31,8 +31,6 @@ function RegisterPage() {
   const [isPwdValid, setIsPwdValid] = useState(false);
   const [isConfirmPwdValid, setIsConfirmPwdValid] = useState(false);
 
-  const navigate = useNavigate();
-
   // onchange 닉네임
 
   const onChangeNickname = debounce(async (e) => {
@@ -109,6 +107,8 @@ function RegisterPage() {
   };
 
   // DB로 보내기
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();

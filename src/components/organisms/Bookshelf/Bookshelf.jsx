@@ -18,6 +18,7 @@ function Bookshelf() {
 
   const handleClick = (e) => {
     const button = e.target.closest('button');
+
     if (!button) return;
 
     setReadingState(button.innerText);
@@ -25,7 +26,9 @@ function Bookshelf() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const newKeyword = e.target[0].value.trim();
+
     setQuery(newKeyword);
   };
 
