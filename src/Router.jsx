@@ -18,7 +18,6 @@ import { HelmetProvider } from 'react-helmet-async';
 import { getAladinBook } from './api/searchAladin';
 import { getOneLibraryData } from './utils/controlBookData';
 import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
-import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
 import { getOneMemosRec } from './utils/controlMemoData';
@@ -118,10 +117,6 @@ const router = createBrowserRouter([
         element: <MypagePage />,
         loader: async () =>
           await pb.collection('users').getOne(loginUserData.id),
-      },
-      {
-        path: 'splash',
-        element: <SplashPage />,
       },
     ],
   },
