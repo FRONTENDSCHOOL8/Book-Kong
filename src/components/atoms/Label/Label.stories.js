@@ -1,5 +1,5 @@
-import { createArgTypesControl } from '../../../utils/storybook';
 import Label from './Label';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 const id = crypto.randomUUID;
 
@@ -8,34 +8,20 @@ const metaConfig = {
   component: Label,
   tags: ['autodocs'],
   args: {
-    children: ['Label'],
-    className: 'contents-md-bold text-grayscale-900 w-16',
     htmlFor: id,
-    hiddenLabel: false,
-    restProps: {},
+    children: ['라벨'],
+    className: '',
   },
   argTypes: {
+    htmlFor: createArgTypesControl(),
     children: createArgTypesControl('array'),
     className: createArgTypesControl(),
-    htmlFor: createArgTypesControl(),
-    hiddenLabel: createArgTypesControl('boolean'),
-    restProps: createArgTypesControl('object'),
   },
 };
 
 export default metaConfig;
 
-export const LabelShown = {
-  args: {
-    children: '일반 label',
-  },
+export const Base = {
+  args: {},
 };
-LabelShown.storyName = '일반 label';
-
-export const LabelHidden = {
-  args: {
-    children: '숨겨진 label',
-    hiddenLabel: true,
-  },
-};
-LabelHidden.storyName = '숨겨진 label';
+Base.storyName = 'Label';

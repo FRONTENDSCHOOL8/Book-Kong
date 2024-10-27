@@ -3,7 +3,7 @@ import LargeHeader from '../LargeHeader/LargeHeader';
 import TabNavigation from '../../TabNavigation/TabNavigation';
 import SmallHeader from '../SmallHeader/SmallHeader';
 
-function Header({ title }) {
+function Header({ title, formId }) {
   const titlesWithLargeHeader = [
     '기록',
     '서재',
@@ -34,7 +34,10 @@ function Header({ title }) {
       )}
       {titlesWithSmallHeader.includes(title) && (
         <>
-          <SmallHeader title={title === '책 상세' ? '' : title} />
+          <SmallHeader
+            title={title === '책 상세' ? '' : title}
+            formId={formId}
+          />
         </>
       )}
     </header>
@@ -43,6 +46,7 @@ function Header({ title }) {
 
 Header.propTypes = {
   title: propTypes.string.isRequired,
+  formId: propTypes.string,
 };
 
 export default Header;

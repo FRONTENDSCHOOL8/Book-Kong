@@ -6,10 +6,10 @@ import SignUpPrompt from '../atoms/SignUpPrompt/SignUpPrompt';
 import SignUpButton from '../atoms/SignupButton/SignUpButton';
 import SnsIcons from '../atoms/SnsIcons/SnsIcons';
 import { useNavigate } from 'react-router-dom';
-import Link from '../molecules/Link/Link';
 import { Helmet } from 'react-helmet-async';
 import FormInputBox from '../molecules/FormInputBox/FormInputBox';
 import A11yHidden from '../atoms/A11yHidden/A11yHidden';
+import { Link } from 'react-router-dom';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -108,11 +108,23 @@ function LoginPage() {
       <SnsDivider />
       <SnsIcons />
       <div className="flex items-center justify-center gap-3 mt-20">
-        <a className="text-[#848484]">회원가입</a>
+        <Link to="#" className="text-[#848484]">
+          회원가입
+        </Link>
         <div className=" bg-[#AAA] w-[1px] h-3"></div>
-        <a className="text-[#848484]">아이디 혹은 비밀번호 찾기</a>
+        <Link to="#" className="text-[#848484]">
+          아이디 혹은 비밀번호 찾기
+        </Link>
       </div>
-      <Link />
+      <div className="flex gap-3 justify-center items-center mt-20">
+        <Link to="#" className="text-[#AAA]">
+          개인정보 보호정책
+        </Link>
+        <div className="bg-[#AAA] w-[1px] h-3"></div>
+        <Link to="#" className="text-[#AAA]">
+          이용약관
+        </Link>
+      </div>
     </div>
   );
 }

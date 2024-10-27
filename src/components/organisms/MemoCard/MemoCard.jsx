@@ -4,6 +4,7 @@ import MemoContents from '../../atoms/MemoContents/MemoContents';
 import MemoDate from '../../atoms/MemoDate/MemoDate';
 import RecordTitle from '../../molecules/RecordTitle/RecordTitle';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 function MemoCard({ title, contents, date, id }) {
   const cardVar = {
@@ -12,15 +13,15 @@ function MemoCard({ title, contents, date, id }) {
   };
   return (
     <motion.li variants={cardVar} whileHover={{ scale: 1.03 }}>
-      <a
-        href={`/record/memo/${id}`}
+      <Link
+        to={`/record/memo/${id}`}
         className="flex flex-col gap-[10px] bg-grayscale-white px-4 py-5 rounded-lg relative list-shadow border border-grayscale-100"
       >
         <ContextButtonVertical />
         <RecordTitle title={title} />
         <MemoContents title={contents} />
         <MemoDate date={date} />
-      </a>
+      </Link>
     </motion.li>
   );
 }

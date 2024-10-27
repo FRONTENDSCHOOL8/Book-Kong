@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function TabLink({ path, title, button }) {
   return (
-    <a
-      href={path}
+    <Link
+      to={path}
       name={path}
       className={`tab-menu box-border block h-full leading-[54px] ${
         button === title
@@ -13,7 +14,7 @@ function TabLink({ path, title, button }) {
       // onClick={handleClick}
     >
       {title}
-    </a>
+    </Link>
   );
 }
 

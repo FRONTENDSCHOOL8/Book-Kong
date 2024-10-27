@@ -15,6 +15,7 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
+import { getBookData } from './api/searchAladin';
 import { getLibraryData } from './utils/controlBookData';
 import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
 import SplashPage from './components/pages/SplashPage/SplashPage';
@@ -45,8 +46,13 @@ const router = createBrowserRouter([
         element: <BookSearchPage />,
       },
       {
-        path: 'library/book-registration',
+        path: 'library/book-registration/:isbn13?',
         element: <BookRegisterPage />,
+        loader: async ({ params }) => {
+          if (!params.isbn13) return null;
+
+          return await getBookData(params.isbn13);
+        },
       },
       {
         path: 'login',
@@ -97,7 +103,7 @@ const router = createBrowserRouter([
         element: <FeedPage />,
       },
       {
-        path: 'feed/feed-detail',
+        path: 'feed/detail',
         element: <FeedDetailPage />,
       },
       {

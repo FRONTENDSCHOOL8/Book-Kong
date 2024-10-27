@@ -6,7 +6,7 @@ import DeleteIconButton from '../../../atoms/DeleteIconButton/DeleteIconButton';
 import SaveButton from '../../../atoms/SaveButton/SaveButton';
 import RegistrationIcon from '../../../atoms/RegistrationIcon/RegistrationIcon';
 
-function SmallHeader({ title }) {
+function SmallHeader({ title, formId }) {
   // 버튼 그룹을 렌더링하는 함수를 정의
   const renderButtons = () => {
     switch (title) {
@@ -30,23 +30,24 @@ function SmallHeader({ title }) {
       case '메모 작성':
       case '피드 작성':
       case '직접 입력하기':
-        return <SaveButton formId="book-register" />;
+        return <SaveButton formId={formId} />;
       default:
         return null;
     }
   };
 
   return (
-    <header className="relative flex justify-between items-center px-4 py-[16px] border-b border-grayscale-200 bg-grayscale-white">
-      <BackButton title={title} />
+    <div className="relative flex justify-between items-center px-4 py-[16px] border-b border-grayscale-200 bg-grayscale-white">
+      <BackButton />
       <SmallHeaderTitle title={title} />
       {renderButtons()}
-    </header>
+    </div>
   );
 }
 
 SmallHeader.propTypes = {
   title: string.isRequired,
+  formId: string,
 };
 
 export default SmallHeader;

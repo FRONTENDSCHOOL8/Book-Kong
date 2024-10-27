@@ -6,9 +6,7 @@ import FormInput from '../../atoms/FormInput/FormInput';
 function FormInputBox({ label, id, type, placeholder, value, onChange, name }) {
   return (
     <div className="flex flex-col gap-2">
-      <Label htmlFor={id} className="text-sm font-normal">
-        {label}
-      </Label>
+      <Label htmlFor={id}>{label}</Label>
       <div>
         <FormInput
           className="w-full h-[42px] border border-[#848484] outline-none pl-2 rounded"

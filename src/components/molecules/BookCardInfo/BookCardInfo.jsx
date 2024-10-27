@@ -2,52 +2,55 @@ import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import convertDayFormat from '../../../utils/convertDayFormat';
 
-function BookCardInfo({ data }) {
+function BookCardInfo({ data: userLibRecord }) {
   const { pathname: currentPage } = useLocation();
+
   return (
     <div className="flex flex-col justify-between py-4 pr-6 pl-4 w-full">
       <div className="flex flex-col gap-1">
-        <h3 className="contents-sm-md clip-text-2">{data.title}</h3>
+        <h3 className="contents-sm-md clip-text-2">{userLibRecord.title}</h3>
         <p className="contents-xs text-grayscale-400 clip-text-1">
-          {data.author}
+          {userLibRecord.author}
         </p>
       </div>
       {currentPage === '/library/book-search' && (
         <span className="contents-xs text-grayscale-700 clip-text-1">
-          {data.publisher}
+          {userLibRecord.publisher}
         </span>
       )}
       {currentPage === '/library/bookshelf' && (
         <div className="relative w-full">
           <div className="absolute left-0 bottom-0">
-            {data.status === '독서중' && (
+            {userLibRecord.status === '독서중' && (
               <>
-                {data.expectation_score && (
+                {userLibRecord.expectation_score && (
                   <img
-                    src={`/images/rate/before/beforerate=${data.expectation_score}.png`}
+                    src={`/images/rate/before/beforerate=${userLibRecord.expectation_score}.png`}
                   />
                 )}
               </>
             )}
-            {data.status === '희망 도서' && (
+            {userLibRecord.status === '희망 도서' && (
               <>
-                {data.expectation_score && (
+                {userLibRecord.expectation_score && (
                   <img
-                    src={`/images/rate/before/beforerate=${data.expectation_score}.png`}
+                    src={`/images/rate/before/beforerate=${userLibRecord.expectation_score}.png`}
                   />
                 )}
               </>
             )}
-            {data.status === '완독' && (
+            {userLibRecord.status === '완독' && (
               <>
-                {data.score && (
-                  <img src={`/images/rate/after/afterrate=${data.score}.png`} />
+                {userLibRecord.score && (
+                  <img
+                    src={`/images/rate/after/afterrate=${userLibRecord.score}.png`}
+                  />
                 )}
               </>
             )}
           </div>
           <div className="flex gap-1 items-center absolute right-0 bottom-0 ">
-            {data.status === '완독' && (
+            {userLibRecord.status === '완독' && (
               <>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -62,13 +65,13 @@ function BookCardInfo({ data }) {
                   />
                 </svg>
                 <span className="contents-2xs text-grayscale-400">
-                  {convertDayFormat(data.end_date)}
+                  {convertDayFormat(userLibRecord.end_date)}
                 </span>
               </>
             )}
-            {data.status === '독서중' && (
+            {userLibRecord.status === '독서중' && (
               <>
-                {data.read_page !== 0 && (
+                {userLibRecord.read_page !== 0 && (
                   <>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -83,7 +86,8 @@ function BookCardInfo({ data }) {
                       />
                     </svg>
                     <span className="contents-2xs text-grayscale-700">
-                      {data.read_page} 쪽 / {data.total_page} 쪽
+                      {userLibRecord.read_page} 쪽 / {userLibRecord.total_page}{' '}
+                      쪽
                     </span>
                   </>
                 )}

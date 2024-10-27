@@ -1,4 +1,5 @@
 import { string } from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 function LargeHeaderIcon({ title }) {
@@ -27,9 +28,9 @@ function LargeHeaderIcon({ title }) {
   if (!icon || pathname === '/record/statistics') return null;
 
   return (
-    <a href={icon.href}>
+    <Link to={icon.href}>
       <img src={icon.src} alt={icon.alt} />
-    </a>
+    </Link>
   );
 }
 

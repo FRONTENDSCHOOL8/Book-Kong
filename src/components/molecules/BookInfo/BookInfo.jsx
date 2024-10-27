@@ -10,8 +10,9 @@ function BookInfo({
   return (
     <div className="w-[287px] h-[84px] py-6 flex justify-center items-center border rounded-lg bg-background-gray border-grayscale-100">
       <div className="flex justify-center w-full gap-4">
-        {isLoading && '로딩 중'}
-        {!isLoading && (
+        {isLoading ? (
+          '로딩 중'
+        ) : (
           <>
             <TotalBookCount bookNum={userFinishBookNum}></TotalBookCount>
             <TotalBookHeight page={userTotalPage}></TotalBookHeight>

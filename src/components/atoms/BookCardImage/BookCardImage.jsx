@@ -1,16 +1,16 @@
 import { object } from 'prop-types';
-import { useLocation } from 'react-router-dom';
 import getPbImage from '../../../utils/getPbImage';
 
 function BookCardImage({ data }) {
-  const { pathname } = useLocation();
   return (
     <div className="relative">
       <img
         className="w-[125px] h-[130px]"
-        src={
-          pathname === '/library/book-search' ? data.cover : getPbImage(data)
-        }
+        src={getPbImage({
+          collectionId: data.collectionId,
+          id: data.id,
+          cover: data.cover,
+        })}
         alt={data.title}
       />
       <span
@@ -23,7 +23,7 @@ function BookCardImage({ data }) {
 }
 
 BookCardImage.propTypes = {
-  data: object,
+  data: object.isRequired,
 };
 
 export default BookCardImage;

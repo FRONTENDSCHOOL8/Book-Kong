@@ -12,6 +12,7 @@ import CharacterName from '../atoms/CharacterName/CharacterName';
 import CharacterLevel from '../atoms/CharacterLevel/CharacterLevel';
 import TotalBookHeight from '../atoms/TotalBookHeight/TotalBookHeight';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -117,24 +118,24 @@ function MypagePage() {
         </div>
         <ul className=" mt-2 bg-white">
           <li className=" p-4 border-b">
-            <a href="#" className=" block">
+            <Link to="#" className=" block">
               자주 묻는 질문
-            </a>
+            </Link>
           </li>
           <li className=" p-4 border-b">
-            <a href="#" className=" block">
+            <Link to="#" className=" block">
               의견 보내기
-            </a>
+            </Link>
           </li>
           <li className=" p-4 border-b">
-            <a href="#" className=" block">
+            <Link to="#" className=" block">
               문의하기
-            </a>
+            </Link>
           </li>
           <li className=" p-4">
-            <a href="#" className=" block">
+            <Link to="#" className=" block">
               서비스 이용약관
-            </a>
+            </Link>
           </li>
         </ul>
         <div className="flex flex-col bg-white mt-2">

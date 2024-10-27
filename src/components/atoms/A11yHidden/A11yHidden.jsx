@@ -1,4 +1,5 @@
 import { elementType, node } from 'prop-types';
+import { memo } from 'react';
 
 /**
  * @typedef Props
@@ -14,13 +15,17 @@ import { elementType, node } from 'prop-types';
  * @param { Props } props A11yHidden 컴포넌트가 받는 props 객체입니다.
  * @returns { JSX.Element } 숨겨진 JSX 컴포넌트를 반환합니다.
  */
-function A11yHidden({ as: Component = 'span', children, ...restProps }) {
+const A11yHidden = memo(function A11yHidden({
+  as: Component = 'span',
+  children,
+  ...restProps
+}) {
   return (
     <Component className="sr-only" {...restProps}>
       {children}
     </Component>
   );
-}
+});
 
 A11yHidden.propTypes = {
   as: elementType,

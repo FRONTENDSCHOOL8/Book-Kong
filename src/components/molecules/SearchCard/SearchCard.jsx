@@ -1,29 +1,23 @@
 import { motion } from 'framer-motion';
 import { object } from 'prop-types';
-import { getRandomNumber } from '../../../utils/getRandomNumber';
-import { useLocation } from 'react-router-dom';
 import SearchCardImage from '../../atoms/SearchCardImage/SearchCardImage';
 import BookCardInfo from '../BookCardInfo/BookCardInfo';
-function SearchCard({ data }) {
-  const { pathname } = useLocation();
+import { Link } from 'react-router-dom';
 
+function SearchCard({ data }) {
   return (
     <motion.li
       variants={CardVar}
       whileHover={{ scale: 1.02 }}
       className={' list-shadow bg-grayscale-white overflow-hidden rounded-lg'}
     >
-      <a
-        href={
-          pathname === '/library/book-search'
-            ? `/library/book-registration?title=${data.title}&author=${data.author}&publisher=${data.publisher}&page=${getRandomNumber(80, 1200)}&isbn=${data.isbn}&cover=${data.cover}`
-            : '/'
-        }
+      <Link
+        to={`/library/book-registration/${data.isbn13}`}
         className="flex w-full"
       >
         <SearchCardImage data={data} />
         <BookCardInfo data={data} />
-      </a>
+      </Link>
     </motion.li>
   );
 }

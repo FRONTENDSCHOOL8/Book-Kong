@@ -1,21 +1,26 @@
 import { useState } from 'react';
-import BookFilterContainer from '../../molecules/BookFilterContainer/BookFilterContainer';
 import { Helmet } from 'react-helmet-async';
+import UserBookList from '../UserBookList/UserBookList';
+import useUserLibData from '../../../hooks/useUserLibData';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
-import { Skeleton } from '@mui/material';
-import BookShelfList from '../BookShelfList/BookShelfList';
-import { useBookshelfData } from '../../../hooks/useBookshelfData';
+import ReadingStateFilter from '../../molecules/ReadingStateFilter/ReadingStateFilter';
 
 function Bookshelf() {
-  const [filterType, setFilterType] = useState('전체');
+  const [readingState, setReadingState] = useState('전체');
   const [query, setQuery] = useState('');
-  const { data, isLoading } = useBookshelfData(query);
+  const { data, isLoading, error, failureCount, failureReason } =
+    useUserLibData(query);
+
+  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
+    throw error;
+
+  if (failureCount === 4) throw error;
 
   const handleClick = (e) => {
     const button = e.target.closest('button');
     if (!button) return;
 
-    setFilterType(button.innerText);
+    setReadingState(button.innerText);
   };
 
   const handleSubmit = (e) => {
@@ -29,37 +34,16 @@ function Bookshelf() {
       <Helmet>
         <title>책콩 | 서재 - 책장</title>
       </Helmet>
-      {isLoading ? (
-        <>
-          <Skeleton variant="rounded">
-            <SearchBar onSubmit={handleSubmit} />
-          </Skeleton>
-          <BookFilterContainer
-            onClick={handleClick}
-            filter={filterType}
-            isLoading={isLoading}
-          />
-          <BookShelfList
-            data={
-              filterType === '전체'
-                ? data
-                : data?.filter((data) => data.status === filterType)
-            }
-          />
-        </>
-      ) : (
-        <>
-          <SearchBar onSubmit={handleSubmit} />
-          <BookFilterContainer onClick={handleClick} filter={filterType} />
-          <BookShelfList
-            data={
-              filterType === '전체'
-                ? data
-                : data?.filter((data) => data.status === filterType)
-            }
-          />
-        </>
-      )}
+      <SearchBar onSubmit={handleSubmit} />
+      <ReadingStateFilter onClick={handleClick} readingState={readingState} />
+      <UserBookList
+        data={
+          readingState === '전체'
+            ? data
+            : data?.filter((record) => record.status === readingState)
+        }
+        isLoading={isLoading}
+      />
     </main>
   );
 }

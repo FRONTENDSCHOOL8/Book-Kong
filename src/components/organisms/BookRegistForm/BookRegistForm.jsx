@@ -1,27 +1,45 @@
-import BookInfoList from '../BookInfoList/BookInfoList';
-import BookInfoState from '../../molecules/BookInfoState/BookInfoState';
-import { useState } from 'react';
+import { useCallback } from 'react';
+import {
+  addFormDataProps,
+  createLibFormData,
+  postLibFormData,
+} from '../../../utils/controlBookData';
+import BookInfoBox from '../BookInfoBox/BookInfoBox';
+import { useNavigate, useLoaderData } from 'react-router-dom';
+import ReadingStates from '../../molecules/ReadingStates/ReadingStates';
 
 function BookRegistForm() {
-  const [status, setStatus] = useState('완독');
+  const aladinBook = useLoaderData();
+  const navigate = useNavigate();
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    const button = e.target.closest('button');
-    if (!button) return;
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
 
-    setStatus(button.innerText);
-  };
+      const formData = await createLibFormData('book-register');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+      if (!formData) return;
+
+      if (!aladinBook) {
+        await postLibFormData(formData);
+
+        return navigate('/library/bookshelf');
+      }
+
+      await addFormDataProps({ formData, aladinBook });
+
+      await postLibFormData(formData);
+
+      navigate('/library/bookshelf');
+    },
+    [aladinBook, navigate]
+  );
 
   return (
-    <form id="bookInfo" onSubmit={handleSubmit}>
-      <BookInfoState status={status} onClick={handleClick} />
+    <form id="book-register" onSubmit={handleSubmit}>
+      <ReadingStates />
       <hr className="mt-6 mb-6" />
-      <BookInfoList />
+      <BookInfoBox data={aladinBook} />
     </form>
   );
 }

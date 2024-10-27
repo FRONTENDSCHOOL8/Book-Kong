@@ -1,4 +1,5 @@
 import Header from './Header';
+import { createArgTypesControl } from '../../../utils/storybook';
 
 const metaConfig = {
   title: 'components/Header',
@@ -9,7 +10,14 @@ const metaConfig = {
 
 export default metaConfig;
 
-export const Base = {
-  args: {},
+export const SmallHeader = {
+  args: {
+    title: '직접 입력하기',
+    formId: 'book-register',
+  },
+  argTypes: {
+    title: createArgTypesControl(),
+    formId: createArgTypesControl(),
+  },
 };
-Base.storyName = 'Header';
+SmallHeader.storyName = 'SmallHeader';
