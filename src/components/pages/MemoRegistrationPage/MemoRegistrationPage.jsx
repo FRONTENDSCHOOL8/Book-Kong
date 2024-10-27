@@ -3,10 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import Header from '../../organisms/Header/Header/Header';
 import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
-import {
-  // clearLoginUserData,
-  loginUserData,
-} from '../../../utils/controlUserData';
+import { loginUserData } from '../../../utils/controlUserData';
 import { getUserLibraryData } from '../../../utils/controlBookData';
 import pb from '../../../api/pocketbase';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +16,6 @@ function MemoRegistrationPage() {
 
   const handleSelect = (e) => {
     setSelectedBook(e.target.value);
-    console.log(e.target.value);
   };
 
   const handleText = (e) => {
@@ -48,25 +44,6 @@ function MemoRegistrationPage() {
     },
   });
 
-  //   const data = Object.fromEntries(formData.entries());  // 폼 데이터를 객체로 변환
-
-  // 폼 태그 submit
-  // const handleMemoSubmit = (e) => {
-  //   e.preventDafault();
-  //   console.log(formRef.current);
-
-  //   if (formRef.current) {
-  //     const formData = Object.fromgEntries(
-  //       new FormData(formRef.current).entries()
-  //     );
-  //     formData.book_id = selectState;
-  //     if (formData.book_id === '') {
-  //       throw new Error('책을 선택해주세요.');
-  //     }
-
-  //     // memoMutation.mutate(formData);
-  //   }
-  // };
   // 폼 태그 Submit 작동 Action
   const handleMemoSubmit = (e) => {
     e.preventDefault();
@@ -79,7 +56,6 @@ function MemoRegistrationPage() {
         throw new Error('책을 선택해주세요.');
       }
 
-      console.log(formRef.current);
       formData.append('user_id', loginUserData.id);
 
       memoMutation.mutate(formData);
