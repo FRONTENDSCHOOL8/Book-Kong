@@ -1,40 +1,26 @@
 import { useQuery } from '@tanstack/react-query';
-import OrderButton from '../../molecules/OrderButton/OrderButton';
+import SortingBtn from '../../molecules/SortingBtn/SortingBtn';
 import MemoCard from '../MemoCard/MemoCard';
-import { loginUserData } from '../../../utils/controlUserData';
-import { getUserMemosRecs } from '../../../utils/controlMemoData';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { loginUserRecId } from '../../../utils/controlUserData';
+import { getAllUserMemos } from '../../../utils/controlMemoData';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Skeleton } from '@mui/material';
+import { useToggleSorting } from '../../../hooks/useToggleSorting';
 
 function MemoList() {
-  const initialOrder = localStorage.getItem('order') || '최신순';
+  const { data: serverMemos, isLoading } = useQuery({
+    queryKey: ['memos', loginUserRecId],
+    queryFn: getAllUserMemos,
+  });
 
-  const [order, setOrder] = useState(initialOrder);
-
-  const toggleSort = (e) => {
-    const button = e.target.closest('button');
-    if (!button) return;
-
-    if (order === '최신순') {
-      setOrder('오래된순');
-      data.reverse();
-    } else {
-      setOrder('최신순');
-      data.reverse();
-    }
-  };
-
-  useEffect(() => {
-    localStorage.setItem('order', order);
-  }, [order]);
-
-  const { data, isLoading } = useQuery({
-    queryKey: ['memos', loginUserData],
-    queryFn: () =>
-      getUserMemosRecs(order === '최신순' ? 'created' : '-created'),
+  const {
+    copiedData: localMemos,
+    sortState,
+    handleSort: handleMemoSort,
+  } = useToggleSorting({
+    sortState: ['오래된 순', '최신순'],
+    serverData: serverMemos,
   });
 
   const listVar = {
@@ -54,9 +40,9 @@ function MemoList() {
       <Helmet>
         <title>책콩 | 메모</title>
       </Helmet>
-      <OrderButton
-        onClick={toggleSort}
-        order={order}
+      <SortingBtn
+        sortState={sortState}
+        onClick={handleMemoSort}
         customClassName="mt-6 mb-3"
       />
       <motion.ul
@@ -65,7 +51,7 @@ function MemoList() {
         animate="end"
         className="flex flex-col w-full gap-3"
       >
-        {isLoading ? (
+        {isLoading || !localMemos ? (
           <>
             <Skeleton
               variant="rounded"
@@ -87,7 +73,7 @@ function MemoList() {
             </Skeleton>
           </>
         ) : (
-          data?.map((memo) => (
+          localMemos.map((memo) => (
             <MemoCard
               key={memo.id}
               id={memo.id}

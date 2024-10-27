@@ -1,11 +1,13 @@
 import pb from '../api/pocketbase';
 import { loginUserData } from './controlUserData';
 
-export const getUserMemosRecs = async (sort = '-created') =>
-  await pb.collection('memos').getFullList({
-    filter: `user_id = '${loginUserData.id}'`,
-    sort: `${sort}`,
-  });
+export const getAllUserMemos = async () =>
+  await pb
+    .collection('memos')
+    .getFullList({
+      filter: `user_id = '${loginUserData.id}'`,
+      sort: '-created',
+    });
 
 /**
  * 'memos' collection에서 하나의 record를 불러오는 함수
