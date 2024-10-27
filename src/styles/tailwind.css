@@ -218,3 +218,12 @@
 .default-option {
   @apply text-grayscale-400;
 }
+
+/* -------------------------------------------- */
+/*               scroll-bar hidden              */
+/* -------------------------------------------- */
+.custom-scroll-hidden {
+  overflow: auto;
+  scrollbar-width: none;
+  -webkit-overflow-style: none;
+}
