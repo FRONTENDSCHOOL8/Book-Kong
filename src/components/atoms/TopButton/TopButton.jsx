@@ -7,7 +7,7 @@ function TopButton() {
       aria-label="웹페이지의 맨위로 이동하기"
       className="fixed right-4 bottom-[66px]"
     >
-      <img className="w-4 h-4" src="/images/icons/top-button.svg" alt="" />
+      <img className="w-12 h-12" src="/images/icons/top-button.svg" alt="" />
     </button>
   );
 }
