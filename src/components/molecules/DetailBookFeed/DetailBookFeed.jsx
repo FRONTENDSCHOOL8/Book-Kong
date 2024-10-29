@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 function DetailBookFeed({ data: bookData }) {
   const { data: feedsOfTheBook } = useQuery({
-    queryKey: ['feeds', loginUserData, bookData.id],
+    queryKey: ['feeds', loginUserData],
     queryFn: () => getAllFeedsRec(),
     select: (feedsRecs) =>
       feedsRecs?.filter((feedsRec) => feedsRec.book_title === bookData.title),
