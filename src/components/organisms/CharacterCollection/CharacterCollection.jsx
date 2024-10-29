@@ -2,10 +2,11 @@ import { useState } from 'react';
 import UserCharacterCard from '../../molecules/UserCharacterCard/UserCharacterCard';
 import CharacterList from './../../molecules/CharacterList/CharacterList';
 import { useLoaderData } from 'react-router-dom';
+import { calcLevel } from '../../../utils/calcLevel';
 
 function CharacterCollection() {
   const userRec = useLoaderData();
-  const userLv = userRec?.level * 1 || 1;
+  const userLv = calcLevel(userRec?.['book_height'] * 1 || 0) || 1;
   const [clickedLv, setClickedLv] = useState(userLv);
   const handleClick = (e) => {
     const li = e.target.closest('li');

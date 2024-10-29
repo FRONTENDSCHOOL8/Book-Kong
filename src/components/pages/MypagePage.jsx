@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 import pb from '../../api/pocketbase';
+import { calcLevel } from '../../utils/calcLevel';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -50,9 +51,9 @@ function MypagePage() {
   const loginUserNickName = loginUserData.nickname;
   const loginUserEmail = loginUserData.email;
   const userRec = useLoaderData();
-  const userLevel = userRec?.level * 1 || 1;
-  const doneBookNum = userRec?.['done_book'] * 1 || 0;
   const userBookHeight = userRec?.['book_height'] * 1 || 0;
+  const userLevel = calcLevel(userBookHeight) || 1;
+  const doneBookNum = userRec?.['done_book'] * 1 || 0;
 
   return (
     <>

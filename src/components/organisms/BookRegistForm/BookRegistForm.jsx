@@ -44,7 +44,7 @@ function BookRegistForm() {
 
       // 더해진 bookHeight 값으로 인해 user의 level이 변동 되었을 경우 DB에 반영하는 로직
       const updatedBookHeight = updatedUserRec?.['book_height'] * 1 || 0;
-      const userLevelCur = updatedUserRec?.level * 1 || 1;
+      const userLevelCur = calcLevel(userRec?.['book_height'] * 1 || 0) || 1;
 
       if (calcLevel(updatedBookHeight) !== userLevelCur) {
         putUserNewLevel(calcLevel(updatedBookHeight));
