@@ -116,7 +116,7 @@ function MemoRegistrationPage() {
                 책의 메모 입력
               </A11yHidden>
               <textarea
-                className="w-full h-full mt-[6px] block resize-none focus:outline-none custom-scroll-hidden"
+                className="w-full h-full mt-[6px] block resize-none focus:outline-none hide-scrollbar"
                 onChange={handleText}
                 value={text}
                 name="content"
