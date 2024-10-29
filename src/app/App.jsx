@@ -21,7 +21,7 @@ function App() {
 
       return () => clearTimeout(timer);
     }, 3000);
-  });
+  }, [navigate]);
 
   if (!isSplashed) return <SplashPage />;
 
