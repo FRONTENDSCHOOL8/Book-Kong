@@ -2,7 +2,7 @@ import { string, shape } from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import SortingBtn from '../SortingBtn/SortingBtn';
 import MemoCard from '../../organisms/MemoCard/MemoCard';
-import { loginUserRecId } from '../../../utils/controlUserData';
+import { loginUserData } from '../../../utils/controlUserData';
 import { getAllUserMemos } from '../../../utils/controlMemoData';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -14,7 +14,7 @@ import { useToggleSorting } from '../../../hooks/useToggleSorting';
 
 function DetailBookMemo({ data: bookData }) {
   const { data: serverMemoOfBook } = useQuery({
-    queryKey: ['memos', loginUserRecId],
+    queryKey: ['memos', loginUserData],
     queryFn: getAllUserMemos,
     select: (memosRecs) =>
       memosRecs?.filter((memosRec) => memosRec.book_title === bookData.title),

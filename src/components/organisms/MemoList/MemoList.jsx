@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import SortingBtn from '../../molecules/SortingBtn/SortingBtn';
 import MemoCard from '../MemoCard/MemoCard';
-import { loginUserRecId } from '../../../utils/controlUserData';
+import { loginUserData } from '../../../utils/controlUserData';
 import { getAllUserMemos } from '../../../utils/controlMemoData';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -10,7 +10,7 @@ import { useToggleSorting } from '../../../hooks/useToggleSorting';
 
 function MemoList() {
   const { data: serverMemos, isLoading } = useQuery({
-    queryKey: ['memos', loginUserRecId],
+    queryKey: ['memos', loginUserData],
     queryFn: getAllUserMemos,
   });
 
