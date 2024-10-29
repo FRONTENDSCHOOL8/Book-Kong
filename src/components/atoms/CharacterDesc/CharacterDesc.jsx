@@ -1,9 +1,9 @@
 import { number } from 'prop-types';
 import characterData from '../../../data/character.json';
 
-function CharacterDesc({ level: userLevel }) {
+function CharacterDesc({ level: charLevel }) {
   const characterDesc = characterData
-    .filter((data) => data.level === userLevel)[0]
+    .filter((data) => data.level === charLevel)[0]
     .description.replace(/\n/g, '<br />');
 
   return (

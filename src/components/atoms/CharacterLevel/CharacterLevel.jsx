@@ -1,12 +1,12 @@
 import { number, string } from 'prop-types';
 
-function CharacterLevel({ level: userLevel, pgName }) {
+function CharacterLevel({ level: charLevel, pgName }) {
   switch (pgName) {
     case '캐릭터':
       return (
         <div className="flex justify-end">
           <span className="contents-md text-primary-500 h-[26px]">
-            {userLevel}단계
+            {charLevel}단계
           </span>
         </div>
       );
@@ -14,7 +14,7 @@ function CharacterLevel({ level: userLevel, pgName }) {
       return (
         <div className="flex justify-end">
           <span className="contents-md-bold text-grayscale-900">
-            {userLevel}단계
+            {charLevel}단계
           </span>
         </div>
       );

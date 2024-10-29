@@ -1,24 +1,21 @@
 import { number, string } from 'prop-types';
 import characterData from '../../../data/character.json';
 
-function CharacterName({ level: userLevel, pageName }) {
-  const userCharacterName = characterData.filter(
-    (data) => data.level === userLevel
-  )[0].name;
+function CharacterName({ level: charLevel, pageName }) {
+  const charName = characterData.filter((data) => data.level === charLevel)[0]
+    .name;
 
   switch (pageName) {
     case '책나무':
-      return (
-        <span className="heading-xs text-primary-500">{userCharacterName}</span>
-      );
+      return <span className="heading-xs text-primary-500">{charName}</span>;
     case '마이페이지':
       return (
         <span className="tab-menu text-primary-500 bg-[#FFE0DA] px-3 py-2 rounded-3xl">
-          {userCharacterName}
+          {charName}
         </span>
       );
     default:
-      return <span className="heading-xs">{userCharacterName}</span>;
+      return <span className="heading-xs">{charName}</span>;
   }
 }
 
