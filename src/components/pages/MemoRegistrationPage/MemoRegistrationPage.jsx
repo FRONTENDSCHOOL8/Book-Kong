@@ -3,7 +3,7 @@ import Header from '../../organisms/Header/Header/Header';
 import { Helmet } from 'react-helmet-async';
 import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 import { useQuery } from '@tanstack/react-query';
-import { getUserLibraryData } from '../../../utils/controlBookData';
+import { getAllUserLibRecs } from '../../../utils/controlBookData';
 import { loginUserData } from '../../../utils/controlUserData';
 
 function MemoRegistrationPage() {
@@ -18,8 +18,8 @@ function MemoRegistrationPage() {
 
   // 데이터 패칭 및 캐시
   const { data: librariesData } = useQuery({
-    queryKey: ['library', loginUserData.id],
-    queryFn: async () => getUserLibraryData(),
+    queryKey: ['library', loginUserData],
+    queryFn: getAllUserLibRecs,
   });
 
   return (
