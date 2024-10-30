@@ -10,18 +10,24 @@ function App() {
   const [isSplashed, setIsSplashed] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsSplashed(true);
-
+    const navigateUser = () => {
       if (loginUserData) {
         navigate('/library/booktree');
       } else {
         navigate('/login');
       }
-    }, 3000);
+    };
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
+    if (!isSplashed) {
+      const timer = setTimeout(() => {
+        setIsSplashed(true);
+
+        navigateUser();
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    } else navigateUser();
+  }, [isSplashed, navigate]);
 
   if (!isSplashed) return <SplashPage />;
 
