@@ -26,7 +26,9 @@ function App() {
       }, 3000);
 
       return () => clearTimeout(timer);
-    } else navigateUser();
+    } else {
+      navigateUser();
+    }
   }, [isSplashed, navigate]);
 
   if (!isSplashed) return <SplashPage />;
