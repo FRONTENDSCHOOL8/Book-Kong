@@ -50,10 +50,14 @@ function MemoRegistrationPage() {
 
     if (formRef.current) {
       const formData = new FormData(formRef.current);
-      new FormData(formRef.current).entries();
 
-      if (formData.get('book_title') === '') {
-        throw new Error('책을 선택해주세요.');
+      if (!formData.get('book_title')) {
+        alert('책을 선택해주세요.');
+        return;
+      }
+      if (!formData.get('content')) {
+        alert('메모 내용을 작성해주세요.');
+        return;
       }
 
       formData.append('user_id', loginUserData.id);
