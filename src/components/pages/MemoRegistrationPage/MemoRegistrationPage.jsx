@@ -82,7 +82,7 @@ function MemoRegistrationPage() {
             ref={formRef}
             onSubmit={handleMemoSubmit}
           >
-            <div className="relative w-full h-auto pt-6 pb-4 pl-10 pr-4 leading-4 border-b border-grayscale-200 memo-icon text-primary-500">
+            <div className="relative w-full h-auto pt-6 pb-4 pl-10 pr-4 leading-4 border-b border-grayscale-200 memo-icon before:top-[27px] before:left-4 text-primary-500">
               <A11yHidden as="label" htmlFor="memo-book-select">
                 등록할 메모의 책 선택
               </A11yHidden>
