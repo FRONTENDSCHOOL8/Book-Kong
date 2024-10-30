@@ -18,9 +18,9 @@ function App() {
       } else {
         navigate('/login');
       }
-
-      return () => clearTimeout(timer);
     }, 3000);
+
+    return () => clearTimeout(timer);
   }, [navigate]);
 
   if (!isSplashed) return <SplashPage />;
