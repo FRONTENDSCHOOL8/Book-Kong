@@ -13,7 +13,7 @@ function App() {
     const timer = setTimeout(() => {
       setIsSplashed(true);
 
-      if (loginUserData.id) {
+      if (loginUserData) {
         navigate('/library/booktree');
       } else {
         navigate('/login');
