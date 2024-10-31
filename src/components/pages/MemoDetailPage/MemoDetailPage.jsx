@@ -14,14 +14,14 @@ function MemoDetailPage() {
       <main className="min-h-screen pb-[63px] pt-[65px]">
         <article className="px-4 py-6 border-y bg-grayscale-white border-1 border-grayscale-200 full-height">
           <header className="relative memo-icon before:bottom-[2px]">
-            <time className="block text-right text-grayscale-500">
+            <time className="block text-right text-grayscale-500 contents-sm">
               {convertDayFormat(memo?.created)}
             </time>
-            <strong className=" flex text-xm mt-6 pl-6 text-[#F24822] font-normal">
+            <strong className=" flex text-xm mt-6 pl-6 text-[#F24822] contents-sm-bold">
               {memo?.expand.book_id.title}
             </strong>
           </header>
-          <p className="mt-4 whitespace-pre-wrap contents-sm">
+          <p className="mt-4 whitespace-pre-wrap contents-md">
             {memo?.content}
           </p>
         </article>
