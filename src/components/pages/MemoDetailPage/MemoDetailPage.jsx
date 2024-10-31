@@ -17,7 +17,7 @@ function MemoDetailPage() {
             <time className="block text-right text-grayscale-500 contents-sm">
               {convertDayFormat(memo?.created)}
             </time>
-            <strong className=" flex text-xm mt-6 pl-6 text-[#F24822] contents-sm-bold">
+            <strong className=" flex text-xm mt-6 pl-[26px] text-[#F24822] contents-sm-bold">
               {memo?.expand.book_id.title}
             </strong>
           </header>
