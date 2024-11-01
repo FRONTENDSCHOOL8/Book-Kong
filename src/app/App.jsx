@@ -18,10 +18,14 @@ function App() {
       });
   }, [queryClient]);
 
-  // 앱 접근 시 사용자에게 보여줄 컴포넌트 결정 및 isSplashed 상태 변수 관리
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
+  // 앱 접근 시 로그인 여부와 'isSplashed' 상태 변수 값에 따른 action 결정
   const [isSplashed, setIsSplashed] = useState(false);
+
+  useEffect(() => {
+    setIsSplashed(sessionStorage.getItem('isSplashed') === 'true');
+  }, []);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const navigateUser = () => {
@@ -34,6 +38,7 @@ function App() {
 
     if (!isSplashed) {
       const timer = setTimeout(() => {
+        sessionStorage.setItem('isSplashed', 'true');
         setIsSplashed(true);
 
         navigateUser();
@@ -44,6 +49,9 @@ function App() {
       navigateUser();
     }
   }, [isSplashed, navigate]);
+
+  // isSplashed 상태 변수와 URL의 path 값에 따라 App 컴포넌트의 return 값을 다르게 설정
+  const { pathname } = useLocation();
 
   if (!isSplashed) return <SplashPage />;
 
