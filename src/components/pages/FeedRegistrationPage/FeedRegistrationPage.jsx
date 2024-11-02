@@ -38,24 +38,6 @@ const FeedRegistrationPage = () => {
     if (formRef.current) {
       const formData = new FormData(formRef.current);
 
-      if (!formData.get('book_title')) {
-        alert('책을 선택해주세요.');
-
-        return;
-      }
-
-      if (!formData.get('feed_title')) {
-        alert('피드 제목을 작성해주세요.');
-
-        return;
-      }
-
-      if (!formData.get('content')) {
-        alert('피드 내용을 작성해주세요.');
-
-        return;
-      }
-
       formData.append('user_id', loginUserData.id);
 
       feedMutation.mutate(formData);
@@ -97,6 +79,7 @@ const FeedRegistrationPage = () => {
                 onChange={handleSelect}
                 className="block w-full outline-none contents-sm-bold cursor-pointer"
                 value={bookTitle}
+                required
               >
                 <option value="" disabled>
                   책 제목을 선택해주세요.
