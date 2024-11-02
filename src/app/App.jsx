@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import SplashPage from '../components/pages/SplashPage/SplashPage';
 import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
@@ -29,16 +29,15 @@ function App() {
   }, []);
 
   const navigate = useNavigate();
+  const navigateUser = useCallback(() => {
+    if (loginUserData) {
+      navigate('/library/booktree');
+    } else {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   useEffect(() => {
-    const navigateUser = () => {
-      if (loginUserData) {
-        navigate('/library/booktree');
-      } else {
-        navigate('/login');
-      }
-    };
-
     if (isInitialized && !isSplashed) {
       const timer = setTimeout(() => {
         sessionStorage.setItem('isSplashed', 'true');
@@ -51,7 +50,7 @@ function App() {
     } else {
       navigateUser();
     }
-  }, [isInitialized, isSplashed, navigate]);
+  }, [isInitialized, isSplashed, navigateUser]);
 
   // isSplashed 상태 변수와 URL의 path 값에 따라 App 컴포넌트의 return 값을 다르게 설정
   const { pathname } = useLocation();
