@@ -1,8 +1,8 @@
 import { number, string } from 'prop-types';
-import characterData from '../../../data/character.json';
+import characterList from '../../../data/character.json';
 
 function CharacterName({ level: charLevel, pageName }) {
-  const charName = characterData.filter((data) => data.level === charLevel)[0]
+  const charName = characterList.filter((data) => data.level === charLevel)[0]
     .name;
 
   switch (pageName) {
