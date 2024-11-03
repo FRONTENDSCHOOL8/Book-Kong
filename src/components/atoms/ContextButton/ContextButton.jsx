@@ -1,4 +1,5 @@
 import { string } from 'prop-types';
+import { memo } from 'react';
 // import getCombinedClassName from '../../../utils/getCombinedClassName';
 
 /**
@@ -7,7 +8,12 @@ import { string } from 'prop-types';
  * @param { string } alt 컨텍스트 버튼의 alt message
  * @returns { JSX.Element } Context button이 포함된 div 요소 반환
  */
-function ContextButton({ shape, ariaLabel, customClassName = '' }) {
+
+const MemoizedContextButton = memo(function ContextButton({
+  shape,
+  ariaLabel,
+  customClassName = '',
+}) {
   const defaultClassName =
     'w-11 h-11 flex justify-center items-center absolute z-10';
 
@@ -24,12 +30,12 @@ function ContextButton({ shape, ariaLabel, customClassName = '' }) {
       <img className="w-6 h-6" src={`/images/icons/more_${shape}.svg`} alt="" />
     </button>
   );
-}
+});
 
-ContextButton.propTypes = {
+MemoizedContextButton.propTypes = {
   shape: string.isRequired,
   ariaLabel: string.isRequired,
   customClassName: string,
 };
 
-export default ContextButton;
+export default MemoizedContextButton;
