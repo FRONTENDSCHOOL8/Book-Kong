@@ -30,16 +30,20 @@ function BookTree() {
         <title>책콩 | 서재 - 책나무</title>
       </Helmet>
       <div className="pt-[120px] overflow-auto">
-        <div className="flex absolute top-[120px] left-0 justify-between px-4 w-full">
+        <div className="flex fixed top-[120px] justify-between px-4 w-full">
           <BookInfo
             isLoading={isLoading}
             page={userTotalPage}
             bookNum={userFinishBookNum}
           />
-          <ContextButton shape="horizontal" alt="책나무 이미지 저장 버튼" />
         </div>
         <Character page={userTotalPage} />
         <BookBlockList data={data} />
+        <ContextButton
+          shape="horizontal"
+          ariaLabel="책나무 이미지 저장"
+          customClassName="top-[120px] right-4"
+        />
       </div>
     </main>
   );
