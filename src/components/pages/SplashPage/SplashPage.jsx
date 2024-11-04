@@ -4,7 +4,7 @@ function SplashPage() {
       <h1 className="fixed bottom-1 left-[calc(50%-60px)]">
         <img src="/logo/logo-white.png" className="w-[120px]" alt="북콩 로고" />
       </h1>
-      <div className="w-full">
+      <div className="w-[85%]">
         <img
           src="/splash/splash-1.png"
           className="w-full translate-y-[-272px] animate-splash-1 splash-delay animate-splash"
