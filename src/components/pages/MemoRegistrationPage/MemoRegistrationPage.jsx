@@ -51,15 +51,6 @@ function MemoRegistrationPage() {
     if (formRef.current) {
       const formData = new FormData(formRef.current);
 
-      if (!formData.get('book_title')) {
-        alert('책을 선택해주세요.');
-        return;
-      }
-      if (!formData.get('content')) {
-        alert('메모 내용을 작성해주세요.');
-        return;
-      }
-
       formData.append('user_id', loginUserData.id);
 
       memoMutation.mutate(formData);
@@ -92,6 +83,7 @@ function MemoRegistrationPage() {
                 className="block w-full outline-none cursor-pointer contents-sm-bold"
                 onChange={handleSelect}
                 value={selectedBook}
+                required
               >
                 <option disabled className="default-option" value="">
                   어떤 책에 대한 메모인가요?
@@ -126,6 +118,7 @@ function MemoRegistrationPage() {
                 name="content"
                 id="memo-textarea"
                 placeholder="메모를 입력해보세요!"
+                required
               ></textarea>
             </div>
           </form>
