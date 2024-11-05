@@ -46,6 +46,9 @@ function Bookshelf() {
     [updateDebouncedQuery]
   );
 
+  // SearchBar 내 input 창에 입력된 검색어와 실제 렌더링 된 데이터가 다를 경우 data가 stale 되었음을 표시하기 위한 상태 선언
+  const isStale = debouncedQuery !== localQuery;
+
   /* 독서 상태를 필터링하는 버튼의 innerText 값에 따라 책장에 나오는 데이터를 다르게 바꾸기 위해
   React state와 'click' event handler를 선언 */
   const [readingState, setReadingState] = useState('전체');
@@ -72,6 +75,7 @@ function Bookshelf() {
             : data?.filter((record) => record.status === readingState)
         }
         isLoading={isLoading}
+        isStale={isStale}
       />
     </main>
   );
