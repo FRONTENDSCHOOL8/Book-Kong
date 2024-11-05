@@ -9,9 +9,11 @@ import { useQuery } from '@tanstack/react-query';
 import debounce from '../../../utils/debounce';
 
 function Bookshelf() {
-  const [readingState, setReadingState] = useState('전체');
+  /* 책장 페이지에 필요한 데이터를 debouncedQuery로 요청
+  책장 내 SearchBar input value의 실시간 상태 업데이트를 위해 localQuery와 debouncedQuery를 구분하여 설정 */
   const [localQuery, setLocalQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
+
   const { data, isLoading, error, failureCount, failureReason } = useQuery({
     queryKey: ['library', loginUserData],
     queryFn: getAllUserLibRecs,
@@ -24,18 +26,11 @@ function Bookshelf() {
     },
   });
 
+  // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
   if (failureCount >= 1 && failureReason.message.startsWith('Server'))
     throw error;
 
   if (failureCount === 4) throw error;
-
-  const handleClick = useCallback((e) => {
-    const button = e.target.closest('button');
-
-    if (!button) return;
-
-    setReadingState(button.innerText);
-  }, []);
 
   const updateDebouncedQuery = debounce(
     useCallback((query) => {
@@ -50,6 +45,18 @@ function Bookshelf() {
     },
     [updateDebouncedQuery]
   );
+
+  /* 독서 상태를 필터링하는 버튼의 innerText 값에 따라 책장에 나오는 데이터를 다르게 바꾸기 위해
+  React state와 'click' event handler를 선언 */
+  const [readingState, setReadingState] = useState('전체');
+
+  const handleClick = useCallback((e) => {
+    const button = e.target.closest('button');
+
+    if (!button) return;
+
+    setReadingState(button.innerText);
+  }, []);
 
   return (
     <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen hide-scrollbar">
