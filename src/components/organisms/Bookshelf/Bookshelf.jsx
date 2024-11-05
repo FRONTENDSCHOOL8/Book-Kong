@@ -1,43 +1,62 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
 import UserBookList from '../UserBookList/UserBookList';
-import useUserLibData from '../../../hooks/useUserLibData';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import ReadingStateFilter from '../../molecules/ReadingStateFilter/ReadingStateFilter';
+import { getAllUserLibRecs } from '../../../utils/controlBookData';
+import { loginUserData } from '../../../utils/controlUserData';
+import { useQuery } from '@tanstack/react-query';
+import debounce from '../../../utils/debounce';
 
 function Bookshelf() {
   const [readingState, setReadingState] = useState('전체');
-  const [query, setQuery] = useState('');
-  const { data, isLoading, error, failureCount, failureReason } =
-    useUserLibData(query);
+  const [localQuery, setLocalQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const { data, isLoading, error, failureCount, failureReason } = useQuery({
+    queryKey: ['library', loginUserData],
+    queryFn: getAllUserLibRecs,
+    select: (userLibRecs) => {
+      if (debouncedQuery === '') return userLibRecs;
+      else
+        return userLibRecs.filter((userLibRec) =>
+          userLibRec.title.includes(debouncedQuery)
+        );
+    },
+  });
 
   if (failureCount >= 1 && failureReason.message.startsWith('Server'))
     throw error;
 
   if (failureCount === 4) throw error;
 
-  const handleClick = (e) => {
+  const handleClick = useCallback((e) => {
     const button = e.target.closest('button');
 
     if (!button) return;
 
     setReadingState(button.innerText);
-  };
+  }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const updateDebouncedQuery = debounce(
+    useCallback((query) => {
+      setDebouncedQuery(query);
+    }, [])
+  );
 
-    const newKeyword = e.target[0].value.trim();
-
-    setQuery(newKeyword);
-  };
+  const handleChange = useCallback(
+    (e) => {
+      setLocalQuery(e.target.value);
+      updateDebouncedQuery(e.target.value);
+    },
+    [updateDebouncedQuery]
+  );
 
   return (
     <main className="px-4 pt-[129px] pb-[120px] overflow-scroll h-screen hide-scrollbar">
       <Helmet>
         <title>책콩 | 서재 - 책장</title>
       </Helmet>
-      <SearchBar onSubmit={handleSubmit} />
+      <SearchBar query={localQuery} onChange={handleChange} />
       <ReadingStateFilter onClick={handleClick} readingState={readingState} />
       <UserBookList
         data={

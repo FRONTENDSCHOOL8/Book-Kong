@@ -1,9 +1,9 @@
 import { string, func } from 'prop-types';
 
-function SearchInput({ keyword, onChange }) {
+function SearchInput({ query, onChange }) {
   return (
     <input
-      value={keyword}
+      value={query}
       onChange={onChange}
       className="contents-sm text-grayscale-900 outline-none bg-transparent flex-grow"
       placeholder="책 제목을 입력해주세요"
@@ -12,7 +12,7 @@ function SearchInput({ keyword, onChange }) {
 }
 
 SearchInput.propTypes = {
-  keyword: string.isRequired,
+  query: string.isRequired,
   onChange: func.isRequired,
 };
 
