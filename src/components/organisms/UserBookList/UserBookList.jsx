@@ -12,24 +12,14 @@ function UserBookList({ data: userLibData, isLoading = false }) {
         animate="end"
         className="flex flex-col gap-3"
       >
-        <li>
+        {[...Array(3)].map((_, index) => (
+          <li key={index}>
           <Skeleton
             variant="rounded"
             sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
           />
         </li>
-        <li>
-          <Skeleton
-            variant="rounded"
-            sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
-          />
-        </li>
-        <li>
-          <Skeleton
-            variant="rounded"
-            sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
-          />
-        </li>
+        ))}
       </motion.ul>
     );
   }
