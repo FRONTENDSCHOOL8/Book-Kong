@@ -5,29 +5,18 @@ import StateFilterBtn from '../../atoms/StateFilterBtn/StateFilterBtn';
 function ReadingStateFilter({ onClick, readingState, isLoading = false }) {
   return (
     <div className="flex py-4 gap-1">
-      {isLoading ? (
-        <>
-          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
-            <StateFilterBtn onClick={onClick} readingState={readingState}>전체</StateFilterBtn>
-          </Skeleton>
-          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
-            <StateFilterBtn onClick={onClick} readingState={readingState}>완독</StateFilterBtn>
-          </Skeleton>
-          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
-            <StateFilterBtn onClick={onClick} readingState={readingState}>독서중</StateFilterBtn>
-          </Skeleton>
-          <Skeleton variant="rounded" sx={{ borderRadius: '33px' }}>
-            <StateFilterBtn onClick={onClick} readingState={readingState}>희망 도서</StateFilterBtn>
-          </Skeleton>
-        </>
-      ) : (
-        <>
-          <StateFilterBtn onClick={onClick} readingState={readingState}>전체</StateFilterBtn>
-          <StateFilterBtn onClick={onClick} readingState={readingState}>완독</StateFilterBtn>
-          <StateFilterBtn onClick={onClick} readingState={readingState}>독서중</StateFilterBtn>
-          <StateFilterBtn onClick={onClick} readingState={readingState}>희망 도서</StateFilterBtn>
-        </>
-      )}
+      <StateFilterBtn onClick={onClick} readingState={readingState}>
+        전체
+      </StateFilterBtn>
+      <StateFilterBtn onClick={onClick} readingState={readingState}>
+        완독
+      </StateFilterBtn>
+      <StateFilterBtn onClick={onClick} readingState={readingState}>
+        독서중
+      </StateFilterBtn>
+      <StateFilterBtn onClick={onClick} readingState={readingState}>
+        희망 도서
+      </StateFilterBtn>
     </div>
   );
 }
