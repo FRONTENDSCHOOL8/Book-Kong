@@ -1,19 +1,26 @@
-import { string, func } from 'prop-types';
+import { string, func, oneOf } from 'prop-types';
 
-function SearchInput({ keyword, onChange }) {
+function SearchInput({ query, onChange, pgName }) {
+  const placeholder =
+    {
+      bookshelf: '책장에서 내 책을 찾아보세요.',
+      'book-search': '새로운 책을 찾아보세요!',
+    }[pgName] ?? '';
+
   return (
     <input
-      value={keyword}
+      value={query}
       onChange={onChange}
       className="contents-sm text-grayscale-900 outline-none bg-transparent flex-grow"
-      placeholder="책 제목을 입력해주세요"
+      placeholder={placeholder}
     />
   );
 }
 
 SearchInput.propTypes = {
-  keyword: string.isRequired,
+  query: string.isRequired,
   onChange: func.isRequired,
+  pgName: oneOf(['bookshelf', 'book-search']),
 };
 
 export default SearchInput;

@@ -3,7 +3,7 @@ import { Skeleton } from '@mui/material';
 import { arrayOf, object, bool } from 'prop-types';
 import UserBookCard from '../../molecules/UserBookCard/UserBookCard';
 
-function UserBookList({ data: userLibData, isLoading = false }) {
+function UserBookList({ data: userLibData, isLoading = false, isStale }) {
   if (isLoading) {
     return (
       <motion.ul
@@ -12,24 +12,14 @@ function UserBookList({ data: userLibData, isLoading = false }) {
         animate="end"
         className="flex flex-col gap-3"
       >
-        <li>
-          <Skeleton
-            variant="rounded"
-            sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
-          />
-        </li>
-        <li>
-          <Skeleton
-            variant="rounded"
-            sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
-          />
-        </li>
-        <li>
-          <Skeleton
-            variant="rounded"
-            sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
-          />
-        </li>
+        {[...Array(3)].map((_, index) => (
+          <li key={index}>
+            <Skeleton
+              variant="rounded"
+              sx={{ borderRadius: '0.5rem', width: 1, height: 130 }}
+            />
+          </li>
+        ))}
       </motion.ul>
     );
   }
@@ -39,7 +29,7 @@ function UserBookList({ data: userLibData, isLoading = false }) {
       variants={ListVar}
       initial="start"
       animate="end"
-      className="flex flex-col gap-3"
+      className={`flex flex-col gap-3 ${isStale ? 'opacity-70' : 'opacity-100'}`}
     >
       {userLibData.map((record) => (
         <UserBookCard key={record.id} record={record} />
@@ -59,6 +49,7 @@ const ListVar = {
 UserBookList.propTypes = {
   data: arrayOf(object),
   isLoading: bool,
+  isStale: bool,
 };
 
 export default UserBookList;

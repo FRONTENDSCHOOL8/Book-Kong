@@ -1,20 +1,22 @@
 import { motion } from 'framer-motion';
-import PropTypes, { object } from 'prop-types';
-import { v4 as uuidv4 } from 'uuid';
+import { bool, exact, array } from 'prop-types';
 import SearchCard from '../../molecules/SearchCard/SearchCard';
-function SearchList({ data }) {
+import { useAladinDataInit } from '../../../hooks/useAladinDataInit';
+
+function SearchList({ data, isStale, isFetching }) {
+  const aladinBookData = useAladinDataInit(data);
+  const isDataEmpty = aladinBookData.length === 0;
+
   return (
     <motion.ul
       variants={ListVar}
       initial="start"
       animate="end"
-      className="flex flex-col gap-3"
+      className={`flex flex-col gap-3 ${!isDataEmpty || isStale || isFetching ? 'opacity-70' : 'opacity-100'}`}
     >
-      {data?.map((book) =>
-        book?.page_data.item.map((book) => (
-          <SearchCard key={uuidv4()} data={book} />
-        ))
-      )}
+      {aladinBookData.map((book) => (
+        <SearchCard key={book.isbn13} data={book} />
+      ))}
     </motion.ul>
   );
 }
@@ -28,7 +30,12 @@ const ListVar = {
 };
 
 SearchList.propTypes = {
-  data: PropTypes.arrayOf(object),
+  data: exact({
+    pageParams: array,
+    pages: array,
+  }),
+  isStale: bool,
+  isFetching: bool,
 };
 
 export default SearchList;
