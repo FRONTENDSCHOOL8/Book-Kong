@@ -54,7 +54,7 @@ function BookSearchMain() {
             totalResults={data?.pages[0].page_data.totalResults}
             isLoading={isLoading}
           />
-          <SearchList data={data?.pages} />
+          <SearchList data={data} />
           <div ref={hasNextPage ? ref : undefined}>
             {isFetchingNextPage ? (
               <p>불러오는 중...</p>

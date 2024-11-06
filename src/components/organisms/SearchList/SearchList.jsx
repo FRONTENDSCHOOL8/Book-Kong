@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
-import PropTypes, { object } from 'prop-types';
+import { exact, array } from 'prop-types';
 import SearchCard from '../../molecules/SearchCard/SearchCard';
+import { useAladinDataInit } from '../../../hooks/useAladinDataInit';
+
 function SearchList({ data }) {
+  const aladinBookData = useAladinDataInit(data);
+
   return (
     <motion.ul
       variants={ListVar}
@@ -9,11 +13,9 @@ function SearchList({ data }) {
       animate="end"
       className="flex flex-col gap-3"
     >
-      {data?.map((book) =>
-        book?.page_data.item.map((book) => (
-          <SearchCard key={book.isbn13} data={book} />
-        ))
-      )}
+      {aladinBookData.map((book) => (
+        <SearchCard key={book.isbn13} data={book} />
+      ))}
     </motion.ul>
   );
 }
@@ -27,7 +29,10 @@ const ListVar = {
 };
 
 SearchList.propTypes = {
-  data: PropTypes.arrayOf(object),
+  data: exact({
+    pageParams: array,
+    pages: array,
+  }),
 };
 
 export default SearchList;
