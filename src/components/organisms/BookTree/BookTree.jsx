@@ -33,7 +33,8 @@ function BookTree() {
         <title>책콩 | 서재 - 책나무</title>
       </Helmet>
       <div className="pt-[120px] overflow-auto">
-        <div className="flex fixed top-[120px] justify-between px-4 w-full">
+        {/* 웹 브라우저에서 위치조정을 위해 컨테이너 추가 */}
+        <div className="max-w-[448px] w-full min-w-[320px] fixed left-[50%] -translate-x-1/2 top-[120px] z-20 pl-4 pr-[76px]">
           <BookInfo
             isLoading={isLoading}
             page={userTotalPage}
@@ -42,11 +43,14 @@ function BookTree() {
         </div>
         <Character page={userTotalPage} isLoading={isLoading} />
         <BookBlockList data={data} isLoading={isLoading} />
-        <ContextButton
-          shape="horizontal"
-          ariaLabel="책나무 이미지 저장"
-          customClassName="top-[120px] right-4"
-        />
+        {/* 웹 브라우저에서 위치조정을 위해 컨테이너 추가 */}
+        <div className="max-w-[448px] w-full min-w-[320px] fixed left-[50%] -translate-x-1/2 top-[120px] z-20">
+          <ContextButton
+            shape="horizontal"
+            ariaLabel="책나무 이미지 저장"
+            customClassName="right-4"
+          />
+        </div>
       </div>
     </main>
   );

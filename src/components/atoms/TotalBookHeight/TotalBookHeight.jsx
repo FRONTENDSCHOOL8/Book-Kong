@@ -2,10 +2,10 @@ import { number } from 'prop-types';
 
 function TotalBookHeight({ height: userBookHeight }) {
   return (
-    <div className="flex items-end gap-2 grow">
-      <p className="contents-2xl-md text-primary-500">{userBookHeight}</p>
-      <p className="contents-md-md text-grayscale-600 translate-y-[-3px]">cm</p>
-    </div>
+    <strong className="flex items-baseline contents-2xl-md">
+      {userBookHeight}
+      <span className="ml-1 contents-md text-grayscale-500">cm</span>
+    </strong>
   );
 }
 
