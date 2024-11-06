@@ -11,11 +11,11 @@ export function useAladinDataInit(data) {
         );
         const mergedMapData = new Map();
 
-        prevData.forEach((book) => {
+        newlyFetchedData.forEach((book) => {
           mergedMapData.set(book.isbn13, book);
         });
 
-        newlyFetchedData.forEach((book) => {
+        prevData.forEach((book) => {
           if (!mergedMapData.has(book.isbn13)) {
             mergedMapData.set(book.isbn13, book);
           }
