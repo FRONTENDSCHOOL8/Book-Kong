@@ -21,6 +21,8 @@ function BookSearchMain() {
     hasNextPage,
     isFetchingNextPage,
     error,
+    failureCount,
+    failureReason,
   } = useInfiniteQuery({
     queryKey: ['search', debouncedQuery],
     queryFn: ({ pageParam }) => getAladinReqData(debouncedQuery, pageParam),
@@ -32,6 +34,12 @@ function BookSearchMain() {
       return undefined;
     },
   });
+
+  // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
+  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
+    throw error;
+
+  if (failureCount === 4) throw error;
 
   const updateDebouncedQuery = debounce(
     useCallback((query) => {
