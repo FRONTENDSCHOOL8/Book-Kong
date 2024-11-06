@@ -59,6 +59,7 @@ function BookSearchMain() {
   // SearchBar 내 input 창에 입력된 검색어와 실제 렌더링 된 데이터가 다를 경우 data가 stale 되었음을 표시하기 위한 상태 선언
   const isStale = debouncedQuery !== localQuery;
 
+  /* 무한 스크롤 기능 구현을 위한 react-intersection-observer 모듈 사용 */
   const { ref, inView } = useInView();
 
   useEffect(() => {
