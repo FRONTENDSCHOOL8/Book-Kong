@@ -53,7 +53,7 @@ function Bookshelf() {
   React state와 'click' event handler를 선언 */
   const [readingState, setReadingState] = useState('전체');
 
-  const handleClick = useCallback((e) => {
+  const handleReadingState = useCallback((e) => {
     const button = e.target.closest('button');
 
     if (!button) return;
@@ -67,7 +67,10 @@ function Bookshelf() {
         <title>책콩 | 서재 - 책장</title>
       </Helmet>
       <SearchBar query={localQuery} onQueryChange={handleQuery} />
-      <ReadingStateFilter onClick={handleClick} readingState={readingState} />
+      <ReadingStateFilter
+        onClick={handleReadingState}
+        readingState={readingState}
+      />
       <UserBookList
         data={
           readingState === '전체'
