@@ -82,6 +82,7 @@ function BookSearchMain() {
         query={localQuery}
         onQueryChange={handleQuery}
         onResetClick={handleReset}
+        pgName="book-search"
       />
       {debouncedQuery === '' ? (
         <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">

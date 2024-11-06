@@ -78,6 +78,7 @@ function Bookshelf() {
         query={localQuery}
         onQueryChange={handleQuery}
         onResetClick={handleReset}
+        pgName="bookshelf"
       />
       <ReadingStateFilter
         onClick={handleReadingState}
