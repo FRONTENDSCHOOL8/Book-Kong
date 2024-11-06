@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import UserBookList from '../UserBookList/UserBookList';
 import SearchBar from '../../molecules/SearchBar/SearchBar';
@@ -32,10 +32,12 @@ function Bookshelf() {
 
   if (failureCount === 4) throw error;
 
-  const updateDebouncedQuery = debounce(
-    useCallback((query) => {
-      setDebouncedQuery(query);
-    }, [])
+  const updateDebouncedQuery = useMemo(
+    () =>
+      debounce((query) => {
+        setDebouncedQuery(query);
+      }, []),
+    []
   );
 
   const handleQuery = useCallback(

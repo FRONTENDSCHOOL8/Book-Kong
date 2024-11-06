@@ -1,6 +1,6 @@
 import SearchBar from '../../molecules/SearchBar/SearchBar';
 import SearchInfo from '../../atoms/SearchInfo/SearchInfo';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useInView } from 'react-intersection-observer';
 import { getAladinReqData } from '../../../api/searchAladin';
@@ -42,10 +42,12 @@ function BookSearchMain() {
 
   if (failureCount === 4) throw error;
 
-  const updateDebouncedQuery = debounce(
-    useCallback((query) => {
-      setDebouncedQuery(query);
-    }, [])
+  const updateDebouncedQuery = useMemo(
+    () =>
+      debounce((query) => {
+        setDebouncedQuery(query);
+      }),
+    []
   );
 
   const handleQuery = useCallback(
