@@ -20,7 +20,7 @@ function SearchInput({ query, onChange, pgName }) {
 SearchInput.propTypes = {
   query: string.isRequired,
   onChange: func.isRequired,
-  pgName: oneOf('bookshelf', 'book-search'),
+  pgName: oneOf(['bookshelf', 'book-search']),
 };
 
 export default SearchInput;

@@ -17,7 +17,7 @@ SearchBar.propTypes = {
   query: string.isRequired,
   onQueryChange: func.isRequired,
   onResetClick: func.isRequired,
-  pgName: oneOf('bookshelf', 'book-search'),
+  pgName: oneOf(['bookshelf', 'book-search']),
 };
 
 export default SearchBar;
