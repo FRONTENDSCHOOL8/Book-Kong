@@ -1,3 +1,4 @@
+// 2024.11.03 14:30 이후 사용금지 함수
 export default function getCombinedClassName(
   defaultClassName,
   customClassName

@@ -6,6 +6,7 @@ import DetailBookMemo from '../../molecules/DetailBookMemo/DetailBookMemo';
 import DetailBookFeed from '../../molecules/DetailBookFeed/DetailBookFeed';
 import BookDetailNavigation from '../../molecules/BookDetailNavigation/BookDetailNavigation';
 import { useLoaderData } from 'react-router-dom';
+import TopButton from '../../atoms/TopButton/TopButton';
 
 function DetailBook() {
   const bookData = useLoaderData();
@@ -32,6 +33,7 @@ function DetailBook() {
           <DetailBookFeed data={bookData} />
         </div>
       </div>
+      <TopButton />
     </main>
   );
 }

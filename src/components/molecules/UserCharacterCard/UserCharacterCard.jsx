@@ -5,10 +5,11 @@ import CharacterLevel from '../../atoms/CharacterLevel/CharacterLevel';
 import CharacterHeight from '../../atoms/CharacterHeight/CharacterHeight';
 import CharacterDesc from '../../atoms/CharacterDesc/CharacterDesc';
 import MyCharBadge from '../../atoms/MyCharBadge/MyCharBadge';
-
+import A11yHidden from '../../atoms/A11yHidden/A11yHidden';
 function UserCharacterCard({ userLv, clickedLv }) {
   return userLv === clickedLv ? (
-    <div className="bg-white rounded-[10px] p-6">
+    <section className="bg-white rounded-[10px] p-6 mb-4">
+      <A11yHidden as="h2">선택된 캐릭터 상세 정보</A11yHidden>
       <CharacterName level={clickedLv} />
       <CharacterDesc level={clickedLv} />
       <figure className="flex flex-col items-center gap-8">
@@ -19,9 +20,10 @@ function UserCharacterCard({ userLv, clickedLv }) {
         <CharacterLevel level={clickedLv} pgName="캐릭터" />
         <CharacterHeight level={clickedLv} />
       </div>
-    </div>
+    </section>
   ) : (
-    <div className="bg-white rounded-[10px] p-6">
+    <section className="bg-white rounded-[10px] p-6 mb-4">
+      <A11yHidden as="h2">선택된 캐릭터 상세 정보</A11yHidden>
       <CharacterName level={clickedLv} />
       <CharacterDesc level={clickedLv} />
       <div className="flex justify-center">
@@ -31,7 +33,7 @@ function UserCharacterCard({ userLv, clickedLv }) {
         <CharacterLevel level={clickedLv} pgName="캐릭터" />
         <CharacterHeight level={clickedLv} />
       </div>
-    </div>
+    </section>
   );
 }
 

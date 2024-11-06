@@ -11,7 +11,7 @@ function BookDetailNavigation() {
   }
 
   return (
-    <nav className="sticky px-4 bg-background-gray left-0 top-[57px] z-[18]">
+    <nav className="sticky px-4 bg-background-gray left-0 top-[56px] z-[18]">
       <ul className="flex items-center justify-start h-[54px]">
         <li className="flex items-center justify-center h-full grow ">
           <NavLink
