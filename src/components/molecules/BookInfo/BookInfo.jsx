@@ -11,17 +11,15 @@ function BookInfo({
   const userBookHeight = calcBookHeight(userTotalPage) * 1;
 
   return (
-    <div className="w-[287px] h-[84px] py-6 flex justify-center items-center border rounded-lg bg-background-gray border-grayscale-100">
-      <div className="flex justify-center w-full gap-4">
-        {isLoading ? (
-          '로딩 중'
-        ) : (
-          <>
-            <TotalBookCount bookNum={userFinishBookNum}></TotalBookCount>
-            <TotalBookHeight height={userBookHeight}></TotalBookHeight>
-          </>
-        )}
-      </div>
+    <div className="h-[84px] py-6 items-center border flex justify-center w-full gap-4 rounded-lg bg-primary-50 border-primary-100 text-primary-500 pl-[0.5rem]">
+      {isLoading ? (
+        '로딩 중'
+      ) : (
+        <>
+          <TotalBookCount bookNum={userFinishBookNum}></TotalBookCount>
+          <TotalBookHeight height={userBookHeight}></TotalBookHeight>
+        </>
+      )}
     </div>
   );
 }
