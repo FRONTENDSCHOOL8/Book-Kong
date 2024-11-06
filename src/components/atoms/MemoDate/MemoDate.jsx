@@ -3,7 +3,7 @@ import convertDayFormat from '/src/utils/convertDayFormat';
 
 function MemoDate({ date }) {
   return (
-    <span className="contents-xs text-gray-300 text-right">
+    <span className="text-right text-gray-500 contents-xs">
       {convertDayFormat(date)}
     </span>
   );
