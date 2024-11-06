@@ -11,9 +11,7 @@ function DetailBookInfo({ data: bookData }) {
       id="bookInfo"
     >
       <div className="px-4 pb-8 bg-grayscale-white text-grayscale-700">
-        <h4 className="pt-8 border-t contents-lg-bold text-grayscale-black">
-          책 소개
-        </h4>
+        <h4 className="pt-8 contents-lg-bold text-grayscale-black">책 소개</h4>
         <DetailBookInfoDesc data={bookData} />
         <DetailBookInfoPage data={bookData} />
         <DetailBookInfoIsbn data={bookData} />
