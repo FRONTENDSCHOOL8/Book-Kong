@@ -31,41 +31,29 @@ function FeedList() {
         animate="end"
         className="flex flex-col gap-3"
       >
-        {isLoading ? (
-          <>
-            <Skeleton
-              variant="rounded"
-              sx={{ borderRadius: '0.5rem', width: 1, height: 216 }}
-            >
-              <li className="flex flex-col w-full gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100"></li>
-            </Skeleton>
-            <Skeleton
-              variant="rounded"
-              sx={{ borderRadius: '0.5rem', width: 1, height: 216 }}
-            >
-              <li className="flex flex-col w-full gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100"></li>
-            </Skeleton>
-            <Skeleton
-              variant="rounded"
-              sx={{ borderRadius: '0.5rem', width: 1, height: 216 }}
-            >
-              <li className="flex flex-col w-full gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100"></li>
-            </Skeleton>
-          </>
-        ) : (
-          feedsRecs?.map((feedsRec) => (
-            <FeedCard
-              key={feedsRec.id}
-              bookTitle={feedsRec.book_title}
-              title={feedsRec.feed_title}
-              content={feedsRec.content}
-              date={feedsRec.created}
-              nickname={feedsRec.expand?.user_id.nickname}
-              book_height={feedsRec.expand?.user_id.book_height}
-              isLoading={isLoading}
-            />
-          ))
-        )}
+        {isLoading
+          ? [...Array(3)].map((_, index) => (
+              <li key={index}>
+                <Skeleton
+                  variant="rounded"
+                  sx={{ borderRadius: '0.5rem', width: 1, height: 216 }}
+                >
+                  <div className="flex flex-col w-full gap-4 px-4 py-5 border rounded-lg bg-grayscale-white border-grayscale-100"></div>
+                </Skeleton>
+              </li>
+            ))
+          : feedsRecs?.map((feedsRec) => (
+              <FeedCard
+                key={feedsRec.id}
+                bookTitle={feedsRec.book_title}
+                title={feedsRec.feed_title}
+                content={feedsRec.content}
+                date={feedsRec.created}
+                nickname={feedsRec.expand?.user_id.nickname}
+                book_height={feedsRec.expand?.user_id.book_height}
+                isLoading={isLoading}
+              />
+            ))}
       </motion.ul>
     </main>
   );
