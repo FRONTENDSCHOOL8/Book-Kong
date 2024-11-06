@@ -1,45 +1,31 @@
-import { Outlet, useLocation } from 'react-router-dom';
-import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { loginUserData } from '../utils/controlUserData';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import SplashPage from '../components/pages/SplashPage/SplashPage';
+import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
+import { loginUserData } from '../utils/controlUserData';
 
 function App() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const [splashing, isSplashing] = useState(true);
+  const [isSplashed, setIsSplashed] = useState(false);
 
   useEffect(() => {
-    if (pathname === '/') navigate('/library/booktree');
-  }, [pathname, navigate]);
+    const timer = setTimeout(() => {
+      setIsSplashed(true);
 
-  useEffect(() => {
-    if (!loginUserData) {
-      if (pathname !== '/register') navigate('/login');
-    }
-  }, [navigate, pathname]);
+      if (loginUserData.id) {
+        navigate('/library/booktree');
+      } else {
+        navigate('/login');
+      }
 
-  useEffect(() => {
-    const splashDisplayed = sessionStorage.getItem('splashDisplayed');
+      return () => clearTimeout(timer);
+    }, 3000);
+  }, [navigate]);
 
-    if (!splashDisplayed) {
-      setTimeout(() => {
-        isSplashing(false);
-        sessionStorage.setItem('splashDisplayed', 'true');
-      }, 3000);
-    } else {
-      isSplashing(false);
-    }
-  }, []);
+  if (!isSplashed) return <SplashPage />;
 
-  if (splashing) {
-    return <SplashPage />;
-  }
-
-  if (pathname === '/login' || pathname === '/register') {
-    return <Outlet />;
-  }
+  if (pathname === ('/login' || '/register')) return <Outlet />;
 
   return (
     <>

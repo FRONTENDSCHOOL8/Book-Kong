@@ -1,14 +1,9 @@
 import { number } from 'prop-types';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
-import characterData from '../../../data/character.json';
+import characterList from '../../../data/character.json';
 
-function CharacterDesc({ page: userTotalPage }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
-  const characterDesc = characterData
-    .filter((data) => data.level === userLevel)[0]
+function CharacterDesc({ level: charLevel }) {
+  const characterDesc = characterList
+    .filter((data) => data.level === charLevel)[0]
     .description.replace(/\n/g, '<br />');
 
   return (
@@ -24,7 +19,7 @@ function CharacterDesc({ page: userTotalPage }) {
 }
 
 CharacterDesc.propTypes = {
-  page: number,
+  level: number,
 };
 
 export default CharacterDesc;

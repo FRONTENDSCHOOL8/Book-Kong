@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 
 function MemoDetailPage() {
   const memo = useLoaderData();
+
   return (
     <>
       <Helmet>
@@ -18,7 +19,7 @@ function MemoDetailPage() {
               {convertDayFormat(memo?.created)}
             </time>
             <strong className=" flex text-xm mt-6 pl-[26px] text-[#F24822] contents-sm-bold">
-              {memo?.expand.book_id.title}
+              {memo?.book_title}
             </strong>
           </header>
           <p className="mt-4 whitespace-pre-wrap contents-md">

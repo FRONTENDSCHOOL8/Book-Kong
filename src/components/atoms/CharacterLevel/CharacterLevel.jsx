@@ -1,23 +1,29 @@
-import { number } from 'prop-types';
-import {
-  calcUserBookHeight,
-  calcUserLevel,
-} from '../../../utils/calcUserLevel';
+import { number, string } from 'prop-types';
 
-function CharacterLevel({ page: userTotalPage }) {
-  const userLevel = calcUserLevel(calcUserBookHeight(userTotalPage));
-
-  return (
-    <div className="flex justify-end">
-      <span className="contents-md text-primary-500 h-[26px]">
-        {userLevel}단계
-      </span>
-    </div>
-  );
+function CharacterLevel({ level: charLevel, pgName }) {
+  switch (pgName) {
+    case '캐릭터':
+      return (
+        <div className="flex justify-end">
+          <span className="contents-md text-primary-500 h-[26px]">
+            {charLevel}단계
+          </span>
+        </div>
+      );
+    case '마이페이지':
+      return (
+        <div className="flex justify-end">
+          <span className="contents-md-bold text-grayscale-900">
+            {charLevel}단계
+          </span>
+        </div>
+      );
+  }
 }
 
 CharacterLevel.propTypes = {
-  page: number,
+  level: number,
+  pgName: string,
 };
 
 export default CharacterLevel;

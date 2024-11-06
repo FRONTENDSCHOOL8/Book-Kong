@@ -1,4 +1,5 @@
-import { number, string } from 'prop-types';
+import { Skeleton } from '@mui/material';
+import { number, string, bool } from 'prop-types';
 import BookTitle from '../../atoms/BookTitle/BookTitle';
 import { memo } from 'react';
 
@@ -40,9 +41,25 @@ const getClassNames = ({ page, index }) => {
 };
 
 // 페이지 별 키(key)에 설정할 높이를 아래처럼 작성합니다.
-const BookBlock = memo(function BookBlock({ title, page, index, id }) {
+const BookBlock = memo(function BookBlock({
+  title,
+  page,
+  index,
+  id,
+  isLoading,
+}) {
   // 마크업 반환 (병합된 클래스 이름 설정)
-  return (
+  return isLoading ? (
+    <li>
+      <Skeleton
+        variant="rounded"
+        className={getClassNames({ page, index })}
+        height={Math.max(page * 0.1, 24)}
+      >
+        <BookTitle id={id}>{title}</BookTitle>
+      </Skeleton>
+    </li>
+  ) : (
     <li
       className={getClassNames({ page, index })}
       style={{ height: `${Math.max(page * 0.1, 24)}px` }}
@@ -57,6 +74,7 @@ BookBlock.propTypes = {
   page: number.isRequired,
   index: number.isRequired,
   id: string.isRequired,
+  isLoading: bool,
 };
 
 export default BookBlock;

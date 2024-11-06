@@ -1,7 +1,7 @@
 import { string, shape } from 'prop-types';
 import { useQuery } from '@tanstack/react-query';
 import { loginUserData } from '../../../utils/controlUserData';
-import { getUserFeedData } from '../../../utils/controlFeedData';
+import { getAllFeedsRec } from '../../../utils/controlFeedData';
 import { motion } from 'framer-motion';
 import FeedCard from '../../organisms/FeedCard/FeedCard';
 import { useState, useEffect } from 'react';
@@ -10,17 +10,11 @@ import RegistrationIcon from '../../atoms/RegistrationIcon/RegistrationIcon';
 import { Link } from 'react-router-dom';
 
 function DetailBookFeed({ data: bookData }) {
-  const { data } = useQuery({
-    queryKey: ['feed-detail', loginUserData, bookData.id],
-    queryFn: async () => {
-      const feedData = await getUserFeedData();
-
-      const filteredData = feedData?.filter(
-        (feed) => feed.expand.book_id.id === bookData.id
-      );
-
-      return filteredData;
-    },
+  const { data: feedsOfTheBook } = useQuery({
+    queryKey: ['feeds', loginUserData],
+    queryFn: () => getAllFeedsRec(),
+    select: (feedsRecs) =>
+      feedsRecs?.filter((feedsRec) => feedsRec.book_title === bookData.title),
   });
 
   const listVar = {
@@ -38,8 +32,8 @@ function DetailBookFeed({ data: bookData }) {
   const [listCount, setListCount] = useState(0);
 
   useEffect(() => {
-    setListCount(data?.length || 0);
-  }, [data]);
+    setListCount(feedsOfTheBook?.length || 0);
+  }, [feedsOfTheBook]);
 
   return (
     <section
@@ -68,16 +62,16 @@ function DetailBookFeed({ data: bookData }) {
             animate="end"
             className="flex flex-col w-full gap-4"
           >
-            {data?.length !== 0 ? (
-              data?.map((feed) => (
+            {feedsOfTheBook?.length !== 0 ? (
+              feedsOfTheBook?.map((feedsRec) => (
                 <FeedCard
-                  key={feed.id}
-                  bookTitle={feed.expand.book_id.title}
-                  title={feed.title}
-                  content={feed.content}
-                  date={feed.created}
-                  nickname={feed.expand.book_id.expand.user_id.nickname}
-                  book_height={feed.expand.book_id.expand.user_id.book_height}
+                  key={feedsRec.id}
+                  bookTitle={feedsRec.book_title}
+                  title={feedsRec.feed_title}
+                  content={feedsRec.content}
+                  date={feedsRec.created}
+                  nickname={feedsRec.expand?.user_id.nickname}
+                  book_height={feedsRec.expand?.user_id.book_height}
                 />
               ))
             ) : (

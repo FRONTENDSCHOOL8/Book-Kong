@@ -13,7 +13,7 @@ function BookTree() {
   });
 
   // 유저의 다 읽은 책 권수 계산
-  const userFinishBookNum = data?.length;
+  const userFinishBookNum = data?.length || 0;
 
   // 유저의 다 읽은 책 페이지 합계
   let userTotalPage = 0;
@@ -37,8 +37,8 @@ function BookTree() {
             bookNum={userFinishBookNum}
           />
         </div>
-        <Character page={userTotalPage} />
-        <BookBlockList data={data} />
+        <Character page={userTotalPage} isLoading={isLoading} />
+        <BookBlockList data={data} isLoading={isLoading} />
         <ContextButton
           shape="horizontal"
           ariaLabel="책나무 이미지 저장"

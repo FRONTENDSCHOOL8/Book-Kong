@@ -15,14 +15,15 @@ import LoginPage from './components/pages/LoginPage';
 import RegisterPage from './components/pages/RegisterPage';
 import StatisticsMemo from './components/atoms/StatisticsMemo/StatisticsMemo';
 import { HelmetProvider } from 'react-helmet-async';
-import { getBookData } from './api/searchAladin';
-import { getLibraryData } from './utils/controlBookData';
+import { getAladinBook } from './api/searchAladin';
+import { getOneLibraryData } from './utils/controlBookData';
 import MemoDetailPage from './components/pages/MemoDetailPage/MemoDetailPage';
-import SplashPage from './components/pages/SplashPage/SplashPage';
 import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRegistrationPage';
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
-import { getMemoData } from './utils/controlMemoData';
+import { getOneMemosRec } from './utils/controlMemoData';
 import MemoRegistrationPage from './components/pages/MemoRegistrationPage/MemoRegistrationPage';
+import pb from './api/pocketbase';
+import { loginUserData } from './utils/controlUserData';
 
 // 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
 // 선언형 코드를 작성하면 눈의 피로가 줄어드는 효과가 있었습니다.
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: 'library/book-detail/:recordId?',
         element: <BookDetailPage />,
-        loader: async ({ params }) => await getLibraryData(params.recordId),
+        loader: async ({ params }) => await getOneLibraryData(params.recordId),
       },
       {
         path: 'library/book-search',
@@ -51,7 +52,7 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           if (!params.isbn13) return null;
 
-          return await getBookData(params.isbn13);
+          return await getAladinBook(params.isbn13);
         },
       },
       {
@@ -91,8 +92,7 @@ const router = createBrowserRouter([
       {
         path: 'record/memo/:memoId',
         element: <MemoDetailPage />,
-        loader: async ({ params }) =>
-          await getMemoData(params.memoId, { expand: 'book_id' }),
+        loader: async ({ params }) => await getOneMemosRec(params.memoId),
       },
       {
         path: 'feed/registration',
@@ -109,14 +109,14 @@ const router = createBrowserRouter([
       {
         path: 'character',
         element: <CharacterPage />,
+        loader: async () =>
+          await pb.collection('users').getOne(loginUserData.id),
       },
       {
         path: 'mypage',
         element: <MypagePage />,
-      },
-      {
-        path: 'splash',
-        element: <SplashPage />,
+        loader: async () =>
+          await pb.collection('users').getOne(loginUserData.id),
       },
     ],
   },

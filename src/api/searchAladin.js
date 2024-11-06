@@ -1,4 +1,4 @@
-export async function getBookSearchData(keyword = '', pageParam) {
+export async function getAladinReqData(keyword = '', pageParam) {
   if (keyword.replace(/\s/g, '') === '') return;
 
   const bookSearchData = await (
@@ -10,7 +10,7 @@ export async function getBookSearchData(keyword = '', pageParam) {
   return { current_page: pageParam, page_data: bookSearchData.response.json };
 }
 
-export async function getBookData(isbn13) {
+export async function getAladinBook(isbn13) {
   const isbn13Regex =
     /^(?:ISBN(?:-13)?:? )?(?<gs1>\d{3})(?:(?<number>\d{9})|(?=[\d -]{14}$)[ -](?<registrationGroup>\d{1,5})[ -](?<registrant>\d{1,7})[ -](?<publication>\d{1,6})[ -])(?<checkDigit>\d)$/gm;
 
