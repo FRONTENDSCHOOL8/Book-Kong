@@ -16,15 +16,13 @@ function CharacterCollection() {
   };
 
   return (
-    <main className=" bg-background-gray relative justify-end flex flex-col  px-4 ">
-      <div className="flex justify-between pt-[76px] pb-[120px] w-full flex-col gap-4">
-        <UserCharacterCard userLv={userLv} clickedLv={clickedLv} />
-        <CharacterList
-          userLv={userLv}
-          clickedLv={clickedLv}
-          onClick={handleClick}
-        />
-      </div>
+    <main className="bg-background-gray relative justify-between flex flex-col w-full pt-[76px] px-4 mb-[120px]">
+      <UserCharacterCard userLv={userLv} clickedLv={clickedLv} />
+      <CharacterList
+        userLv={userLv}
+        clickedLv={clickedLv}
+        onClick={handleClick}
+      />
     </main>
   );
 }

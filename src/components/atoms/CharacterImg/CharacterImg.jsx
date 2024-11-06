@@ -1,11 +1,18 @@
 import { number } from 'prop-types';
-import characterData from '../../../data/character.json';
+import characterList from '../../../data/character.json';
 
 function CharacterImg({ level: charLevel }) {
-  const charImg = characterData.filter((data) => data.level === charLevel)[0]
-    .image;
+  const charObj = characterList.filter((data) => data.level === charLevel)[0];
+  const charImg = charObj.image;
+  const charName = charObj.name;
 
-  return <img src={charImg} alt="캐릭터 이미지" width={150} />;
+  return (
+    <img
+      src={charImg}
+      alt={`${charLevel}단계 캐릭터 ${charName}`}
+      width={150}
+    />
+  );
 }
 
 CharacterImg.propTypes = {
