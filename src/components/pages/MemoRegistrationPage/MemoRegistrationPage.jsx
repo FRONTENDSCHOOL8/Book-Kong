@@ -40,7 +40,7 @@ function MemoRegistrationPage() {
   const memoMutation = useMutation({
     mutationFn: createMemo,
     onSuccess: () => {
-      navigate('/record/memo');
+      navigate(-1);
     },
   });
 
