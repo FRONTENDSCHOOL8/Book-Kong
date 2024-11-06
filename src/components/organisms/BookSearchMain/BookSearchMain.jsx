@@ -20,6 +20,7 @@ function BookSearchMain() {
     fetchNextPage,
     hasNextPage,
     isFetchingNextPage,
+    isFetching,
     error,
     failureCount,
     failureReason,
@@ -55,6 +56,9 @@ function BookSearchMain() {
     [updateDebouncedQuery]
   );
 
+  // SearchBar 내 input 창에 입력된 검색어와 실제 렌더링 된 데이터가 다를 경우 data가 stale 되었음을 표시하기 위한 상태 선언
+  const isStale = debouncedQuery !== localQuery;
+
   const { ref, inView } = useInView();
 
   useEffect(() => {
@@ -80,7 +84,7 @@ function BookSearchMain() {
             totalResults={data?.pages[0].page_data.totalResults}
             isLoading={isLoading}
           />
-          <SearchList data={data} />
+          <SearchList data={data} isStale={isStale} isFetching={isFetching} />
           <div ref={hasNextPage ? ref : undefined}>
             {isFetchingNextPage ? (
               <p>불러오는 중...</p>
