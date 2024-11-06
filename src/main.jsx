@@ -26,7 +26,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider theme={muiTheme}>
       <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
-        <ReactQueryDevtools initialIsOpen={false} />
+        {import.meta.env.MODE === 'development' && (
+          <ReactQueryDevtools initialIsOpen={false} />
+        )}
       </QueryClientProvider>
     </ThemeProvider>
   </React.StrictMode>
