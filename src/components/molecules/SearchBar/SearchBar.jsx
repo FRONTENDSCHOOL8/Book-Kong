@@ -5,7 +5,7 @@ import ResetBtn from '../../atoms/ResetBtn/ResetBtn';
 
 function SearchBar({ query, onQueryChange, onResetClick, pgName }) {
   return (
-    <form className="bg-primary-50 w-full flex justify-between items-center gap-2 rounded border border-primary-500 px-3 py-2 ">
+    <form className="bg-grayscale-white w-full flex justify-between items-center gap-2 rounded border border-primary-500 px-3 py-2 ">
       <SearchIcon />
       <SearchInput query={query} onChange={onQueryChange} pgName={pgName} />
       {query === '' ? null : <ResetBtn onClick={onResetClick} />}
