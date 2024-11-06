@@ -11,23 +11,11 @@ import convertImgUrlToFile from './convertImgUrlToFile';
  * @param {string} status 기본적으로 all로 설정, 책의 상태에 따라 구분
  * @param {string} sort 기본적으로 created로 설정, 'created'와 '-created' 두개
  */
-export async function getUserLibraryData(status = 'all', sort = 'created') {
-  if (status === 'all') {
-    const resultList = await pb.collection('library').getFullList({
-      filter: `user_id = "${pb.authStore.model.id}"`,
-      sort: `${sort}`,
-    });
-
-    return resultList;
-  } else {
-    const resultList = await pb.collection('library').getFullList({
-      filter: `user_id = "${pb.authStore.model.id}" && status = "${status}"`,
-      sort: `${sort}`,
-    });
-
-    return resultList;
-  }
-}
+export const getAllUserLibRecs = async () =>
+  await pb.collection('library').getFullList({
+    filter: `user_id = '${loginUserData.id}'`,
+    sort: '-created',
+  });
 
 export async function searchUserLibData(query) {
   if (query !== '') {

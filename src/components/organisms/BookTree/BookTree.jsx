@@ -4,12 +4,15 @@ import BookInfo from '../../molecules/BookInfo/BookInfo';
 import Character from '../../molecules/Character/Character';
 import ContextButton from '../../atoms/ContextButton/ContextButton';
 import BookBlockList from './../../organisms/BookBlockList/BookBlockList';
-import { getUserLibraryData } from '/src/utils/controlBookData';
+import { getAllUserLibRecs } from '/src/utils/controlBookData';
+import { loginUserData } from '../../../utils/controlUserData';
 
 function BookTree() {
   const { data, isLoading } = useQuery({
-    queryKey: ['book'],
-    queryFn: () => getUserLibraryData('완독'),
+    queryKey: ['library', loginUserData],
+    queryFn: getAllUserLibRecs,
+    select: (userLibRecs) =>
+      userLibRecs.filter((userLibRec) => userLibRec.status === '완독'),
   });
 
   // 유저의 다 읽은 책 권수 계산
