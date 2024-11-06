@@ -61,6 +61,12 @@ function BookSearchMain() {
   // SearchBar 내 input 창에 입력된 검색어와 실제 렌더링 된 데이터가 다를 경우 data가 stale 되었음을 표시하기 위한 상태 선언
   const isStale = debouncedQuery !== localQuery;
 
+  // 클릭 시 input 내 query keyword value를 reset하는 'click' event handler 선언
+  const handleReset = useCallback(() => {
+    setLocalQuery('');
+    updateDebouncedQuery('');
+  }, [updateDebouncedQuery]);
+
   /* 무한 스크롤 기능 구현을 위한 react-intersection-observer 모듈 사용 */
   const { ref, inView } = useInView();
 
@@ -72,7 +78,11 @@ function BookSearchMain() {
 
   return (
     <main className="relative px-4 pt-[81px] pb-[200px] overflow-scroll h-screen hide-scrollbar">
-      <SearchBar query={localQuery} onQueryChange={handleQuery} />
+      <SearchBar
+        query={localQuery}
+        onQueryChange={handleQuery}
+        onResetClick={handleReset}
+      />
       {debouncedQuery === '' ? (
         <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">
           <img className="w-24" src="/images/characters/locked.png" alt="" />
