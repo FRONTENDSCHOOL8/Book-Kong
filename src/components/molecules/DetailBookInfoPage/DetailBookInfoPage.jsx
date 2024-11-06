@@ -1,4 +1,4 @@
-import { string, shape } from 'prop-types';
+import { number, shape } from 'prop-types';
 
 function DetailBookInfoPage({ data: bookData }) {
   return (
@@ -13,7 +13,7 @@ function DetailBookInfoPage({ data: bookData }) {
 
 DetailBookInfoPage.propTypes = {
   data: shape({
-    total_page: string.isRequired,
+    total_page: number.isRequired,
   }).isRequired,
 };
 
