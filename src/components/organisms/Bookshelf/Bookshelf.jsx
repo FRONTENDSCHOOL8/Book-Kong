@@ -38,7 +38,7 @@ function Bookshelf() {
     }, [])
   );
 
-  const handleChange = useCallback(
+  const handleQuery = useCallback(
     (e) => {
       setLocalQuery(e.target.value);
       updateDebouncedQuery(e.target.value);
@@ -66,7 +66,7 @@ function Bookshelf() {
       <Helmet>
         <title>책콩 | 서재 - 책장</title>
       </Helmet>
-      <SearchBar query={localQuery} onChange={handleChange} />
+      <SearchBar query={localQuery} onQueryChange={handleQuery} />
       <ReadingStateFilter onClick={handleClick} readingState={readingState} />
       <UserBookList
         data={

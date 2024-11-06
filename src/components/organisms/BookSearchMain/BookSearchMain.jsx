@@ -48,7 +48,7 @@ function BookSearchMain() {
     }, [])
   );
 
-  const handleChange = useCallback(
+  const handleQuery = useCallback(
     (e) => {
       setLocalQuery(e.target.value);
       updateDebouncedQuery(e.target.value);
@@ -70,7 +70,7 @@ function BookSearchMain() {
 
   return (
     <main className="relative px-4 pt-[81px] pb-[200px] overflow-scroll h-screen hide-scrollbar">
-      <SearchBar query={localQuery} onChange={handleChange} />
+      <SearchBar query={localQuery} onQueryChange={handleQuery} />
       {debouncedQuery === '' ? (
         <div className="flex flex-col justify-center items-center absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%]">
           <img className="w-24" src="/images/characters/locked.png" alt="" />
