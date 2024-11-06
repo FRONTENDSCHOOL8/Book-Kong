@@ -15,7 +15,7 @@ function TabButton({ path, title }) {
       onClick={handleClick}
       className={
         currentPage === path
-          ? 'tab-menu py-[10px] text-primary-500 border-b-[3px] border-primary-500 box-border'
+          ? 'tab-menu py-[10px] text-primary-500 border-b-[3px] border-t-[3px] border-t-transparent border-b-primary-500 box-border'
           : 'tab-menu py-[10px] text-gray-500 box-border'
       }
     >

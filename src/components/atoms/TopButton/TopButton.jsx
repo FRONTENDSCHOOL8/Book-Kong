@@ -10,7 +10,7 @@ function TopButton() {
 
   return (
     // 웹 브라우저에서 위치조정을 위해 컨테이너 추가
-    <div className="max-w-[448px] w-full min-w-[320px] fixed left-[50%] -translate-x-1/2 bottom-0 bg-pink-400 h-5 z-20">
+    <div className="max-w-[448px] w-full min-w-[320px] fixed left-[50%] -translate-x-1/2 bottom-0 h-5 z-20">
       <button
         onClick={handleScrollToTop}
         type="button"
