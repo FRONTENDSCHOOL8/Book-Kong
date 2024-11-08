@@ -2,7 +2,6 @@ import { string, func } from 'prop-types';
 import Label from '../../atoms/Label/Label';
 import FormInput from '../../atoms/FormInput/FormInput';
 
-// name 속성을 필수값으로 지정해야 form 태그와 상호작용할 수 있습니다.
 function FormInputBox({ label, id, type, placeholder, value, onChange, name }) {
   return (
     <div className="flex flex-col gap-2">
