@@ -6,6 +6,7 @@ import ContextButton from '../../atoms/ContextButton/ContextButton';
 import BookBlockList from './../../organisms/BookBlockList/BookBlockList';
 import { getAllUserLibRecs } from '/src/utils/controlBookData';
 import { loginUserData } from '../../../utils/controlUserData';
+import { calcBookHeight } from '../../../utils/calcLevel';
 
 function BookTree() {
   const { data, isLoading } = useQuery({
@@ -27,6 +28,8 @@ function BookTree() {
     }
   }
 
+  const userBookHeight = calcBookHeight(userTotalPage) * 1 || 0;
+
   return (
     <main className="min-h-screen bg-grayscale-white relative justify-end flex flex-col pt-[120px] pb-[50px] px-4">
       <Helmet>
@@ -37,7 +40,7 @@ function BookTree() {
         <div className="max-w-[448px] w-full min-w-[320px] fixed left-[50%] -translate-x-1/2 top-[120px] z-20 pl-4 pr-[76px]">
           <BookInfo
             isLoading={isLoading}
-            page={userTotalPage}
+            bookHeight={userBookHeight}
             bookNum={userFinishBookNum}
           />
         </div>
