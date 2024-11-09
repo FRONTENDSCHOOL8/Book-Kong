@@ -8,13 +8,13 @@ import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeade
 import CharacterImg from '../atoms/CharacterImg/CharacterImg';
 import CharacterName from '../atoms/CharacterName/CharacterName';
 import CharacterLevel from '../atoms/CharacterLevel/CharacterLevel';
-import TotalBookHeight from '../atoms/TotalBookHeight/TotalBookHeight';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
 import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 import pb from '../../api/pocketbase';
 import { calcLevel } from '../../utils/calcLevel';
+import BookInfo from '../molecules/BookInfo/BookInfo';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -80,12 +80,11 @@ function MypagePage() {
               <CharacterName level={userLevel} pageName="마이페이지" />
             </div>
             <CharacterLevel level={userLevel} pgName="마이페이지" />
-            <div className="flex bg-grayscale-100 w-[263px] items-center rounded-lg px-8 py-1 my-6">
-              <span className="text-[#F24822] text-right mr-2 w-[35%]">
-                {doneBookNum}권
-              </span>
-              <TotalBookHeight height={userBookHeight} />
-            </div>
+            <BookInfo
+              bookNum={doneBookNum}
+              bookHeight={userBookHeight}
+              pgName="mypage"
+            />
           </article>
         </section>
         <section>

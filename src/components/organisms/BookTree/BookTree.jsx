@@ -42,6 +42,7 @@ function BookTree() {
             isLoading={isLoading}
             bookHeight={userBookHeight}
             bookNum={doneBookNum}
+            pgName="book-tree"
           />
         </div>
         <Character page={userTotalPage} isLoading={isLoading} />
