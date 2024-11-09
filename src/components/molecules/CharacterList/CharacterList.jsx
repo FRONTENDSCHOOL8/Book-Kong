@@ -8,7 +8,7 @@ function CharacterList({ userLv, clickedLv, onClick }) {
   return (
     <section className="overflow-scroll">
       <A11yHidden as="h2">캐릭터 목록</A11yHidden>
-      <ul className="flex gap-4 w-[1184px]">
+      <ul className="flex gap-4 w-[1184px] px-4">
         {characterList.map((data, index) => (
           <CharacterItem
             key={uuidv4()}
