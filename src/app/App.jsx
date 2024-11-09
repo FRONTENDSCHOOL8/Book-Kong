@@ -17,7 +17,7 @@ function App() {
         queryFn: getAllUserLibRecs,
       });
 
-      queryClient.prefetch({
+      queryClient.prefetchQuery({
         queryKey: ['users', loginUserData],
         queryFn: getOneUsersRec,
       });
