@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import SplashPage from '../components/pages/SplashPage/SplashPage';
 import GlobalNavigator from '/src/components/organisms/GlobalNavigator/GlobalNavigator';
-import { loginUserData } from '../utils/controlUserData';
+import { getOneUsersRec, loginUserData } from '../utils/controlUserData';
 import { useQueryClient } from '@tanstack/react-query';
 import { getAllUserLibRecs } from '../utils/controlBookData';
 
@@ -11,11 +11,17 @@ function App() {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    if (loginUserData)
+    if (loginUserData) {
       queryClient.prefetchQuery({
         queryKey: ['library', loginUserData],
         queryFn: getAllUserLibRecs,
       });
+
+      queryClient.prefetch({
+        queryKey: ['users', loginUserData],
+        queryFn: getOneUsersRec,
+      });
+    }
   }, [queryClient]);
 
   /* 앱 접근 시 로그인 여부와 'isSplashed', 'isInitialized' 상태 변수 값에 따른 action 결정 */
