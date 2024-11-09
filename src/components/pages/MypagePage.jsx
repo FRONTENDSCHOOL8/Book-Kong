@@ -3,6 +3,7 @@ import {
   clearLoginUserData,
   withdrawUser,
   loginUserData,
+  getOneUsersRec,
 } from '../../utils/controlUserData';
 import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
 import CharacterImg from '../atoms/CharacterImg/CharacterImg';
@@ -11,10 +12,10 @@ import CharacterLevel from '../atoms/CharacterLevel/CharacterLevel';
 import TotalBookHeight from '../atoms/TotalBookHeight/TotalBookHeight';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { useLoaderData } from 'react-router-dom';
 import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 import pb from '../../api/pocketbase';
 import { calcLevel } from '../../utils/calcLevel';
+import { useQuery } from '@tanstack/react-query';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -50,7 +51,23 @@ function MypagePage() {
 
   const loginUserNickName = loginUserData.nickname;
   const loginUserEmail = loginUserData.email;
-  const userRec = useLoaderData();
+
+  const {
+    data: userRec,
+    error,
+    failureCount,
+    failureReason,
+  } = useQuery({
+    queryKey: ['users', loginUserData],
+    queryFn: getOneUsersRec,
+  });
+
+  // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
+  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
+    throw error;
+
+  if (failureCount === 4) throw error;
+
   const userBookHeight = userRec?.['book_height'] * 1 || 0;
   const userLevel = calcLevel(userBookHeight) || 1;
   const doneBookNum = userRec?.['done_book'] * 1 || 0;
