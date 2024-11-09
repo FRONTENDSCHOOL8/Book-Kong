@@ -49,7 +49,7 @@ function DetailBookMemo({ data: bookData }) {
 
   return (
     <section
-      className="before:border-b before:content-[''] before:block before:pt-[111px] mt-[-111px] border-b"
+      className="before:border-b before:content-[''] before:block before:pt-[109px] mt-[-111px] border-b"
       id="memo"
     >
       <div className="pb-8 bg-grayscale-white ">
