@@ -11,7 +11,7 @@ function CharacterItem({
     return (
       <li data-index={`${index}`}>
         <button
-          className={`w-20 flex-col justify-center rounded-lg bg-white ${clickedLv === index + 1 ? 'border-[3px] border-primary-500' : ''}`}
+          className={`w-[5.25rem] flex flex-col justify-center items-center gap-2 rounded-lg bg-white ${clickedLv === index + 1 ? 'border-[3px] border-primary-500' : ''}`}
           onClick={onClick}
         >
           <img src={characterImg} alt={`${characterLevel}단계 캐릭터`} />
@@ -23,9 +23,9 @@ function CharacterItem({
     );
   } else {
     return (
-      <li className="w-20 flex-col justify-center rounded-lg bg-white cursor-pointer">
+      <li className="flex-col flex items-center w-[5.25rem] gap-2 bg-white rounded-lg cursor-pointer">
         <img src="/images/characters/locked.png" alt="잠겨있는 캐릭터" />
-        <span className="character-list text-grayscale-700 flex justify-center">
+        <span className="flex justify-center character-list text-grayscale-700">
           {characterLevel}단계
         </span>
       </li>
