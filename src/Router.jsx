@@ -109,8 +109,6 @@ const router = createBrowserRouter([
       {
         path: 'character',
         element: <CharacterPage />,
-        loader: async () =>
-          await pb.collection('users').getOne(loginUserData.id),
       },
       {
         path: 'mypage',
