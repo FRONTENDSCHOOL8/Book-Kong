@@ -43,7 +43,6 @@ function BookDetailNavigation() {
         </li>
         <li className="flex items-center justify-center h-full grow">
           <NavLink
-            // href="#feed"
             to="#feed"
             className={`${navStyle} ${
               activeTab === 'feed' ? navActive : 'text-gray-500'

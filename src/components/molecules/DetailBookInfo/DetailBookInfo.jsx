@@ -7,7 +7,7 @@ import DetailBookInfoDate from '../DetailBookInfoDate/DetailBookInfoDate';
 function DetailBookInfo({ data: bookData }) {
   return (
     <section
-      className="before:content-[''] before:block before:pt-[111px] mt-[-111px] border-b"
+      className="before:content-[''] before:block before:pt-[109px] mt-[-109px] border-b"
       id="bookInfo"
     >
       <div className="px-4 pb-8 bg-grayscale-white text-grayscale-700">

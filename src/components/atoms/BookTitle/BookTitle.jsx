@@ -6,6 +6,7 @@ const BookTitle = memo(function BookTitle({ children, id }) {
   return (
     <Link
       to={`/library/book-detail/${id}`}
+      // truncate 적용 필요
       className="flex items-center justify-center w-full h-full bookTree-list"
     >
       {children}
