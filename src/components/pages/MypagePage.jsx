@@ -61,7 +61,7 @@ function MypagePage() {
         <title>책콩 | 마이페이지</title>
       </Helmet>
       <LargeHeader title={'마이페이지'} />
-      <main className="min-w-80 max-w-[448px] h-auto mx-4 pb-[120px]">
+      <main className="min-w-80 max-w-[448px] h-auto pb-[120px]">
         <section>
           <A11yHidden as="h2">유저 정보</A11yHidden>
           <article className="flex flex-col p-4 bg-white mt-2">
