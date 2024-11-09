@@ -163,6 +163,7 @@ function RegisterPage() {
           value={nickname}
           placeholder="닉네임을 입력해주세요"
           onChange={onChangeNickname}
+          autoComplete="username"
         />
         <p
           className={
@@ -181,6 +182,7 @@ function RegisterPage() {
               placeholder="예) bookkong@book.com"
               value={email}
               onChange={onChangeEmail}
+              autoComplete="email"
             />
             <p
               className={
@@ -200,6 +202,7 @@ function RegisterPage() {
                 value={password}
                 placeholder="비밀번호를 입력해주세요"
                 onChange={onChangePwd}
+                autoComplete="new-password"
               />
               <p
                 className={
@@ -228,6 +231,7 @@ function RegisterPage() {
               placeholder="비밀번호를 한 번 더 입력해주세요"
               onChange={onChangeConfirm}
               value={confirmPwd}
+              autoComplete="new-password"
             />
             <p
               className={

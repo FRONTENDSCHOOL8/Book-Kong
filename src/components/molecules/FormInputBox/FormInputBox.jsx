@@ -2,7 +2,16 @@ import { string, func } from 'prop-types';
 import Label from '../../atoms/Label/Label';
 import FormInput from '../../atoms/FormInput/FormInput';
 
-function FormInputBox({ label, id, type, placeholder, value, onChange, name }) {
+function FormInputBox({
+  label,
+  id,
+  type,
+  placeholder,
+  value,
+  onChange,
+  name,
+  autoComplete,
+}) {
   return (
     <div className="flex flex-col gap-2">
       <Label htmlFor={id}>{label}</Label>
@@ -15,6 +24,7 @@ function FormInputBox({ label, id, type, placeholder, value, onChange, name }) {
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          autoComplete={autoComplete}
         />
       </div>
     </div>
@@ -29,6 +39,7 @@ FormInputBox.propTypes = {
   placeholder: string.isRequired,
   value: string.isRequired,
   onChange: func.isRequired,
+  autoComplete: string,
 };
 
 export default FormInputBox;

@@ -84,6 +84,7 @@ function LoginPage() {
           value={email}
           placeholder="이메일을 입력해주세요."
           onChange={onChangeEmail}
+          autoComplete="email"
         />
         <p className={isEmailValid ? '' : 'text-red-500 mt-2'}>
           {emailErrorMsg}
@@ -96,6 +97,7 @@ function LoginPage() {
           value={password}
           placeholder="비밀번호를 입력해주세요."
           onChange={onChangePwd}
+          autoComplete="current-password"
         />
         <p className={isPwdValid ? '' : 'text-red-500 mt-2'}>{PwdErrorMsg}</p>
         <SignUpButton

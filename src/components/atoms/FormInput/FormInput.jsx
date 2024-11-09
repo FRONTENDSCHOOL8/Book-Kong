@@ -1,6 +1,6 @@
 import { string, func } from 'prop-types';
 
-function FormInput({ id, type, placeholder, value, onChange }) {
+function FormInput({ id, type, placeholder, value, onChange, autoComplete }) {
   return (
     <input
       className="w-full h-[42px] border border-[#848484] outline-none pl-2 rounded"
@@ -9,6 +9,7 @@ function FormInput({ id, type, placeholder, value, onChange }) {
       placeholder={placeholder}
       defaultValue={value}
       onChange={onChange}
+      autoComplete={autoComplete}
     />
   );
 }
@@ -19,6 +20,7 @@ FormInput.propTypes = {
   placeholder: string.isRequired,
   value: string.isRequired,
   onChange: func.isRequired,
+  autoComplete: string,
 };
 
 export default FormInput;
