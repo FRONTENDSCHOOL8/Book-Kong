@@ -110,14 +110,27 @@ function RegisterPage() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signUpUser(nickname, email, password);
 
     if (isNicknameValid && isEmailValid && isPwdValid && isConfirmPwdValid) {
-      alert('축하합니다! 로그인 페이지로 이동합니다.');
-      navigate('/login');
+      alert('정보가 올바르지 않습니다. 입력 값을 확인해주세요.');
+
+      return;
     }
+
+    await signUpUser(nickname, email, password).then(
+      () => {
+        alert('축하합니다! 로그인 페이지로 이동합니다.');
+
+        navigate('/login');
+      },
+      () => {
+        alert('에러가 발생하였습니다. 다시 시도하여주십시오.');
+
+        return;
+      }
+    );
   };
 
   // 클릭 시 비밀번호 보이게
@@ -164,6 +177,7 @@ function RegisterPage() {
           placeholder="닉네임을 입력해주세요"
           onChange={onChangeNickname}
           autoComplete="username"
+          required={true}
         />
         <p
           className={
@@ -183,6 +197,7 @@ function RegisterPage() {
               value={email}
               onChange={onChangeEmail}
               autoComplete="email"
+              required={true}
             />
             <p
               className={
@@ -203,6 +218,7 @@ function RegisterPage() {
                 placeholder="비밀번호를 입력해주세요"
                 onChange={onChangePwd}
                 autoComplete="new-password"
+                required={true}
               />
               <p
                 className={
@@ -232,6 +248,7 @@ function RegisterPage() {
               onChange={onChangeConfirm}
               value={confirmPwd}
               autoComplete="new-password"
+              required={true}
             />
             <p
               className={

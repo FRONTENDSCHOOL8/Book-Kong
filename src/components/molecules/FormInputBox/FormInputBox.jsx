@@ -1,4 +1,4 @@
-import { string, func } from 'prop-types';
+import { string, func, bool } from 'prop-types';
 import Label from '../../atoms/Label/Label';
 import FormInput from '../../atoms/FormInput/FormInput';
 
@@ -11,6 +11,7 @@ function FormInputBox({
   onChange,
   name,
   autoComplete,
+  required,
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -25,6 +26,7 @@ function FormInputBox({
           value={value}
           onChange={onChange}
           autoComplete={autoComplete}
+          required={required}
         />
       </div>
     </div>
@@ -40,6 +42,7 @@ FormInputBox.propTypes = {
   value: string.isRequired,
   onChange: func.isRequired,
   autoComplete: string,
+  required: bool,
 };
 
 export default FormInputBox;
