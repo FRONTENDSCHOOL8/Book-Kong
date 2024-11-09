@@ -28,14 +28,14 @@ const getClassNames = ({ page, index }) => {
   if (index % 3 === 1) {
     return [
       getPageClassNames(page),
-      'ml-6 bg-badge-yellow text-primary-500',
+      'ml-6 bg-badge-yellow text-grayscale-900',
     ].join(' ');
   }
 
   if (index % 3 === 2) {
     return [
       getPageClassNames(page),
-      'bg-badge-yellow-02 text-grayscale-900',
+      'bg-badge-yellow-02 text-primary-500',
     ].join(' ');
   }
 };
