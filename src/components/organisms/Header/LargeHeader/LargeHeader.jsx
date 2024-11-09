@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 import LargeHeaderTitle from '/src/components/atoms/LargeHeaderTitle/LargeHeaderTitle';
 import LargeHeaderIcon from '/src/components/atoms/LargeHeaderIcon/LargeHeaderIcon';
 
@@ -12,7 +12,7 @@ function LargeHeader({ title }) {
 }
 
 LargeHeader.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: string.isRequired,
 };
 
 export default LargeHeader;

@@ -1,13 +1,28 @@
-import {} from "prop-types";
+import { string, exact } from 'prop-types';
+import getPbImage from '../../../utils/getPbImage';
 
-function DetailBookImage() {
+function DetailBookImage({ data: bookData }) {
   return (
-    <>
-      <img src="https://image.aladin.co.kr/product/33409/53/cover500/8960543284_1.jpg" alt="데일 카네기 인간관계론" width={206} className="rounded-[4px] book-shadow"/>
-    </>
+    <img
+      src={getPbImage({
+        collectionId: bookData.collectionId,
+        id: bookData.id,
+        cover: bookData.cover,
+      })}
+      alt={bookData.title}
+      width={206}
+      className="rounded-[4px] book-shadow"
+    />
   );
 }
 
-DetailBookImage.propTypes = {  };
+DetailBookImage.propTypes = {
+  data: exact({
+    collectionId: string.isRequired,
+    id: string.isRequired,
+    cover: string.isRequired,
+    status: string.isRequired,
+  }).isRequired,
+};
 
 export default DetailBookImage;

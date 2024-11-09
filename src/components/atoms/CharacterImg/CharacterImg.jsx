@@ -1,16 +1,22 @@
 import { number } from 'prop-types';
-import { calcCentimeter, calcLevel } from '../../../utils/calcCentimeter';
-import characterData from '../../../data/character.json';
+import characterList from '../../../data/character.json';
 
-function CharacterImg({ height }) {
-  const level = calcLevel(calcCentimeter(height));
-  const showImg = characterData.filter((data) => data.level === level)[0].image;
+function CharacterImg({ level: charLevel }) {
+  const charObj = characterList.filter((data) => data.level === charLevel)[0];
+  const charImg = charObj.image;
+  const charName = charObj.name;
 
-  return <img src={showImg} width={150} />;
+  return (
+    <img
+      src={charImg}
+      alt={`${charLevel}단계 캐릭터 ${charName}`}
+      width={150}
+    />
+  );
 }
 
 CharacterImg.propTypes = {
-  height: number,
+  level: number,
 };
 
 export default CharacterImg;

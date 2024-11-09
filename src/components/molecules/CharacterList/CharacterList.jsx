@@ -1,21 +1,20 @@
-import { number } from 'prop-types';
-import CharacterCard from '../../atoms/CharacterCard/CharacterCard';
-import characterData from '../../../data/character.json';
-import { calcCentimeter, calcLevel } from '../../../utils/calcCentimeter';
+import { number, func } from 'prop-types';
+import CharacterItem from '../../atoms/CharacterItem/CharacterItem';
+import characterList from '../../../data/character.json';
 import { v4 as uuidv4 } from 'uuid';
 
-function CharacterList({ height }) {
-  const userLevel = calcLevel(calcCentimeter(height));
-
+function CharacterList({ userLv, clickedLv, onClick }) {
   return (
     <div className="overflow-scroll">
       <ul className="flex gap-4 w-[1184px]">
-        {characterData.map((data, index) => (
-          <CharacterCard
+        {characterList.map((data, index) => (
+          <CharacterItem
             key={uuidv4()}
-            level={userLevel}
             data={data}
+            userLv={userLv}
+            clickedLv={clickedLv}
             index={index}
+            onClick={onClick}
           />
         ))}
       </ul>
@@ -24,7 +23,9 @@ function CharacterList({ height }) {
 }
 
 CharacterList.propTypes = {
-  height: number,
+  userLv: number,
+  clickedLv: number,
+  onClick: func,
 };
 
 export default CharacterList;

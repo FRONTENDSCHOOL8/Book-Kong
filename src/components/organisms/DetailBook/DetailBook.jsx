@@ -1,30 +1,41 @@
-import {} from "prop-types";
-import DetailTitle from "../../molecules/DetailTitle/DetailTitle";
-import DetailBookState from "../../molecules/DetailBookState/DetailBookState";
-import TabNavigation from "../TabNavigation/TabNavigation";
-import DetailBookInfo from "../../molecules/DetailBookInfo/DetailBookInfo";
-import DetailBookCover from "../../molecules/DetailBookCover/DetailBookCover";
-import DetailBookMemo from "../../molecules/DetailBookMemo/DetailBookMemo";
-import DetailBookFeed from "../../molecules/DetailBookFeed/DetailBookFeed";
-
-
+import DetailTitle from '../../molecules/DetailTitle/DetailTitle';
+import DetailBookState from '../../molecules/DetailBookState/DetailBookState';
+import DetailBookInfo from '../../molecules/DetailBookInfo/DetailBookInfo';
+import DetailBookCover from '../../molecules/DetailBookCover/DetailBookCover';
+import DetailBookMemo from '../../molecules/DetailBookMemo/DetailBookMemo';
+import DetailBookFeed from '../../molecules/DetailBookFeed/DetailBookFeed';
+import BookDetailNavigation from '../../molecules/BookDetailNavigation/BookDetailNavigation';
+import { useLoaderData } from 'react-router-dom';
+import TopButton from '../../atoms/TopButton/TopButton';
 
 function DetailBook() {
+  const bookData = useLoaderData();
+
   return (
-    <div className="pb-[56px] pt-[81px]">
-        <DetailBookCover />
-      <div className="flex flex-col gap-6 border-t border-b bg-grayscale-white border-grayscale-100 pb-[56px] ">
-        <DetailTitle />
-        <DetailBookState />
-        <TabNavigation page="상세페이지" />
-        <DetailBookInfo />
-        <DetailBookMemo />
-        <DetailBookFeed />
+    <main className="pb-[56px] pt-[57px]">
+      <DetailBookCover
+        data={{
+          collectionId: bookData.collectionId,
+          id: bookData.id,
+          cover: bookData.cover,
+          status: bookData.status,
+        }}
+      />
+      <div className="flex flex-col border-t border-b bg-background-gray border-grayscale-100 ">
+        <div className="flex flex-col gap-6 py-6 bg-grayscale-white">
+          <DetailTitle data={bookData} />
+          <DetailBookState state={bookData} />
+        </div>
+        <BookDetailNavigation />
+        <div className="flex flex-col gap-3">
+          <DetailBookInfo data={bookData} />
+          <DetailBookMemo data={bookData} />
+          <DetailBookFeed data={bookData} />
+        </div>
       </div>
-    </div>
+      <TopButton />
+    </main>
   );
 }
-
-DetailBook.propTypes = {  };
 
 export default DetailBook;

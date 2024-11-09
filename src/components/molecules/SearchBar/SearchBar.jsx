@@ -1,29 +1,23 @@
-import PropTypes from 'prop-types';
-import InputBar from '../../atoms/InputBar/InputBar';
-import SearchButton from '../../atoms/SearchButton/SearchButton';
-import { useState } from 'react';
+import { string, func, oneOf } from 'prop-types';
+import SearchInput from '../../atoms/SearchInput/SearchInput';
+import SearchIcon from '../../atoms/SearchIcon/SearchIcon';
+import ResetBtn from '../../atoms/ResetBtn/ResetBtn';
 
-function SearchBar({ onSubmit }) {
-  const [keyword, setKeyword] = useState('');
-
-  const handleChange = (e) => {
-    setKeyword(e.target.value);
-    return;
-  };
-
+function SearchBar({ query, onQueryChange, onResetClick, pgName }) {
   return (
-    <form
-      onSubmit={onSubmit}
-      className="bg-primary-50 w-full flex justify-center items-center flex-shrink-0 rounded-[4px] border-[1px] border-primary-500 px-3 py-2 "
-    >
-      <InputBar keyword={keyword} onChange={handleChange} />
-      <SearchButton />
+    <form className="bg-grayscale-white w-full flex justify-between items-center gap-2 rounded border border-primary-500 px-3 py-2 ">
+      <SearchIcon />
+      <SearchInput query={query} onChange={onQueryChange} pgName={pgName} />
+      {query === '' ? null : <ResetBtn onClick={onResetClick} />}
     </form>
   );
 }
 
 SearchBar.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
+  query: string.isRequired,
+  onQueryChange: func.isRequired,
+  onResetClick: func.isRequired,
+  pgName: oneOf(['bookshelf', 'book-search']),
 };
 
 export default SearchBar;
