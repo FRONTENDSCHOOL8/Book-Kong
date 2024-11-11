@@ -6,6 +6,7 @@ import ContextButton from '../../atoms/ContextButton/ContextButton';
 import BookBlockList from './../../organisms/BookBlockList/BookBlockList';
 import { getAllUserLibRecs } from '/src/utils/controlBookData';
 import { loginUserData } from '../../../utils/controlUserData';
+import { calcBookHeight } from '../../../utils/calcLevel';
 
 function BookTree() {
   const { data, isLoading } = useQuery({
@@ -16,7 +17,7 @@ function BookTree() {
   });
 
   // 유저의 다 읽은 책 권수 계산
-  const userFinishBookNum = data?.length || 0;
+  const doneBookNum = data?.length || 0;
 
   // 유저의 다 읽은 책 페이지 합계
   let userTotalPage = 0;
@@ -26,6 +27,8 @@ function BookTree() {
       userTotalPage += book.total_page;
     }
   }
+
+  const userBookHeight = calcBookHeight(userTotalPage) * 1 || 0;
 
   return (
     <main className="min-h-screen bg-grayscale-white relative justify-end flex flex-col pt-[120px] pb-[50px] px-4">
@@ -37,8 +40,9 @@ function BookTree() {
         <div className="max-w-[448px] w-full min-w-[320px] fixed left-[50%] -translate-x-1/2 top-[120px] z-20 pl-4 pr-[76px]">
           <BookInfo
             isLoading={isLoading}
-            page={userTotalPage}
-            bookNum={userFinishBookNum}
+            bookHeight={userBookHeight}
+            bookNum={doneBookNum}
+            pgName="book-tree"
           />
         </div>
         <Character page={userTotalPage} isLoading={isLoading} />
