@@ -61,9 +61,10 @@ export async function signUpUser(nickname, email, password) {
 
   try {
     const record = await pb.collection('users').create(data);
+
     return record;
-  } catch (error) {
-    return false;
+  } catch {
+    throw new Error('에러가 발생하였습니다. 다시 시도하여주십시오.');
   }
 }
 

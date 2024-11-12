@@ -109,7 +109,7 @@ function RegisterPage() {
 
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (isNicknameValid && isEmailValid && isPwdValid && isConfirmPwdValid) {
@@ -118,14 +118,14 @@ function RegisterPage() {
       return;
     }
 
-    await signUpUser(nickname, email, password).then(
+    signUpUser(nickname, email, password).then(
       () => {
         alert('축하합니다! 로그인 페이지로 이동합니다.');
 
         navigate('/login');
       },
-      () => {
-        alert('에러가 발생하였습니다. 다시 시도하여주십시오.');
+      (err) => {
+        alert(err.message);
 
         return;
       }
