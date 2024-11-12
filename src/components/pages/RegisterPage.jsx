@@ -120,7 +120,12 @@ function RegisterPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isNicknameValid && isEmailValid && isPwdValid && isConfirmPwdValid) {
+    if (
+      !isNicknameValid &&
+      !isEmailValid &&
+      !isPwdValid &&
+      !isConfirmPwdValid
+    ) {
       alert('정보가 올바르지 않습니다. 입력 값을 확인해주세요.');
 
       return;
