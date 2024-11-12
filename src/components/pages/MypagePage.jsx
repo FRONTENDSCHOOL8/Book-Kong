@@ -14,7 +14,7 @@ import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 import pb from '../../api/pocketbase';
 import { calcLevel } from '../../utils/calcLevel';
 import BookInfo from '../molecules/BookInfo/BookInfo';
-import { useQuery } from '@tanstack/react-query';
+import { useQueryWithErr } from '../../hooks/useQueryWithErr';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -51,21 +51,10 @@ function MypagePage() {
   const loginUserNickName = loginUserData.nickname;
   const loginUserEmail = loginUserData.email;
 
-  const {
-    data: userRec,
-    error,
-    failureCount,
-    failureReason,
-  } = useQuery({
+  const { data: userRec } = useQueryWithErr({
     queryKey: ['users', loginUserData],
     queryFn: () => getOneUsersRec(loginUserData.id),
   });
-
-  // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
-  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
-    throw error;
-
-  if (failureCount === 4) throw error;
 
   const userBookHeight = userRec?.['book_height'] * 1 || 0;
   const userLevel = calcLevel(userBookHeight) || 1;

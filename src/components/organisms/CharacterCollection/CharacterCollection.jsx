@@ -2,25 +2,14 @@ import { useState } from 'react';
 import UserCharacterCard from '../../molecules/UserCharacterCard/UserCharacterCard';
 import CharacterList from './../../molecules/CharacterList/CharacterList';
 import { calcLevel } from '../../../utils/calcLevel';
-import { useQuery } from '@tanstack/react-query';
 import { getOneUsersRec, loginUserData } from '../../../utils/controlUserData';
+import { useQueryWithErr } from '../../../hooks/useQueryWithErr';
 
 function CharacterCollection() {
-  const {
-    data: userRec,
-    error,
-    failureCount,
-    failureReason,
-  } = useQuery({
+  const { data: userRec } = useQueryWithErr({
     queryKey: ['users', loginUserData],
     queryFn: () => getOneUsersRec(loginUserData.id),
   });
-
-  // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
-  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
-    throw error;
-
-  if (failureCount === 4) throw error;
 
   const userLv = calcLevel(userRec?.['book_height'] * 1 || 0) || 1;
   const [clickedLv, setClickedLv] = useState(userLv);
