@@ -11,7 +11,6 @@ import { Helmet } from 'react-helmet-async';
 import FormInputBox from '../molecules/FormInputBox/FormInputBox';
 import { Link } from 'react-router-dom';
 
-// 이 페이지는 Form의 기능을 적극적으로 사용하는 것이 좋습니다.
 function RegisterPage() {
   // 초기값 세팅
   const [nickname, setNickname] = useState('');

@@ -14,7 +14,6 @@ const getClassNames = (index) => {
     return 'w-[230px] border rounded-sm border-grayscale-white bg-badge-yellow-02 text-primary-500';
 };
 
-// 페이지 별 키(key)에 설정할 높이를 아래처럼 작성합니다.
 const BookBlock = memo(function BookBlock({
   title,
   page,
@@ -22,7 +21,6 @@ const BookBlock = memo(function BookBlock({
   id,
   isLoading,
 }) {
-  // 마크업 반환 (병합된 클래스 이름 설정)
   return isLoading ? (
     <li>
       <Skeleton
