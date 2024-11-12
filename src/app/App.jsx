@@ -19,7 +19,7 @@ function App() {
 
       queryClient.prefetchQuery({
         queryKey: ['users', loginUserData],
-        queryFn: getOneUsersRec,
+        queryFn: () => getOneUsersRec(loginUserData.id),
       });
     }
   }, [queryClient]);

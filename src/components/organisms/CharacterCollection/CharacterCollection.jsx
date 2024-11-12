@@ -13,7 +13,7 @@ function CharacterCollection() {
     failureReason,
   } = useQuery({
     queryKey: ['users', loginUserData],
-    queryFn: getOneUsersRec,
+    queryFn: () => getOneUsersRec(loginUserData.id),
   });
 
   // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
