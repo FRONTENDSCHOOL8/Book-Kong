@@ -10,28 +10,13 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import FormInputBox from '../molecules/FormInputBox/FormInputBox';
 import { Link } from 'react-router-dom';
+import PwdVisibleIcon from '../atoms/PwdVisibleIcon/PwdVisibleIcon';
 
-// 이 페이지는 Form의 기능을 적극적으로 사용하는 것이 좋습니다.
 function RegisterPage() {
-  // 초기값 세팅
+  /* Nickname 입력 관련 input 요소 제어 및 값 validation */
   const [nickname, setNickname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPwd, setConfirmPwd] = useState('');
-
-  // 오류메세지 상태
   const [nicknameErrorMsg, setNicknameErrorMsg] = useState('');
-  const [emailErrorMsg, setEmailErrorMsg] = useState('');
-  const [PwdErrorMsg, setPwdErrorMsg] = useState('');
-  const [confirmPwdErrorMsg, setConfirmPwdErrorMsg] = useState('');
-
-  // 유효성 검사
   const [isNicknameValid, setIsNicknameValid] = useState(false);
-  const [isEmailValid, setIsEmailValid] = useState(false);
-  const [isPwdValid, setIsPwdValid] = useState(false);
-  const [isConfirmPwdValid, setIsConfirmPwdValid] = useState(false);
-
-  // onchange 닉네임
 
   const onChangeNickname = debounce(async (e) => {
     const currentNickname = e.target.value;
@@ -52,7 +37,10 @@ function RegisterPage() {
     }
   });
 
-  // onchange 이메일
+  /* Email 입력 관련 input 요소 제어 및 값 validation */
+  const [email, setEmail] = useState('');
+  const [emailErrorMsg, setEmailErrorMsg] = useState('');
+  const [isEmailValid, setIsEmailValid] = useState(false);
 
   const onChangeEmail = debounce(async (e) => {
     const currentEmail = e.target.value;
@@ -75,7 +63,10 @@ function RegisterPage() {
     }
   });
 
-  // onchange 비밀번호
+  /* Password 입력 관련 input 요소 제어 및 값 validation */
+  const [password, setPassword] = useState('');
+  const [PwdErrorMsg, setPwdErrorMsg] = useState('');
+  const [isPwdValid, setIsPwdValid] = useState(false);
 
   const onChangePwd = (e) => {
     const currentPwd = e.target.value;
@@ -91,7 +82,10 @@ function RegisterPage() {
     }
   };
 
-  // onchange 비밀번호 확인
+  /* Password 확인용 값 입력 관련 input 요소 제어 및 validation */
+  const [confirmPwd, setConfirmPwd] = useState('');
+  const [confirmPwdErrorMsg, setConfirmPwdErrorMsg] = useState('');
+  const [isConfirmPwdValid, setIsConfirmPwdValid] = useState(false);
 
   const onChangeConfirm = (e) => {
     const currentConfirm = e.target.value;
@@ -106,50 +100,49 @@ function RegisterPage() {
     }
   };
 
-  // DB로 보내기
+  /* Pwd 값 visibility 조절 로직 */
+  const [pwdInfo, setPwdInfo] = useState({
+    type: 'password',
+    visible: false,
+  });
 
+  const handlePwdInfo = () => {
+    setPwdInfo((prevPwInfo) => {
+      if (!prevPwInfo.visible) return { type: 'text', visible: true };
+
+      return { type: 'password', visible: false };
+    });
+  };
+
+  /* 회원가입 데이터 PB 서버로 submit 후 사용자 redirect */
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (isNicknameValid && isEmailValid && isPwdValid && isConfirmPwdValid) {
+    if (
+      !isNicknameValid &&
+      !isEmailValid &&
+      !isPwdValid &&
+      !isConfirmPwdValid
+    ) {
       alert('정보가 올바르지 않습니다. 입력 값을 확인해주세요.');
 
       return;
     }
 
-    await signUpUser(nickname, email, password).then(
+    signUpUser(nickname, email, password).then(
       () => {
         alert('축하합니다! 로그인 페이지로 이동합니다.');
 
         navigate('/login');
       },
-      () => {
-        alert('에러가 발생하였습니다. 다시 시도하여주십시오.');
+      (err) => {
+        alert(err.message);
 
         return;
       }
     );
-  };
-
-  // 클릭 시 비밀번호 보이게
-  const [pwType, setpwType] = useState({
-    type: 'password',
-    visible: false,
-  });
-
-  const handlePasswordType = () => {
-    setpwType(() => {
-      // 만약 현재 pwType.visible이 false 라면
-      if (!pwType.visible) {
-        return { type: 'text', visible: true };
-
-        //현재 pwType.visible이 true 라면
-      } else {
-        return { type: 'password', visible: false };
-      }
-    });
   };
 
   return (
@@ -213,7 +206,7 @@ function RegisterPage() {
                 label="비밀번호"
                 id="password"
                 name="password"
-                type={pwType.type}
+                type={pwdInfo.type}
                 value={password}
                 placeholder="비밀번호를 입력해주세요"
                 onChange={onChangePwd}
@@ -228,15 +221,10 @@ function RegisterPage() {
                 {PwdErrorMsg}
               </p>
             </div>
-            <img
-              className="absolute w-4 top-10 right-5"
-              src={
-                pwType.visible
-                  ? '/images/icons/password-eye.svg'
-                  : '/images/icons/state=hidden.svg'
-              }
-              onClick={handlePasswordType}
-            ></img>
+            <PwdVisibleIcon
+              isVisible={pwdInfo.visible}
+              onClick={handlePwdInfo}
+            />
           </div>
           <div>
             <FormInputBox
