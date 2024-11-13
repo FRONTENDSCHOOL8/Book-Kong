@@ -5,8 +5,8 @@ import SearchBar from '../../molecules/SearchBar/SearchBar';
 import ReadingStateFilter from '../../molecules/ReadingStateFilter/ReadingStateFilter';
 import { getAllUserLibRecs } from '../../../utils/controlBookData';
 import { loginUserData } from '../../../utils/controlUserData';
-import { useQuery } from '@tanstack/react-query';
 import debounce from '../../../utils/debounce';
+import { useQueryWithErr } from '../../../hooks/useQueryWithErr';
 
 function Bookshelf() {
   /* 책장 페이지에 필요한 데이터를 debouncedQuery로 요청
@@ -14,7 +14,7 @@ function Bookshelf() {
   const [localQuery, setLocalQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
-  const { data, isLoading, error, failureCount, failureReason } = useQuery({
+  const { data, isLoading } = useQueryWithErr({
     queryKey: ['library', loginUserData],
     queryFn: getAllUserLibRecs,
     select: (userLibRecs) => {
@@ -25,12 +25,6 @@ function Bookshelf() {
         );
     },
   });
-
-  // 쿼리 요청 실패 횟수와 실패 이유를 기준으로 error throwing 기능 구현
-  if (failureCount >= 1 && failureReason.message.startsWith('Server'))
-    throw error;
-
-  if (failureCount === 4) throw error;
 
   const updateDebouncedQuery = useMemo(
     () =>

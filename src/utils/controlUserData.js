@@ -61,9 +61,10 @@ export async function signUpUser(nickname, email, password) {
 
   try {
     const record = await pb.collection('users').create(data);
+
     return record;
-  } catch (error) {
-    return false;
+  } catch {
+    throw new Error('에러가 발생하였습니다. 다시 시도하여주십시오.');
   }
 }
 
@@ -72,11 +73,17 @@ export async function signUpUser(nickname, email, password) {
  * * 로그인된 회원의 id를 가져와 회원탈퇴를 하는 함수
  */
 export async function withdrawUser() {
-  if (loginUserData) {
-    return await pb.collection('users').delete(loginUserData.id);
+  if (!loginUserData) {
+    alert('로그인 데이터가 없습니다.');
+
+    return;
   }
 
-  return alert('통신 오류입니다. 다시 시도해주시길 바랍니다.');
+  try {
+    await pb.collection('users').delete(loginUserData.id);
+  } catch {
+    throw new Error('통신 오류입니다. 다시 시도해주시길 바랍니다.');
+  }
 }
 
 /**
@@ -139,6 +146,21 @@ export async function putUserNewLevel(newUserLevel) {
     .collection('users')
     .update(loginUserData.id, { level: newUserLevel });
 }
+
+/* -------------------------------------------- */
+/*           'users' col record fetch           */
+/* -------------------------------------------- */
+
+/**
+ * 'users' collection에서 하나의 record를 불러오는 함수
+ * @param { string } recId 'users' collection record ID
+ * @param { Object } [options] PocketBase SDK 내 read를 위한 query options
+ * @prop { string } [expand] [PocketBase 공식 문서](https://pocketbase.io/docs/) 참고
+ * @prop { string } [fields] [PocketBase 공식 문서](https://pocketbase.io/docs/) 참고
+ * @returns 'users' collection의 record 객체
+ */
+export const getOneUsersRec = async (recId, options) =>
+  await pb.collection('users').getOne(recId, options);
 
 /* -------------------------------------------- */
 /*               인증된 유저 정보                */

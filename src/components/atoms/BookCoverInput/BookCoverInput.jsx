@@ -9,12 +9,14 @@ function BookCoverInput({ title: bookTitle, cover: aladinBookImgUrl }) {
   const handleChange = async (e) => {
     const file = e.target.files[0];
 
-    try {
-      const imageURL = await convertFileToImgUrl(file);
-      setBookImgUrl(imageURL);
-    } catch (e) {
-      console.error(e);
-    }
+    await convertFileToImgUrl(file).then(
+      ((imgUrl) => {
+        setBookImgUrl(imgUrl);
+      },
+      (errMsg) => {
+        alert(errMsg);
+      })
+    );
   };
 
   if (bookImgUrl)
