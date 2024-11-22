@@ -1,20 +1,20 @@
-import { useNavigate } from 'react-router-dom';
 import {
   clearLoginUserData,
   withdrawUser,
   loginUserData,
+  getOneUsersRec,
 } from '../../utils/controlUserData';
-import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
+import pb from '../../api/pocketbase';
+import { Helmet } from 'react-helmet-async';
+import { calcLevel } from '../../utils/calcLevel';
+import { useNavigate, Link } from 'react-router-dom';
+import BookInfo from '../molecules/BookInfo/BookInfo';
+import A11yHidden from '../atoms/A11yHidden/A11yHidden';
 import CharacterImg from '../atoms/CharacterImg/CharacterImg';
+import { useQueryWithErr } from '../../hooks/useQueryWithErr';
 import CharacterName from '../atoms/CharacterName/CharacterName';
 import CharacterLevel from '../atoms/CharacterLevel/CharacterLevel';
-import TotalBookHeight from '../atoms/TotalBookHeight/TotalBookHeight';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
-import { useLoaderData } from 'react-router-dom';
-import A11yHidden from '../atoms/A11yHidden/A11yHidden';
-import pb from '../../api/pocketbase';
-import { calcLevel } from '../../utils/calcLevel';
+import LargeHeader from '/src/components/organisms/Header/LargeHeader/LargeHeader';
 
 function MypagePage() {
   const navigate = useNavigate();
@@ -32,25 +32,34 @@ function MypagePage() {
     }
   };
 
-  const handleWithdraw = async () => {
-    let isWithdrawn = false;
-
+  /* 회원 탈퇴 기능 handling 로직 */
+  const handleWithdraw = () => {
     const willWithdraw = confirm('정말로 탈퇴하시겠습니까?');
 
-    if (willWithdraw) {
-      await withdrawUser();
-      isWithdrawn = true;
-    }
+    if (!willWithdraw) return;
 
-    if (isWithdrawn) {
-      alert('회원 탈퇴가 완료되었습니다.');
-      navigate('/login');
-    }
+    withdrawUser().then(
+      () => {
+        alert('회원 탈퇴가 완료되었습니다.');
+
+        navigate('/login');
+      },
+      (err) => {
+        alert(err.message);
+
+        return;
+      }
+    );
   };
 
   const loginUserNickName = loginUserData.nickname;
   const loginUserEmail = loginUserData.email;
-  const userRec = useLoaderData();
+
+  const { data: userRec } = useQueryWithErr({
+    queryKey: ['users', loginUserData],
+    queryFn: () => getOneUsersRec(loginUserData.id),
+  });
+
   const userBookHeight = userRec?.['book_height'] * 1 || 0;
   const userLevel = calcLevel(userBookHeight) || 1;
   const doneBookNum = userRec?.['done_book'] * 1 || 0;
@@ -61,7 +70,7 @@ function MypagePage() {
         <title>책콩 | 마이페이지</title>
       </Helmet>
       <LargeHeader title={'마이페이지'} />
-      <main className="min-w-80 max-w-[448px] h-auto mx-4 pb-[120px]">
+      <main className="min-w-80 max-w-[448px] h-auto pb-[120px]">
         <section>
           <A11yHidden as="h2">유저 정보</A11yHidden>
           <article className="flex flex-col p-4 bg-white mt-2">
@@ -80,12 +89,11 @@ function MypagePage() {
               <CharacterName level={userLevel} pageName="마이페이지" />
             </div>
             <CharacterLevel level={userLevel} pgName="마이페이지" />
-            <div className="flex bg-grayscale-100 w-[263px] items-center rounded-lg px-8 py-1 my-6">
-              <span className="text-[#F24822] text-right mr-2 w-[35%]">
-                {doneBookNum}권
-              </span>
-              <TotalBookHeight height={userBookHeight} />
-            </div>
+            <BookInfo
+              bookNum={doneBookNum}
+              bookHeight={userBookHeight}
+              pgName="mypage"
+            />
           </article>
         </section>
         <section>

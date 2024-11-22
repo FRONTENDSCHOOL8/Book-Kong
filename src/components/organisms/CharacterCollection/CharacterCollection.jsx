@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import UserCharacterCard from '../../molecules/UserCharacterCard/UserCharacterCard';
 import CharacterList from './../../molecules/CharacterList/CharacterList';
-import { useLoaderData } from 'react-router-dom';
 import { calcLevel } from '../../../utils/calcLevel';
+import { getOneUsersRec, loginUserData } from '../../../utils/controlUserData';
+import { useQueryWithErr } from '../../../hooks/useQueryWithErr';
 
 function CharacterCollection() {
-  const userRec = useLoaderData();
+  const { data: userRec } = useQueryWithErr({
+    queryKey: ['users', loginUserData],
+    queryFn: () => getOneUsersRec(loginUserData.id),
+  });
+
   const userLv = calcLevel(userRec?.['book_height'] * 1 || 0) || 1;
   const [clickedLv, setClickedLv] = useState(userLv);
   const handleClick = (e) => {
@@ -16,7 +21,7 @@ function CharacterCollection() {
   };
 
   return (
-    <main className="bg-background-gray relative justify-between flex flex-col w-full pt-[76px] px-4 mb-[120px]">
+    <main className="bg-background-gray relative justify-between flex flex-col w-full pt-[76px] mb-[120px]">
       <UserCharacterCard userLv={userLv} clickedLv={clickedLv} />
       <CharacterList
         userLv={userLv}

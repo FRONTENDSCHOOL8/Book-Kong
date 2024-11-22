@@ -59,13 +59,15 @@ export default {
           white: 'rgba(255, 255, 255, 1)',
           black: 'rgba(0, 0, 0, 1)',
         },
+        background: {
+          gray: 'rgba(246, 246, 246, 1)',
+        },
         badge: {
-          gree: 'rgba(0, 218, 87, 1)',
+          green: 'rgba(0, 218, 87, 1)',
           yellow: 'rgba(229, 160, 56, 1)',
           'yellow-02': 'rgba(255, 222, 48, 1)',
           purple: 'rgba(206, 108, 239, 1)',
           skyblue: 'rgba(78, 138, 255, 1)',
-          'background-gray': 'rgba(246, 246, 246, 1)',
         },
       },
       keyframes: {

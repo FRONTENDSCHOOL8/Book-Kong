@@ -22,12 +22,7 @@ import FeedRegistrationPage from './components/pages/FeedRegistrationPage/FeedRe
 import FeedDetailPage from './components/pages/FeedDetailPage/FeedDetailPage';
 import { getOneMemosRec } from './utils/controlMemoData';
 import MemoRegistrationPage from './components/pages/MemoRegistrationPage/MemoRegistrationPage';
-import pb from './api/pocketbase';
-import { loginUserData } from './utils/controlUserData';
 
-// 이 코드는 createroutesfromelements 를 사용하도록 수정해 보셔요.
-// 선언형 코드를 작성하면 눈의 피로가 줄어드는 효과가 있었습니다.
-// https://reactrouter.com/en/main/utils/create-routes-from-elements
 const router = createBrowserRouter([
   {
     path: '/',
@@ -109,14 +104,10 @@ const router = createBrowserRouter([
       {
         path: 'character',
         element: <CharacterPage />,
-        loader: async () =>
-          await pb.collection('users').getOne(loginUserData.id),
       },
       {
         path: 'mypage',
         element: <MypagePage />,
-        loader: async () =>
-          await pb.collection('users').getOne(loginUserData.id),
       },
     ],
   },
